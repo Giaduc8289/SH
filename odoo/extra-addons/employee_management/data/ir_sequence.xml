@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="department_code_object_sequence" model="ir.sequence">
+            <field name="name">Department Code Object Sequence</field>
+            <field name="code">hr.department</field>
+            <field name="prefix">D</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="3" name="padding"/>
+        </record>
+
+         <record id="job_code_object_sequence" model="ir.sequence">
+            <field name="name">Job Code Object Sequence</field>
+            <field name="code">hr.job</field>
+            <field name="prefix">P</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="3" name="padding"/>
+        </record>
+    </data>
+</odoo>

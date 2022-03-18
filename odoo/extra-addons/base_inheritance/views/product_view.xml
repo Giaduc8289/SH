@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_template_custom_form_view" model="ir.ui.view">
+        <field name="name">product.template.custom.form.view</field>
+        <field name="model">product.template</field>
+        <field name="arch" type="xml">
+            <form string="Product">
+                <header>
+                    <button string="Print Labels" type="object" name="action_open_label_layout"/>
+                </header>
+                <sheet name="product_form">
+                    <field name='product_variant_count' invisible='1'/>
+                    <field name='is_product_variant' invisible='1'/>
+                    <field name='attribute_line_ids' invisible='1'/>
+                    <field name="type" invisible="1"/>
+                    <field name="detailed_type" invisible="1"/>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button"
+                               name="open_pricelist_rules"
+                               icon="fa-list-ul"
+                               groups="product.group_product_pricelist"
+                               type="object">
+                               <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_value">
+                                        <field name="pricelist_item_count"/>
+                                    </span>
+                                    <span attrs="{'invisible': [('pricelist_item_count', '=', 1)]}">
+                                        Extra Prices
+                                    </span>
+                                    <span attrs="{'invisible': [('pricelist_item_count', '!=', 1)]}">
+                                        Extra Price
+                                    </span>
+                               </div>
+                        </button>
+                        <button class="oe_stat_button" name="action_view_sales"
+                            type="object" icon="fa-signal" groups="sales_team.group_sale_salesman" help="Sold in the last 365 days">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="sales_count" widget="statinfo" nolabel="1" class="mr4"/>
+                                    <field name="uom_name"/>
+                                </span>
+                                <span class="o_stat_text">Sold</span>
+                            </div>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                    <field name="id" invisible="True"/>
+                    <field name="image_1920" widget="image" class="oe_avatar" options="{'preview_image': 'image_128'}"/>
+                    <div class="oe_title">
+                        <group>
+                            <field class="o_text_overflow" name="name"/>
+                            <field name="default_code"/>
+                        </group>
+                    </div>
+                    <style>
+                        div[name="options"] .o_field_boolean {
+                            margin-left: 10px;
+                            margin-right: 0px;
+                        }
+                    </style>
+                    <notebook>
+                        <page string="General Information" name="general_information">
+                            <group>
+                                <group name="group_general">
+                                    <field name="active" invisible="1"/>
+                                    <field name="product_line"/>
+                                    <field name="categ_id" string="Product Category"/>
+                                    <field name="product_kind" string="Product kind"/>
+                                    <field name="product_spec"/>
+                                    <field name="percent_protein"/>
+                                </group>
+                                <group name="group_price">
+                                    <field name="specifications"/>
+                                    <field name="cus_price"/>
+                                    <field name="cus_price_package"/>
+                                    <field name="use_discount"/>
+                                </group>
+                            </group>
+                            <group string="Internal Notes">
+                                <field name="description" nolabel="1" placeholder="This note is only for internal purposes."/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="sale.product_template_action" model="ir.actions.act_window">
+        <field name="name">Products</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">kanban,tree,form,activity</field>
+        <field name="view_id" ref="product.product_template_kanban_view"/>
+        <field name="search_view_id" ref="product.product_template_search_view"/>
+        <field name="context">{"search_default_filter_to_sell":1, "sale_multi_pricelist_product_template": 1, 'default_detailed_type': 'product'}</field>
+        <field name="view_ids"
+               eval="[(5, 0, 0),
+                      (0, 0, {'view_mode': 'kanban', 'view_id': ref('product.product_template_kanban_view')}),
+                      (0, 0, {'view_mode': 'form', 'view_id': ref('base_inheritance.product_template_custom_form_view')})]"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new product
+            </p><p>
+                You must define a product for everything you sell or purchase,
+                whether it's a storable product, a consumable or a service.
+            </p>
+        </field>
+    </record>
+
+    <record id="product_normal_form_view" model="ir.ui.view">
+        <field name="name">product.template.form.view.inherit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='categ_id']" position="after">
+                <field name="product_kind"></field>
+            </xpath>
+            <xpath expr="//field[@name='default_code']" position="attributes">
+                <attribute name="readonly">True</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_category_form_view" model="ir.ui.view">
+        <field name="name">product.category.property.form.inherit</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='name']" position="before">
+                <label for="code" string="Code"/>
+                <h1><field name="code" placeholder="e.g. PC000001"/></h1>
+            </xpath>
+            <xpath expr="//group[@name='first']" position="before">
+                <group>
+                    <field name="status"></field>
+                    <field name="description"></field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record id="product_category_list_view" model="ir.ui.view">
+        <field name="name">product.category.list.inherit</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_list_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='display_name']" position="before">
+                <field name="code"/>
+            </xpath>
+            <xpath expr="//field[@name='display_name']" position="after">
+                <field name="status"></field>
+                    <field name="description"></field>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_kind_form_view" model="ir.ui.view">
+        <field name="name">product.kind.form</field>
+        <field name="model">product.kind</field>
+        <field name="arch" type="xml">
+            <form class="oe_form_configuration">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="code" string="Code"/>
+                        <h1><field name="code" placeholder="e.g. PC000001"/></h1>
+                        <label for="name" string="Category"/>
+                        <h1><field name="name" placeholder="e.g. Lamps"/></h1>
+                    </div>
+                    <group>
+                        <field name="status"></field>
+                        <field name="description"></field>
+                    </group>
+                    <group name="first" col="2">
+                        <field name="parent_id" class="oe_inline"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="product_kind_search_view" model="ir.ui.view">
+        <field name="name">product.kind.search</field>
+        <field name="model">product.kind</field>
+        <field name="arch" type="xml">
+            <search string="Product kinds">
+                <field name="name" string="Product kinds"/>
+                <field name="parent_id"/>
+            </search>
+        </field>
+    </record>
+    <record id="product_kind_list_view" model="ir.ui.view">
+        <field name="name">product.kind.list</field>
+        <field name="model">product.kind</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree string="Product Kinds">
+                <field name="code"></field>
+                <field name="complete_name" string="Product Kind"/>
+                <field name="status"></field>
+                <field name="description"></field>
+            </tree>
+        </field>
+    </record>
+    <record id="product_kind_action_form" model="ir.actions.act_window">
+        <field name="name">Product Kinds</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.kind</field>
+        <field name="search_view_id" ref="product_kind_search_view"/>
+        <field name="view_id" ref="product_kind_list_view"/>
+    </record>
+    <menuitem action="product_kind_action_form" id="menu_product_kind_config_sale"
+              parent="sale.menu_sale_config" sequence="4" />
+</odoo>

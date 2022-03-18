@@ -1,0 +1,104 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* employee_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-28 04:30+0000\n"
+"PO-Revision-Date: 2022-02-28 04:30+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: employee_management
+#: model:ir.model.fields,field_description:employee_management.field_hr_job__active
+msgid "Active"
+msgstr "Hoạt động"
+
+#. module: employee_management
+#: model_terms:ir.ui.view,arch_db:employee_management.view_employee_form_inherited
+msgid "City"
+msgstr "Tỉnh/Thành phố"
+
+#. module: employee_management
+#: model:ir.model.fields,field_description:employee_management.field_hr_department__code
+#: model:ir.model.fields,field_description:employee_management.field_hr_job__code
+msgid "Code"
+msgstr "Mã"
+
+#. module: employee_management
+#: model:ir.model.fields,field_description:employee_management.field_hr_employee__country_code
+msgid "Country Code"
+msgstr "Mã quốc gia"
+
+#. module: employee_management
+#: model:ir.model,name:employee_management.model_hr_department
+msgid "Department"
+msgstr "Phòng/Ban"
+
+#. module: employee_management
+#: model:ir.model.fields,field_description:employee_management.field_hr_employee__district_id
+msgid "District"
+msgstr "Quận/Huyện"
+
+#. module: employee_management
+#: model:ir.model,name:employee_management.model_hr_employee
+msgid "Employee"
+msgstr "Nhân viên"
+
+#. module: employee_management
+#: model:ir.model.fields,field_description:employee_management.field_hr_employee__hide
+msgid "Hide"
+msgstr "Ẩn"
+
+#. module: employee_management
+#: model:res.groups,name:employee_management.make_invisible
+msgid "Invisible"
+msgstr "Không hiển thị"
+
+#. module: employee_management
+#: model:ir.model,name:employee_management.model_hr_job
+msgid "Job Position"
+msgstr "Chức vụ"
+
+#. module: employee_management
+#: model:ir.ui.menu,name:employee_management.menu_view_hr_job
+msgid "Job Positions"
+msgstr "Chức vụ"
+
+#. module: employee_management
+#: model:ir.model.fields,field_description:employee_management.field_hr_employee__country_id
+msgid "Nationality (Country)"
+msgstr "Quốc tịch"
+
+#. module: employee_management
+#: model_terms:ir.ui.view,arch_db:employee_management.view_hr_job_form
+msgid "Position employee"
+msgstr "Chức vụ"
+
+#. module: employee_management
+#: model:ir.model.fields,field_description:employee_management.field_hr_employee__state_id
+msgid "State"
+msgstr "Vùng thị trường quản lý"
+
+#. module: employee_management
+#: model:ir.model.fields,field_description:employee_management.field_hr_employee__state_ids
+msgid "State"
+msgstr "Vùng thị trường quản lý"
+
+#. module: employee_management
+#: model:ir.model.fields,help:employee_management.field_hr_employee__country_code
+msgid ""
+"The ISO country code in two chars. \n"
+"You can use this field for quick search."
+msgstr ""
+
+#. module: employee_management
+#: model:ir.model.fields,field_description:employee_management.field_hr_employee__village_id
+msgid "Village"
+msgstr "Phường/Xã"

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_kind_user,product.kind.user,model_product_kind,base.group_user,1,0,0,0
+access_product_kind_manager,product.kind.manager,model_product_kind,base.group_system,1,1,1,1
+access_res_country_location_group_all,res.country.location group_user_all,model_res_country_location,,1,1,1,1
+access_res_country_location_group_system,res.country.location group_system,model_res_country_location,base.group_system,1,1,1,1

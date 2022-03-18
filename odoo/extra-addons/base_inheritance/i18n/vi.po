@@ -1,0 +1,731 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* base_inheritance
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-28 04:34+0000\n"
+"PO-Revision-Date: 2022-02-28 04:34+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_kind__product_count
+msgid "# Products"
+msgstr "Sản phẩm"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "), are you sure to create a new one?"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.product_template_custom_form_view
+msgid ""
+"<span attrs=\"{'invisible': [('pricelist_item_count', '=', 1)]}\">\n"
+"                                        Extra Prices\n"
+"                                    </span>\n"
+"                                    <span attrs=\"{'invisible': [('pricelist_item_count', '!=', 1)]}\">\n"
+"                                        Extra Price\n"
+"                                    </span>"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_bank_form
+msgid ""
+"<span class=\"o_form_label o_td_label\" name=\"address_name\">\n"
+"                                        Địa chỉ chi nhánh\n"
+"                                    </span>"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.product_template_custom_form_view
+msgid "<span class=\"o_stat_text\">Sold</span>"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid ""
+"A partner with the same <span><span class=\"o_vat_label\">Tax "
+"ID</span></span> already exists ("
+msgstr ""
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_res_country_location__active
+msgid "Active"
+msgstr "Hoạt động"
+
+#. module: base_inheritance
+#: model:ir.model.fields.selection,name:base_inheritance.selection__res_partner__group_customer__agency
+msgid "Agency"
+msgstr "Đại lý"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.product_template_custom_form_view
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_res_bank_form
+msgid "Archived"
+msgstr "Lưu trữ"
+
+#. module: base_inheritance
+#: model:ir.model,name:base_inheritance.model_res_bank
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_res_bank_form
+msgid "Bank"
+msgstr "Ngân hàng"
+
+#. module: base_inheritance
+#: model:ir.model,name:base_inheritance.model_res_partner_bank
+msgid "Bank Accounts"
+msgstr "Tài khoản ngân hàng"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_res_bank_form
+msgid "Bank Address"
+msgstr "Địa chỉ"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_bank_form
+msgid "Bank account"
+msgstr "Ngân hàng"
+
+#. module: base_inheritance
+#: model:ir.model.fields.selection,name:base_inheritance.selection__product_template__product_line__biochemistry
+msgid "Biochemistry"
+msgstr ""
+
+#. module: base_inheritance
+#: model:ir.model.fields.selection,name:base_inheritance.selection__res_partner__group_customer__both
+msgid "Both"
+msgstr "Cả hai"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_account_setup_bank_manual_config__branch_name
+#: model:ir.model.fields,field_description:base_inheritance.field_res_partner_bank__branch_name
+msgid "Branch name"
+msgstr "Tên chi nhánh"
+
+#. module: base_inheritance
+#: model:ir.model.fields.selection,name:base_inheritance.selection__product_template__product_line__bonong
+msgid "Bồ Nông"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.product_kind_form_view
+msgid "Category"
+msgstr "Nhóm"
+
+#. module: base_inheritance
+#: model:ir.model.fields.selection,name:base_inheritance.selection__product_template__product_line__cavi
+msgid "Cavi Feed"
+msgstr ""
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_kind__child_id
+msgid "Child Kinds"
+msgstr "Loại con"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_product__use_discount
+#: model:ir.model.fields,field_description:base_inheritance.field_product_template__use_discount
+msgid "Chiết khấu"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_res_bank_form
+msgid "City"
+msgstr "Thành phố"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_category__code
+#: model:ir.model.fields,field_description:base_inheritance.field_product_kind__code
+#: model:ir.model.fields,field_description:base_inheritance.field_res_partner__code
+#: model:ir.model.fields,field_description:base_inheritance.field_res_users__code
+#: model_terms:ir.ui.view,arch_db:base_inheritance.product_category_form_view
+#: model_terms:ir.ui.view,arch_db:base_inheritance.product_kind_form_view
+msgid "Code"
+msgstr "Mã"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_kind__complete_name
+msgid "Complete Name"
+msgstr "Tên"
+
+#. module: base_inheritance
+#: model:ir.model,name:base_inheritance.model_res_partner
+msgid "Contact"
+msgstr "Liên hệ"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "Contact / Address"
+msgstr "Liên hệ & địa chỉ"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "Contact Name"
+msgstr "Tên liên hệ"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "Contact image"
+msgstr "Ảnh liên hệ"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "Contacts & Addresses"
+msgstr "Các liên lạc & địa chỉ"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_account_setup_bank_manual_config__country_id
+#: model:ir.model.fields,field_description:base_inheritance.field_res_bank__country_id
+#: model:ir.model.fields,field_description:base_inheritance.field_res_country_location__country_id
+#: model:ir.model.fields,field_description:base_inheritance.field_res_partner__country_id
+#: model:ir.model.fields,field_description:base_inheritance.field_res_partner_bank__country_id
+#: model:ir.model.fields,field_description:base_inheritance.field_res_users__country_id
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_res_bank_form
+msgid "Country"
+msgstr "Quốc gia"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_kind__create_uid
+#: model:ir.model.fields,field_description:base_inheritance.field_res_country_location__create_uid
+msgid "Created by"
+msgstr "Tạo bởi"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_kind__create_date
+#: model:ir.model.fields,field_description:base_inheritance.field_res_country_location__create_date
+msgid "Created on"
+msgstr "Tạo ở"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_res_partner__date_open_book
+#: model:ir.model.fields,field_description:base_inheritance.field_res_users__date_open_book
+msgid "Date open code book"
+msgstr "Ngày mở mã sổ"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_account_setup_bank_manual_config__description
+#: model:ir.model.fields,field_description:base_inheritance.field_product_category__description
+#: model:ir.model.fields,field_description:base_inheritance.field_product_kind__description
+#: model:ir.model.fields,field_description:base_inheritance.field_res_partner_bank__description
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_bank_form
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "Detail address..."
+msgstr "Địa chỉ cụ thể"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_kind__display_name
+#: model:ir.model.fields,field_description:base_inheritance.field_res_country_location__display_name
+msgid "Display Name"
+msgstr "Tên"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_account_setup_bank_manual_config__district_id
+#: model:ir.model.fields,field_description:base_inheritance.field_res_bank__district_id
+#: model:ir.model.fields,field_description:base_inheritance.field_res_country_location__parent_id
+#: model:ir.model.fields,field_description:base_inheritance.field_res_partner__district_id
+#: model:ir.model.fields,field_description:base_inheritance.field_res_partner_bank__district_id
+#: model:ir.model.fields,field_description:base_inheritance.field_res_users__district_id
+#: model:ir.model.fields.selection,name:base_inheritance.selection__res_country_location__location_type__dist
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_bank_form
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_res_bank_form
+msgid "District"
+msgstr "Quận/Huyện"
+
+#. module: base_inheritance
+#: model:ir.model,name:base_inheritance.model_res_country_location
+msgid "District & Wards"
+msgstr "Quận & Phường"
+
+#. module: base_inheritance
+#: model:ir.model.fields.selection,name:base_inheritance.selection__res_partner__group_customer__farm
+msgid "Farm"
+msgstr "Trang trại"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.product_template_custom_form_view
+msgid "General Information"
+msgstr "Thông tin chung"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_product__cus_price_package
+#: model:ir.model.fields,field_description:base_inheritance.field_product_template__cus_price_package
+msgid "Giá hóa đơn (Đ/bao)"
+msgstr ""
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_product__cus_price
+#: model:ir.model.fields,field_description:base_inheritance.field_product_template__cus_price
+msgid "Giá hóa đơn (Đ/kg)"
+msgstr ""
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_res_partner__group_customer
+#: model:ir.model.fields,field_description:base_inheritance.field_res_users__group_customer
+msgid "Group of customer"
+msgstr "Nhóm khách hàng"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_kind__id
+#: model:ir.model.fields,field_description:base_inheritance.field_res_country_location__id
+msgid "ID"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.product_template_custom_form_view
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "Internal Notes"
+msgstr "Ghi chú"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "Internal note..."
+msgstr "Ghi chú"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "Internal notes..."
+msgstr "Ghi chú"
+
+#. module: base_inheritance
+#: model:ir.model,name:base_inheritance.model_product_kind
+msgid "Kind of product"
+msgstr "Loại sản phẩm"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_kind____last_update
+#: model:ir.model.fields,field_description:base_inheritance.field_res_country_location____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_kind__write_uid
+#: model:ir.model.fields,field_description:base_inheritance.field_res_country_location__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_kind__write_date
+#: model:ir.model.fields,field_description:base_inheritance.field_res_country_location__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_res_country_location__location_type
+msgid "Location Type"
+msgstr "Loại vị trí"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_res_country_location__code
+msgid "Location's Code"
+msgstr "Mã vị trí"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_res_country_location__name
+msgid "Location's Name"
+msgstr "Tên vị trí"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.v15_login_layout
+msgid "Logo"
+msgstr ""
+
+#. module: base_inheritance
+#: model:ir.ui.menu,name:base_inheritance.menu_product_kind_config_purchase
+msgid "Material Kinds"
+msgstr "Loại nguyên liệu đầu vào"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "Misc"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "Mobile:"
+msgstr "Điện thoại"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "More languages"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.reset_password_inherit_2
+#: model_terms:ir.ui.view,arch_db:base_inheritance.v15_login_form
+msgid "Mật khẩu"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.v15_login_form
+msgid "Mật khẩu <span style=\"color:red;\">(*)</span>"
+msgstr ""
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_kind__name
+msgid "Name"
+msgstr "Tên loại"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.reset_password_inherit_2
+msgid "Nhập lại mật khẩu"
+msgstr ""
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_res_country_location__note
+msgid "Note"
+msgstr "Ghi chú"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_kind__parent_id
+msgid "Parent Kind"
+msgstr "Cha"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_kind__parent_path
+msgid "Parent Path"
+msgstr "Đường dẫn cha"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_res_country_location__parent_name
+msgid "Parent name"
+msgstr "Cha"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "Partners"
+msgstr "Khách hàng"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_product__percent_protein
+#: model:ir.model.fields,field_description:base_inheritance.field_product_template__percent_protein
+msgid "Percent of protein"
+msgstr "Hàm lượng protein (%)"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_stock_warehouse__phone_number
+msgid "Phone number"
+msgstr "Điện thoại"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "Phone:"
+msgstr "Di động"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.product_template_custom_form_view
+msgid "Print Labels"
+msgstr "In nhãn"
+
+#. module: base_inheritance
+#: model:ir.model,name:base_inheritance.model_product_product
+#: model_terms:ir.ui.view,arch_db:base_inheritance.product_template_custom_form_view
+msgid "Product"
+msgstr "Sản phẩm"
+
+#. module: base_inheritance
+#: model:ir.model,name:base_inheritance.model_product_category
+#: model_terms:ir.ui.view,arch_db:base_inheritance.product_template_custom_form_view
+msgid "Product Category"
+msgstr "Nhóm sản phẩm"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_product__product_kind
+#: model:ir.model.fields,field_description:base_inheritance.field_product_template__product_kind
+#: model_terms:ir.ui.view,arch_db:base_inheritance.product_kind_list_view
+msgid "Product Kind"
+msgstr "Loại sản phẩm"
+
+#. module: base_inheritance
+#: model:ir.actions.act_window,name:base_inheritance.product_kind_action_form
+#: model_terms:ir.ui.view,arch_db:base_inheritance.product_kind_list_view
+msgid "Product Kinds"
+msgstr "Loại sản phẩm"
+
+#. module: base_inheritance
+#: model:ir.model,name:base_inheritance.model_product_template
+msgid "Product Template"
+msgstr "Mẫu sản phẩm"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.product_template_custom_form_view
+msgid "Product kind"
+msgstr "Loại sản phẩm"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.product_kind_search_view
+msgid "Product kinds"
+msgstr "Loại sản phẩm"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_product__product_line
+#: model:ir.model.fields,field_description:base_inheritance.field_product_template__product_line
+msgid "Product line"
+msgstr "Dòng sản phẩm"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "Purchase"
+msgstr "Mua hàng"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.v15_login_form
+msgid "Quên mật khẩu?"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.v15_login_form
+msgid "Quản lý thức ăn chăn nuôi sinh hóa"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "Reference"
+msgstr "Liên quan"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "Sales"
+msgstr "Bán hàng"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "Sales & Purchase"
+msgstr "Bán hàng & Mua hàng"
+
+#. module: base_inheritance
+#: model:ir.model.fields,help:base_inheritance.field_product_product__product_kind
+#: model:ir.model.fields,help:base_inheritance.field_product_template__product_kind
+msgid "Select kind for the current product"
+msgstr "Chọn loại cho sản phẩm hiện tại"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.product_template_custom_form_view
+msgid "Sold in the last 365 days"
+msgstr "Đã bán trong 365 ngày trước"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_product__product_spec
+#: model:ir.model.fields,field_description:base_inheritance.field_product_template__product_spec
+msgid "Spec of product"
+msgstr "Dạng sản phẩm"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_product__specifications
+#: model:ir.model.fields,field_description:base_inheritance.field_product_template__specifications
+msgid "Specifications (Kg)"
+msgstr "Quy cách (Kg)"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_account_setup_bank_manual_config__state_id
+#: model:ir.model.fields,field_description:base_inheritance.field_res_bank__state_id
+#: model:ir.model.fields,field_description:base_inheritance.field_res_country_location__state_id
+#: model:ir.model.fields,field_description:base_inheritance.field_res_partner_bank__state_id
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_bank_form
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_res_bank_form
+msgid "State"
+msgstr "Tỉnh/Thành phố"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_product_category__status
+#: model:ir.model.fields,field_description:base_inheritance.field_product_kind__status
+msgid "Status"
+msgstr "Trạng thái"
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_account_setup_bank_manual_config__street
+#: model:ir.model.fields,field_description:base_inheritance.field_res_bank__street
+#: model:ir.model.fields,field_description:base_inheritance.field_res_partner_bank__street
+msgid "Street"
+msgstr "Địa chỉ"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_res_bank_form
+msgid "Street 2..."
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_res_bank_form
+msgid "Street..."
+msgstr "Thôn/xóm/số nhà"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "Tags..."
+msgstr ""
+
+#. module: base_inheritance
+#: model:ir.model.constraint,message:base_inheritance.constraint_res_country_location_name_code_uniq
+msgid "The code of the location must be unique by State !"
+msgstr "Mã vị trí phải là duy nhất"
+
+#. module: base_inheritance
+#: model:ir.model.fields,help:base_inheritance.field_product_kind__product_count
+msgid ""
+"The number of products under this kind (Does not consider the children "
+"kinds)"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.product_template_custom_form_view
+msgid "This note is only for internal purposes."
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.reset_password_inherit_2
+msgid "Tên"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.v15_login_form
+msgid "Tên đăng nhập"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.v15_login_form
+msgid "Tên đăng nhập <span style=\"color:red;\">(*)</span>"
+msgstr ""
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_account_setup_bank_manual_config__village_id
+#: model:ir.model.fields,field_description:base_inheritance.field_res_bank__village_id
+#: model:ir.model.fields,field_description:base_inheritance.field_res_partner__village_id
+#: model:ir.model.fields,field_description:base_inheritance.field_res_partner_bank__village_id
+#: model:ir.model.fields,field_description:base_inheritance.field_res_users__village_id
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_bank_form
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_res_bank_form
+msgid "Village"
+msgstr "Phường/Xã"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "Địa chỉ"
+msgstr ""
+
+#. module: base_inheritance
+#: model:ir.model.fields,field_description:base_inheritance.field_res_country_location__child_ids
+msgid "Ward"
+msgstr "Phường/Xã"
+
+#. module: base_inheritance
+#: model:ir.model.fields.selection,name:base_inheritance.selection__res_country_location__location_type__ward
+msgid "Wards"
+msgstr "Phường/Xã"
+
+#. module: base_inheritance
+#: model:ir.model,name:base_inheritance.model_stock_warehouse
+msgid "Warehouse"
+msgstr "Kho"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "Website"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.reset_password_inherit
+msgid "Xác nhận"
+msgstr ""
+
+#. module: base_inheritance
+#: code:addons/base_inheritance/models/product.py:0
+#, python-format
+msgid "You cannot create recursive categories."
+msgstr ""
+
+#. module: base_inheritance
+#: code:addons/base_inheritance/models/product.py:0
+#, python-format
+msgid ""
+"You cannot delete this product category, it is the default generic category."
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_res_bank_form
+msgid "ZIP"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "e.g. BE0477472701"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "e.g. Brandom Freeman"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.reset_password_inherit_2
+msgid "e.g. John Doe"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.product_kind_form_view
+msgid "e.g. Lamps"
+msgstr "vd: Đèn"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "e.g. Lumber Inc"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "e.g. Mister"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "e.g. Mr."
+msgstr "Vd: Ông"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.product_category_form_view
+#: model_terms:ir.ui.view,arch_db:base_inheritance.product_kind_form_view
+msgid "e.g. PC000001"
+msgstr "vd: PC000001"
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "e.g. Sales Director"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.view_partner_form_v2
+msgid "e.g. https://www.odoo.com"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.v15_login_form
+msgid "ĐĂNG NHẬP"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.reset_password_inherit
+#: model_terms:ir.ui.view,arch_db:base_inheritance.v15_login_form
+msgid "Đăng nhập"
+msgstr ""
+
+#. module: base_inheritance
+#: model_terms:ir.ui.view,arch_db:base_inheritance.reset_password_inherit
+#: model_terms:ir.ui.view,arch_db:base_inheritance.reset_password_inherit_2
+msgid "Địa chỉ email"
+msgstr ""

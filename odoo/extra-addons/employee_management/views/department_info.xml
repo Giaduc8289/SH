@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="emp_department_inherited_form_view" model="ir.ui.view">
+        <field name="name">hr.department.form.inherit</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/field[@name='name']" position="before">
+                <field name="code"/>
+            </xpath>
+            <xpath expr="//form/sheet/group/field[@name='parent_id']" position="after">
+                <field name="note"/>
+                <field name="active"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

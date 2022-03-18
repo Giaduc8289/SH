@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="product_kind_hh" model="product.kind">
+            <field name="code">HH</field>
+            <field name="name">Hỗn hợp</field>
+        </record>
+        <record id="product_kind_dd" model="product.kind">
+            <field name="code">DD</field>
+            <field name="name">Đậm đặc</field>
+        </record>
+        <record id="product_kind_gt" model="product.kind">
+            <field name="code">GT</field>
+            <field name="name">Gà thịt</field>
+        </record>
+        <record id="product_kind_cd" model="product.kind">
+            <field name="code">CD</field>
+            <field name="name">Con đẻ</field>
+        </record>
+    </data>
+</odoo>

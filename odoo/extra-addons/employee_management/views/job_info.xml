@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="emp_job_inherited_tree_view" model="ir.ui.view">
+        <field name="name">hr.job.tree.inherit</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='name']" position="before">
+                <field name="code"/>
+            </xpath>
+            <xpath expr="//tree/field[@name='department_id']" position="replace">
+            </xpath>
+            <xpath expr="//tree/field[@name='no_of_employee']" position="replace">
+            </xpath>
+            <xpath expr="//tree/field[@name='no_of_recruitment']" position="replace">
+            </xpath>
+            <xpath expr="//tree/field[@name='expected_employees']" position="replace">
+            </xpath>
+            <xpath expr="//tree/field[@name='no_of_hired_employee']" position="replace">
+                <field name="description"/>
+            </xpath>
+            <xpath expr="//tree/field[@name='state']" position="replace">
+                <field name="active"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
