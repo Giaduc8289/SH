@@ -211,6 +211,35 @@
             </xpath>
         </field>
     </record>
+
+    <record id="view_partner_tree_v1" model="ir.ui.view">
+        <field name="name">res.partner.tree</field>
+        <field name="model">res.partner</field>
+        <field eval="8" name="priority"/>
+        <field name="arch" type="xml">
+            <tree string="Contacts" sample="1" multi_edit="1">
+                <field name="user_id" optional="show" widget="many2one_avatar_user" domain="[('share', '=', False)]"/>
+                <field name="display_name" string="Name"/>
+                <field name="function" invisible="1"/>
+                <field name="phone" class="o_force_ltr" optional="show"/>
+                <field name="email" optional="hide"/>
+                <field name="date_open_book" optional="show"/>
+                <field name="street" optional="show"/>
+                <field name="village_id" optional="show"/>
+                <field name="district_id" optional="show"/>
+                <field name="city" optional="hide"/>
+                <field name="state_id" optional="show" readonly="1"/>
+                <field name="country_id" optional="hide" readonly="1"/>
+                <field name="vat" optional="hide" readonly="1"/>
+                <field name="category_id" optional="hide" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="company_id" groups="base.group_multi_company" readonly="1"/>
+                <field name="is_company" invisible="1"/>
+                <field name="parent_id" invisible="1" readonly="1"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
     <record id="account.res_partner_action_customer" model="ir.actions.act_window">
         <field name="name">Customers</field>
         <field name="type">ir.actions.act_window</field>
@@ -220,7 +249,7 @@
         <field name="view_ids"
                eval="[(5, 0, 0),
                       (0, 0, {'view_mode': 'kanban', 'view_id': ref('base.res_partner_kanban_view')}),
-                      (0, 0, {'view_mode': 'tree', 'view_id': ref('base.view_partner_tree')}),
+                      (0, 0, {'view_mode': 'tree', 'view_id': ref('base_inheritance.view_partner_tree_v1')}),
                       (0, 0, {'view_mode': 'form', 'view_id': ref('base_inheritance.view_partner_form_v2')})]"/>
         <field name="help" type="html">
           <p class="o_view_nocontent_smiling_face">
