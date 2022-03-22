@@ -7,9 +7,10 @@
     "sequence": "8",
     "license": "LGPL-3",
     "category": "Hidden",
-    "depends": ["base_inheritance", "sale"],
+    "depends": ["base_inheritance", "sale", 'coupon', "sale_coupon"],
     "data": [
-        "views/sale_views.xml"
+        "views/sale_views.xml",
+        "views/coupon_program_views.xml"
     ],
     "installable": True,
     "maintainers": ["anhnth.mta@gmail.com"]
