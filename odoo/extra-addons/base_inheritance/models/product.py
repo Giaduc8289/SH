@@ -10,16 +10,16 @@ class ProductTemplate(models.Model):
     product_line = fields.Selection([('cavi', 'Cavi Feed'), ('biochemistry', 'Biochemistry'), ('bonong', 'Bồ Nông')],
                                     string='Product line', default='biochemistry')
     product_spec = fields.Char(string='Spec of product')
-    percent_protein = fields.Integer(string='Percent of protein')
+    percent_protein = fields.Float(string='Percent of protein')
     specifications = fields.Integer(string='Specifications (Kg)')
     cus_price = fields.Float(string='Giá hóa đơn (Đ/kg)')
     cus_price_package = fields.Float(string='Giá hóa đơn (Đ/bao)', compute="_cus_price_package")
     use_discount = fields.Boolean(string='Chiết khấu', default=True)
 
-    @api.depends("specifications", "cus_price")
+    @api.depends("weight", "list_price")
     def _cus_price_package(self):
         for record in self:
-            record.cus_price_package = record.specifications * record.cus_price
+            record.cus_price_package = record.weight * record.list_price
 
     # @api.onchange("specifications")
     # def _onchange_specifications(self):
