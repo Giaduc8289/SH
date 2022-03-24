@@ -21,6 +21,12 @@ msgid "Coupon Reward"
 msgstr "Phần thưởng"
 
 #. module: sale_inheritance
+#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_program__discount_for_amount
+#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_reward__discount_for_amount
+msgid "Discount for amount"
+msgstr "CK theo khối lượng"
+
+#. module: sale_inheritance
 #: model:ir.model.fields,field_description:sale_inheritance.field_coupon_program__discount_hold_amount
 #: model:ir.model.fields,field_description:sale_inheritance.field_coupon_reward__discount_hold_amount
 msgid "Discount hold amount"

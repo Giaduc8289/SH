@@ -9,8 +9,13 @@
         <field name="arch" type="xml">
             <xpath expr="/form/sheet/group/group/div/field[@name='discount_fixed_amount']" position="after">
                 <group>
-                    <field name="discount_hold_amount" class="oe_inline" attrs="{'required':[('discount_type', '=', 'fixed_amount')]}" widget='monetary' options="{'currency_field': 'currency_id'}"/>
-                    <field name="discount_hold_time" class="oe_inline" attrs="{'required':[('discount_type', '=', 'fixed_amount')]}" widget='radio' options="{'currency_field': 'currency_id'}"/>
+                    <group>
+                        <field name="discount_for_amount" class="oe_inline" attrs="{'required':[('discount_type', '=', 'fixed_amount')]}" widget='boolean' options="{'currency_field': 'currency_id'}"/>
+                        <field name="discount_hold_amount" class="oe_inline" attrs="{'required':[('discount_type', '=', 'fixed_amount')]}" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                    </group>
+                    <group>
+                        <field name="discount_hold_time" class="oe_inline" attrs="{'required':[('discount_type', '=', 'fixed_amount')]}" widget='radio' options="{'currency_field': 'currency_id'}"/>
+                    </group>
                 </group>
             </xpath>
         </field>
@@ -24,8 +29,13 @@
         <field name="arch" type="xml">
             <xpath expr="/form/sheet/group/group/div/field[@name='discount_fixed_amount']" position="after">
                 <group>
-                    <field name="discount_hold_amount" class="oe_inline" attrs="{'required':[('discount_type', '=', 'fixed_amount')]}" widget='monetary' options="{'currency_field': 'currency_id'}"/>
-                    <field name="discount_hold_time" class="oe_inline" attrs="{'required':[('discount_type', '=', 'fixed_amount')]}" widget='radio' options="{'currency_field': 'currency_id'}"/>
+                    <group>
+                        <field name="discount_for_amount" class="oe_inline" attrs="{'required':[('discount_type', '=', 'fixed_amount')]}" widget='boolean' options="{'currency_field': 'currency_id'}"/>
+                        <field name="discount_hold_amount" class="oe_inline" attrs="{'required':[('discount_type', '=', 'fixed_amount')]}" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                    </group>
+                    <group>
+                        <field name="discount_hold_time" class="oe_inline" attrs="{'required':[('discount_type', '=', 'fixed_amount')]}" widget='radio' options="{'currency_field': 'currency_id'}"/>
+                    </group>
                 </group>
             </xpath>
         </field>
