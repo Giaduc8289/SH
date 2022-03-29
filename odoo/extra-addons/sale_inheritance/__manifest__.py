@@ -9,6 +9,7 @@
     "category": "Hidden",
     "depends": ["base_inheritance", "sale", 'coupon', "sale_coupon"],
     "data": [
+        'security/ir.model.access.csv',
         "views/sale_order_views.xml",
         "views/sale_views.xml",
         "views/coupon_program_views.xml"

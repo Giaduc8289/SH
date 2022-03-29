@@ -7,6 +7,11 @@
         <field name="inherit_id" ref="sale_coupon.sale_coupon_program_view_coupon_program_form"/>
         <field name="mode">extension</field>
         <field name="arch" type="xml">
+            <xpath expr="/form/sheet/group" position="before">
+                <group>
+                    <field name="config_detail" widget="boolean"/>
+                </group>
+            </xpath>
             <xpath expr="/form/sheet/group/group/div/field[@name='discount_fixed_amount']" position="after">
                 <group>
                     <group>
@@ -18,6 +23,31 @@
                     </group>
                 </group>
             </xpath>
+            <xpath expr="//group[@name='reward']/.." position="after">
+                <group attrs="{'invisible': [('config_detail', '=', False)]}" >
+                    <field name="coupon_detail_ids" optional="show" editable="bottom">
+                        <tree>
+                            <field name="partner_ids" optional="show" widget="many2many_tags"/>
+                            <field name="discount_fixed_amount_detail" attrs="{'invisible':[('parent.discount_type', '!=', 'fixed_amount')]}" />
+                            <field name="discount_hold_amount_detail" attrs="{'invisible':[('parent.discount_type', '!=', 'fixed_amount')]}" />
+                            <field name="discount_percentage_detail" attrs="{'invisible':[('parent.discount_type', '=', 'fixed_amount')]}" />
+                        </tree>
+                        <form>
+                            <group>
+                                <field name="discount_fixed_amount_detail"
+                                       attrs="{'invisible':[('parent.discount_type', '!=', 'fixed_amount')]}"/>
+                                <field name="discount_hold_amount_detail"
+                                       attrs="{'invisible':[('parent.discount_type', '!=', 'fixed_amount')]}"/>
+                                <field name="discount_percentage_detail"
+                                       attrs="{'invisible':[('parent.discount_type', '=', 'fixed_amount')]}"/>
+                            </group>
+                            <group>
+                                <field name="partner_ids" optional="show"/>
+                            </group>
+                        </form>
+                    </field>
+                </group>
+            </xpath>
         </field>
     </record>
 
@@ -27,6 +57,11 @@
         <field name="inherit_id" ref="sale_coupon.sale_coupon_program_view_promo_program_form"/>
         <field name="mode">extension</field>
         <field name="arch" type="xml">
+            <xpath expr="/form/sheet/group" position="before">
+                <group>
+                    <field name="config_detail" widget="boolean"/>
+                </group>
+            </xpath>
             <xpath expr="/form/sheet/group/group/div/field[@name='discount_fixed_amount']" position="after">
                 <group>
                     <group>
@@ -36,6 +71,31 @@
                     <group>
                         <field name="discount_hold_time" class="oe_inline" attrs="{'required':[('discount_type', '=', 'fixed_amount')]}" widget='radio' options="{'currency_field': 'currency_id'}"/>
                     </group>
+                </group>
+            </xpath>
+            <xpath expr="//group[@name='reward']/.." position="after">
+                <group attrs="{'invisible': [('config_detail', '=', False)]}" >
+                    <field name="coupon_detail_ids" optional="show" editable="bottom">
+                        <tree>
+                            <field name="partner_ids" optional="show" widget="many2many_tags"/>
+                            <field name="discount_fixed_amount_detail" attrs="{'invisible':[('parent.discount_type', '!=', 'fixed_amount')]}" />
+                            <field name="discount_hold_amount_detail" attrs="{'invisible':[('parent.discount_type', '!=', 'fixed_amount')]}" />
+                            <field name="discount_percentage_detail" attrs="{'invisible':[('parent.discount_type', '=', 'fixed_amount')]}" />
+                        </tree>
+                        <form>
+                            <group>
+                                <field name="discount_fixed_amount_detail"
+                                       attrs="{'invisible':[('parent.discount_type', '!=', 'fixed_amount')]}"/>
+                                <field name="discount_hold_amount_detail"
+                                       attrs="{'invisible':[('parent.discount_type', '!=', 'fixed_amount')]}"/>
+                                <field name="discount_percentage_detail"
+                                       attrs="{'invisible':[('parent.discount_type', '=', 'fixed_amount')]}"/>
+                            </group>
+                            <group>
+                                <field name="partner_ids" optional="show"/>
+                            </group>
+                        </form>
+                    </field>
                 </group>
             </xpath>
         </field>
