@@ -6,6 +6,12 @@
          <field name="inherit_id" ref="sale_coupon.sale_order_view_form" />
          <field name="priority">10</field>
          <field name="arch" type="xml">
+             <xpath expr="//group/field[@name='partner_id']" position="attributes">
+                <attribute name="context">{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True}</attribute>
+             </xpath>
+             <xpath expr="//tree" position="attributes">
+                <attribute name="default_order">product_id</attribute>
+             </xpath>
              <xpath expr="//tree/field[@name='name']" position="before">
                 <field name="product_default_code" />
              </xpath>
