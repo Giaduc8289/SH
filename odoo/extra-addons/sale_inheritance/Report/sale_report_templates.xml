@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 <template id="report_saleorder" inherit_id="sale.report_saleorder_document">
+    <xpath expr="//table" position="attributes">
+        <attribute name="border">1</attribute>
+    </xpath>
     <xpath expr="//th[@name='th_description']" position="after">
-        <th name="th_product_weight" class="text-central">Quy cách</th>
+        <th name="th_product_weight" class="text-center">Quy cách</th>
     </xpath>
     <xpath expr="//td[@name='td_name']" position="after">
-        <td name="th_product_weight"><span t-field="line.product_weight"/></td>
+        <td name="th_product_weight" class="text-center">
+            <t t-if="line.product_weight != 0">
+                <span t-esc="'{0:,}'.format(int(line.product_weight))"/>
+            </t>
+            <t t-else="">
+                <span></span>
+            </t>
+        </td>
     </xpath>
     <xpath expr="//span[@t-field='line.product_uom']" position="replace">
     </xpath>
