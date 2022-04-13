@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 <template id="report_saleorder" inherit_id="sale.report_saleorder_document">
+<!--    <xpath expr="//t[@t-set='address']" position="replace">-->
+<!--    </xpath>-->
     <xpath expr="//table" position="attributes">
-        <attribute name="border">1</attribute>
+<!--        <attribute name="border">1</attribute>-->
+<!--        <attribute name="style">border: 1pt solid black;</attribute>-->
+        <attribute name="class">table table-bordered</attribute>
     </xpath>
     <xpath expr="//th[@name='th_description']" position="after">
         <th name="th_product_weight" class="text-center">Quy cách</th>

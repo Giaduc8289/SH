@@ -14,6 +14,10 @@
         </field>
     </record>
 
+<!--    <record model="ir.ui.menu" id="sale.menu_sale_quotations">-->
+<!--        <field name="name">Khởi tạo đơn hàng</field>-->
+<!--    </record>-->
+
     <menuitem id="base_inheritance.menu_product_kind_config_sale" name="Product Kinds"
               parent="sale.menu_sale_config" sequence="3"
               action="base_inheritance.product_kind_action_form"/>
