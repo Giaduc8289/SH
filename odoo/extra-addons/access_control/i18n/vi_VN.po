@@ -1,0 +1,123 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* access_control
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-18 10:25+0000\n"
+"PO-Revision-Date: 2022-04-18 10:25+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: access_control
+#: model_terms:ir.ui.view,arch_db:access_control.access_control_form_view
+msgid "30A 123.45"
+msgstr ""
+
+#. module: access_control
+#: model:ir.model,name:access_control.model_access_control
+#: model:ir.ui.menu,name:access_control.access_control_menu
+msgid "Access Control"
+msgstr "Kiểm soát vào ra"
+
+#. module: access_control
+#: model:ir.actions.act_window,name:access_control.access_control_action_form
+#: model:ir.ui.menu,name:access_control.access_control_menu_root
+#: model_terms:ir.ui.view,arch_db:access_control.access_control_list_view
+#: model_terms:ir.ui.view,arch_db:access_control.access_control_search_view
+msgid "Access Controls"
+msgstr "Kiểm soát vào ra"
+
+#. module: access_control
+#: model_terms:ir.ui.view,arch_db:access_control.access_control_form_view
+#: model_terms:ir.ui.view,arch_db:access_control.access_control_list_view
+#: model_terms:ir.ui.view,arch_db:access_control.access_control_search_view
+msgid "Biển kiểm soát"
+msgstr ""
+
+#. module: access_control
+#: model:ir.model.fields,field_description:access_control.field_access_control__number_plate
+msgid "Biển kiểm soát"
+msgstr ""
+
+#. module: access_control
+#: model:ir.model.fields,field_description:access_control.field_access_control__create_uid
+msgid "Created by"
+msgstr "Tạo bởi"
+
+#. module: access_control
+#: model:ir.model.fields,field_description:access_control.field_access_control__create_date
+msgid "Created on"
+msgstr "Tạo ở"
+
+#. module: access_control
+#: model:ir.model.fields,field_description:access_control.field_access_control__display_name
+msgid "Display Name"
+msgstr "Tên"
+
+#. module: access_control
+#: model:ir.model.fields,field_description:access_control.field_access_control__id
+msgid "ID"
+msgstr ""
+
+#. module: access_control
+#: model:ir.model.fields,field_description:access_control.field_access_control__res_partner_id
+#: model_terms:ir.ui.view,arch_db:access_control.access_control_form_view
+msgid "Tên khách"
+msgstr ""
+
+#. module: access_control
+#: model:ir.model.fields,field_description:access_control.field_access_control____last_update
+msgid "Last Modified on"
+msgstr "Chỉnh sửa lần cuối"
+
+#. module: access_control
+#: model:ir.model.fields,field_description:access_control.field_access_control__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: access_control
+#: model:ir.model.fields,field_description:access_control.field_access_control__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối"
+
+#. module: access_control
+#: model:ir.model.fields.selection,name:access_control.selection__access_control__purpose__purchase
+msgid "Mua hàng"
+msgstr ""
+
+#. module: access_control
+#: model:ir.model.fields,field_description:access_control.field_access_control__purpose
+msgid "Mục đích"
+msgstr ""
+
+#. module: access_control
+#: model:ir.model.fields.selection,name:access_control.selection__access_control__purpose__sale
+msgid "Nhập hàng"
+msgstr ""
+
+#. module: access_control
+#: model:ir.model.fields,field_description:access_control.field_access_control__ordinal_number
+msgid "Số thứ tự"
+msgstr ""
+
+#. module: access_control
+#: model:ir.model.fields.selection,name:access_control.selection__access_control__purpose__visit
+msgid "Thăm"
+msgstr ""
+
+#. module: access_control
+#: model:ir.model.fields,field_description:access_control.field_access_control__out_date
+msgid "Thời gian ra"
+msgstr ""
+
+#. module: access_control
+#: model:ir.model.fields,field_description:access_control.field_access_control__in_date
+msgid "Thời gian vào"
+msgstr ""

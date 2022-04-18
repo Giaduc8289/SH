@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Views -->
+    <record id="access_control_form_view" model="ir.ui.view">
+        <field name="name">access.control.form</field>
+        <field name="model">access.control</field>
+        <field name="arch" type="xml">
+            <form class="oe_form_configuration">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="number_plate" string="Biển kiểm soát"/>
+                        <h1><field name="number_plate" placeholder="30A 123.45"/></h1>
+                        <label for="res_partner_id" string="Tên khách"/>
+                        <h1><field name="res_partner_id" required="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="purpose"></field>
+                            <field name="in_date" readonly="1"></field>
+                        </group>
+                        <group>
+                            <field name="ordinal_number" readonly="1"></field>
+                            <field name="out_date"></field>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="access_control_search_view" model="ir.ui.view">
+        <field name="name">access.control.search</field>
+        <field name="model">access.control</field>
+        <field name="arch" type="xml">
+            <search string="Access Controls">
+                <field name="number_plate" string="Biển kiểm soát"/>
+                <field name="res_partner_id" string="Tên khách"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="access_control_list_view" model="ir.ui.view">
+        <field name="name">access.control.list</field>
+        <field name="model">access.control</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree string="Access Controls">
+                <field name="number_plate" string="Biển kiểm soát"/>
+                <field name="res_partner_id" string="Tên khách"/>
+                <field name="purpose"></field>
+                <field name="in_date"></field>
+                <field name="ordinal_number" optional="show"></field>
+                <field name="out_date"></field>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="access_control_action_form" model="ir.actions.act_window">
+        <field name="name">Access Controls</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">access.control</field>
+        <field name="view_mode">tree,form</field>
+<!--        <field name="search_view_id" ref="access_control_search_view"/>-->
+<!--        <field name="view_id" ref="access_control_list_view"/>-->
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem id="access_control_menu_root"
+              name="Access Controls"
+              web_icon="access_control,static/description/icon.png"
+              sequence="15"/>
+
+    <menuitem id="access_control_menu"
+              action="access_control_action_form"
+              name="Access Control"
+              parent="access_control_menu_root"
+              sequence="1"/>
+
+</odoo>
