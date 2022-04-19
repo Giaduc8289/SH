@@ -10,6 +10,7 @@
     "depends": ["account", 'base_inheritance'],
     "data": [
         'security/ir.model.access.csv',
+        "data/ir_sequence.xml",
         "views/access_control_view.xml",
     ],
     "installable": True,

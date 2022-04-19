@@ -42,7 +42,6 @@
     <record id="access_control_list_view" model="ir.ui.view">
         <field name="name">access.control.list</field>
         <field name="model">access.control</field>
-        <field name="priority">1</field>
         <field name="arch" type="xml">
             <tree string="Access Controls">
                 <field name="number_plate" string="Biển kiểm soát"/>
@@ -55,14 +54,52 @@
         </field>
     </record>
 
+    <!-- Access Control Kanban View -->
+    <record id="access_control_kanban_view" model="ir.ui.view">
+        <field name="name">access.control.kanban</field>
+        <field name="model">access.control</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <kanban class="o_access_control_kanban" sample="1">
+                <field name="number_plate"/>
+                <field name="res_partner_id"/>
+                <field name="purpose"/>
+                <field name="in_date"/>
+                <field name="ordinal_number"/>
+                <field name="out_date"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_access_control_kanban">
+                            <div class="o_kanban_image_fill_left o_kanban_image_full"
+                                 t-attf-style="background-image: url(#{kanban_image('res.partner', 'avatar_128', record.res_partner_id.raw_value)})"
+                                 role="img"/>
+                            <div class="oe_kanban_details d-flex flex-column">
+                                <strong class="o_kanban_record_title oe_partner_heading text-center" ><field name="ordinal_number"/></strong>
+                                <strong class="o_kanban_record_title oe_partner_heading"><field name="display_name"/></strong>
+                                <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+                                <ul>
+                                    <li t-if="record.number_plate.raw_value"><field name="number_plate"/></li>
+                                    <li t-if="record.purpose.raw_value"><field name="purpose"/></li>
+                                </ul>
+                                <div class="o_row">
+                                    <span class="oe_kanban_partner_links"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <!-- Actions -->
     <record id="access_control_action_form" model="ir.actions.act_window">
         <field name="name">Access Controls</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">access.control</field>
-        <field name="view_mode">tree,form</field>
-<!--        <field name="search_view_id" ref="access_control_search_view"/>-->
-<!--        <field name="view_id" ref="access_control_list_view"/>-->
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="access_control_search_view"/>
+        <field name="view_id" ref="access_control_list_view"/>
     </record>
 
     <!-- Top menu item -->
