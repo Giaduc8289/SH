@@ -14,6 +14,14 @@ class AccessControl(models.Model):
     ordinal_number = fields.Integer('Số thứ tự', default=0)
     out_date = fields.Datetime('Thời gian ra')
 
+    state = fields.Selection([
+        ('in', 'In'),
+        ('weighin', 'Vehicle Weigh In'),
+        ('unload', 'Unload Goods'),
+        ('weighout', 'Vehicle Weigh Out'),
+        ('out', 'Out'),
+        ], string='Status', readonly=True, copy=False, index=True, default='in')
+
     @api.model
     def create(self, vals_list):
         if ('ordinal_number' in vals_list and vals_list['ordinal_number'] == 0) or 'ordinal_number' not in vals_list:
@@ -27,5 +35,10 @@ class AccessControl(models.Model):
         temp = self.browse(data)
         temp.ordinal_number = seq.next_by_id()
 
+    def check_out(self):
+        for record in self:
+            if(record.state != 'out'):
+                record.out_date = fields.Datetime.now()
+                record.state = 'out'
 
 
