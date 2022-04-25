@@ -7,12 +7,17 @@ class AccessControl(models.Model):
     _description = "Access Control"
     _rec_name = 'res_partner_id'
 
-    res_partner_id = fields.Many2one("res.partner", "Tên khách", domain="[('code', '!=', None)]")
-    number_plate = fields.Char('Biển kiểm soát')
-    purpose = fields.Selection([('sale', 'Nhập hàng'), ('purchase', 'Mua hàng'), ('visit', 'Làm việc')], 'Mục đích', default='purchase')
-    in_date = fields.Datetime('Thời gian vào', readonly=True, required=True, default=fields.Datetime.now)
-    ordinal_number = fields.Integer('Số thứ tự', default=0)
-    out_date = fields.Datetime('Thời gian ra')
+    res_partner_id = fields.Many2one("res.partner", "Partner", domain="[('code', '!=', None)]")
+    name = fields.Char('Name')
+    address = fields.Char('Address')
+    number_plate = fields.Char('Number plate')
+    purpose = fields.Selection([('sale', 'Sale'), ('purchase', 'Purchase'), ('visit', 'Visit'), ('work', 'Work')], 'Purpose', default='purchase')
+    in_time = fields.Datetime('In time', readonly=True, required=True, default=fields.Datetime.now)
+    ordinal_number = fields.Integer('Ordinal number', default=0)
+    out_time = fields.Datetime('Out time')
+
+    weight_in = fields.Float('Weight in', default=0)
+    weight_out = fields.Float('Weight out', default=0)
 
     state = fields.Selection([
         ('in', 'In'),
@@ -35,10 +40,38 @@ class AccessControl(models.Model):
         temp = self.browse(data)
         temp.ordinal_number = seq.next_by_id()
 
-    def check_out(self):
+    def action_weigh_in(self):
+        for record in self:
+            if(record.state == 'in'):
+                record.state = 'weighin'
+                # form_view = [(self.env.ref('access_control.access_control_form_view').id, 'form')]
+
+    def action_unload(self):
+        for record in self:
+            if(record.state == 'weighin'):
+                record.state = 'unload'
+            if(record.purpose == 'sale'):
+                action = self.env["ir.actions.actions"]._for_xml_id("sale.action_orders")
+            if(record.purpose == 'purchase'):
+                action = self.env["ir.actions.actions"]._for_xml_id("purchase.purchase_form_action")
+        return action
+
+    def action_weigh_out(self):
+        for record in self:
+            if(record.state == 'unload'):
+                record.state = 'weighout'
+
+    def action_check_out(self):
         for record in self:
             if(record.state != 'out'):
-                record.out_date = fields.Datetime.now()
+                record.out_time = fields.Datetime.now()
                 record.state = 'out'
+
+    @api.onchange('res_partner_id')
+    def _compute_inf_partner(self):
+        for record in self:
+            if record.res_partner_id.name != None:
+                record.name = record.res_partner_id.name
+                record.address = str(record.res_partner_id.district_id.name) + ', ' + str(record.res_partner_id.state_id.name)
 
 

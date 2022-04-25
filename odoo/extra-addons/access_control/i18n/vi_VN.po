@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-21 15:59+0000\n"
-"PO-Revision-Date: 2022-04-21 15:59+0000\n"
+"POT-Creation-Date: 2022-04-25 23:25+0000\n"
+"PO-Revision-Date: 2022-04-25 23:25+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,8 +17,9 @@ msgstr ""
 
 #. module: access_control
 #: model_terms:ir.ui.view,arch_db:access_control.access_control_form_view
+#: model_terms:ir.ui.view,arch_db:access_control.access_control_inout_form_view
 msgid "30A 123.45"
-msgstr ""
+msgstr "30A 123.45"
 
 #. module: access_control
 #: model:ir.model,name:access_control.model_access_control
@@ -35,12 +36,16 @@ msgid "Access Controls"
 msgstr "Kiểm soát vào ra"
 
 #. module: access_control
-#: model:ir.model.fields,field_description:access_control.field_access_control__number_plate
+#: model:ir.model.fields,field_description:access_control.field_access_control__address
 #: model_terms:ir.ui.view,arch_db:access_control.access_control_form_view
-#: model_terms:ir.ui.view,arch_db:access_control.access_control_list_view
-#: model_terms:ir.ui.view,arch_db:access_control.access_control_search_view
-msgid "Biển kiểm soát"
-msgstr ""
+msgid "Address"
+msgstr "Địa chỉ"
+
+#. module: access_control
+#: model_terms:ir.ui.view,arch_db:access_control.access_control_form_view
+#: model_terms:ir.ui.view,arch_db:access_control.access_control_inout_form_view
+msgid "Check out"
+msgstr "Khách ra"
 
 #. module: access_control
 #: model:ir.model.fields,field_description:access_control.field_access_control__create_uid
@@ -65,12 +70,12 @@ msgstr ""
 #. module: access_control
 #: model:ir.model.fields.selection,name:access_control.selection__access_control__state__in
 msgid "In"
-msgstr ""
+msgstr "Vào"
 
 #. module: access_control
-#: model_terms:ir.ui.view,arch_db:access_control.access_control_form_view
-msgid "Khách ra"
-msgstr ""
+#: model:ir.model.fields,field_description:access_control.field_access_control__in_time
+msgid "In time"
+msgstr "Thời gian vào"
 
 #. module: access_control
 #: model:ir.model.fields,field_description:access_control.field_access_control____last_update
@@ -88,24 +93,22 @@ msgid "Last Updated on"
 msgstr "Cập nhật lần cuối"
 
 #. module: access_control
-#: model:ir.model.fields.selection,name:access_control.selection__access_control__purpose__visit
-msgid "Làm việc"
-msgstr ""
+#: model:ir.model.fields,field_description:access_control.field_access_control__name
+#: model_terms:ir.ui.view,arch_db:access_control.access_control_form_view
+msgid "Name"
+msgstr "Tên khách"
 
 #. module: access_control
-#: model:ir.model.fields.selection,name:access_control.selection__access_control__purpose__purchase
-msgid "Mua hàng"
-msgstr ""
+#: model:ir.model.fields,field_description:access_control.field_access_control__number_plate
+#: model_terms:ir.ui.view,arch_db:access_control.access_control_form_view
+#: model_terms:ir.ui.view,arch_db:access_control.access_control_inout_form_view
+msgid "Number plate"
+msgstr "Biển kiểm soát"
 
 #. module: access_control
-#: model:ir.model.fields,field_description:access_control.field_access_control__purpose
-msgid "Mục đích"
-msgstr ""
-
-#. module: access_control
-#: model:ir.model.fields.selection,name:access_control.selection__access_control__purpose__sale
-msgid "Nhập hàng"
-msgstr ""
+#: model:ir.model.fields,field_description:access_control.field_access_control__ordinal_number
+msgid "Ordinal number"
+msgstr "Số thứ tự"
 
 #. module: access_control
 #: model:ir.model.fields.selection,name:access_control.selection__access_control__state__out
@@ -113,35 +116,40 @@ msgid "Out"
 msgstr "Ra"
 
 #. module: access_control
+#: model:ir.model.fields,field_description:access_control.field_access_control__out_time
+msgid "Out time"
+msgstr "Thời gian ra"
+
+#. module: access_control
+#: model:ir.model.fields,field_description:access_control.field_access_control__res_partner_id
+#: model_terms:ir.ui.view,arch_db:access_control.access_control_form_view
+#: model_terms:ir.ui.view,arch_db:access_control.access_control_inout_form_view
+msgid "Partner"
+msgstr "Tên khách"
+
+#. module: access_control
+#: model:ir.model.fields.selection,name:access_control.selection__access_control__purpose__purchase
+msgid "Purchase"
+msgstr "Mua hàng"
+
+#. module: access_control
+#: model:ir.model.fields,field_description:access_control.field_access_control__purpose
+msgid "Purpose"
+msgstr "Mục đích"
+
+#. module: access_control
+#: model:ir.model.fields.selection,name:access_control.selection__access_control__purpose__sale
+msgid "Sale"
+msgstr "Bán hàng"
+
+#. module: access_control
 #: model:ir.model.fields,field_description:access_control.field_access_control__state
 msgid "Status"
 msgstr "Tình trạng"
 
 #. module: access_control
-#: model:ir.model.fields,field_description:access_control.field_access_control__ordinal_number
-msgid "Số thứ tự"
-msgstr ""
-
-#. module: access_control
-#: model:ir.model.fields,field_description:access_control.field_access_control__out_date
-msgid "Thời gian ra"
-msgstr ""
-
-#. module: access_control
-#: model:ir.model.fields,field_description:access_control.field_access_control__in_date
-msgid "Thời gian vào"
-msgstr ""
-
-#. module: access_control
-#: model:ir.model.fields,field_description:access_control.field_access_control__res_partner_id
-#: model_terms:ir.ui.view,arch_db:access_control.access_control_form_view
-#: model_terms:ir.ui.view,arch_db:access_control.access_control_list_view
-#: model_terms:ir.ui.view,arch_db:access_control.access_control_search_view
-msgid "Tên khách"
-msgstr ""
-
-#. module: access_control
 #: model:ir.model.fields.selection,name:access_control.selection__access_control__state__unload
+#: model_terms:ir.ui.view,arch_db:access_control.access_control_form_view
 msgid "Unload Goods"
 msgstr "Xếp dỡ hàng"
 
@@ -154,3 +162,33 @@ msgstr "Cân xe vào"
 #: model:ir.model.fields.selection,name:access_control.selection__access_control__state__weighout
 msgid "Vehicle Weigh Out"
 msgstr "Cân xe ra"
+
+#. module: access_control
+#: model:ir.model.fields.selection,name:access_control.selection__access_control__purpose__visit
+msgid "Visit"
+msgstr "Khách viếng thăm"
+
+#. module: access_control
+#: model_terms:ir.ui.view,arch_db:access_control.access_control_form_view
+msgid "Weigh In"
+msgstr "Cân vào"
+
+#. module: access_control
+#: model_terms:ir.ui.view,arch_db:access_control.access_control_form_view
+msgid "Weigh Out"
+msgstr "Cân ra"
+
+#. module: access_control
+#: model:ir.model.fields,field_description:access_control.field_access_control__weight_in
+msgid "Weight in"
+msgstr "Trọng lượng vào"
+
+#. module: access_control
+#: model:ir.model.fields,field_description:access_control.field_access_control__weight_out
+msgid "Weight out"
+msgstr "Trọng lượng ra"
+
+#. module: access_control
+#: model:ir.model.fields.selection,name:access_control.selection__access_control__purpose__work
+msgid "Work"
+msgstr "Làm việc"

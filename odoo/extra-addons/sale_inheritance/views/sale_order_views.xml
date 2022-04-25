@@ -17,9 +17,10 @@
              </xpath>
              <xpath expr="//tree/field[@name='name']" position="after">
                 <field name="product_weight" />
+                <field name="amount_package" />
              </xpath>
-<!--             <xpath expr="//tree/field[@name='product_packaging_qty']" position="attributes" invisible="1">-->
-<!--             </xpath>-->
+             <xpath expr="//tree/field[@name='product_packaging_qty']" position="attributes" invisible="1">
+             </xpath>
          </field>
     </record>
 
