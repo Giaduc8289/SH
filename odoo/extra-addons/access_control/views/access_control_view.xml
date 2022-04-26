@@ -20,8 +20,8 @@
                         <field name="purpose" widget="radio"  options="{'horizontal': true}"></field>
                         <br/>
                         <group>
-                        <label for="number_plate" string="Number plate"/>
-                        <h1><field name="number_plate" placeholder="30A 123.45"/></h1>
+                            <label for="number_plate" string="Number plate"/>
+                            <h1><field name="number_plate" placeholder="30A 123.45"/></h1>
                         </group>
                         <group attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}">
                             <label for="res_partner_id" string="Partner"/>
@@ -35,6 +35,7 @@
                         <group>
                             <label for="address" string="Address"/>
                             <h3><field name="address"/></h3>
+                            <field name="purpose_descript"  attrs="{'invisible': [('purpose', '!=', 'visit')]}"/>
                         </group>
                     </div>
                     <group>
@@ -52,6 +53,10 @@
                             <field name="weight_out"
                                    attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))], 'readonly': [('state', '!=', 'weighout')]}"></field>
                         </group>
+                    </group>
+                    <group attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}">
+                        <field name="product_template_ids" widget="many2many_tags">
+                        </field>
                     </group>
                 </sheet>
             </form>
@@ -110,14 +115,18 @@
         <field name="model">access.control</field>
         <field name="arch" type="xml">
             <tree string="Access Controls">
-                <field name="number_plate"/>
+                <field name="number_plate" optional="show"/>
                 <field name="res_partner_id"/>
-                <field name="purpose"></field>
-                <field name="in_time"></field>
+                <field name="name" optional="show"></field>
+                <field name="address" optional="show"></field>
+                <field name="purpose" optional="show"></field>
+                <field name="purpose_descript" optional="show"/>
+                <field name="in_time" optional="show"></field>
                 <field name="ordinal_number" optional="show"></field>
-                <field name="out_time"></field>
-                <field name="weight_in"></field>
-                <field name="weight_out"></field>
+                <field name="out_time" optional="show"></field>
+                <field name="weight_in" optional="show"></field>
+                <field name="weight_out" optional="show"></field>
+                <field name="product_template_ids" optional="show"></field>
             </tree>
         </field>
     </record>
@@ -142,11 +151,13 @@
                                  role="img"/>
                             <div class="oe_kanban_details d-flex flex-column">
                                 <strong class="o_kanban_record_title oe_partner_heading text-center" ><h2><field name="ordinal_number"/></h2></strong>
-                                <strong class="o_kanban_record_title oe_partner_heading"><field name="display_name"/></strong>
+                                <strong class="o_kanban_record_title oe_partner_heading"><h3><field name="name"/></h3></strong>
                                 <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
                                 <ul>
+                                    <li t-if="record.address.raw_value"><field name="address"/></li>
                                     <li t-if="record.number_plate.raw_value"><field name="number_plate"/></li>
-                                    <li t-if="record.purpose.raw_value"><field name="purpose"/></li>
+                                    <li t-if="record.purpose.raw_value != 'visit'"><field name="purpose"/></li>
+                                    <li t-if="record.purpose.raw_value == 'visit'"><field name="purpose_descript"/></li>
                                 </ul>
                                 <div class="o_row">
                                     <span class="oe_kanban_partner_links"/>

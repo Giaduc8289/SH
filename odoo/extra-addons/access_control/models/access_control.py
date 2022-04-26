@@ -19,6 +19,9 @@ class AccessControl(models.Model):
     weight_in = fields.Float('Weight in', default=0)
     weight_out = fields.Float('Weight out', default=0)
 
+    product_template_ids = fields.Many2many('product.template', column1='product_template_id', column2='id', relation='access_control_product_template_rel', string="Products")
+    purpose_descript = fields.Char('Purpose descript')
+
     state = fields.Selection([
         ('in', 'In'),
         ('weighin', 'Vehicle Weigh In'),
@@ -70,8 +73,9 @@ class AccessControl(models.Model):
     @api.onchange('res_partner_id')
     def _compute_inf_partner(self):
         for record in self:
-            if record.res_partner_id.name != None:
+            if record.res_partner_id.name != False:
                 record.name = record.res_partner_id.name
+                # if (record.res_partner_id.district_id.name != False and record.res_partner_id.state_id.name != False):
                 record.address = str(record.res_partner_id.district_id.name) + ', ' + str(record.res_partner_id.state_id.name)
 
 
