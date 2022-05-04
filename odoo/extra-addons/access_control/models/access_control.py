@@ -59,6 +59,22 @@ class AccessControl(models.Model):
                 action = self.env["ir.actions.actions"]._for_xml_id("purchase.purchase_form_action")
         return action
 
+    def action_purchase(self):
+        for record in self:
+            if(record.state == 'weighin'):
+                record.state = 'unload'
+            if(record.purpose == 'purchase'):
+                action = self.env["ir.actions.actions"]._for_xml_id("purchase.purchase_form_action")
+        return action
+
+    def action_sale(self):
+        for record in self:
+            if(record.state == 'weighin'):
+                record.state = 'unload'
+            if(record.purpose == 'sale'):
+                action = self.env["ir.actions.actions"]._for_xml_id("sale.action_orders")
+        return action
+
     def action_weigh_out(self):
         for record in self:
             if(record.state == 'unload'):

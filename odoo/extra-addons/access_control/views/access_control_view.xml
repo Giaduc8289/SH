@@ -8,7 +8,9 @@
             <form class="oe_form_configuration">
                 <header>
                     <button name="action_weigh_in" type="object" string="Weigh In" class="oe_highlight" attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}"/>
-                    <button name="action_unload" type="object" string="Unload Goods" class="oe_highlight" attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}"/>
+                    <button name="action_purchase" type="object" string="Purchase" class="oe_highlight" attrs="{'invisible': [('purpose', '!=', 'purchase')]}"/>
+                    <button name="action_sale" type="object" string="Sale" class="oe_highlight" attrs="{'invisible': [('purpose', '!=', 'sale')]}"/>
+<!--                    <button name="action_unload" type="object" string="Unload Goods" class="oe_highlight" attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}"/>-->
                     <button name="action_weigh_out" type="object" string="Weigh Out" class="oe_highlight" attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}"/>
                     <button name="action_check_out" id="action_confirm" data-hotkey="v"
                         string="Check out" class="btn-primary" type="object"
