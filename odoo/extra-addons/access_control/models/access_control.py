@@ -1,4 +1,4 @@
-from odoo import fields, models, api
+from odoo import _, fields, models, api, exceptions
 from odoo.tools.float_utils import float_is_zero
 from odoo.exceptions import ValidationError
 
@@ -60,19 +60,25 @@ class AccessControl(models.Model):
         return action
 
     def action_purchase(self):
+        action = self.env["ir.actions.actions"]
         for record in self:
             if(record.state == 'weighin'):
                 record.state = 'unload'
-            if(record.purpose == 'purchase'):
+            if ((record.state in ('weighin', 'unload')) and (record.purpose == 'sale')):
                 action = self.env["ir.actions.actions"]._for_xml_id("purchase.purchase_form_action")
+        # if action is None:
+        #     raise exceptions.UserError(_("No action available for this job"))
         return action
 
     def action_sale(self):
+        action = self.env["ir.actions.actions"]
         for record in self:
             if(record.state == 'weighin'):
                 record.state = 'unload'
-            if(record.purpose == 'sale'):
+            if ((record.state in ('weighin', 'unload')) and (record.purpose == 'purchase')):
                 action = self.env["ir.actions.actions"]._for_xml_id("sale.action_orders")
+        # if action is None:
+        #     raise exceptions.UserError(_("No action available for this job"))
         return action
 
     def action_weigh_out(self):
