@@ -173,7 +173,7 @@ msgstr "Tình trạng"
 #. module: access_control
 #: model:ir.model.fields.selection,name:access_control.selection__access_control__state__unload
 msgid "Unload Goods"
-msgstr "Xếp dỡ hàng"
+msgstr "Giao dịch"
 
 #. module: access_control
 #: model:res.groups,name:access_control.group_access_control_user
