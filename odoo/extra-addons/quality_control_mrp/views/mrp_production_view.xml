@@ -16,7 +16,7 @@
         <field name="groups_id"
                eval="[(4, ref('quality_control.group_quality_control_user'))]" />
         <field name="arch" type="xml">
-            <div name="button_box" position="inside">
+            <xpath expr="//div[@name='button_box']" position="inside">
                 <button class="oe_inline oe_stat_button"
                         type="action"
                         name="%(action_qc_inspection_per_production)d"
@@ -25,7 +25,7 @@
                            widget="statinfo"
                            string="inspections" />
                 </button>
-            </div>
+            </xpath>
         </field>
     </record>
 </odoo>

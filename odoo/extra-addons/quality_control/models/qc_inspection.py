@@ -22,8 +22,9 @@ class QcInspection(models.Model):
 
     # @api.multi
     def _links_get(self):
-        link_obj = self.env['res.request.link']
-        return [(r.object, r.name) for r in link_obj.search([])]
+        # link_obj = self.env['res.request.link']
+        # return [(r.object, r.name) for r in link_obj.search([])]
+        return [(model.model, model.name) for model in self.env['ir.model'].sudo().search([])]
 
     @api.depends('object_id')
     def _compute_product_id(self):

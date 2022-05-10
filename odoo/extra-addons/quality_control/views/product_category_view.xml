@@ -12,7 +12,7 @@
         <field name="model">product.category</field>
         <field name="inherit_id" ref="product.product_category_form_view"/>
         <field name="arch" type="xml">
-            <group name="first" position="after">
+            <xpath expr="//group[@name='first']" position="after">
                 <group name="qc" string="Quality control">
                     <field name="qc_triggers" nolabel="1">
                         <tree string="Quality control triggers" editable="bottom">
@@ -23,7 +23,7 @@
                         </tree>
                     </field>
                 </group>
-            </group>
+            </xpath>
         </field>
     </record>
 

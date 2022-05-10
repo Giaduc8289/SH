@@ -6,7 +6,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import api, exceptions, fields, models, _
-import odoo.addons.decimal_precision as dp
+# import odoo.addons.decimal_precision as dp
 
 
 class QcTest(models.Model):
@@ -18,8 +18,9 @@ class QcTest(models.Model):
 
     # @api.multi
     def _links_get(self):
-        link_obj = self.env['res.request.link']
-        return [(r.object, r.name) for r in link_obj.search([])]
+        # link_obj = self.env['res.request.link']
+        # return [(r.object, r.name) for r in link_obj.search([])]
+        return [(model.model, model.name) for model in self.env['ir.model'].sudo().search([])]
 
     @api.onchange('type')
     def onchange_type(self):
@@ -85,11 +86,11 @@ class QcTestQuestion(models.Model):
         comodel_name='qc.test.question.value', inverse_name="test_line",
         string='Qualitative values', copy=True)
     notes = fields.Text(string='Notes')
-    min_value = fields.Float(string='Min',
-                             digits=dp.get_precision('Quality Control'))
-    max_value = fields.Float(string='Max',
-                             digits=dp.get_precision('Quality Control'),)
-    uom_id = fields.Many2one(comodel_name='product.uom', string='Uom')
+    min_value = fields.Float(string='Min')#,
+                             #digits=dp.get_precision('Quality Control'))
+    max_value = fields.Float(string='Max')#,
+                             #digits=dp.get_precision('Quality Control'),)
+    uom_id = fields.Many2one(comodel_name='uom.uom', string='Uom')
 
 
 class QcTestQuestionValue(models.Model):
