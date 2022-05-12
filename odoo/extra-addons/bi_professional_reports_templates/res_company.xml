@@ -8,14 +8,14 @@
             <field name="inherit_id" ref="base.view_company_form"/>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                <field name="parent_id" position="after">
+                <xpath expr="//field[@name='parent_id']" position="after">
                     <group colspan="2" col="2">
                         <field name="sale_template"/>
                         <field name="purchase_template"/>
                         <field name="account_template"/>
                         <field name="stock_template"/>
                     </group>
-                </field>
+                </xpath>
             </field>
         </record>
         <record id="account_invoice_inherit_form_view" model="ir.ui.view">
@@ -38,9 +38,9 @@
             <field name="inherit_id" ref="base.view_company_form"/>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                <field name="parent_id" position="before">
+                <xpath expr="//field[@name='parent_id']" position="before">
                     <field name="bank_account_id"/>
-                </field>
+                </xpath>
             </field>
         </record>
 
@@ -50,7 +50,7 @@
             <field name="inherit_id" ref="base.view_partner_bank_form"/>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                <field name="company_id" position="after">
+                <xpath expr="//field[@name='partner_id']" position="before">
                     <field name="branch_name"/>
                     <label for="street" string="Address"/>
                     <div class="o_address_format">
@@ -63,7 +63,7 @@
                     </div>
                     <field name="swift_code"/>
                     <field name="ifsc"/>
-                </field>
+                </xpath>
             </field>
         </record>
 
