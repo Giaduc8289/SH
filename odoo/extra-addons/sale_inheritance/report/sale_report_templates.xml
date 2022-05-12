@@ -1,78 +1,219 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
-<template id="report_saleorder" inherit_id="sale.report_saleorder_document">
-<!-- <t t-set="information_block">-->
-    <xpath expr="//t[@t-set='address']" position="replace">
-<!--        <attribute name="invisible">1</attribute>-->
-    </xpath>
-    <xpath expr="//h2[@class='mt16']" position="before">
-        <div style="width:100%;float:left;font-family: Arial, Helvetica, sans-serif;">
-            <div style="width:20%; float:left;">
-                <img src="../static/img/logocv.png" alt="tẽt" width="100px" />
-            </div>
-            <div style="width:80%; float:right; text-align:center !important;">
-                <div style="text-transform: uppercase;font-weight: bold;">Công ty TNHH TM Công nghệ Sinh Hóa</div>
-                <div>Trụ sở : Số 10, ngõ 80/3, Phố Nhân Hòa, Phường Nhân Chính, Q.Thanh Xuân - TP. Hà Nội</div>
-                <div>Nhà máy: Lô 44G, KCN Quang Minh, Mê Linh, Hà Nội</div>
-                <div>Tel: 043.818.2266 - Fax: 043.216.1165</div>
+
+    <template id="classic_report_saleorder_document">
+        <t t-if="o and 'company_id' in o">
+            <t t-set="company" t-value="o.company_id"></t>
+        </t>
+        <t t-if="not o or not 'company_id' in o">
+            <t t-set="company" t-value="res_company"></t>
+        </t>
+        <div class="header">
+            <div class="row mt32 mb32">
+                <div class="col-6">
+                    <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)"
+                         style="max-height: 50px;"/>
+                </div>
+                <div class="col-6 text-right" style="font:12px lucida-console,sans-serif !important;">
+                    <span t-field="company.partner_id"/>
+                    <br/>
+                    <span t-field="company.partner_id.street"/>
+                    <br/>
+                    <span t-field="company.partner_id.street2"/>
+                    <br/>
+                    <span t-field="company.partner_id.city"/>
+                    <br/>
+                    <span t-field="company.partner_id.country_id"/>
+                    <br/>
+                    <span t-field="company.partner_id.vat"/>
+                    <br/>
+                </div>
             </div>
         </div>
-        <div style="width:100%;font-family: Arial, Helvetica, sans-serif;font-size:24px;margin: 15px 0px;text-transform: uppercase;font-weight: bold;text-align:center;">
-                Hóa đơn bán hàng
-        </div>
 
-        <table cellspacing="0" cellpadding="0" style="border:1px solid red !important;width:100%;float:left;font-weight: bold;font-family: Arial, Helvetica, sans-serif;font-size:13px;">
-            <tr style="border:0px !important;">
-                <td style="width:150px;">Khách hàng:</td>
-                <td>Bùi Văn Tuấn</td>
-            </tr>
-            <tr>
-                <td style="width:150px;">Mã KH:</td>
-                <td>tuanhn</td>
-            </tr>
-            <tr>
-                <td style="width:150px;">Địa chỉ:</td>
-                <td>Võng Xuyên- PHúc Thọ- Hà Nội</td>
-            </tr>
-            <tr>
-                <td style="width:150px;">SĐT:</td>
-                <td>0976751838</td>
-            </tr>
-            <tr>
-                <td style="width:150px;">Thời gian:</td>
-                <td>26/8/2021</td>
-            </tr>
-        </table>
+        <t t-call="web.external_layout">
+            <t t-set="doc" t-value="doc.with_context({'lang':zh_CN})"/>
+            <div class="page">
+                <div class="oe_structure"/>
+                <div>
+                    <table class="table table-sm" style=" table-layout:fixed;">
+                        <thead>
+                            <tr>
+                                <th width="30px"
+                                    style="background-color:#3498DB !important;border: 1px !important; border-style: solid !important; border-color: #fff; color:#fff !important; ">
+                                    Customer Address</th>
+                                <th width="30px"
+                                    style="background-color:#3498DB !important;border: 1px !important; border-style: solid !important; border-color: #fff; color:#fff !important; ">
+                                    Invoicing and Shipping Address</th>
+                                <th width="20px"
+                                    style="background-color:#3498DB !important;border: 1px !important; border-style: solid !important; border-color: #fff; color:#fff !important; ">
+                                    Quotation Date</th>
+                                <th width="20px"
+                                    style="background-color:#3498DB !important;border: 1px !important; border-style: solid !important; border-color: #fff; color:#fff !important; ">
+                                    Quotation #</th>
+                            </tr>
+                        </thead>
+                        <tbody class="sale_tbody">
+                            <tr>
+                                <td style="border: 1px !important; border-style: solid !important; border-color: #fff !important;">
+                                    <div t-field="doc.partner_id"/>
+                                    <t t-if="doc.partner_id.street">
+                                        <t t-esc="doc.partner_id.street"/>
+                                    </t><br/>
+                                    <t t-if="doc.partner_id.street2">
+                                        <t t-esc="doc.partner_id.street2"/>
+                                    </t><br/>
+                                    <t t-if="doc.partner_id.city">
+                                        <t t-esc="doc.partner_id.city"/>
+                                    </t><br/>
+                                    <t t-if="doc.partner_id.state_id.name">
+                                        <t t-esc="doc.partner_id.state_id.name"/>
+                                    </t><br/>
+                                    <t t-if="doc.partner_id.country_id.name">
+                                        <t t-esc="doc.partner_id.country_id.name"/>
+                                    </t><br/>
+                                    <t t-if="doc.partner_id.zip">
+                                        <t t-esc="doc.partner_id.zip"/>
+                                    </t><br/>
+                                    <div t-field="doc.partner_id.vat"/>
+                                </td>
 
-    </xpath>
-    <!--
-    <xpath expr="//h2[@class='mt16']" position="before">
-            <h1>    test         </h1>
-    </xpath>
-    <xpath expr="//table" position="after">
-            <h1>abc</h1>
-    </xpath>
-    -->
-    <xpath expr="//table" position="attributes">
-<!--        <attribute name="border">1</attribute>-->
-<!--        <attribute name="style">border: 1pt solid black;</attribute>-->
-        <attribute name="class">table table-bordered</attribute>
-    </xpath>
-    <xpath expr="//th[@name='th_description']" position="after">
-        <th name="th_product_weight" class="text-center">Quy cách</th>
-    </xpath>
-    <xpath expr="//td[@name='td_name']" position="after">
-        <td name="th_product_weight" class="text-center">
-            <t t-if="line.product_weight != 0">
-                <span t-esc="'{0:,}'.format(int(line.product_weight))"/>
+                                <td style="border: 1px !important; border-style: solid !important; border-color: #fff !important;">
+                                    <div t-field="doc.partner_invoice_id"/>
+                                    <t t-if="doc.partner_invoice_id.street">
+                                        <t t-esc="doc.partner_invoice_id.street"/>
+                                    </t><br/>
+                                    <t t-if="doc.partner_invoice_id.street2">
+                                        <t t-esc="doc.partner_invoice_id.street2"/>
+                                    </t><br/>
+                                    <t t-if="doc.partner_invoice_id.city">
+                                        <t t-esc="doc.partner_invoice_id.city"/>
+                                    </t>
+                                    <t t-if="doc.partner_invoice_id.state_id">
+                                        <t t-esc="doc.partner_invoice_id.state_id.name"/>
+                                    </t><br/>
+                                    <t t-if="doc.partner_invoice_id.country_id">
+                                        <t t-esc="doc.partner_invoice_id.country_id.name"/>
+                                    </t><br/>
+                                    <t t-if="doc.partner_invoice_id.zip">
+                                        <t t-esc="doc.partner_invoice_id.zip"/>
+                                    </t><br/>
+                                    <div t-field="doc.partner_invoice_id.vat"/>
+                                </td>
+                                <td style="border: 1px !important; border-style: solid !important; border-color: #fff !important;">
+                                    <span t-field="doc.date_order"/>
+                                </td>
+                                <td style="border: 1px !important; border-style: solid !important; border-color: #fff !important;">
+                                    <strong><span t-field="doc.name"/></strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Is there a discount on at least one line? -->
+                    <t t-set="display_discount" t-value="any([l.discount for l in doc.order_line])"/>
+
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th style="background-color:#3498DB !important;color:#FFF !important;">Description</th>
+                                <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                    class="text-right">Quantity</th>
+                                <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                    class="text-right">Unit Price</th>
+                                <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                    t-if="display_discount" class="text-right" groups="sale.group_discount_per_so_line">
+                                    Disc.(%)</th>
+                                <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                    class="text-right">Taxes</th>
+                                <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                    class="text-right">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody class="sale_tbody">
+                            <t t-foreach="doc.order_line" t-as="l">
+                                <tr t-if="l.product_uom_qty">
+                                    <td>
+                                        <span t-field="l.name"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="l.product_uom_qty"/>
+                                        <span groups="uom.group_uom" t-field="l.product_uom"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="l.price_unit"/>
+                                    </td>
+                                    <td t-if="display_discount" class="text-right"
+                                        groups="sale.group_discount_per_so_line">
+                                        <span t-field="l.discount"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="', '.join(map(lambda x: (x.description or x.name), l.tax_id))"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="l.price_subtotal"
+                                              t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+                <div name="total">
+                    <div class="col-xs-4 pull-right">
+                        <table class="table table-condensed">
+                            <tr class="border-black">
+                                <td><strong>Total Without Taxes</strong></td>
+                                <td class="text-right">
+                                    <span t-field="doc.amount_untaxed"
+                                          t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Taxes</td>
+                                <td class="text-right">
+                                    <span t-field="doc.amount_tax"
+                                          t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
+                                </td>
+                            </tr>
+                            <tr class="border-black">
+                                <td style="background-color:#3498DB !important;color:#FFF !important;"><strong>
+                                    Total</strong></td>
+                                <td style="background-color:#3498DB !important;color:#FFF !important;"
+                                    class="text-right">
+                                    <span t-field="doc.amount_total"
+                                          t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                <div style=" background-color: #3498DB; color:#fff !important; font:15px lucida-console,sans-serif !important; ">
+                    <p t-if="doc.note">
+                        <strong><span>Note:</span></strong> <span t-field="doc.note"/>
+                    </p>
+                </div>
+                <div style=" background-color: #3498DB; color:#fff !important; font:15px lucida-console,sans-serif !important;">
+                    <p t-if="doc.payment_term_id ">
+                        <strong><div name="payment_term">Payment Term :<span
+                                t-field="doc.payment_term_id"/></div></strong>
+                    </p>
+                </div>
+                <div class="oe_structure"/>
+            </div>
+        </t>
+    </template>
+
+    <template id="custom_report_saleorder" inherit_id="sale.report_saleorder">
+        <xpath expr="//t[@t-call='web.html_container']" position="replace">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="sale_inheritance.classic_report_saleorder_document" t-lang="doc.partner_id.lang"/>
+                </t>
             </t>
-            <t t-else="">
-                <span></span>
-            </t>
-        </td>
-    </xpath>
-    <xpath expr="//span[@t-field='line.product_uom']" position="replace">
-    </xpath>
-</template>
+        </xpath>
+    </template>
+
 </odoo>

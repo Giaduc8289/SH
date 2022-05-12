@@ -139,7 +139,7 @@
                             </td>
                             <td class="text-right">
                                 <span t-field="l.product_uom_qty"/>
-                                <span groups="uom.group_uom" t-field="l.product_uom"/>
+                                <span groups="product.group_uom" t-field="l.product_uom"/>
                             </td>
                             <td class="text-right">
                                 <span t-field="l.price_unit"/>
