@@ -7,6 +7,37 @@ from odoo.tools.misc import formatLang
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
+    amount_untaxed_1 = fields.Monetary(string='Price Amount', compute='_amount_price')
+    amount_untaxed_2 = fields.Monetary(string='Discount Amount', compute='_amount_discount')
+
+    @api.depends('order_line.price_total')
+    def _amount_price(self):
+        """
+        Compute the total amounts of the SO.
+        """
+        for order in self:
+            amount_untaxed = 0.0
+            for line in order.order_line:
+                if line.product_id.categ_id.id in (10, 11, 12):
+                    amount_untaxed += line.price_subtotal
+            order.update({
+                'amount_untaxed_1': amount_untaxed,
+            })
+
+    @api.depends('order_line.price_total')
+    def _amount_discount(self):
+        """
+        Compute the total amounts of the SO.
+        """
+        for order in self:
+            amount_untaxed = 0.0
+            for line in order.order_line:
+                if line.product_id.categ_id.id not in (10, 11, 12):
+                    amount_untaxed += line.price_subtotal
+            order.update({
+                'amount_untaxed_2': -amount_untaxed,
+            })
+
     def _get_reward_values_discount_fixed_amount(self, program):
         total_amount = sum(self._get_base_order_lines(program).mapped('price_total'))
         fixed_amount = program._compute_program_amount('discount_fixed_amount', self.currency_id)
