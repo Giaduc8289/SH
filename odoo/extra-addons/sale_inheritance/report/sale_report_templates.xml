@@ -31,7 +31,7 @@
             <t t-set="doc" t-value="doc.with_context({'lang':zh_CN})"/>
             <div class="page">
                 <div class="oe_structure"/>
-                <h2 class="text-center bold">HÓA ĐƠN BÁN HÀNG</h2>
+                <h2 class="text-center bold"><center>HÓA ĐƠN BÁN HÀNG</center></h2>
                 <div>
                     <span width="30px"
                        style="font-weight: bold;">
@@ -89,36 +89,29 @@
                         <thead>
                             <tr>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Mã SP</th>
+                                    class="text-left">Mã SP</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Tên sản phẩm</th>
+                                    class="text-left">Tên sản phẩm</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Mã sản phẩm</th>
+                                    class="text-right">Mã sản phẩm</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Trọng lượng</th>
+                                    class="text-right">Trọng lượng</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Đơn giá</th>
+                                    class="text-right">Đơn giá</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    t-if="display_discount" class="text-right"
-                                    groups="product.group_discount_per_so_line">
-                                    Disc.(%)</th>
-                                <!--                                <th style="background-color:#3498DB !important;color:#FFF !important;"-->
-                                <!--                                    class="text-center">Taxes</th>-->
-                                <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Thành tiền
-                                </th>
+                                    class="text-right">Thành tiền</th>
                             </tr>
                         </thead>
                         <tbody class="sale_tbody">
                             <t t-foreach="doc.order_line" t-as="l">
                                 <tr t-if="l.product_id.categ_id.id in (10,11,12)">
-                                    <td>
+                                    <td class="text-left">
                                         <span t-field="l.product_id.code"/>
                                     </td>
-                                    <td>
+                                    <td class="text-left">
                                         <span t-field="l.name"/>
                                     </td>
-                                    <td>
+                                    <td class="text-right">
                                         <span t-field="l.product_id.product_spec"/>
                                     </td>
                                     <td class="text-right">
@@ -156,26 +149,19 @@
                         <thead>
                             <tr>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Giảm giá</th>
+                                    class="text-left">Giảm giá</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Trọng lượng</th>
+                                    class="text-right">Trọng lượng</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Đơn giá</th>
+                                    class="text-right">Đơn giá</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    t-if="display_discount" class="text-right"
-                                    groups="product.group_discount_per_so_line">
-                                    Disc.(%)</th>
-                                <!--                                <th style="background-color:#3498DB !important;color:#FFF !important;"-->
-                                <!--                                    class="text-center">Taxes</th>-->
-                                <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Thành tiền
-                                </th>
+                                    class="text-right">Thành tiền</th>
                             </tr>
                         </thead>
                         <tbody class="sale_tbody">
                             <t t-foreach="doc.order_line" t-as="l">
                                 <tr t-if="l.product_id.categ_id.id not in (10,11,12)">
-                                    <td>
+                                    <td class="text-left">
                                         <span t-field="l.name"/>
                                     </td>
                                     <td class="text-right">
@@ -270,7 +256,7 @@
             <t t-set="doc" t-value="doc.with_context({'lang':zh_CN})"/>
             <div class="page">
                 <div class="oe_structure"/>
-                <h2 class="text-center bold">HÓA ĐƠN BÁN HÀNG</h2>
+                <h2 class="text-center bold"><center>HÓA ĐƠN BÁN HÀNG</center></h2>
                 <div>
                     <span width="30px"
                        style="font-weight: bold;">
@@ -328,36 +314,29 @@
                         <thead>
                             <tr>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Mã SP</th>
+                                    class="text-left">Mã SP</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Tên sản phẩm</th>
+                                    class="text-left">Tên sản phẩm</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Mã sản phẩm</th>
+                                    class="text-right">Mã sản phẩm</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Trọng lượng</th>
+                                    class="text-right">Trọng lượng</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Đơn giá</th>
+                                    class="text-right">Đơn giá</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    t-if="display_discount" class="text-right"
-                                    groups="product.group_discount_per_so_line">
-                                    Disc.(%)</th>
-                                <!--                                <th style="background-color:#3498DB !important;color:#FFF !important;"-->
-                                <!--                                    class="text-center">Taxes</th>-->
-                                <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Thành tiền
-                                </th>
+                                    class="text-right">Thành tiền</th>
                             </tr>
                         </thead>
                         <tbody class="sale_tbody">
                             <t t-foreach="doc.order_line" t-as="l">
                                 <tr t-if="l.product_id.categ_id.id in (10,11,12)">
-                                    <td>
+                                    <td class="text-left">
                                         <span t-field="l.product_id.code"/>
                                     </td>
-                                    <td>
+                                    <td class="text-left">
                                         <span t-field="l.name"/>
                                     </td>
-                                    <td>
+                                    <td class="text-right">
                                         <span t-field="l.product_id.product_spec"/>
                                     </td>
                                     <td class="text-right">
@@ -395,26 +374,19 @@
                         <thead>
                             <tr>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Giảm giá</th>
+                                    class="text-left">Giảm giá</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Trọng lượng</th>
+                                    class="text-right">Trọng lượng</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Đơn giá</th>
+                                    class="text-right">Đơn giá</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    t-if="display_discount" class="text-right"
-                                    groups="product.group_discount_per_so_line">
-                                    Disc.(%)</th>
-                                <!--                                <th style="background-color:#3498DB !important;color:#FFF !important;"-->
-                                <!--                                    class="text-center">Taxes</th>-->
-                                <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Thành tiền
-                                </th>
+                                    class="text-right">Thành tiền</th>
                             </tr>
                         </thead>
                         <tbody class="sale_tbody">
                             <t t-foreach="doc.order_line" t-as="l">
                                 <tr t-if="l.product_id.categ_id.id not in (10,11,12)">
-                                    <td>
+                                    <td class="text-left">
                                         <span t-field="l.name"/>
                                     </td>
                                     <td class="text-right">
@@ -509,7 +481,7 @@
             <t t-set="doc" t-value="doc.with_context({'lang':zh_CN})"/>
             <div class="page">
                 <div class="oe_structure"/>
-                <h2 class="text-center bold">HÓA ĐƠN BÁN HÀNG</h2>
+                <h2 class="text-center bold"><center>HÓA ĐƠN BÁN HÀNG</center></h2>
                 <div>
                     <span width="30px"
                        style="font-weight: bold;">
@@ -567,36 +539,29 @@
                         <thead>
                             <tr>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Mã SP</th>
+                                    class="text-left">Mã SP</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Tên sản phẩm</th>
+                                    class="text-left">Tên sản phẩm</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Mã sản phẩm</th>
+                                    class="text-right">Mã sản phẩm</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Trọng lượng</th>
+                                    class="text-right">Trọng lượng</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Đơn giá</th>
+                                    class="text-right">Đơn giá</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    t-if="display_discount" class="text-right"
-                                    groups="product.group_discount_per_so_line">
-                                    Disc.(%)</th>
-                                <!--                                <th style="background-color:#3498DB !important;color:#FFF !important;"-->
-                                <!--                                    class="text-center">Taxes</th>-->
-                                <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Thành tiền
-                                </th>
+                                    class="text-right">Thành tiền</th>
                             </tr>
                         </thead>
                         <tbody class="sale_tbody">
                             <t t-foreach="doc.order_line" t-as="l">
                                 <tr t-if="l.product_id.categ_id.id in (10,11,12)">
-                                    <td>
+                                    <td class="text-left">
                                         <span t-field="l.product_id.code"/>
                                     </td>
-                                    <td>
+                                    <td class="text-left">
                                         <span t-field="l.name"/>
                                     </td>
-                                    <td>
+                                    <td class="text-right">
                                         <span t-field="l.product_id.product_spec"/>
                                     </td>
                                     <td class="text-right">
@@ -634,26 +599,19 @@
                         <thead>
                             <tr>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Giảm giá</th>
+                                    class="text-left">Giảm giá</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Trọng lượng</th>
+                                    class="text-right">Trọng lượng</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Đơn giá</th>
+                                    class="text-right">Đơn giá</th>
                                 <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    t-if="display_discount" class="text-right"
-                                    groups="product.group_discount_per_so_line">
-                                    Disc.(%)</th>
-                                <!--                                <th style="background-color:#3498DB !important;color:#FFF !important;"-->
-                                <!--                                    class="text-center">Taxes</th>-->
-                                <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                    class="text-center">Thành tiền
-                                </th>
+                                    class="text-right">Thành tiền</th>
                             </tr>
                         </thead>
                         <tbody class="sale_tbody">
                             <t t-foreach="doc.order_line" t-as="l">
                                 <tr t-if="l.product_id.categ_id.id not in (10,11,12)">
-                                    <td>
+                                    <td class="text-left">
                                         <span t-field="l.name"/>
                                     </td>
                                     <td class="text-right">
