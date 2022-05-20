@@ -13,7 +13,8 @@
         "views/sale_order_views.xml",
         "views/sale_views.xml",
         "views/coupon_program_views.xml",
-        "report/sale_report_templates.xml"
+        "report/sale_report_templates.xml",
+        "views/preview_sale.xml"
     ],
     "installable": True,
     "maintainers": ["anhnth.mta@gmail.com"]

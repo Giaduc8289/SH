@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <template id="preview" inherit_id = "sale.sale_order_portal_content" >
+            <xpath expr="//section[@id='details']" position="replace">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th class="text-left">Mã SP</th>
+                            <th class="text-left">Tên sản phẩm</th>
+                            <th class="text-right">Mã sản phẩm</th>
+                            <th class="text-right">Trọng lượng</th>
+                            <th class="text-right">Đơn giá</th>
+                            <th class="text-right">Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody class="sale_tbody">
+                        <t t-foreach="sale_order.order_line" t-as="line">
+                            <tr t-if="line.product_id.categ_id.id in (10,11,12)">
+                                    <td class="text-left">
+                                        <span t-field="line.product_id.code"/>
+                                    </td>
+                                    <td class="text-left">
+                                        <span t-field="line.name"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="line.product_id.product_spec"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="line.product_uom_qty"/>
+                                        <span groups="uom.group_uom" t-field="line.product_uom"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="line.price_unit"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="line.price_subtotal"
+                                              t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
+                                    </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+                <table class="table table-condensed">
+                    <tr class="border-black">
+                        <td><strong>Tổng thành tiền:</strong></td>
+                            <td class="text-right">
+                                <strong><span t-field="sale_order.amount_untaxed_1"
+                                              t-field-options='{"widget": "monetary", "display_currency": "sale_order.pricelist_id.currency_id"}'/></strong>
+                            </td>
+                    </tr>
+                </table>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th class="text-left">Giảm giá</th>
+                            <th class="text-right">Trọng lượng</th>
+                            <th class="text-right">Đơn giá</th>
+                            <th class="text-right">Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody class="sale_tbody">
+                        <t t-foreach="sale_order.order_line" t-as="line">
+                                <tr t-if="line.product_id.categ_id.id not in (10,11,12)">
+                                    <td class="text-left">
+                                        <span t-field="line.name"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="line.product_uom_qty"/>
+                                        <span groups="uom.group_uom" t-field="line.product_uom"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc = "abs(line.price_unit)" />
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="abs(line.price_subtotal)"
+                                              t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
+                                    </td>
+                                </tr>
+                        </t>
+                    </tbody>
+                </table>
+                <table class="table table-condensed">
+                    <tr class="border-black">
+                        <td><strong>Tổng giảm giá:</strong></td>
+                            <td class="text-right">
+                                <strong><span t-field="sale_order.amount_untaxed_2"
+                                              t-field-options='{"widget": "monetary", "display_currency": "sale_order.pricelist_id.currency_id"}'/></strong>
+                            </td>
+                    </tr>
+                </table>
+                <table class="table table-condensed">
+                    <tr class="border-black">
+                        <td><strong>Tổng giảm giá:</strong></td>
+                            <td class="text-right">
+                                <strong><span t-field="sale_order.amount_total"
+                                              t-field-options='{"widget": "monetary", "display_currency": "sale_order.pricelist_id.currency_id"}'/></strong>
+                            </td>
+                    </tr>
+                </table>
+
+            </xpath>
+        </template>
+</odoo>
