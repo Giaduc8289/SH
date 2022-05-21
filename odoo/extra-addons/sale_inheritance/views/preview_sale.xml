@@ -42,7 +42,7 @@
                 </table>
                 <table class="table table-condensed">
                     <tr class="border-black">
-                        <td><strong>Tổng thành tiền:</strong></td>
+                        <td><strong>Thành tiền:</strong></td>
                             <td class="text-right">
                                 <strong><span t-field="sale_order.amount_untaxed_1"
                                               t-field-options='{"widget": "monetary", "display_currency": "sale_order.pricelist_id.currency_id"}'/></strong>
@@ -90,7 +90,7 @@
                 </table>
                 <table class="table table-condensed">
                     <tr class="border-black">
-                        <td><strong>Tổng giảm giá:</strong></td>
+                        <td><strong>Tổng thành tiền:</strong></td>
                             <td class="text-right">
                                 <strong><span t-field="sale_order.amount_total"
                                               t-field-options='{"widget": "monetary", "display_currency": "sale_order.pricelist_id.currency_id"}'/></strong>
