@@ -18,8 +18,14 @@
 <!--        <field name="name">Khởi tạo đơn hàng</field>-->
 <!--    </record>-->
 
-    <menuitem id="base_inheritance.menu_product_kind_config_sale" name="Product Kinds"
+    <menuitem id="menu_product_kind_config_sale" name="Product Kinds"
               parent="sale.menu_sale_config" sequence="3"
               action="base_inheritance.product_kind_action_form"/>
+
+    <menuitem id="menu_report_product_all_customize"
+            name="Sales customize"
+            action="sale.action_order_report_all"
+            parent="sale.menu_sale_report"
+            sequence="2"/>
 
 </odoo>
