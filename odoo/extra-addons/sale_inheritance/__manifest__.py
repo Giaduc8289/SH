@@ -10,12 +10,12 @@
     "depends": ["base_inheritance", "sale", 'coupon', "sale_coupon"],
     "data": [
         'security/ir.model.access.csv',
+        "report/sale_report_views.xml",
         "views/sale_order_views.xml",
         "views/sale_views.xml",
         "views/coupon_program_views.xml",
         "report/sale_report_templates.xml",
         "views/preview_sale.xml",
-        "views/sale_report_views.xml"
     ],
     "installable": True,
     "maintainers": ["anhnth.mta@gmail.com"]
