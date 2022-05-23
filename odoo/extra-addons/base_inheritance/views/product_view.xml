@@ -215,6 +215,5 @@
         <field name="search_view_id" ref="product_kind_search_view"/>
         <field name="view_id" ref="product_kind_list_view"/>
     </record>
-    <menuitem action="product_kind_action_form" id="menu_product_kind_config_sale"
-              parent="sale.menu_sale_config" sequence="4" />
+
 </odoo>
