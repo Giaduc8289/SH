@@ -100,4 +100,15 @@ class AccessControl(models.Model):
                 # if (record.res_partner_id.district_id.name != False and record.res_partner_id.state_id.name != False):
                 record.address = str(record.res_partner_id.district_id.name) + ', ' + str(record.res_partner_id.state_id.name)
 
+class ReportAccessControl(models.Model):
+    _name = 'report.access.control'
+    _description = "Report Access Control"
+
+    f_date = fields.Date('From date')
+    t_date = fields.Date('To date')
+
+    def action_print_report(self):
+        action = self.env["ir.actions.actions"]._for_xml_id("sale.action_orders")
+        return action
+
 

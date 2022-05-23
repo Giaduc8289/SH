@@ -175,6 +175,27 @@
         </field>
     </record>
 
+    <record id="report_access_control_form_view" model="ir.ui.view">
+        <field name="name">report.access.control.form</field>
+        <field name="model">report.access.control</field>
+        <field name="arch" type="xml">
+            <form class="oe_form_configuration">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="f_date" widget="date" />
+                        </group>
+                        <group>
+                            <field name="t_date" widget="date" />
+                        </group>
+                    </group>
+                    <button name="action_print_report" type="object" string="In" class="oe_highlight"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
     <!-- Actions -->
     <record id="access_control_action_form" model="ir.actions.act_window">
         <field name="name">Access Controls</field>
@@ -183,6 +204,15 @@
         <field name="view_mode">kanban,tree,form</field>
         <field name="search_view_id" ref="access_control_search_view"/>
         <field name="view_id" ref="access_control_kanban_view"/>
+    </record>
+
+    <record id="report_access_control_action_form" model="ir.actions.act_window">
+        <field name="name">Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">report.access.control</field>
+        <field name="view_mode">form</field>
+<!--        <field name="search_view_id" ref="access_control_search_view"/>-->
+        <field name="view_id" ref="report_access_control_form_view"/>
     </record>
 
     <!-- Top menu item -->
@@ -196,5 +226,11 @@
               name="Access Control"
               parent="access_control_menu_root"
               sequence="1"/>
+
+        <menuitem id="report_access_control_menu"
+              action="report_access_control_action_form"
+              name="Report Access Control"
+              parent="access_control_menu_root"
+              sequence="2"/>
 
 </odoo>
