@@ -13,6 +13,7 @@
         'security/ir.model.access.csv',
         "data/ir_sequence.xml",
         "views/access_control_view.xml",
+        "report/access_control_report.xml"
     ],
     "installable": True,
     'application': True,
