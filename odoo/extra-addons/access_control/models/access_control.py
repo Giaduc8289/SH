@@ -100,18 +100,34 @@ class AccessControl(models.Model):
                 # if (record.res_partner_id.district_id.name != False and record.res_partner_id.state_id.name != False):
                 record.address = str(record.res_partner_id.district_id.name) + ', ' + str(record.res_partner_id.state_id.name)
 
-class ReportAccessControl(models.Model):
-    _name = 'report.access.control'
-    _description = "Report Access Control"
+    def action_print_report(self):
+        action = self.env.ref('access_control.action_report_access_control').report_action(None, data=None)
+        return action
+
+class FilterAccessControl(models.Model):
+    _name = 'filter.access.control'
+    _rec_name = 'f_date'
 
     f_date = fields.Date('From date')
     t_date = fields.Date('To date')
 
-    def action_print_report(self):
-        # action = self.env["ir.actions.actions"]._for_xml_id("sale.action_orders")
-        # action = self.env['access.control'].search([('in_time', '>=', self.f_date), ('in_time', '<=', self.t_date)])#._for_xml_id('access_control.access_control_action_form')
-        action = self.env["ir.actions.actions"]._for_xml_id('access_control.action_access')#access_control.action_access')#access_control.action_report_access_control')
+    def action_filter_data(self):
+        action = self.env["ir.actions.actions"]._for_xml_id('access_control.action_filter_access_control')
         action['domain'] = [('in_time', '>=', self.f_date), ('in_time', '<=', self.t_date)]
         return action
+
+
+class AccessControlReport(models.AbstractModel):
+    _name = 'access.control.report_access_control_document'
+
+    @api.model
+    def _get_report_values(self, docids, data=None):
+        docs = self.env['access.control'].browse(docids)
+        return {
+              'doc_ids': docids,
+              'doc_model': 'access.control',
+              'docs': docs,
+              'data': data,
+        }
 
 

@@ -14,7 +14,7 @@
         "data/ir_sequence.xml",
         "views/access_control_view.xml",
         "report/access_control_report.xml",
-        "report/access_control_report_templates.xml"
+        "report/access_control_report_templates.xml",
     ],
     "installable": True,
     'application': True,

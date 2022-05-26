@@ -120,6 +120,9 @@
         <field name="model">access.control</field>
         <field name="arch" type="xml">
             <tree string="Access Controls">
+                <header>
+                    <button name="action_print_report" type="object" string="Print" class="oe_highlight"/>
+                </header>
                 <field name="number_plate" optional="show"/>
                 <field name="res_partner_id"/>
                 <field name="name" optional="show"></field>
@@ -177,7 +180,7 @@
 
     <record id="report_access_control_form_view" model="ir.ui.view">
         <field name="name">report.access.control.form</field>
-        <field name="model">report.access.control</field>
+        <field name="model">filter.access.control</field>
         <field name="arch" type="xml">
             <form create="false">
                 <sheet>
@@ -189,7 +192,7 @@
                             <field name="t_date" widget="date" />
                         </group>
                     </group>
-                    <button name="action_print_report" type="object" string="Print" class="oe_highlight"/>
+                    <button name="action_filter_data" type="object" string="Filter" class="oe_highlight"/>
                 </sheet>
             </form>
         </field>
@@ -197,7 +200,7 @@
 
 
     <!-- Actions -->
-    <record id="access_control_action_form" model="ir.actions.act_window">
+    <record id="action_access_control_form" model="ir.actions.act_window">
         <field name="name">Access Controls</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">access.control</field>
@@ -206,16 +209,16 @@
         <field name="view_id" ref="access_control_kanban_view"/>
     </record>
 
-    <record id="report_access_control_action_form" model="ir.actions.act_window">
+    <record id="action_report_access_control_form" model="ir.actions.act_window">
         <field name="name">Report</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">report.access.control</field>
+        <field name="res_model">filter.access.control</field>
 <!--        <field name="view_mode">form</field>-->
 <!--        <field name="search_view_id" ref="access_control_search_view"/>-->
         <field name="view_id" ref="report_access_control_form_view"/>
     </record>
 
-        <record id="action_access" model="ir.actions.act_window">
+        <record id="action_filter_access_control" model="ir.actions.act_window">
             <field name="name">Access Control</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">access.control</field>
@@ -237,14 +240,14 @@
               sequence="15"/>
 
     <menuitem id="access_control_menu"
-              action="access_control_action_form"
+              action="action_access_control_form"
               name="Access Control"
               parent="access_control_menu_root"
               sequence="1"/>
 
         <menuitem id="report_access_control_menu"
-              action="report_access_control_action_form"
-              name="Report Access Control"
+              action="action_report_access_control_form"
+              name="Report"
               parent="access_control_menu_root"
               sequence="2"/>
 
