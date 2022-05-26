@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, _
 from odoo.tools.misc import formatLang
+from odoo import api, fields, models, _
 
 class SaleOrder(models.Model):
     _inherit = "sale.order"
+    date_order = fields.Datetime(string='Order Date', required=True, readonly=True, index=True, states={'draft': [('readonly', False)], 'sent': [('readonly', False)]}, copy=False, default=fields.Datetime.now)
 
     amount_untaxed_1 = fields.Monetary(string='Price Amount', compute='_amount_price')
     amount_untaxed_2 = fields.Monetary(string='Discount Amount', compute='_amount_discount')
@@ -134,3 +135,19 @@ class SaleOrder(models.Model):
                 if reward_dict[val]["price_unit"] == 0:
                     del reward_dict[val]
         return reward_dict.values()
+
+
+class ReportSaleOrder(models.Model):
+    _name = 'report.sale.order'
+    _description = "Report Sale Order"
+    _rec_name = 't_date'
+
+    f_date = fields.Date('Date from:', )
+    t_date = fields.Date('Date to:')
+
+    @api.constrains('f_date', 't_date')
+    def action_print_report(self):
+        action = self.env["ir.actions.actions"]._for_xml_id('sale_inheritance.action_orders_1')
+        action['domain'] = [('date_order', '>=', self.f_date), ('date_order', '<=', self.t_date)]
+
+        return action

@@ -14,16 +14,18 @@
         </field>
     </record>
 
-<!--    <record model="ir.ui.menu" id="sale.menu_sale_quotations">-->
-<!--        <field name="name">Khởi tạo đơn hàng</field>-->
-<!--    </record>-->
+    <!--    <record model="ir.ui.menu" id="sale.menu_sale_quotations">-->
+    <!--        <field name="name">Khởi tạo đơn hàng</field>-->
+    <!--    </record>-->
 
     <menuitem id="menu_product_kind_config_sale" name="Product Kinds"
               parent="sale.menu_sale_config" sequence="3"
               action="base_inheritance.product_kind_action_form"/>
 
-    <menuitem id="menu_report_product_all_customize" name="Báo cáo lựa chọn"
-            parent="sale.menu_sale_report" sequence="2"
-            action="sale_inheritance.action_order_report_all_1"/>
+    <menuitem id="report_access_control_menu"
+              action="report_sale_report_action_form"
+              name="Báo cáo chi tiết"
+              parent="sale.menu_sale_report"
+              sequence="2"/>
 
 </odoo>
