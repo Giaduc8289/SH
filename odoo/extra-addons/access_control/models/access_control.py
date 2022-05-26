@@ -110,7 +110,7 @@ class ReportAccessControl(models.Model):
     def action_print_report(self):
         # action = self.env["ir.actions.actions"]._for_xml_id("sale.action_orders")
         # action = self.env['access.control'].search([('in_time', '>=', self.f_date), ('in_time', '<=', self.t_date)])#._for_xml_id('access_control.access_control_action_form')
-        action = self.env["ir.actions.actions"]._for_xml_id('access_control.action_report_access_control')#access_control.action_access')#access_control.action_report_access_control')
+        action = self.env["ir.actions.actions"]._for_xml_id('access_control.action_access')#access_control.action_access')#access_control.action_report_access_control')
         action['domain'] = [('in_time', '>=', self.f_date), ('in_time', '<=', self.t_date)]
         return action
 

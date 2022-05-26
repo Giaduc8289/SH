@@ -219,7 +219,7 @@
             <field name="name">Access Control</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">access.control</field>
-            <field name="view_mode">tree,kanban,form</field>
+            <field name="view_mode">tree,kanban,form,graph</field>
             <field name="context">{}</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">

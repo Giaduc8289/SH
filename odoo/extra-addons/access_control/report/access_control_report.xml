@@ -5,8 +5,8 @@
             <field name="name">Report Access Control</field>
             <field name="model">access.control</field>
             <field name="report_type">qweb-pdf</field>
-            <field name="report_name">access_control.report_access_control_document</field>
-            <field name="report_file">access_control.report_access_control_document</field>
+            <field name="report_name">access_control.report_access_control</field>
+            <field name="report_file">access_control.report_access_control</field>
             <field name="print_report_name">Báo cáo kiểm soát vào ra</field>
             <field name="binding_model_id" ref="model_access_control"/>
             <field name="binding_type">report</field>
