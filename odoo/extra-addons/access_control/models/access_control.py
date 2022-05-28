@@ -112,6 +112,7 @@ class FilterAccessControl(models.Model):
 
     f_date = fields.Date('From date')
     t_date = fields.Date('To date')
+    purpose = fields.Selection([('sale', 'Sale'), ('purchase', 'Purchase'), ('visit', 'Visit'), ('work', 'Work')], 'Purpose')
 
     def action_filter_data(self):
         action = self.env["ir.actions.actions"]._for_xml_id('access_control.action_filter_access_control')
@@ -119,7 +120,11 @@ class FilterAccessControl(models.Model):
             self.f_date = datetime.strptime('01/01/1900', '%d/%m/%Y')
         if self.t_date == False:
             self.t_date = datetime.strptime('31/12/9999', '%d/%m/%Y')
-        action['domain'] = [('in_time', '>=', self.f_date), ('in_time', '<=', self.t_date)]
+        dkmucdich = [self.purpose]
+        if self.purpose == False:
+            dkmucdich = ['sale', 'purchase', 'visit', 'work']
+        action['domain'] = [('in_time', '>=', self.f_date), ('in_time', '<=', self.t_date),
+                            ('purpose', 'in', dkmucdich)]
         return action
 
 
