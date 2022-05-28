@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from odoo import _, fields, models, api, exceptions
 from odoo.tools.float_utils import float_is_zero
 from odoo.exceptions import ValidationError
@@ -108,11 +110,15 @@ class FilterAccessControl(models.Model):
     _name = 'filter.access.control'
     _rec_name = 'f_date'
 
-    f_date = fields.Date('From date', required=True, default=fields.Date.today())
-    t_date = fields.Date('To date', required=True, default=fields.Date.today())
+    f_date = fields.Date('From date')
+    t_date = fields.Date('To date')
 
     def action_filter_data(self):
         action = self.env["ir.actions.actions"]._for_xml_id('access_control.action_filter_access_control')
+        if self.f_date == False:
+            self.f_date = datetime.strptime('01/01/1900', '%d/%m/%Y')
+        if self.t_date == False:
+            self.t_date = datetime.strptime('31/12/9999', '%d/%m/%Y')
         action['domain'] = [('in_time', '>=', self.f_date), ('in_time', '<=', self.t_date)]
         return action
 
