@@ -1,3 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_coupon_detail_user,coupon.detail.user,model_coupon_detail,base.group_user,1,0,0,0
 access_coupon_detail_manager,coupon.detail.manager,model_coupon_detail,base.group_system,1,1,1,1
+report_sale_order_user,report.sale.order.user,model_report_sale_order,base.group_user,1,0,0,0
+report_sale_order_manager,report.sale.order.manager,model_report_sale_order,base.group_system,1,1,1,1
