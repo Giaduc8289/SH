@@ -120,9 +120,9 @@
         <field name="model">access.control</field>
         <field name="arch" type="xml">
             <tree string="Access Controls">
-                <header>
-                    <button name="action_print_report" type="object" string="Print" class="oe_highlight"/>
-                </header>
+<!--                <header>-->
+<!--                    <button name="action_print_report" type="object" string="Print" class="oe_highlight"/>-->
+<!--                </header>-->
                 <field name="number_plate" optional="show"/>
                 <field name="res_partner_id"/>
                 <field name="name" optional="show"></field>
