@@ -9,8 +9,12 @@
     "category": "Hidden",
     "depends": ["stock"],
     "data": [
+        "security/ir.model.access.csv",
         "views/product_template_view.xml",
         "views/stock_quant_views.xml",
+        "views/stock_report_views.xml",
+        "report/stock_action_report.xml",
+        "report/stock_report_templates.xml",
     ],
     "installable": True,
     "maintainers": ["hungtv2012@gmail.com"]

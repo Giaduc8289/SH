@@ -22,3 +22,5 @@ class StockQuant(models.Model):
     #     for record in self:
     #         record.inventory_quantity = record.amount_package * record.product_id.weight
 
+
+

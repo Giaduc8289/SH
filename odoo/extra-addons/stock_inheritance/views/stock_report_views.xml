@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="filter_stock_move_inventory_form_view" model="ir.ui.view">
+        <field name="name">report.stock.move.inventory.form</field>
+        <field name="model">filter.stock.quant</field>
+        <field name="arch" type="xml">
+            <form create="false">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="f_date" widget="date"/>
+<!--                            <field name="location_id" widget="many2one"/>-->
+                        </group>
+                        <group>
+                            <field name="t_date" widget="date"/>
+                        </group>
+                    </group>
+                    <button name="action_filter_data" type="object" string="Filter" class="oe_highlight"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_stock_move_inventory" model="ir.actions.act_window">
+        <field name="name">Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">filter.stock.quant</field>
+        <field name="view_id" ref="filter_stock_move_inventory_form_view"/>
+    </record>
+
+    <record id="action_filter_stock_move_inventory" model="ir.actions.act_window">
+        <field name="name">Stock move inventory</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.quant</field>
+        <field name="view_mode">tree,kanban,form,graph</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new quotation, the first step of a new sale!
+            </p>
+            <p>
+                Once the quotation is confirmed, it becomes a sales order.
+                <br/>
+                You will be able to create an invoice and collect the payment.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="report_stock_move_inventory_menu"
+              action="action_stock_move_inventory"
+              name="Nhập xuất tồn"
+              parent="stock.menu_warehouse_report"
+              sequence="150"/>
+
+</odoo>

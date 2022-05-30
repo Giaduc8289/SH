@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="stock.view_stock_quant_tree_inventory_editable"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='inventory_quantity']" position="after">
-                <field name="amount_package" />
+                <field name="amount_package"/>
             </xpath>
         </field>
     </record>
@@ -21,5 +21,6 @@
             </xpath>
         </field>
     </record>
+
 
 </odoo>
