@@ -14,20 +14,18 @@
         <field name="name">report.sale.order.form</field>
         <field name="model">report.sale.order</field>
         <field name="arch" type="xml">
-            <form class="oe_form_configuration" string="Print Report">
-                <group>
+                   <form create="false">
+                <sheet>
                     <group>
-                        <field name="f_date" widget="date" placeholder="Chọn từ ngày" required=""/>
+                        <group>
+                            <field name="f_date" widget="date" />
+                        </group>
+                        <group>
+                            <field name="t_date" widget="date" />
+                        </group>
                     </group>
-                    <group>
-                        <field name="t_date" widget="date" placeholder="Chọn tới ngày" required=""/>
-                    </group>
-                </group>
-
-                <footer>
-                    <button name="action_print_report" type="object" string="Print" class="btn-primary"/>
-                    <button string="Cancel" class="btn-secondary" special="cancel"/>
-                </footer>
+                    <button name="action_print_report" type="object" string="Filter" class="oe_highlight"/>
+                </sheet>
             </form>
         </field>
     </record>

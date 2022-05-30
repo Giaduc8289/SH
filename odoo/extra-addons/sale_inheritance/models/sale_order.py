@@ -139,15 +139,14 @@ class SaleOrder(models.Model):
 
 class ReportSaleOrder(models.Model):
     _name = 'report.sale.order'
-    _description = "Report Sale Order"
+    # _description = "Report Sale Order"
     _rec_name = 't_date'
 
-    f_date = fields.Date('Date from:', )
-    t_date = fields.Date('Date to:')
+    f_date = fields.Date('From date', required=True, default=fields.Date.today())
+    t_date = fields.Date('To date', required=True, default=fields.Date.today())
 
     @api.constrains('f_date', 't_date')
     def action_print_report(self):
         action = self.env["ir.actions.actions"]._for_xml_id('sale_inheritance.action_orders_1')
         action['domain'] = [('date_order', '>=', self.f_date), ('date_order', '<=', self.t_date)]
-
         return action
