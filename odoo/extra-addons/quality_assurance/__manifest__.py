@@ -32,7 +32,7 @@
     'website': "https:www.cybrosys.com",
     'maintainer': 'Cybrosys Techno Solutions',
     'category': 'Inventory',
-    'depends': ['product', 'stock', 'purchase'],
+    'depends': ['product', 'stock', 'purchase', 'mrp'],
     'data': [
         'data/data.xml',
         'security/quality_security.xml',
