@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
+from datetime import datetime
 
 from odoo.tools.misc import formatLang
 from odoo import api, fields, models, _
@@ -136,17 +137,43 @@ class SaleOrder(models.Model):
                     del reward_dict[val]
         return reward_dict.values()
 
+    def action_print_report_sale(self):
+        action = self.env.ref('sale_inheritance.action_report_sale_order').report_action(None, data=None)
+        return action
 
 class ReportSaleOrder(models.Model):
     _name = 'report.sale.order'
     # _description = "Report Sale Order"
     _rec_name = 't_date'
 
-    f_date = fields.Date('From date', required=True, default=fields.Date.today())
-    t_date = fields.Date('To date', required=True, default=fields.Date.today())
+    f_date = fields.Date('From date')
+    t_date = fields.Date('To date')
+    invoice_status = fields.Selection([('no', 'Không xuất hóa đơn'), ('to invoice', 'Đề xuất hóa đơn')],
+                               'invoice_status')
 
-    @api.constrains('f_date', 't_date')
+        # @api.constrains('f_date', 't_date')
     def action_print_report(self):
         action = self.env["ir.actions.actions"]._for_xml_id('sale_inheritance.action_orders_1')
-        action['domain'] = [('date_order', '>=', self.f_date), ('date_order', '<=', self.t_date)]
+        if self.f_date == False:
+            self.f_date = datetime.strptime('01/01/1900', '%d/%m/%Y')
+        if self.t_date == False:
+            self.t_date = datetime.strptime('31/12/9999', '%d/%m/%Y')
+        dieukien = [self.invoice_status]
+        if self.invoice_status == False:
+            dieukien = ['no', 'to invoice']
+        action['domain'] = [('date_order', '>=', self.f_date), ('date_order', '<=', self.t_date),
+                            ('invoice_status', 'in', dieukien)]
         return action
+
+class SaleOrderReport(models.AbstractModel):
+    _name = 'sale.order.report_sale_order_document'
+
+    @api.model
+    def _get_report_values(self, docids, data=None):
+        docs = self.env['sale.order'].browse(docids)
+        return {
+              'doc_ids': docids,
+              'doc_model': 'sale.order',
+              'docs': docs,
+              'data': data,
+        }
