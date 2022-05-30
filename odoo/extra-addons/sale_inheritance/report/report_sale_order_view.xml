@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <template id="report_sale_order_document">
+        <t t-call="web.html_container">
+            <t t-call="web.report_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <h2 class="text-center bold"><center>BÁO CÁO BÁN HÀNG</center></h2>
+
+                    <div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-left">Số</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-left">Ngày đặt hàng</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-right">Khách hàng</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-right">Nhân viên kinh doanh</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-right">Tổng</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-right">Tình trạng hóa đơn</th>
+                                </tr>
+                            </thead>
+                            <tbody class="sale_tbody">
+                                <t t-foreach="docs" t-as="o">
+                                    <tr>
+                                        <td class="text-left">
+                                            <span t-field="o.name"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-field="o.date_order"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.partner_id"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.user_id"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.amount_total"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.invoice_status"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="oe_structure"/>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

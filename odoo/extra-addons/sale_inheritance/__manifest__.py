@@ -16,6 +16,7 @@
         "views/coupon_program_views.xml",
         "report/sale_report_templates.xml",
         "views/preview_sale.xml",
+        "report/report_sale_order_view.xml",
     ],
     "installable": True,
     "maintainers": ["anhnth.mta@gmail.com"]
