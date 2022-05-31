@@ -2,7 +2,7 @@
 <odoo>
     <data>
         <record id="action_report_stock_move_inventory" model="ir.actions.report">
-            <field name="name">Stock Move Inventory</field>
+            <field name="name">In báo cáo chi tiết</field>
             <field name="model">stock.quant</field>
             <field name="report_type">qweb-html</field>
             <field name="report_name">stock_inheritance.report_stock_move_inventory_document</field>

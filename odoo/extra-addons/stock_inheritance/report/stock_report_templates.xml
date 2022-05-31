@@ -28,30 +28,33 @@
                                         class="text-right">Tồn cuối</th>
                                 </tr>
                             </thead>
-<!--                            <tbody class="sale_tbody">-->
-<!--                                <t t-foreach="docs" t-as="o">-->
-<!--                                    <tr>-->
-<!--                                        <td class="text-left">-->
-<!--                                            <span t-field="o.name"/>-->
-<!--                                        </td>-->
-<!--                                        <td class="text-left">-->
-<!--                                            <span t-field="o.address"/>-->
-<!--                                        </td>-->
-<!--                                        <td class="text-right">-->
-<!--                                            <span t-field="o.in_time"/>-->
-<!--                                        </td>-->
+                            <tbody class="sale_tbody">
+                                <t t-foreach="docs" t-as="o">
+                                    <tr>
+                                        <td class="text-left">
+                                            <span t-field="o.product_id.code"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-field="o.product_id.name"/>
+                                        </td>
+                                        <t t-if="o.location_id != o.location_dest_id">
+                                            <td class="text-right">
+                                                <span t-field="o.quantity"/>
+                                            </td>
 <!--                                        <td class="text-right">-->
 <!--                                            <span t-field="o.out_time"/>-->
 <!--                                        </td>-->
+                                        </t>
 <!--                                        <td class="text-right">-->
 <!--                                            <span t-field="o.purpose"/>-->
 <!--                                        </td>-->
 <!--                                        <td class="text-right">-->
 <!--                                            <span t-field="o.purpose_descript"/>-->
 <!--                                        </td>-->
-<!--                                    </tr>-->
-<!--                                </t>-->
-<!--                            </tbody>-->
+
+                                    </tr>
+                                </t>
+                            </tbody>
                         </table>
                     </div>
 
