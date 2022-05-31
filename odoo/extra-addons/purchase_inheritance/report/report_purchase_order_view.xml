@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <template id="report_purchase_order_document">
+        <t t-call="web.html_container">
+            <t t-call="web.report_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <h2 class="text-center bold"><center>BÁO CÁO BÁN HÀNG</center></h2>
+
+                    <div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-left">Mã phiếu</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-left">Ngày xác nhận</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-right">Nhà cung cấp</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-right">Ngày nhận</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-right">Tổng</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-right">Trạng thái</th>
+                                </tr>
+                            </thead>
+                            <tbody class="sale_tbody">
+                                <t t-foreach="docs" t-as="o">
+                                    <tr>
+                                        <td class="text-left">
+                                            <span t-field="o.name"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-field="o.date_approve"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.partner_id"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.date_order"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.amount_untaxed"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.invoice_status"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="oe_structure"/>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>
