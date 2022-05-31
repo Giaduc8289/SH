@@ -30,7 +30,7 @@
     </record>
 
     <record id="action_filter_stock_move_inventory" model="ir.actions.act_window">
-        <field name="name">Stock move inventory</field>
+        <field name="name">Báo cáo chi tiết nhập xuất tồn kho</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">stock.quant</field>
         <field name="view_mode">tree,kanban,form,graph</field>

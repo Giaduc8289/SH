@@ -8,6 +8,8 @@ class StockQuant(models.Model):
     _inherit = 'stock.quant'
     _description = "Stock Quant"
 
+    location_dest_id = fields.Many2one('stock.move', 'Location Move', auto_join=True, ondelete='restrict', required=True, index=True, check_company=True)
+    
     def action_print_report(self):
         action = self.env.ref('stock_inheritance.action_report_stock_move_inventory').report_action(None, data=None)
         return action
@@ -42,7 +44,10 @@ class FilterStockQuant(models.Model):
             self.f_date = datetime.strptime('01/01/1900', '%d/%m/%Y')
         if self.t_date == False:
             self.t_date = datetime.strptime('31/12/9999', '%d/%m/%Y')
-        action['domain'] = [('in_date', '>=', self.f_date), ('in_date', '<=', self.t_date)]
+        dieukien = [self.location_id.complete_name]
+        if self.location_id == False:
+            dieukien = ['TP/Kho', 'BB/Kho']
+        action['domain'] = [('in_date', '>=', self.f_date), ('in_date', '<=', self.t_date), ('location_id', 'in', dieukien)]
         return action
 
 class StockQuantReport(models.AbstractModel):
