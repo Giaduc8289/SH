@@ -16,11 +16,24 @@ class FilterStockQuant(models.Model):
     _name = 'filter.stock.quant'
     _rec_name = 'f_date'
 
+    @api.model
+    def _is_inventory_mode(self):
+        """ Used to control whether a quant was written on or created during an
+        "inventory session", meaning a mode where we need to create the stock.move
+        record necessary to be consistent with the `inventory_quantity` field.
+        """
+        return self.env.context.get('inventory_mode') and self.user_has_groups('stock.group_stock_user')
+
+    def _domain_location_id(self):
+        if not self._is_inventory_mode():
+            return
+        return [('usage', 'in', ['internal', 'transit'])]
+
     f_date = fields.Date('From date', default=datetime.now().date())
     t_date = fields.Date('To date', default=datetime.now().date())
     location_id = fields.Many2one(
         'stock.location', 'Location',
-        # domain=lambda self: self._domain_location_id(),
+        domain=lambda self: self._domain_location_id(),
         auto_join=True, ondelete='restrict', required=True, index=True, check_company=True)
 
     def action_filter_data(self):

@@ -7834,7 +7834,7 @@ msgstr "Lời khuyên: Tăng tốc độ xử lý kho của bạn với mã vạ
 #: model_terms:ir.ui.view,arch_db:stock.view_move_tree
 #: model_terms:ir.ui.view,arch_db:stock.vpicktree
 msgid "To"
-msgstr "Đến ngày"
+msgstr "Đến"
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.quant_search_view
