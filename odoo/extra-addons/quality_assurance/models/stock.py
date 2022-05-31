@@ -73,6 +73,8 @@ class StockPicking(models.Model):
         Normally that happens when the button "Done" is pressed on a Picking view.
         @return: True
         """
+        # TDE FIXME: remove decorator when migration the remaining
+        # TDE FIXME: draft -> automatically done, if waiting ?? CLEAR ME
         todo_moves = self.mapped('move_lines').filtered(
             lambda self: self.state in ['draft', 'partially_available', 'assigned', 'confirmed'])
         # Check if there are ops not linked to moves yet

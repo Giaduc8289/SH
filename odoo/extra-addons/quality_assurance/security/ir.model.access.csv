@@ -5,4 +5,3 @@ quality_alert_stock,quality.alert,quality_assurance.model_quality_alert,stock.gr
 quality_alert_user,quality.alert,quality_assurance.model_quality_alert,quality_assurance.group_quality_user,1,1,1,1
 quality_test_stock,quality.test,quality_assurance.model_quality_test,stock.group_stock_user,1,0,1,0
 quality_test_all,quality.test,quality_assurance.model_quality_test,quality_assurance.group_quality_user,1,1,1,1
-quality_assurance_stock_picking,quality.assurance.stock.picking,model_stock_picking,quality_assurance.group_quality_user,1,0,1,0
