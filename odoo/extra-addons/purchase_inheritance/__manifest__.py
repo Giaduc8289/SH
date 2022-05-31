@@ -9,7 +9,10 @@
     "category": "Hidden",
     "depends": ["base", "web", "base_inheritance", "purchase"],
     "data": [
-        "views/product_template_view.xml"
+        "security/ir.model.access.csv",
+        "views/purchase_report_views.xml",
+        "views/product_template_view.xml",
+        "report/report_purchase_order_view.xml"
     ],
     "installable": True,
     "maintainers": ["hieutv.199x@gmail.com"]

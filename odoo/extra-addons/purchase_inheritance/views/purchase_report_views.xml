@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="report_purchase_order_view" model="ir.ui.view">
+        <field name="name">report.sale.order.form</field>
+        <field name="model">filter.purchase.order</field>
+        <field name="arch" type="xml">
+                   <form create="false">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="f_date" widget="date" />
+                        </group>
+                        <group>
+                            <field name="t_date" widget="date" />
+                        </group>
+                    </group>
+                    <button name="action_print_report" type="object" string="Filter" class="oe_highlight"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="report_purchase_report_action_form" model="ir.actions.act_window">
+        <field name="name">Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">filter.purchase.order</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="report_purchase_order_view"/>
+    </record>
+
+    <menuitem id="report_purchase_menu"
+              action="report_purchase_report_action_form"
+              name="Báo cáo chi tiết"
+              parent="purchase.purchase_report_main"
+              sequence="100"/>
+    <record id="action_purchase_order_1" model="ir.actions.act_window">
+        <field name="name">Báo cáo mua hàng chi tiết</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">purchase.order</field>
+        <field name="view_mode">tree,kanban,form,graph</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new order, the first step of a new report!
+            </p><p>
+                Once the quotation is confirmed, it becomes a purchase order.<br/> You will be able to create an invoice and collect the payment.
+            </p>
+        </field>
+    </record>
+    <data>
+        <record id="purchase_inheritance.action_report_purchasee_order" model="ir.actions.report">
+            <field name="name">Purchase Sale</field>
+            <field name="model">purchase.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">purchase_inheritance.report_purchase_order_document</field>
+            <field name="report_file">purchase_inheritance.report_purchase_order_document</field>
+            <field name="print_report_name">Báo cáo mua hàng</field>
+            <field name="binding_model_id" ref="model_purchase_order"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>
