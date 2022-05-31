@@ -4,7 +4,7 @@
         <record id="sale_inheritance.action_report_sale_order" model="ir.actions.report">
             <field name="name">Report Sale</field>
             <field name="model">sale.order</field>
-            <field name="report_type">qweb-pdf</field>
+            <field name="report_type">qweb-html</field>
             <field name="report_name">sale_inheritance.report_sale_order_document</field>
             <field name="report_file">sale_inheritance.report_sale_order_document</field>
             <field name="print_report_name">Báo cáo bán hàng</field>
@@ -17,15 +17,15 @@
         <field name="name">report.sale.order.form</field>
         <field name="model">report.sale.order</field>
         <field name="arch" type="xml">
-                   <form create="false">
+            <form create="false">
                 <sheet>
                     <group>
                         <group>
-                            <field name="f_date" widget="date" />
+                            <field name="f_date" widget="date"/>
                             <field name="invoice_status" widget="selection"/>
                         </group>
                         <group>
-                            <field name="t_date" widget="date" />
+                            <field name="t_date" widget="date"/>
                         </group>
                     </group>
                     <button name="action_print_report" type="object" string="Filter" class="oe_highlight"/>
@@ -35,7 +35,6 @@
     </record>
 
     <record id="report_sale_report_action_form" model="ir.actions.act_window">
-
         <field name="name">Report</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">report.sale.order</field>
@@ -52,8 +51,11 @@
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Create a new order, the first step of a new report!
-            </p><p>
-                Once the quotation is confirmed, it becomes a sales order.<br/> You will be able to create an invoice and collect the payment.
+            </p>
+            <p>
+                Once the quotation is confirmed, it becomes a sales order.
+                <br/>
+                You will be able to create an invoice and collect the payment.
             </p>
         </field>
     </record>

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import api, models
-from odoo.odoo.exceptions import UserError
+from odoo.exceptions import UserError
 
 
 class MrpProduction(models.Model):
