@@ -3,6 +3,7 @@ from datetime import datetime
 
 
 from odoo import api, fields, models, _
+from odoo.osv import expression
 
 
 class PurchaseOrder(models.Model):
@@ -24,9 +25,10 @@ class FilterPurchaseOrder(models.Model):
     # @api.constrains('f_date', 't_date')
     def action_print_report(self):
         action = self.env["ir.actions.actions"]._for_xml_id('purchase_inheritance.action_purchase_order_1')
-        if self.f_date == False:
-            self.f_date = datetime.strptime('01/01/1900', '%d/%m/%Y')
-        if self.t_date == False:
-            self.t_date = datetime.strptime('31/12/9999', '%d/%m/%Y')
-        action['domain'] = [('date_order', '>=', self.f_date), ('date_order', '<=', self.t_date)]
+        domain = []
+        if self.f_date:
+            domain = expression.AND([domain, [('in_time', '>=', self.f_date)]])
+        if self.t_date:
+            domain = expression.AND([domain, [('in_time', '<=', self.t_date)]])
+        action['domain'] = domain
         return action
