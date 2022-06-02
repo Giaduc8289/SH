@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from odoo import _, fields, models, api, exceptions
 from odoo.osv import expression
@@ -35,25 +35,29 @@ class AccessControl(models.Model):
 
     @api.model
     def create(self, vals_list):
-        # data = self.env['access.control'].search([('in_time', '=', datetime.now().date())])
+        d = datetime.now()
+        dt_start = d - timedelta(hours=d.hour, minutes=d.minute+1)
+        data_acs = self.env['access.control'].search([('in_time', '<=', d+timedelta(days=1)), ('in_time', '>=', dt_start)])
         # if len(data) == 0:
-        #     self.env.cr.execute('alter sequence access_control_id_seq restart with 1')
+        #     self.env.cr.execute('alter sequence access_control.access_control_id_seq restart with 1')
         if ('ordinal_number' in vals_list and vals_list['ordinal_number'] == 0) or 'ordinal_number' not in vals_list:
-            seq = self.env.ref('access_control.sequence_ordinal_number_control_access')
-            vals_list['ordinal_number'] = seq.next_by_id()
+            # seq = self.env.ref('access_control.sequence_ordinal_number_control_access')
+            vals_list['ordinal_number'] = len(data_acs)+1 #seq.next_by_id()
         return super(AccessControl, self).create(vals_list)
 
     @api.model
     def update_ordinal_number(self, data):
-        seq = self.env.ref('access_control.sequence_ordinal_number_control_access')
+        # seq = self.env.ref('access_control.sequence_ordinal_number_control_access')
+        d = datetime.now()
+        dt_start = d - timedelta(hours=d.hour, minutes=d.minute+1)
+        data_acs = self.env['access.control'].search([('in_time', '<=', d), ('in_time', '>=', dt_start)])
         temp = self.browse(data)
-        temp.ordinal_number = seq.next_by_id()
+        temp.ordinal_number = len(data_acs)+1 #seq.next_by_id()
 
     def action_weigh_in(self):
         for record in self:
             if(record.state == 'in'):
                 record.state = 'weighin'
-                # form_view = [(self.env.ref('access_control.access_control_form_view').id, 'form')]
 
     def action_unload(self):
         for record in self:
