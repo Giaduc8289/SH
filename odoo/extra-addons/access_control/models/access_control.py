@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from odoo import _, fields, models, api, exceptions
+from odoo.osv import expression
 from odoo.tools.float_utils import float_is_zero
 from odoo.exceptions import ValidationError
 
@@ -34,6 +35,9 @@ class AccessControl(models.Model):
 
     @api.model
     def create(self, vals_list):
+        # data = self.env['access.control'].search([('in_time', '=', datetime.now().date())])
+        # if len(data) == 0:
+        #     self.env.cr.execute('alter sequence access_control_id_seq restart with 1')
         if ('ordinal_number' in vals_list and vals_list['ordinal_number'] == 0) or 'ordinal_number' not in vals_list:
             seq = self.env.ref('access_control.sequence_ordinal_number_control_access')
             vals_list['ordinal_number'] = seq.next_by_id()
@@ -116,15 +120,14 @@ class FilterAccessControl(models.Model):
 
     def action_filter_data(self):
         action = self.env["ir.actions.actions"]._for_xml_id('access_control.action_filter_access_control')
-        if self.f_date == False:
-            self.f_date = datetime.strptime('01/01/1900', '%d/%m/%Y')
-        if self.t_date == False:
-            self.t_date = datetime.strptime('31/12/9999', '%d/%m/%Y')
-        dkmucdich = [self.purpose]
-        if self.purpose == False:
-            dkmucdich = ['sale', 'purchase', 'visit', 'work']
-        action['domain'] = [('in_time', '>=', self.f_date), ('in_time', '<=', self.t_date),
-                            ('purpose', 'in', dkmucdich)]
+        domain = []
+        if self.f_date:
+            domain = expression.AND([domain, [('in_time', '>=', self.f_date)]])
+        if self.t_date:
+            domain = expression.AND([domain, [('in_time', '<=', self.t_date)]])
+        if self.purpose:
+            domain = expression.AND([domain, [('purpose', '=', self.purpose)]])
+        action['domain'] = domain
         return action
 
 

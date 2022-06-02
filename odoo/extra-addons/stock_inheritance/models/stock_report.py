@@ -1,18 +1,31 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
-from odoo import fields, models, api
+from odoo import fields, models, api, _
 from odoo.tools.float_utils import float_is_zero
 from odoo.exceptions import ValidationError
+from odoo.osv import expression
 
 class StockQuant(models.Model):
     _inherit = 'stock.quant'
     _description = "Stock Quant"
 
-    location_dest_id = fields.Many2one('stock.move', 'Location Move', auto_join=True, ondelete='restrict', required=True, index=True, check_company=True)
-    
     def action_print_report(self):
         action = self.env.ref('stock_inheritance.action_report_stock_move_inventory').report_action(None, data=None)
         return action
+
+class StockMoveInventory(models.Model):
+    _name = 'stock.move.inventory'
+    _description = 'Stock Move Inventory'
+
+    # location_id = fields.Many2one(
+    #     'stock.location', 'Location',
+    #     domain=lambda self: [('name', '=', 'Kho')],#self._domain_location_id(),
+    #     auto_join=True, ondelete='restrict', required=True, index=True, check_company=True)
+    product_tmpl_id = fields.Many2one('product.template', string='Product Template')
+    begin_inventory = fields.Float('Beginning Inventory')
+    warehouse_entry = fields.Float('Warehouse Entry')
+    warehouse_export = fields.Float('Warehouse Export')
+    end_inventory = fields.Float('End Inventory')
 
 class FilterStockQuant(models.Model):
     _name = 'filter.stock.quant'
@@ -20,10 +33,6 @@ class FilterStockQuant(models.Model):
 
     @api.model
     def _is_inventory_mode(self):
-        """ Used to control whether a quant was written on or created during an
-        "inventory session", meaning a mode where we need to create the stock.move
-        record necessary to be consistent with the `inventory_quantity` field.
-        """
         return self.env.context.get('inventory_mode') and self.user_has_groups('stock.group_stock_user')
 
     def _domain_location_id(self):
@@ -33,21 +42,75 @@ class FilterStockQuant(models.Model):
 
     f_date = fields.Date('From date', default=datetime.now().date())
     t_date = fields.Date('To date', default=datetime.now().date())
+    # product_id = fields.Many2one('product.product', 'Product')
+    product_tmpl_id = fields.Many2one('product.template', string='Product Template')
     location_id = fields.Many2one(
         'stock.location', 'Location',
-        domain=lambda self: self._domain_location_id(),
+        domain=lambda self: [('name', '=', 'Kho')],#self._domain_location_id(),
         auto_join=True, ondelete='restrict', required=True, index=True, check_company=True)
 
     def action_filter_data(self):
-        action = self.env["ir.actions.actions"]._for_xml_id('stock_inheritance.action_filter_stock_move_inventory')
-        if self.f_date == False:
-            self.f_date = datetime.strptime('01/01/1900', '%d/%m/%Y')
-        if self.t_date == False:
-            self.t_date = datetime.strptime('31/12/9999', '%d/%m/%Y')
-        dieukien = [self.location_id.complete_name]
-        if self.location_id == False:
-            dieukien = ['TP/Kho', 'BB/Kho']
-        action['domain'] = [('in_date', '>=', self.f_date), ('in_date', '<=', self.t_date), ('location_id', 'in', dieukien)]
+        tree_view_id = self.env.ref('stock_inheritance.stock_move_inventory_tree_view').id
+        domain = [('type', '=', 'product'), ('qty_available', '>', 0), ('location_id', '=', self.location_id)]
+        if self.product_tmpl_id:
+            domain = expression.AND([domain, [('product_tmpl_id', '=', self.product_tmpl_id)]])
+        # We pass `to_date` in the context so that `qty_available` will be computed across
+        # moves until date.
+        begin_inventory_data = self.env['product.product'].search(domain).with_context(self.env.context, to_date=self.f_date)
+        end_inventory_data = self.env['product.product'].search(domain).with_context(self.env.context, to_date=self.t_date+timedelta(days=1))
+
+        self.env.cr.execute("delete from stock_move_inventory")
+
+        self.env['stock.move.inventory'].create([{
+            'product_tmpl_id': record.id,
+            # 'location_id': self.location_id,
+            'begin_inventory': record.qty_available,
+            'warehouse_entry': 0,
+            'warehouse_export': 0,
+            'end_inventory': 0,
+        } for record in begin_inventory_data])
+
+        self.env['stock.move.inventory'].create([{
+            'product_tmpl_id': record.id,
+            # 'location_id': self.location_id,
+            'begin_inventory': 0,
+            'warehouse_entry': 0,
+            'warehouse_export': 0,
+            'end_inventory': record.qty_available,
+        } for record in end_inventory_data])
+
+        action = {
+            'type': 'ir.actions.act_window',
+            'views': [(tree_view_id, 'tree')],
+            'view_mode': 'tree',
+            'name': _('Products'),
+            'res_model': 'stock.move.inventory',
+            # 'domain': domain,
+            # 'context': dict(self.env.context, to_date=self.f_date),
+        }
+        return action
+
+    def open_at_date(self):
+        tree_view_id = self.env.ref('stock.view_stock_product_tree').id
+        form_view_id = self.env.ref('stock.product_form_view_procurement_button').id
+        domain = [('type', '=', 'product')]
+        product_id = self.env.context.get('product_id', False)
+        product_tmpl_id = self.env.context.get('product_tmpl_id', False)
+        if product_id:
+            domain = expression.AND([domain, [('id', '=', product_id)]])
+        elif product_tmpl_id:
+            domain = expression.AND([domain, [('product_tmpl_id', '=', product_tmpl_id)]])
+        # We pass `to_date` in the context so that `qty_available` will be computed across
+        # moves until date.
+        action = {
+            'type': 'ir.actions.act_window',
+            'views': [(tree_view_id, 'tree'), (form_view_id, 'form')],
+            'view_mode': 'tree,form',
+            'name': _('Products'),
+            'res_model': 'product.product',
+            'domain': domain,
+            'context': dict(self.env.context, to_date=self.inventory_datetime),
+        }
         return action
 
 class StockQuantReport(models.AbstractModel):
