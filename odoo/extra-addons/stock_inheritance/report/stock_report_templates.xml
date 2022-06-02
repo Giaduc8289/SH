@@ -32,26 +32,23 @@
                                 <t t-foreach="docs" t-as="o">
                                     <tr>
                                         <td class="text-left">
-                                            <span t-field="o.product_id.code"/>
+                                            <span t-field="o.product_tmpl_id.default_code"/>
                                         </td>
                                         <td class="text-left">
-                                            <span t-field="o.product_id.name"/>
+                                            <span t-field="o.product_tmpl_id.name"/>
                                         </td>
-                                        <t t-if="o.location_id != o.location_dest_id">
-                                            <td class="text-right">
-                                                <span t-field="o.quantity"/>
-                                            </td>
-<!--                                        <td class="text-right">-->
-<!--                                            <span t-field="o.out_time"/>-->
-<!--                                        </td>-->
-                                        </t>
-<!--                                        <td class="text-right">-->
-<!--                                            <span t-field="o.purpose"/>-->
-<!--                                        </td>-->
-<!--                                        <td class="text-right">-->
-<!--                                            <span t-field="o.purpose_descript"/>-->
-<!--                                        </td>-->
-
+                                        <td class="text-right">
+                                            <span t-field="o.begin_inventory"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.warehouse_entry"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.warehouse_export"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.end_inventory"/>
+                                        </td>
                                     </tr>
                                 </t>
                             </tbody>

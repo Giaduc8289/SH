@@ -2,6 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 from datetime import datetime
 
+from odoo.osv import expression
 from odoo.tools.misc import formatLang
 from odoo import api, fields, models, _
 
@@ -151,18 +152,17 @@ class ReportSaleOrder(models.Model):
     invoice_status = fields.Selection([('no', 'Không xuất hóa đơn'), ('to invoice', 'Đề xuất hóa đơn')],
                                'invoice_status')
 
-        # @api.constrains('f_date', 't_date')
+    # @api.constrains('f_date', 't_date')
     def action_print_report(self):
         action = self.env["ir.actions.actions"]._for_xml_id('sale_inheritance.action_orders_1')
-        if self.f_date == False:
-            self.f_date = datetime.strptime('01/01/1900', '%d/%m/%Y')
-        if self.t_date == False:
-            self.t_date = datetime.strptime('31/12/9999', '%d/%m/%Y')
-        dieukien = [self.invoice_status]
-        if self.invoice_status == False:
-            dieukien = ['no', 'to invoice']
-        action['domain'] = [('date_order', '>=', self.f_date), ('date_order', '<=', self.t_date),
-                            ('invoice_status', 'in', dieukien)]
+        domain = []
+        if self.f_date:
+            domain = expression.AND([domain, [('in_time', '>=', self.f_date)]])
+        if self.t_date:
+            domain = expression.AND([domain, [('in_time', '<=', self.t_date)]])
+        if self.invoice_status:
+            domain = expression.AND([domain, [('invoice_status', '=', self.invoice_status)]])
+        action['domain'] = domain
         return action
 
 class SaleOrderReport(models.AbstractModel):
