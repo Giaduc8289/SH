@@ -52,7 +52,7 @@
         <record id="purchase_inheritance.action_report_purchasee_order" model="ir.actions.report">
             <field name="name">Purchase report</field>
             <field name="model">purchase.order</field>
-            <field name="report_type">qweb-pdf</field>
+            <field name="report_type">qweb-html</field>
             <field name="report_name">purchase_inheritance.report_purchase_order_document</field>
             <field name="report_file">purchase_inheritance.report_purchase_order_document</field>
             <field name="print_report_name">Báo cáo mua hàng</field>
