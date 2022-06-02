@@ -14,6 +14,21 @@ class PurchaseOrder(models.Model):
         if self.partner_id:
             self.partner_ref = self.partner_id.code
 
+    amount_untaxed_5 = fields.Monetary(string='Price Amount', compute='_amount_price')
+
+    @api.depends('order_line.price_total')
+    def _amount_price(self):
+        """
+        Compute the total amounts of the SO.
+        """
+        for order in self:
+            amount_untaxed = 0.0
+            for line in order.order_line:
+
+                    amount_untaxed += line.price_subtotal
+            order.update({
+                'amount_untaxed_5': amount_untaxed,
+            })
 class FilterPurchaseOrder(models.Model):
     _name = 'filter.purchase.order'
     _rec_name = 't_date'
