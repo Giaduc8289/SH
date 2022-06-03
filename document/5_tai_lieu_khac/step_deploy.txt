@@ -1,0 +1,72 @@
+- Cài docker desktop
+- docker login (giaduc8289/hung1502aA@)
+Thực hiện build code (máy local): cmd cd D:dev/SH
+- docker build -t [image_name:image_tag] ./ (docker build -t giaduc8289/sinhhoa:1.0.0 .)
+- docker push [image_name:image_tag] (docker.io/giaduc8289/sinhhoa:1.0.0)
+Thực hiện deploy (máy chủ):
+- docker rm -f odoo
+- docker run -d -v /root/app/datadir:/mnt/data_dir -p 8069:8069 --name odoo -e ODOO_HTTP_SOCKET_TIMEOUT=10 --link db:db -t [image_name:image_tag] -- --db_user odoo --db_password admin@123 --database erp_app --load-language vi_VN --language vi_VN --data-dir /mnt/data_dir --without-demo all
+(giaduc8289/sinhhoa:1.0.0)
+-docker logs -f odoo
+
+-Xóa container DB
+docker rm db
+-Tạo container cho databaser posgresql (PG)
+docker run --name db -v /root/pg/data:/var/lib/postgresql/data -p 8006:5432 -e POSTGRES_USER=odoo -e POSTGRES_PASSWORD=admin@123 -e POSTGRES_DB=postgres -d postgres
+
+Phiên bản cuối: 1.0.34
+
+git bash
+ssh root@112.78.1.221
+root/3tqASuX0!Ab1
+history
+docker ps
+docker logout/login
+docker logs -f odoo
+-docker images (Xem danh sách các images có trên hệ thống)
+-docker rmi ImageID (xóa những image không dùng đến nữa. Ví dụ: sudo docker rmi 7a86f8ffcb25)
+--
+clear
+docker exec -u root -it odoo /bin/bash
+docker exec -it odoo /bin/bash
+nginx -T
+ctrl+c
+git config --global http.sslBackend "openssl"
+df -h xem bộ nhớ
+
+docker start odoo
+ docker run -v /root/app/datadir:/mnt/data_dir -p 8069:8069 --name odoo -e ODOO_HTTP_SOCKET_TIMEOUT=10 --link db:db -t giaduc8289/sinhhoa:1.0.33 -- --db_user odoo --db_password admin@123 --database erp_app --language vi_VN --data-dir /mnt/data_dir
+--Hiện các container
+docker ps -a
+
+dochub:
+-https://hub.docker.com/
+-hungtv2012@gmail.com|giaduc8289/hung1502aA@
+-Repository: sinhhoa
+-docker push giaduc8289/sinhhoa:tagname
+
+github:
+https://www.youtube.com/watch?v=mtGMbc4Csm0
+-download git sgm
+-chuột phải, git bash here
+-git clone https://github.com/Giaduc8289/sinhhoa.git
+-git status
+-git add *
+-git commit -m""
+-git push
+-quyền, ảnh hưởng mạng, config git
+hoangdat2390@gmail.com
+
+posgresql:
+-create extension dblink
+-select * 
+from dblink('user=odoo password=odoo dbname=erp_app_220319'
+			,'select id,active,login from res_users  where login like ''%@%''') 
+			 as t1(id int,active boolean,login varchar)
+-drop extension dblink
+
+root/app/datadir
+
+
+
+
