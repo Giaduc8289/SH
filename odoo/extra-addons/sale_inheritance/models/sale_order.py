@@ -157,9 +157,9 @@ class ReportSaleOrder(models.Model):
         action = self.env["ir.actions.actions"]._for_xml_id('sale_inheritance.action_orders_1')
         domain = []
         if self.f_date:
-            domain = expression.AND([domain, [('in_time', '>=', self.f_date)]])
+            domain = expression.AND([domain, [('date_order', '>=', self.f_date)]])
         if self.t_date:
-            domain = expression.AND([domain, [('in_time', '<=', self.t_date)]])
+            domain = expression.AND([domain, [('date_order', '<=', self.t_date)]])
         if self.invoice_status:
             domain = expression.AND([domain, [('invoice_status', '=', self.invoice_status)]])
         action['domain'] = domain
