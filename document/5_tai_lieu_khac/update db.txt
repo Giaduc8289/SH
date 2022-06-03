@@ -1,0 +1,70 @@
+create extension dblink
+drop extension dblink
+
+insert into res_users(id, active, login, password, company_id)
+	select id, active, login, password, company_id 
+	from dblink('user=odoo password=odoo dbname=erp_app_220319'
+			,'select id, active, login, password, company_id from res_users  where login like ''%@%''') 
+			 as t1(id int, active boolean,login varchar, password varchar, company_id int)
+
+update res_partner t1 set user_id=t2.user_id
+from dblink('dbname=erp_app_220319 user=odoo password=odoo',
+		   'select id,user_id from res_partner') 
+		as t2(id int,user_id int)
+where t1.id=t2.id
+
+--Nhập số dư đầu kỳ cho sản phẩm
+select * from stock_quant
+select id, default_code, name, weight from product_template Where categ_id in (10,11,12) order by id
+
+insert into stock_quant(product_id, location_id, quantity, reserved_quantity, in_date)
+values(176, 8, 2000, 0, '2022-04-08 10:11:46')
+
+--Cấu hình sản phẩm theo dõi lô, ngày hết hạn
+select * from product_template where default_code in ('BC-901','BC-902')
+use_expiration_date
+tracking: none - không theo dõi; lot - theo lô; serial - theo số seri duy nhất
+
+update product_template set tracking='lot', use_expiration_date=true where categ_id in (10,11,12)
+
+--Cấu hình sản phẩm cung ứng từ sản xuất
+select * from stock_route_product
+
+select * from product_template where id in (select product_id from stock_route_product)
+select * from stock_location_route where id in (select route_id from stock_route_product)
+
+insert into stock_route_product(route_id,product_id)
+select 24, id from product_template where categ_id in (10,11,12) 
+
+--Cấu hình quy tắc tái cung ứng sản phẩm (sản xuất) khi có đơn mà hết hàng
+stock_warehouse_orderpoint
+
+--Cấu hình đơn vị tính cho nguyên liệu là kg
+update product_template set uom_id=12, uom_po_id=12 where categ_id in (15,16,17,18,19,20,21) 
+
+--Cấu hình ngày hết hạn, ngày cảnh báo, ... cho các sản phẩm
+update product_template set expiration_time=30,use_time=30,removal_time=30,alert_time=25
+where categ_id in (10,11,12)
+
+--Cập nhật sequence 
+alter sequence res_users_id_seq restart with 27
+
+--Dữ liệu kho
+stock_quant
+stock_move
+stock_move_line
+stock_picking
+--Truy vấn dữ liệu dịch chuyển kho (stock_move_action)
+select product_id, name, date, product_qty, location_id, location_dest_id 
+from stock_move where state='done' order by location_id
+--Truy vấn dữ liệu tồn kho (action_view_quants)
+select product_id, sq.location_id, lot_id, removal_date, quantity 
+from stock_quant sq left join stock_location sl on sq.location_id=sl.id
+where sl.usage='internal'
+
+--Dữ liệu sản xuất
+mrp_production  --đơn sản xuất
+mrp_workorder  --công đoạn sản xuất
+
+
+
