@@ -15,13 +15,13 @@
                             <thead>
                                 <tr>
                                     <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                        class="text-left">Số</th>
+                                        class="text-left">Mã</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-left">Nhân viên kinh doanh</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-left">Khách hàng</th>
                                     <th style="background-color:#3498DB !important;color:#FFF !important;"
                                         class="text-left">Ngày đặt hàng</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                        class="text-right">Khách hàng</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                        class="text-right">Nhân viên kinh doanh</th>
                                     <th style="background-color:#3498DB !important;color:#FFF !important;"
                                         class="text-right">Tổng</th>
                                     <th style="background-color:#3498DB !important;color:#FFF !important;"
@@ -30,18 +30,34 @@
                             </thead>
                             <tbody class="sale_tbody">
                                 <t t-foreach="docs" t-as="o">
+                                    <t t-if="o.user_id != nhanvien">
+                                        <tr>
+                                            <td lass="text-right" colspan="1">
+
+                                            </td>
+                                            <td class="text-left" domain="[('share', '=', False)]" colspan="3">
+                                                <strong><span t-field="o.user_id"/></strong>
+                                            </td>
+                                            <td class="text-right">
+                                                <strong>
+                                                    <span t-field="o.amount_total_1"
+                                                        t-field-options='{"widget": "monetary", "display_currency": "o.pricelist_id.currency_id"}'/>
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                    </t>
                                     <tr>
                                         <td class="text-left">
                                             <span t-field="o.name"/>
                                         </td>
                                         <td class="text-left">
-                                            <span t-field="o.date_order"/>
+                                            <span t-field="o.user_id"/>
                                         </td>
-                                        <td class="text-right">
+                                        <td class="text-left">
                                             <span t-field="o.partner_id"/>
                                         </td>
                                         <td class="text-right">
-                                            <span t-field="o.user_id"/>
+                                            <span t-field="o.date_order"/>
                                         </td>
                                         <td class="text-right">
                                             <span t-field="o.amount_total"/>
@@ -50,6 +66,7 @@
                                             <span t-field="o.invoice_status"/>
                                         </td>
                                     </tr>
+                                    <t t-set="nhanvien" t-value="o.user_id"></t>
                                 </t>
                             </tbody>
                         </table>
