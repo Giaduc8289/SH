@@ -124,7 +124,7 @@
 <!--                    <button name="action_print_report" type="object" string="Print" class="oe_highlight"/>-->
 <!--                </header>-->
                 <field name="number_plate" optional="show"/>
-                <field name="res_partner_id"/>
+<!--                <field name="res_partner_id"/>-->
                 <field name="name" optional="show"></field>
                 <field name="address" optional="show"></field>
                 <field name="purpose" optional="show"></field>
