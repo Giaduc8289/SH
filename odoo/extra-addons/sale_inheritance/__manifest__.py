@@ -17,6 +17,7 @@
         "report/sale_report_templates.xml",
         "views/preview_sale.xml",
         "report/report_sale_order_view.xml",
+        "report/sale_report.xml",
     ],
     "installable": True,
     "maintainers": ["anhnth.mta@gmail.com"]
