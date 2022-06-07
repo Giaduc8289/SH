@@ -49,6 +49,6 @@
     <menuitem id="customer_visit_menu"
               parent="sale.sale_order_menu"
               action="action_access_control_form_for_sale"
-              sequence="5"/>
+              sequence="5" groups="sales_team.group_sale_salesman"/>
 
 </odoo>

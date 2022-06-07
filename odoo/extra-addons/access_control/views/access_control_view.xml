@@ -51,12 +51,12 @@
                         <group></group>
                         <group>
                             <field name="in_time" readonly="1"></field>
-                            <field name="weight_in"
+                            <field name="weight_in" groups='access_control.group_weight_user'
                                    attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))], 'readonly': [('state', '!=', 'weighin')]}"></field>
                         </group>
                         <group>
                             <field name="out_time" readonly="1"></field>
-                            <field name="weight_out"
+                            <field name="weight_out" groups='access_control.group_weight_user'
                                    attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))], 'readonly': [('state', '!=', 'weighout')]}"></field>
                         </group>
                     </group>

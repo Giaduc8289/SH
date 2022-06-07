@@ -46,9 +46,9 @@
     </record>
 
     <!-- Menu item -->
-    <menuitem id="partner_visit_menu"
+    <menuitem id="stock_partner_visit_menu"
               parent="stock.menu_stock_warehouse_mgmt"
               action="action_access_control_form_for_stock"
-              sequence="199"/>
+              sequence="199" groups="stock.group_stock_user,stock.group_stock_manager"/>
 
 </odoo>

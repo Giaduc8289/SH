@@ -3,7 +3,7 @@
 
 
     <!-- Menu item -->
-    <menuitem id="partner_visit_menu"
+    <menuitem id="quality_partner_visit_menu"
               parent="quality_assurance.menu_quality_assurance"
               action="action_access_control_form_for_stock"
               sequence="199"/>
