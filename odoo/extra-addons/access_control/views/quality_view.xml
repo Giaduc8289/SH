@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <!-- Menu item -->
+    <menuitem id="partner_visit_menu"
+              parent="quality_assurance.menu_quality_assurance"
+              action="action_access_control_form_for_stock"
+              sequence="199"/>
+
+</odoo>

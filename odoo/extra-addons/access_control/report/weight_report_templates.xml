@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <template id="report_weight_vehicle_document">
+        <t t-call="web.html_container">
+            <t t-call="web.report_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <br/>
+                    <h2 class="text-center bold"><center>BÁO CÁO CÂN XE</center></h2>
+                    <br/>
+                    <div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-left">Tên khách</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-left">Địa chỉ</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-right">Thời gian vào</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-right">Thời gian ra</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-right">Mục đích</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-right">Trọng lượng vào</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-right">Trọng lượng ra</th>
+                                </tr>
+                            </thead>
+                            <tbody class="sale_tbody">
+                                <t t-foreach="docs" t-as="o">
+                                    <tr>
+                                        <td class="text-left">
+                                            <span t-field="o.name"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-field="o.address"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.in_time"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.out_time"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.purpose"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.weight_in"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.weight_out"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="oe_structure"/>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>
