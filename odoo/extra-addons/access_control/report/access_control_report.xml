@@ -12,5 +12,16 @@
             <field name="binding_type">report</field>
         </record>
 
+        <record id="action_report_weight_vehicle" model="ir.actions.report">
+            <field name="name">Report Weight Vehicle</field>
+            <field name="model">access.control</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">access_control.report_weight_vehicle_document</field>
+            <field name="report_file">access_control.report_weight_vehicle_document</field>
+            <field name="print_report_name">Báo cáo cân xe</field>
+            <field name="binding_model_id" ref="model_access_control"/>
+            <field name="binding_type">report</field>
+        </record>
+
     </data>
 </odoo>
