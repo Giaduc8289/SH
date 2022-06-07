@@ -3,3 +3,5 @@ access_control_user,access.control.user,model_access_control,base.group_user,1,0
 access_control_manager,access.control.manager,model_access_control,access_control.group_access_control_user,1,1,1,1
 filter_access_control_user,filter.access.control.user,model_filter_access_control,base.group_user,1,0,0,0
 filter_access_control_manager,filter.access.control.manager,model_filter_access_control,access_control.group_access_control_user,1,1,1,1
+sale_access_control_user,sale.access.control.user,model_access_control,sales_team.group_sale_salesman,1,0,0,0
+sale_access_control_manager,sale.access.control.manager,model_access_control,sales_team.group_sale_manager,1,1,1,1

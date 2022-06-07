@@ -15,6 +15,8 @@
         "views/access_control_view.xml",
         "report/access_control_report.xml",
         "report/access_control_report_templates.xml",
+        "views/sale_views.xml",
+        "views/purchase_views.xml",
     ],
     "installable": True,
     'application': True,

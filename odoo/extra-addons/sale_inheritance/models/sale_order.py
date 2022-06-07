@@ -12,6 +12,18 @@ class SaleOrder(models.Model):
 
     amount_untaxed_1 = fields.Monetary(string='Price Amount', compute='_amount_price')
     amount_untaxed_2 = fields.Monetary(string='Discount Amount', compute='_amount_discount')
+    amount_total_1 = fields.Monetary(string='Amount Sale Group', compute='_amount_price_group')
+
+    def _amount_price_group(self):
+        """
+        Compute the total amounts of the SO.
+        """
+        for order in self:
+            order_ingroup = self.filtered(lambda x: x.user_id == order.user_id)
+            amount_untaxed = sum(order_ingroup.mapped('amount_untaxed'))
+            order.update({
+                'amount_total_1': amount_untaxed,
+            })
 
     @api.depends('order_line.price_total')
     def _amount_price(self):

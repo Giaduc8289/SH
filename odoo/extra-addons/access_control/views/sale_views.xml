@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Views -->
+    <record id="access_control_search_view_for_sale" model="ir.ui.view">
+        <field name="name">access.control.search</field>
+        <field name="model">access.control</field>
+        <field name="arch" type="xml">
+            <search string="Access Controls">
+                <field name="purpose" string="Customer visit" filter_domain="[('purpose', '=', 'purchase')]"/>
+                <group expand="1" string="Group By">
+                    <filter string="State" name="state" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="access_control_list_view_for_sale" model="ir.ui.view">
+        <field name="name">access.control.list</field>
+        <field name="model">access.control</field>
+        <field name="arch" type="xml">
+            <tree string="Access Controls">
+                <field name="number_plate" optional="show"/>
+                <field name="name" optional="show"></field>
+                <field name="address" optional="show"></field>
+                <field name="purpose" optional="show"></field>
+                <field name="purpose_descript" optional="show"/>
+                <field name="in_time" optional="show"></field>
+                <field name="ordinal_number" optional="show"></field>
+                <field name="out_time" optional="show"></field>
+                <field name="weight_in" optional="show"></field>
+                <field name="weight_out" optional="show"></field>
+                <field name="product_template_ids" optional="show"></field>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_access_control_form_for_sale" model="ir.actions.act_window">
+        <field name="name">Customer visit</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">access.control</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('purpose', '=', 'purchase')]</field>
+        <field name="search_view_id" ref="access_control_search_view_for_sale"/>
+        <field name="view_id" ref="access_control_list_view_for_sale"/>
+    </record>
+
+    <!-- Menu item -->
+    <menuitem id="customer_visit_menu"
+              parent="sale.sale_order_menu"
+              action="action_access_control_form_for_sale"
+              sequence="5"/>
+
+</odoo>
