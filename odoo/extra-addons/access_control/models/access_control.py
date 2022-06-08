@@ -33,6 +33,14 @@ class AccessControl(models.Model):
         ('out', 'Out'),
         ], string='Status', readonly=True, copy=False, index=True, default='in')
 
+    @api.onchange('purpose')
+    def onchange_purpose(self):
+        for rec in self:
+            if (rec.purpose=='purchase'):
+                return {'domain': {'product_template_ids': [('categ_id', 'in', [10, 11, 12])]}}
+            else:
+                return {'domain': {'product_template_ids': [('categ_id', 'not in', [10, 11, 12])]}}
+
     @api.model
     def create(self, vals_list):
         d = datetime.now()
