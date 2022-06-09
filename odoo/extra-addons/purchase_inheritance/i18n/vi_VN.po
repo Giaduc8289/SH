@@ -1,0 +1,307 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* purchase_inheritance
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-09 09:21+0000\n"
+"PO-Revision-Date: 2022-06-09 09:21+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchaseorder_inheritance
+msgid ""
+"<br/>\n"
+"                                <span width=\"30px\" style=\"font-weight: bold;\">\n"
+"                                    Địa chỉ giao hàng:\n"
+"                                </span>\n"
+"                                <span> Lô 44G KCN Quang Minh - Mê Linh - Hà Nội <br/>\n"
+"                                    Số 10 ngõ 80/3 phố Nhân Hòa, Phường Nhân Chính, Quận Thanh Xuân\n"
+"                                    Hà Nội Việt Nam\n"
+"                                </span><br/>"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.custom_purchasequotation
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchaseorder_inheritance
+msgid ""
+"<span style=\"font-weight:bold\">CÔNG TY TNHH TM &amp; CÔNG NGHỆ SINH HÓA</span>\n"
+"                                <br/>\n"
+"                                <span>Trụ sở : Số 10, ngõ 80/3, Phố Nhân Hòa, Phường Nhân Chính, Q.Thanh Xuân - TP. Hà\n"
+"                                    Nội</span>\n"
+"                                <br/>\n"
+"                                <span>Nhà máy: Lô 44G, KCN Quang Minh, Mê Linh, Hà Nội</span>\n"
+"                                <br/>\n"
+"                                <span style=\"font-weight:bold\">Tel: 043.818.2266, Fax: 043.216.1165</span>\n"
+"                                <br/>"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchaseorder_inheritance
+msgid "<strong>Tổng tiền:</strong>"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.custom_purchasequotation
+msgid "<strong>Tổng:</strong>"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
+msgid "BÁO CÁO MUA HÀNG"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model:ir.ui.menu,name:purchase_inheritance.report_purchase_menu
+msgid "Báo cáo chi tiết"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model:ir.actions.report,print_report_name:purchase_inheritance.action_report_purchasee_order
+msgid "Báo cáo mua hàng"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model:ir.actions.act_window,name:purchase_inheritance.action_purchase_order_1
+msgid "Báo cáo mua hàng chi tiết"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.actions.act_window,help:purchase_inheritance.action_purchase_order_1
+msgid "Create a new order, the first step of a new report!"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model:ir.model.fields,field_description:purchase_inheritance.field_filter_purchase_order__create_uid
+msgid "Created by"
+msgstr "Tạo bởi"
+
+#. module: purchase_inheritance
+#: model:ir.model.fields,field_description:purchase_inheritance.field_filter_purchase_order__create_date
+msgid "Created on"
+msgstr "Thời điểm tạo"
+
+#. module: purchase_inheritance
+#: model:ir.model.fields,field_description:purchase_inheritance.field_filter_purchase_order__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_view
+msgid "Filter"
+msgstr "Lọc"
+
+#. module: purchase_inheritance
+#: model:ir.model.fields,field_description:purchase_inheritance.field_filter_purchase_order__f_date
+msgid "From date"
+msgstr "Từ ngày"
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchaseorder_inheritance
+msgid "HÓA ĐƠN MUA HÀNG"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model:ir.model.fields,field_description:purchase_inheritance.field_filter_purchase_order__id
+msgid "ID"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.custom_purchasequotation
+msgid "Khách hàng:"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model:ir.model.fields,field_description:purchase_inheritance.field_filter_purchase_order____last_update
+msgid "Last Modified on"
+msgstr "Sửa lần cuối vào"
+
+#. module: purchase_inheritance
+#: model:ir.model.fields,field_description:purchase_inheritance.field_filter_purchase_order__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: purchase_inheritance
+#: model:ir.model.fields,field_description:purchase_inheritance.field_filter_purchase_order__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.product_normal_form_view
+msgid "Loại nl/vt"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.custom_purchasequotation
+msgid "Mã KH:"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.custom_purchasequotation
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchaseorder_inheritance
+msgid "Mã SP"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
+msgid "Mã phiếu"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.custom_purchasequotation
+msgid "Ngày mong đợi"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
+msgid "Ngày nhận"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
+msgid "Ngày xác nhận"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchaseorder_inheritance
+msgid "Ngày đặt hàng:"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
+msgid "Nhà cung cấp"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchaseorder_inheritance
+msgid "Nhà cung cấp:"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.product_category_list_view
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.product_normal_form_view
+msgid "Nhóm nl/vt"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.actions.act_window,help:purchase_inheritance.action_purchase_order_1
+msgid ""
+"Once the quotation is confirmed, it becomes a purchase order.<br> You will "
+"be able to create an invoice and collect the payment."
+msgstr ""
+
+#. module: purchase_inheritance
+#: model:ir.model.fields,field_description:purchase_inheritance.field_purchase_order__amount_untaxed_5
+msgid "Price Amount"
+msgstr "Giá cả"
+
+#. module: purchase_inheritance
+#: model:ir.model,name:purchase_inheritance.model_purchase_order
+msgid "Purchase Order"
+msgstr "Đơn mua hàng"
+
+#. module: purchase_inheritance
+#: model:ir.actions.report,name:purchase_inheritance.action_report_purchasee_order
+msgid "Purchase report"
+msgstr "Báo cáo mua hàng"
+
+#. module: purchase_inheritance
+#: model:ir.actions.act_window,name:purchase_inheritance.report_purchase_report_action_form
+msgid "Report"
+msgstr "Báo cáo"
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.custom_purchasequotation
+msgid "SĐT:"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.custom_purchasequotation
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchaseorder_inheritance
+msgid "Số lượng"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchaseorder_inheritance
+msgid "Số điện thoại:"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchaseorder_inheritance
+msgid "Thuế"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.custom_purchasequotation
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchaseorder_inheritance
+msgid "Thành tiền"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model:ir.model.fields,field_description:purchase_inheritance.field_filter_purchase_order__t_date
+msgid "To date"
+msgstr "Đến ngày"
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
+msgid "Trạng thái"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.custom_purchasequotation
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchaseorder_inheritance
+msgid "Tên sản phẩm"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
+msgid "Tổng"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model:ir.model.fields,field_description:purchase_inheritance.field_purchase_order__partner_id
+msgid "Vendor"
+msgstr "Nhà cung cấp"
+
+#. module: purchase_inheritance
+#: model:ir.model.fields,help:purchase_inheritance.field_purchase_order__partner_id
+msgid "You can find a vendor by its Name, TIN, Email or Internal Reference."
+msgstr "Bạn có thể tìm nhà cung cấp theo Tên, MST, Email hoặc Mã nội bộ."
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.custom_purchasequotation
+msgid "YÊU CẦU BÁO GIÁ MUA ĐƠN HÀNG"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model:ir.model,name:purchase_inheritance.model_filter_purchase_order
+msgid "filter.purchase.order"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.custom_purchasequotation
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchaseorder_inheritance
+msgid "Đơn giá"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchaseorder_inheritance
+msgid "Đơn hàng của bạn:"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchaseorder_inheritance
+msgid "Đơn mua hàng:"
+msgstr ""
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.custom_purchasequotation
+msgid "Địa chỉ:"
+msgstr ""
