@@ -46,7 +46,7 @@ class FilterStockQuant(models.Model):
         tree_view_id = self.env.ref('stock_inheritance.stock_move_inventory_tree_view').id
         domain = [('type', '=', 'product'), ('qty_available', '>', 0)]  # , ('location_id', '=', self.location_id)]
         if self.product_tmpl_id:
-            domain = expression.AND([domain, [('product_tmpl_id', '=', self.product_tmpl_id)]])
+            domain = expression.AND([domain, [('product_tmpl_id', '=', self.product_tmpl_id.id)]])
         # We pass `to_date` in the context so that `qty_available` will be computed across
         # moves until date.
         begin_inventory_data = self.env['product.product'].search(domain).with_context(self.env.context,
@@ -113,13 +113,16 @@ class FilterStockQuant(models.Model):
             'end_inventory': record[4],
         } for record in records])
 
+        domain_smi = []
+        if self.product_tmpl_id:
+            domain_smi = expression.AND([domain_smi, [('product_tmpl_id', '=', self.product_tmpl_id.id)]])
         action = {
             'type': 'ir.actions.act_window',
             'views': [(tree_view_id, 'tree')],
             'view_mode': 'tree',
             'name': _('Products'),
             'res_model': 'stock.move.inventory',
-            # 'domain': domain,
+            'domain': domain_smi,
             # 'context': dict(self.env.context, to_date=self.f_date),
         }
         return action
