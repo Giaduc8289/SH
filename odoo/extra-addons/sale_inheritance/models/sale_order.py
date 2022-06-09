@@ -161,8 +161,7 @@ class ReportSaleOrder(models.Model):
 
     f_date = fields.Date('From date')
     t_date = fields.Date('To date')
-    invoice_status = fields.Selection([('no', 'Không xuất hóa đơn'), ('to invoice', 'Để xuất hóa đơn')],
-                               'invoice_status')
+    invoice_status = fields.Selection([('no', 'Không xuất hóa đơn'), ('to invoice', 'Để xuất hóa đơn')], 'Invoice Status')
 
     # @api.constrains('f_date', 't_date')
     def action_print_report(self):
