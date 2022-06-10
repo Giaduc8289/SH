@@ -37,9 +37,9 @@ class AccessControl(models.Model):
     def onchange_purpose(self):
         for rec in self:
             if (rec.purpose=='purchase'):
-                return {'domain': {'product_template_ids': [('categ_id', 'in', [10, 11, 12])]}}
+                return {'domain': {'product_template_ids': [('categ_id', 'in', [10, 11, 12])], 'res_partner_id': [('code', 'like', 'KH%')]}}
             else:
-                return {'domain': {'product_template_ids': [('categ_id', 'not in', [10, 11, 12])]}}
+                return {'domain': {'product_template_ids': [('categ_id', 'not in', [10, 11, 12])], 'res_partner_id': [('code', 'like', 'NCC%')]}}
 
     @api.model
     def create(self, vals_list):
