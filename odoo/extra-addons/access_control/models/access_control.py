@@ -126,16 +126,22 @@ class AccessControl(models.Model):
         for record in self:
             if record.res_partner_id.name != False:
                 record.name = record.res_partner_id.name
-                record.makh = record.res_partner_id.code
-                # if (record.res_partner_id.district_id.name != False and record.res_partner_id.state_id.name != False):
-                record.address = str(record.res_partner_id.street) + ' ' + str(
-                    record.res_partner_id.village_id.name) + ', ' + str(
-                    record.res_partner_id.district_id.name) + ', ' + str(record.res_partner_id.state_id.name)
-                record.phone = record.res_partner_id.phone
+            record.makh = record.res_partner_id.code
+            # if (record.res_partner_id.district_id.name != False and record.res_partner_id.state_id.name != False):
+            if record.res_partner_id.street != False:
+                record.address = str(record.res_partner_id.street) + ' '
+            if record.res_partner_id.village_id.name != False:
+                record.address = record.address + str(record.res_partner_id.village_id.name) + ', '
+            if record.res_partner_id.district_id.name != False:
+                record.address = record.address + str(record.res_partner_id.district_id.name) + ', '
+            if record.res_partner_id.state_id.name != False:
+                record.address = record.address + str(record.res_partner_id.state_id.name)
+            record.phone = record.res_partner_id.phone
 
-    def action_print_report(self):
-        action = self.env.ref('access_control.action_report_access_control').report_action(None, data=None)
-        return action
+
+def action_print_report(self):
+    action = self.env.ref('access_control.action_report_access_control').report_action(None, data=None)
+    return action
 
 
 class FilterAccessControl(models.Model):
