@@ -14,8 +14,10 @@ class AccessControl(models.Model):
     _rec_name = 'res_partner_id'
 
     res_partner_id = fields.Many2one("res.partner", "Partner", domain="[('code', '!=', None)]")
+    makh = fields.Char('Code')
     name = fields.Char('Name')
-    # village = field.Char('partner_id.village_id.name')
+    phone = fields.Char('Phone')
+    taixe = fields.Char('taixe')
     address = fields.Char('Address')
     number_plate = fields.Char('Number plate')
     purpose = fields.Selection([('sale', 'Sale'), ('purchase', 'Purchase'), ('visit', 'Visit'), ('work', 'Work')],
@@ -124,10 +126,12 @@ class AccessControl(models.Model):
         for record in self:
             if record.res_partner_id.name != False:
                 record.name = record.res_partner_id.name
+                record.makh = record.res_partner_id.code
                 # if (record.res_partner_id.district_id.name != False and record.res_partner_id.state_id.name != False):
-                record.address = str(record.res_partner_id.street) + ', ' + str(
+                record.address = str(record.res_partner_id.street) + ' ' + str(
                     record.res_partner_id.village_id.name) + ', ' + str(
                     record.res_partner_id.district_id.name) + ', ' + str(record.res_partner_id.state_id.name)
+                record.phone = record.res_partner_id.phone
 
     def action_print_report(self):
         action = self.env.ref('access_control.action_report_access_control').report_action(None, data=None)
