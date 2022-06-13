@@ -64,6 +64,10 @@
                         <field name="product_template_ids" widget="many2many_tags">
                         </field>
                     </group>
+                    <group>
+                        <field name="sale_ids" widget="one2many" attrs="{'invisible': [('purpose', 'in', ('visit', 'work', 'sale'))]}" />
+                        <field name="purchase_ids" widget="one2many"  attrs="{'invisible': [('purpose', 'in', ('visit', 'work', 'purchase'))]}" />
+                    </group>
                 </sheet>
             </form>
         </field>

@@ -33,6 +33,9 @@ class AccessControl(models.Model):
         ('out', 'Out'),
         ], string='Status', readonly=True, copy=False, index=True, default='in')
 
+    sale_ids = fields.One2many('sale.order', 'id', 'Sale Orders')
+    purchase_ids = fields.One2many('purchase.order', 'id', 'Purchase Orders')
+
     @api.onchange('purpose')
     def onchange_purpose(self):
         for rec in self:
