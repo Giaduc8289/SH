@@ -29,7 +29,7 @@
                 <field name="out_time" optional="show"></field>
                 <field name="weight_in" optional="show"></field>
                 <field name="weight_out" optional="show"></field>
-                <field name="product_template_ids" optional="show"></field>
+                <field name="product_category_ids" optional="show"></field>
             </tree>
         </field>
     </record>
@@ -40,7 +40,7 @@
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">access.control</field>
         <field name="view_mode">tree,form</field>
-        <field name="domain">[('purpose', 'in', ['sale', 'purchase'])]</field>
+        <field name="domain">[('purpose', 'in', ['sale', 'purchase']), ('state', 'not in', ['out'])]</field>
         <field name="search_view_id" ref="access_control_search_view_for_stock"/>
         <field name="view_id" ref="access_control_list_view_for_stock"/>
     </record>
