@@ -8,7 +8,15 @@
                 <div class="page">
                     <div class="oe_structure"/>
                     <br/>
-                    <h2 class="text-center bold"><center>BÁO CÁO KIỂM SOÁT VÀO RA</center></h2>
+                    <t t-if="(docs[0].purpose == 'purchase' and docs[1].purpose == 'sale') or (docs[0].purpose == 'sale' and docs[1].purpose == 'purchase') or (docs[0].purpose == 'sale' and docs[1].purpose == 'visit') or (docs[0].purpose == 'visit' and docs[1].purpose == 'sale') or (docs[0].purpose == 'visit' and docs[1].purpose == 'purchase')  or (docs[0].purpose == 'purchase' and docs[1].purpose == 'visit')">
+                        <h2 class="text-center bold"><center>BÁO CÁO KIỂM SOÁT VÀO RA</center></h2>
+                    </t>
+                    <t t-elif="docs[0].purpose == 'sale'">
+                        <h2 class="text-center bold"><center>BÁO CÁO KIỂM SOÁT VÀO RA BÁN HÀNG</center></h2>
+                    </t>
+                    <t t-elif="docs[0].purpose == 'purchase'">
+                        <h2 class="text-center bold"><center>BÁO CÁO KIỂM SOÁT VÀO RA MUA HÀNG</center></h2>
+                    </t>
                     <br/>
                     <div>
                         <table class="table table-bordered">
@@ -22,8 +30,10 @@
                                         class="text-right">Thời gian vào</th>
                                     <th style="background-color:#3498DB !important;color:#FFF !important;"
                                         class="text-right">Thời gian ra</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                        class="text-right">Mục đích</th>
+                                    <t t-if="(docs[0].purpose == 'purchase' and docs[1].purpose == 'sale') or (docs[0].purpose == 'sale' and docs[1].purpose == 'purchase') or (docs[0].purpose == 'sale' and docs[1].purpose == 'visit') or (docs[0].purpose == 'visit' and docs[1].purpose == 'sale') or (docs[0].purpose == 'visit' and docs[1].purpose == 'purchase')  or (docs[0].purpose == 'purchase' and docs[1].purpose == 'visit')">
+                                        <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                            class="text-right">Mục đích</th>
+                                    </t>
                                     <th style="background-color:#3498DB !important;color:#FFF !important;"
                                         class="text-right">Ghi chú</th>
                                 </tr>
@@ -43,9 +53,12 @@
                                         <td class="text-right">
                                             <span t-field="o.out_time"/>
                                         </td>
-                                        <td class="text-right">
-                                            <span t-field="o.purpose"/>
-                                        </td>
+                                        <t t-if="(docs[0].purpose == 'purchase' and docs[1].purpose == 'sale') or (docs[0].purpose == 'sale' and docs[1].purpose == 'purchase') or (docs[0].purpose == 'sale' and docs[1].purpose == 'visit') or (docs[0].purpose == 'visit' and docs[1].purpose == 'sale') or (docs[0].purpose == 'visit' and docs[1].purpose == 'purchase')  or (docs[0].purpose == 'purchase' and docs[1].purpose == 'visit')">
+
+                                            <td class="text-right">
+                                                <span t-field="o.purpose"/>
+                                            </td>
+                                        </t>
                                         <td class="text-right">
                                             <span t-field="o.purpose_descript"/>
                                         </td>

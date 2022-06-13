@@ -9,11 +9,6 @@
                 <header>
                     <button name="action_weigh_in" type="object" string="Weigh In" class="oe_highlight"
                             attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}"/>
-                    <button name="action_purchase" type="object" string="Purchase" class="oe_highlight"
-                            attrs="{'invisible': [('purpose', '!=', 'sale')]}"/>
-                    <button name="action_sale" type="object" string="Sale" class="oe_highlight"
-                            attrs="{'invisible': [('purpose', '!=', 'purchase')]}"/>
-                    <!--                    <button name="action_unload" type="object" string="Unload Goods" class="oe_highlight" attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}"/>-->
                     <button name="action_weigh_out" type="object" string="Weigh Out" class="oe_highlight"
                             attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}"/>
                     <button name="action_check_out" id="action_confirm" data-hotkey="v"
@@ -74,7 +69,7 @@
                         </group>
                     </group>
                     <group attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}">
-                        <field name="product_template_ids" widget="many2many_tags">
+                        <field name="product_category_ids" widget="many2many_tags">
                         </field>
                     </group>
                 </sheet>
@@ -127,6 +122,32 @@
             </xpath>
             <xpath expr="//field[@name='purpose_descript']" position="attributes">
                 <attribute name="attrs">{'readonly': 0}</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="access_control_form_view_group_sale" model="ir.ui.view">
+        <field name="name">access.control.form.group_sale</field>
+        <field name="model">access.control</field>
+        <field name="inherit_id" ref="access_control_form_view"/>
+        <field name="groups_id"  eval="[(6, 0, [ref('sales_team.group_sale_salesman')])]" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_category_ids']/.." position="after">
+                <group>
+                    <field name="sale_ids" widget="one2many" attrs="{'invisible': [('purpose', 'in', ('visit', 'work', 'sale'))]}" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record id="access_control_form_view_group_purchase" model="ir.ui.view">
+        <field name="name">access.control.form.group_purchase</field>
+        <field name="model">access.control</field>
+        <field name="inherit_id" ref="access_control_form_view"/>
+        <field name="groups_id"  eval="[(6, 0, [ref('purchase.group_purchase_user')])]" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_category_ids']/.." position="after">
+                <group>
+                    <field name="purchase_ids" widget="one2many"  attrs="{'invisible': [('purpose', 'in', ('visit', 'work', 'purchase'))]}" />
+                </group>
             </xpath>
         </field>
     </record>
@@ -201,7 +222,7 @@
                 <field name="out_time" optional="show"></field>
                 <field name="weight_in" optional="show"></field>
                 <field name="weight_out" optional="show"></field>
-                <field name="product_template_ids" optional="show"></field>
+                <field name="product_category_ids" optional="show"></field>
             </tree>
         </field>
     </record>
@@ -296,7 +317,7 @@
                 <field name="out_time" optional="show"></field>
                 <field name="weight_in" optional="show"></field>
                 <field name="weight_out" optional="show"></field>
-                <field name="product_template_ids" optional="show"></field>
+                <field name="product_category_ids" optional="show"></field>
             </tree>
         </field>
     </record>
@@ -344,7 +365,7 @@
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">access.control</field>
         <field name="view_mode">tree,form</field>
-        <field name="domain">[('purpose', 'in', ['sale', 'purchase'])]</field>
+        <field name="domain">[('purpose', 'in', ['sale', 'purchase']), ('state', 'not in', ['out'])]</field>
         <field name="search_view_id" ref="access_control_search_view_for_weight"/>
         <field name="view_id" ref="access_control_list_view_for_weight"/>
     </record>
