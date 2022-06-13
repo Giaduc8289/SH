@@ -18,25 +18,38 @@
                 </header>
                 <sheet>
                     <div class="oe_title">
-                        <field name="purpose" widget="radio" options="{'horizontal': true}" attrs="{'readonly': 1}"></field>
+                        <field name="purpose" widget="radio" options="{'horizontal': true}"
+                               attrs="{'readonly': 1}"></field>
                         <br/>
                         <group>
                             <label for="number_plate" string="Number plate"/>
-                            <h1><field name="number_plate" placeholder="30A 123.45" attrs="{'readonly': 1}" /></h1>
+                            <h1><field name="number_plate" placeholder="30A 123.45" attrs="{'readonly': 1}"/></h1>
                         </group>
                         <group attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}">
+                            <label for="makh" string="Mã khách hàng"/>
+                            <h1><field name="makh" required="1" attrs="{'readonly': 1}"/></h1>
                             <label for="res_partner_id" string="Partner"/>
-                            <h1><field name="res_partner_id" attrs="{'readonly': 1}" /></h1>
+                            <h1><field name="res_partner_id" attrs="{'readonly': 1}"/></h1>
                             <!--                                       domain="[('code', 'like', 'NCC%')]"/></h1>-->
                         </group>
                         <group attrs="{'invisible': [('purpose', 'in', ('sale', 'purchase'))]}">
                             <label for="name" string="Name"/>
-                            <h1><field name="name" required="1" attrs="{'readonly': 1}" /></h1>
+                            <h1><field name="name" required="1" attrs="{'readonly': 1}"/></h1>
                         </group>
                         <group>
+                            <label for="phone" string="Số điện thoại"/>
+                            <h3><field name="phone" attrs="{'readonly': 1}"/></h3>
+                        </group>
+                        <group attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}">
+                            <label for="taixe" string="Tên tài xế"/>
+                            <h3><field name="taixe" attrs="{'readonly': 1}"/></h3>
+                        </group>
+
+                        <group>
                             <label for="address" string="Address"/>
-                            <h3><field name="address" attrs="{'readonly': 1}" /></h3>
-                            <field name="purpose_descript" attrs="{'invisible': [('purpose', '!=', 'visit')], 'readonly': 1}"/>
+                            <h3><field name="address" attrs="{'readonly': 1}"/></h3>
+                            <field name="purpose_descript"
+                                   attrs="{'invisible': [('purpose', '!=', 'visit')], 'readonly': 1}"/>
                         </group>
                     </div>
                     <group>
@@ -67,7 +80,7 @@
         <field name="name">access.control.form.weight_vehicle</field>
         <field name="model">access.control</field>
         <field name="inherit_id" ref="access_control_form_view"/>
-        <field name="groups_id"  eval="[(6, 0, [ref('access_control.group_weight_user')])]" />
+        <field name="groups_id" eval="[(6, 0, [ref('access_control.group_weight_user')])]"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='weight_in']" position="attributes">
                 <attribute name="attrs">{'readonly': [('state', '!=', 'weighin')]}</attribute>
@@ -81,7 +94,7 @@
         <field name="name">access.control.form.group_access</field>
         <field name="model">access.control</field>
         <field name="inherit_id" ref="access_control_form_view"/>
-        <field name="groups_id"  eval="[(6, 0, [ref('access_control.group_access_control_user')])]" />
+        <field name="groups_id" eval="[(6, 0, [ref('access_control.group_access_control_user')])]"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='purpose']" position="attributes">
                 <attribute name="attrs">{'readonly': 0}</attribute>
@@ -92,7 +105,16 @@
             <xpath expr="//field[@name='res_partner_id']" position="attributes">
                 <attribute name="attrs">{'readonly': 0}</attribute>
             </xpath>
+            <xpath expr="//field[@name='makh']" position="attributes">
+                <attribute name="attrs">{'readonly': 0}</attribute>
+            </xpath>
             <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="attrs">{'readonly': 0}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='phone']" position="attributes">
+                <attribute name="attrs">{'readonly': 0}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='taixe']" position="attributes">
                 <attribute name="attrs">{'readonly': 0}</attribute>
             </xpath>
             <xpath expr="//field[@name='address']" position="attributes">
