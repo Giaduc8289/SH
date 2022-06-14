@@ -156,6 +156,7 @@ class FilterAccessControl(models.Model):
     t_date = fields.Date('To date')
     purpose = fields.Selection([('sale', 'Sale'), ('purchase', 'Purchase'), ('visit', 'Visit'), ('work', 'Work')],
                                'Purpose')
+    res_partner_id = fields.Many2one("res.partner", "Partner", domain="[('code', '!=', None)]")
 
     def action_filter_data(self):
         action = self.env["ir.actions.actions"]._for_xml_id('access_control.action_filter_access_control')
@@ -166,6 +167,8 @@ class FilterAccessControl(models.Model):
             domain = expression.AND([domain, [('in_time', '<=', self.t_date)]])
         if self.purpose:
             domain = expression.AND([domain, [('purpose', '=', self.purpose)]])
+        if self.res_partner_id:
+            domain = expression.AND([domain, [('res_partner_id', '=', self.res_partner_id)]])
         action['domain'] = domain
         return action
 
