@@ -16,6 +16,7 @@
         "views/product_view.xml",
         "views/res_partner_view.xml",
         "views/stock_warehouse_views.xml",
+        "views/header_inheritance.xml",
         "data/res.country.location.csv",
         "views/res_bank_views.xml"
     ],
