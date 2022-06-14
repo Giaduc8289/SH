@@ -3,18 +3,24 @@
 <odoo>
 
     <template id="report_access_control_document">
+        <t t-set="change" t-value="0"/>
+        <t t-foreach="docs" t-as="o">
+            <t t-if="docs[0].purpose != o.purpose" >
+                <t t-set="change" t-value="1"/>
+            </t>
+        </t>
         <t t-call="web.html_container">
             <t t-call="web.report_layout">
                 <div class="page">
                     <div class="oe_structure"/>
                     <br/>
-                    <t t-if="(docs[0].purpose == 'purchase' and docs[1].purpose == 'sale') or (docs[0].purpose == 'sale' and docs[1].purpose == 'purchase') or (docs[0].purpose == 'sale' and docs[1].purpose == 'visit') or (docs[0].purpose == 'visit' and docs[1].purpose == 'sale') or (docs[0].purpose == 'visit' and docs[1].purpose == 'purchase')  or (docs[0].purpose == 'purchase' and docs[1].purpose == 'visit')">
+                    <t t-if="change == 1">
                         <h2 class="text-center bold"><center>BÁO CÁO KIỂM SOÁT VÀO RA</center></h2>
                     </t>
-                    <t t-elif="docs[0].purpose == 'sale'">
+                    <t t-if="change == 0 and docs[0].purpose == 'sale'">
                         <h2 class="text-center bold"><center>BÁO CÁO KIỂM SOÁT VÀO RA BÁN HÀNG</center></h2>
                     </t>
-                    <t t-elif="docs[0].purpose == 'purchase'">
+                    <t t-if="change == 0 and docs[0].purpose == 'purchase'">
                         <h2 class="text-center bold"><center>BÁO CÁO KIỂM SOÁT VÀO RA MUA HÀNG</center></h2>
                     </t>
                     <br/>
@@ -30,7 +36,7 @@
                                         class="text-right">Thời gian vào</th>
                                     <th style="background-color:#3498DB !important;color:#FFF !important;"
                                         class="text-right">Thời gian ra</th>
-                                    <t t-if="(docs[0].purpose == 'purchase' and docs[1].purpose == 'sale') or (docs[0].purpose == 'sale' and docs[1].purpose == 'purchase') or (docs[0].purpose == 'sale' and docs[1].purpose == 'visit') or (docs[0].purpose == 'visit' and docs[1].purpose == 'sale') or (docs[0].purpose == 'visit' and docs[1].purpose == 'purchase')  or (docs[0].purpose == 'purchase' and docs[1].purpose == 'visit')">
+                                    <t t-if="change == 1">
                                         <th style="background-color:#3498DB !important;color:#FFF !important;"
                                             class="text-right">Mục đích</th>
                                     </t>
@@ -53,8 +59,7 @@
                                         <td class="text-right">
                                             <span t-field="o.out_time"/>
                                         </td>
-                                        <t t-if="(docs[0].purpose == 'purchase' and docs[1].purpose == 'sale') or (docs[0].purpose == 'sale' and docs[1].purpose == 'purchase') or (docs[0].purpose == 'sale' and docs[1].purpose == 'visit') or (docs[0].purpose == 'visit' and docs[1].purpose == 'sale') or (docs[0].purpose == 'visit' and docs[1].purpose == 'purchase')  or (docs[0].purpose == 'purchase' and docs[1].purpose == 'visit')">
-
+                                        <t t-if="change == 1">
                                             <td class="text-right">
                                                 <span t-field="o.purpose"/>
                                             </td>
