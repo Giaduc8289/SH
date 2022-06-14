@@ -29,13 +29,17 @@ class AccessControl(models.Model):
     weight_in = fields.Float('Weight in', default=0)
     weight_out = fields.Float('Weight out', default=0)
 
-    product_template_ids = fields.Many2many('product.template', column1='product_template_id', column2='id', relation='access_control_product_template_rel', string="Products")
-    product_category_ids = fields.Many2many('product.category', column1='product_category_id', column2='id', relation='access_control_product_category_rel', string="Product Category",
+    product_template_ids = fields.Many2many('product.template', column1='product_template_id', column2='id',
+                                            relation='access_control_product_template_rel', string="Products")
+    product_category_ids = fields.Many2many('product.category', column1='product_category_id', column2='id',
+                                            relation='access_control_product_category_rel', string="Product Category",
                                             domain="[('parent_id', '=', None)]")
     purpose_descript = fields.Char('Purpose descript')
 
-    sale_ids = fields.One2many('sale.order', 'id', 'Sale Orders')
-    purchase_ids = fields.One2many('purchase.order', 'id', 'Purchase Orders')
+    sale_ids = fields.Many2many('sale.order', column1='sale_id', column2='id', relation='access_control_sale_order_rel',
+                                string='Sale Orders')
+    purchase_ids = fields.Many2many('purchase.order', column1='purchase_id', column2='id',
+                                    relation='access_control_purchase_order_rel', string='Purchase Orders')
 
     state = fields.Selection([
         ('in', 'In'),

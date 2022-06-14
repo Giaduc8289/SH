@@ -129,11 +129,12 @@
         <field name="name">access.control.form.group_sale</field>
         <field name="model">access.control</field>
         <field name="inherit_id" ref="access_control_form_view"/>
-        <field name="groups_id"  eval="[(6, 0, [ref('sales_team.group_sale_salesman')])]" />
+        <field name="groups_id" eval="[(6, 0, [ref('sales_team.group_sale_salesman')])]"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='product_category_ids']/.." position="after">
                 <group>
-                    <field name="sale_ids" widget="one2many" attrs="{'invisible': [('purpose', 'in', ('visit', 'work', 'sale'))]}" />
+                    <field name="sale_ids" widget="many2many"
+                           attrs="{'invisible': [('purpose', 'in', ('visit', 'work', 'sale'))]}"/>
                 </group>
             </xpath>
         </field>
@@ -142,11 +143,12 @@
         <field name="name">access.control.form.group_purchase</field>
         <field name="model">access.control</field>
         <field name="inherit_id" ref="access_control_form_view"/>
-        <field name="groups_id"  eval="[(6, 0, [ref('purchase.group_purchase_user')])]" />
+        <field name="groups_id" eval="[(6, 0, [ref('purchase.group_purchase_user')])]"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='product_category_ids']/.." position="after">
                 <group>
-                    <field name="purchase_ids" widget="one2many"  attrs="{'invisible': [('purpose', 'in', ('visit', 'work', 'purchase'))]}" />
+                    <field name="purchase_ids" widget="many2many"
+                           attrs="{'invisible': [('purpose', 'in', ('visit', 'work', 'purchase'))]}"/>
                 </group>
             </xpath>
         </field>
