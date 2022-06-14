@@ -40,13 +40,13 @@ class ReportAccessControl(models.Model):
     # company_id = fields.Many2one('res.company', readonly=True)
     # warehouse_id = fields.Many2one('stock.warehouse', readonly=True)
 
-    def init(self):
-        tools.drop_view_if_exists(self._cr, 'report_access_control')
-        query = """
-CREATE or REPLACE VIEW report_access_control AS (
-SELECT
-    res_partner_id, name, address, phone, number_plate
-    , purpose, in_time, out_time, weight_in, weight_out, state
-FROM access_control ac 
-"""
-        self.env.cr.execute(query)
+#     def init(self):
+#         tools.drop_view_if_exists(self._cr, 'report_access_control')
+#         query = """
+# CREATE or REPLACE VIEW report_access_control AS (
+# SELECT
+#     res_partner_id, name, address, phone, number_plate
+#     , purpose, in_time, out_time, weight_in, weight_out, state
+# FROM access_control ac
+# """
+#         self.env.cr.execute(query)
