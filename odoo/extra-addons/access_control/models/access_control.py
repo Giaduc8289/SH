@@ -172,7 +172,7 @@ class FilterAccessControl(models.Model):
         if self.purpose:
             domain = expression.AND([domain, [('purpose', '=', self.purpose)]])
         if self.res_partner_id:
-            domain = expression.AND([domain, [('res_partner_id', '=', self.res_partner_id)]])
+            domain = expression.AND([domain, [('res_partner_id.code', 'like', self.res_partner_id.code)]])
         action['domain'] = domain
         return action
 
