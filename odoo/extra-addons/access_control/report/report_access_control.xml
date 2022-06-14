@@ -1,58 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="access_control_report_view_graph" model="ir.ui.view">
-        <field name="name">access_control_report_view_graph</field>
+
+    <record id="report_access_control_action" model="ir.actions.report">
+        <field name="name">Report Access Control</field>
+        <field name="model">report.access.control</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">access_control.report_access_control_document</field>
+        <field name="report_file">access_control.report_access_control_document</field>
+        <field name="print_report_name">Báo cáo kiểm soát vào ra - thử nghiệm</field>
+        <field name="binding_model_id" ref="model_report_access_control"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Thử nghiệm report -->
+    <record id="report_access_control_list_view" model="ir.ui.view">
+        <field name="name">report.access.control.list</field>
         <field name="model">report.access.control</field>
         <field name="arch" type="xml">
-            <graph string="report_access_control_graph" type="line" sample="1" disable_linking="1">
-                    <field name="in_time" interval="day"/>
-                    <field name="res_partner_id"/>
-                    <field name="purpose" type="measure"/>
-            </graph>
+            <tree string="Access Controls">
+                <field name="name" optional="show"></field>
+                <field name="address" optional="show"></field>
+                <field name="number_plate" optional="show"/>
+                <field name="purpose" optional="hide" ></field>
+                <field name="purpose_descript" optional="show"/>
+                <field name="ordinal_number" optional="show"></field>
+                <field name="in_time" optional="show"></field>
+                <field name="out_time" optional="show"></field>
+                <field name="weight_in" optional="show"></field>
+                <field name="weight_out" optional="show"></field>
+                <field name="f_date" optional="show"></field>
+                <field name="t_date" optional="show"></field>
+            </tree>
         </field>
     </record>
 
-<!--    <record id="stock_report_view_search" model="ir.ui.view">-->
-<!--        <field name="name">report.stock.quantity.search</field>-->
-<!--        <field name="model">report.stock.quantity</field>-->
-<!--        <field name="arch" type="xml">-->
-<!--            <search string="Report Quantity">-->
-<!--                <field name="product_id"/>-->
-<!--                <field name="state"/>-->
-<!--                <field name="product_tmpl_id"/>-->
-<!--                <field name="warehouse_id"/>-->
-<!--                <group expand="0" string="State">-->
-<!--                    <filter string="Forecasted Stock" name="filter_forecast" domain="[('state', '=', 'forecast')]"/>-->
-<!--                    <filter string="Forecasted Receipts" name="filter_in" domain="[('state', '=', 'in')]"/>-->
-<!--                    <filter string="Forecasted Deliveries" name="filter_out" domain="[('state', '=', 'out')]"/>-->
-<!--                    <separator/>-->
-<!--                    <filter string="Date" name="filter_date" date="date"/>-->
-<!--                </group>-->
-<!--                <group expand="0" string="Group By">-->
-<!--                    <filter string="Date" name="groupby_date" domain="[]" context="{'group_by':'date:day'}"/>-->
-<!--                </group>-->
-<!--            </search>-->
-<!--        </field>-->
-<!--    </record>-->
-
-<!--    <record id="report_stock_quantity_action_product" model="ir.actions.act_window">-->
-<!--        <field name="name">Forecasted Inventory</field>-->
-<!--        <field name="res_model">report.stock.quantity</field>-->
-<!--        <field name="view_mode">graph</field>-->
-<!--        <field name="context">{-->
-<!--            'search_default_filter_forecast': 1,-->
-<!--            'graph_groupbys': ['date:day', 'state',  'product_id'],-->
-<!--        }</field>-->
-<!--    </record>-->
-
-    <record id="report_access_control_action" model="ir.actions.act_window">
-        <field name="name">Access Control</field>
-        <field name="res_model">report.access.control</field>
-        <field name="view_mode">graph</field>
-        <field name="context">{
-            'search_default_filter_forecast': 1,
-            'graph_groupbys': ['date:day', 'state', 'product_id'],
-        }</field>
+    <record id="report_access_control_test_form_view" model="ir.ui.view">
+        <field name="name">report.access.control.form</field>
+        <field name="model">filter.access.control</field>
+        <field name="arch" type="xml">
+            <form create="false">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="f_date" widget="date"/>
+                            <field name="purpose" widget="selection"/>
+                        </group>
+                        <group>
+                            <field name="t_date" widget="date"/>
+                            <field name="res_partner_id" widget="many2one"/>
+                        </group>
+                    </group>
+                    <button name="action_filter_data_test" type="object" string="Filter" class="oe_highlight"/>
+                </sheet>
+            </form>
+        </field>
     </record>
+
+    <record id="action_report_access_control_test" model="ir.actions.act_window">
+        <field name="name">Report Access Control</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">report.access.control</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="report_access_control_test_form_view"/>
+    </record>
+
+    <menuitem id="report_access_control_thunghiem_menu"
+              action="action_report_access_control_test"
+              name="Access Control Test"
+              parent="report_menu"
+              sequence="3"/>
+
 </odoo>
 

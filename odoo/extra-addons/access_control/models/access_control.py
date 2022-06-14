@@ -176,6 +176,25 @@ class FilterAccessControl(models.Model):
         action['domain'] = domain
         return action
 
+    def action_filter_data_test(self):
+        action = self.env["ir.actions.actions"]._for_xml_id('access_control.action_report_access_control_test')
+        data = self.env["report.access.control"]
+        for record in data:
+            record.f_date = self.f_date
+            record.t_date = self.t_date
+
+        # domain = []
+        # if self.f_date:
+        #     domain = expression.AND([domain, [('in_time', '>=', self.f_date)]])
+        # if self.t_date:
+        #     domain = expression.AND([domain, [('in_time', '<=', self.t_date)]])
+        # if self.purpose:
+        #     domain = expression.AND([domain, [('purpose', '=', self.purpose)]])
+        # if self.res_partner_id:
+        #     domain = expression.AND([domain, [('res_partner_id', '=', self.res_partner_id)]])
+        # action['domain'] = domain
+        return action
+
 
 class AccessControlReport(models.AbstractModel):
     _name = 'access.control.report_access_control_document'

@@ -415,4 +415,5 @@
               parent="report_menu"
               sequence="2" groups="access_control.group_weight_user"/>
 
+
 </odoo>
