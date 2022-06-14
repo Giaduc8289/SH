@@ -26,10 +26,11 @@
                             <h1><field name="number_plate" placeholder="30A 123.45" attrs="{'readonly': 1}"/></h1>
                         </group>
                         <group attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}">
-                            <label for="makh" string="Mã khách hàng"/>
-                            <h1><field name="makh" attrs="{'readonly': 1}"/></h1>
                             <label for="res_partner_id" string="Partner"/>
                             <h1><field name="res_partner_id" attrs="{'readonly': 1}"/></h1>
+                            <label for="makh" string="Mã khách hàng"/>
+                            <h1><field name="makh" attrs="{'readonly': 1}"/></h1>
+
                             <!--                                       domain="[('code', 'like', 'NCC%')]"/></h1>-->
                         </group>
                         <group attrs="{'invisible': [('purpose', 'in', ('sale', 'purchase'))]}">

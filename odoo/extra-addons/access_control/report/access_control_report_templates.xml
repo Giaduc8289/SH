@@ -14,7 +14,7 @@
                 <div class="page">
                     <div class="oe_structure"/>
                     <br/>
-                    <t t-if="change == 1">
+                    <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work'">
                         <h2 class="text-center bold"><center>BÁO CÁO KIỂM SOÁT VÀO RA</center></h2>
                     </t>
                     <t t-if="change == 0 and docs[0].purpose == 'sale'">
@@ -36,7 +36,7 @@
                                         class="text-right">Thời gian vào</th>
                                     <th style="background-color:#3498DB !important;color:#FFF !important;"
                                         class="text-right">Thời gian ra</th>
-                                    <t t-if="change == 1">
+                                    <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work' ">
                                         <th style="background-color:#3498DB !important;color:#FFF !important;"
                                             class="text-right">Mục đích</th>
                                     </t>
@@ -59,7 +59,7 @@
                                         <td class="text-right">
                                             <span t-field="o.out_time"/>
                                         </td>
-                                        <t t-if="change == 1">
+                                        <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work' ">
                                             <td class="text-right">
                                                 <span t-field="o.purpose"/>
                                             </td>
