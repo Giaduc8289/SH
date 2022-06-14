@@ -10,6 +10,24 @@
             </t>
         </t>
         <t t-call="web.html_container">
+            <div class="header">
+                <div class="row mt32 mb32">
+                    <div class="col-6">
+                        <img src="/sale_inheritance/static/img/logobc.png" style="max-height: 50px;"/>
+                    </div>
+                    <div class="col-6 text-right" style="font:12px lucida-console,sans-serif !important;">
+                        <span style="font-weight:bold">CÔNG TY TNHH TM &#38; CÔNG NGHỆ SINH HÓA</span>
+                        <br/>
+                        <span>Trụ sở : Số 10, ngõ 80/3, Phố Nhân Hòa, Phường Nhân Chính, Q.Thanh Xuân - TP. Hà
+                            Nội</span>
+                        <br/>
+                        <span>Nhà máy: Lô 44G, KCN Quang Minh, Mê Linh, Hà Nội</span>
+                        <br/>
+                        <span style="font-weight:bold">Tel: 043.818.2266, Fax: 043.216.1165</span>
+                        <br/>
+                    </div>
+                </div>
+            </div>
             <t t-call="web.report_layout">
                 <div class="page">
                     <div class="oe_structure"/>
@@ -25,56 +43,56 @@
                     </t>
                     <br/>
                     <div>
-                        <table class="table table-bordered">
+                        <table class="table table-bordered-co" style="border-collapse: collapse">
                             <thead>
                                 <tr>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
                                         class="text-left">Mã khách hàng</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
                                         class="text-left">Tên khách</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
                                         class="text-left">Tài Xế</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
                                         class="text-left">Địa chỉ</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
                                         class="text-right">Thời gian vào</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
                                         class="text-right">Thời gian ra</th>
                                     <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work' ">
-                                        <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
                                             class="text-right">Mục đích</th>
                                     </t>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
                                         class="text-right">Ghi chú</th>
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
                                 <t t-foreach="docs" t-as="o">
                                     <tr>
-                                        <td class="text-left">
+                                        <td class="text-left" style="border: 1px solid black">
                                             <span t-field="o.makh"/>
                                         </td>
-                                        <td class="text-left">
+                                        <td class="text-left" style="border: 1px solid black">
                                             <span t-field="o.name"/>
                                         </td>
-                                        <td class="text-left">
+                                        <td class="text-left" style="border: 1px solid black">
                                             <span t-field="o.taixe"/>
                                         </td>
-                                        <td class="text-left">
+                                        <td class="text-left" style="border: 1px solid black">
                                             <span t-field="o.address"/>
                                         </td>
-                                        <td class="text-right">
+                                        <td class="text-right" style="border: 1px solid black">
                                             <span t-field="o.in_time"/>
                                         </td>
-                                        <td class="text-right">
+                                        <td class="text-right" style="border: 1px solid black">
                                             <span t-field="o.out_time"/>
                                         </td>
                                         <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work' ">
-                                            <td class="text-right">
+                                            <td class="text-right" style="border: 1px solid black">
                                                 <span t-field="o.purpose"/>
                                             </td>
                                         </t>
-                                        <td class="text-right">
+                                        <td class="text-right" style="border: 1px solid black">
                                             <span t-field="o.purpose_descript"/>
                                         </td>
                                     </tr>
