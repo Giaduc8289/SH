@@ -20,7 +20,6 @@
         "views/purchase_views.xml",
         "views/stock_menu_views.xml",
         "views/quality_view.xml",
-        "report/report_access_control.xml",
     ],
     "installable": True,
     'application': True,

@@ -272,7 +272,7 @@
     </record>
 
     <record id="report_access_control_form_view" model="ir.ui.view">
-        <field name="name">report.access.control.form</field>
+        <field name="name">filter.access.control.form</field>
         <field name="model">filter.access.control</field>
         <field name="arch" type="xml">
             <form create="false">
