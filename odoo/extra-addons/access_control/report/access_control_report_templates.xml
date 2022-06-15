@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
-    <template id="accese_control_report_1" inherit_id="base_inheritance.header_report_template">
-        <xpath expr="//div[@class='header']" position="after">
-            <t t-call="access_control.report_access_control_document"/>
-        </xpath>
-    </template>
 
     <template id="report_access_control_document">
         <t t-set="change" t-value="0"/>

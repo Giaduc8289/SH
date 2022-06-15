@@ -34,7 +34,7 @@
                 <h2 class="text-center bold"><center>HÓA ĐƠN BÁN HÀNG</center></h2>
                 <div>
                     <span width="30px"
-                       style="font-weight: bold;">
+                          style="font-weight: bold;">
                         Khách hàng: <span>
                         <t t-if="doc.partner_id.name">
                             <t t-esc="doc.partner_id.name"/>
@@ -42,7 +42,7 @@
                     </span>
                     </span><br/>
                     <span width="30px"
-                       style="font-weight: bold;">
+                          style="font-weight: bold;">
                         Mã KH: <span>
                         <t t-if="doc.partner_id.code">
                             <t t-esc="doc.partner_id.code"/>
@@ -50,7 +50,7 @@
                     </span>
                     </span><br/>
                     <span width="20px"
-                       style="font-weight: bold;">
+                          style="font-weight: bold;">
                         Địa chỉ: <span>
                         <t t-if="doc.partner_id.village_id.name">
                             <t t-esc="doc.partner_id.village_id.name"/>
@@ -68,7 +68,7 @@
                         </span>
                     </span><br/>
                     <span width="20px"
-                       style="font-weight: bold;">
+                          style="font-weight: bold;">
                         SĐT: <span>
                         <t t-if="doc.partner_id.phone">
                             <t t-esc="doc.partner_id.phone"/>
@@ -76,7 +76,7 @@
                     </span>
                     </span><br/>
                     <span width="20px"
-                       style="font-weight: bold;">
+                          style="font-weight: bold;">
                         Thời gian: <span t-if="doc.date_order">
                         <span t-field="doc.date_order" t-options='{"widget": "date"}'/>
                     </span>
@@ -128,21 +128,20 @@
                                 </tr>
                             </t>
                         </tbody>
-                    <div name="total">
-                        <div class="col-xs-4 pull-right">
-                            <table class="table table-condensed">
-                                <tr class="border-black">
-                                    <td><strong>Tổng:</strong></td>
+                        <div name="total">
+                            <div class="col-xs-4 pull-right">
+                                <table class="table table-condensed">
+                                    <tr class="border-black">
+                                        <td><strong>Tổng:</strong></td>
                                         <td class="text-right">
                                             <span t-field="doc.amount_untaxed_1"
                                                   t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
                                         </td>
-                                </tr>
-                            </table>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
-                    </div>
                     </table>
-
 
 
                     <table class="table table-bordered">
@@ -169,7 +168,7 @@
                                         <span groups="uom.group_uom" t-field="l.product_uom"/>
                                     </td>
                                     <td class="text-right">
-                                        <span t-esc = "abs(l.price_unit)" />
+                                        <span t-esc="abs(l.price_unit)"/>
                                     </td>
                                     <td class="text-right">
                                         <span t-esc="abs(l.price_subtotal)"
@@ -183,10 +182,10 @@
                                 <table class="table table-condensed">
                                     <tr class="border-black">
                                         <td><strong>Tổng giảm giá:</strong></td>
-                                            <td class="text-right">
-                                                <span t-field="doc.amount_untaxed_2"
-                                                      t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
-                                            </td>
+                                        <td class="text-right">
+                                            <span t-field="doc.amount_untaxed_2"
+                                                  t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
+                                        </td>
                                     </tr>
                                 </table>
                             </div>
@@ -223,6 +222,10 @@
                     </p>
                 </div>
                 <div class="oe_structure"/>
+                <div class="footer_contact" style="position: fixed; bottom: 0;">
+                    <span>@2022 - No copyright - Sản phẩm thuộc bản quyền công ty Gia Duc Technology Joint Stock
+                        Company</span>
+                </div>
             </div>
         </t>
     </template>
@@ -259,7 +262,7 @@
                 <h2 class="text-center bold"><center>HÓA ĐƠN BÁN HÀNG</center></h2>
                 <div>
                     <span width="30px"
-                       style="font-weight: bold;">
+                          style="font-weight: bold;">
                         Khách hàng: <span>
                         <t t-if="doc.partner_id.name">
                             <t t-esc="doc.partner_id.name"/>
@@ -267,7 +270,7 @@
                     </span>
                     </span><br/>
                     <span width="30px"
-                       style="font-weight: bold;">
+                          style="font-weight: bold;">
                         Mã KH: <span>
                         <t t-if="doc.partner_id.code">
                             <t t-esc="doc.partner_id.code"/>
@@ -275,7 +278,7 @@
                     </span>
                     </span><br/>
                     <span width="20px"
-                       style="font-weight: bold;">
+                          style="font-weight: bold;">
                         Địa chỉ: <span>
                         <t t-if="doc.partner_id.village_id.name">
                             <t t-esc="doc.partner_id.village_id.name"/>
@@ -293,7 +296,7 @@
                         </span>
                     </span><br/>
                     <span width="20px"
-                       style="font-weight: bold;">
+                          style="font-weight: bold;">
                         SĐT: <span>
                         <t t-if="doc.partner_id.phone">
                             <t t-esc="doc.partner_id.phone"/>
@@ -301,7 +304,7 @@
                     </span>
                     </span><br/>
                     <span width="20px"
-                       style="font-weight: bold;">
+                          style="font-weight: bold;">
                         Thời gian: <span t-if="doc.date_order">
                         <span t-field="doc.date_order" t-options='{"widget": "date"}'/>
                     </span>
@@ -353,21 +356,20 @@
                                 </tr>
                             </t>
                         </tbody>
-                    <div name="total">
-                        <div class="col-xs-4 pull-right">
-                            <table class="table table-condensed">
-                                <tr class="border-black">
-                                    <td><strong>Tổng:</strong></td>
+                        <div name="total">
+                            <div class="col-xs-4 pull-right">
+                                <table class="table table-condensed">
+                                    <tr class="border-black">
+                                        <td><strong>Tổng:</strong></td>
                                         <td class="text-right">
                                             <span t-field="doc.amount_untaxed_1"
                                                   t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
                                         </td>
-                                </tr>
-                            </table>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
-                    </div>
                     </table>
-
 
 
                     <table class="table table-bordered">
@@ -394,7 +396,7 @@
                                         <span groups="uom.group_uom" t-field="l.product_uom"/>
                                     </td>
                                     <td class="text-right">
-                                        <span t-esc = "abs(l.price_unit)" />
+                                        <span t-esc="abs(l.price_unit)"/>
                                     </td>
                                     <td class="text-right">
                                         <span t-esc="abs(l.price_subtotal)"
@@ -408,10 +410,10 @@
                                 <table class="table table-condensed">
                                     <tr class="border-black">
                                         <td><strong>Tổng giảm giá:</strong></td>
-                                            <td class="text-right">
-                                                <span t-field="doc.amount_untaxed_2"
-                                                      t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
-                                            </td>
+                                        <td class="text-right">
+                                            <span t-field="doc.amount_untaxed_2"
+                                                  t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
+                                        </td>
                                     </tr>
                                 </table>
                             </div>
@@ -448,6 +450,10 @@
                     </p>
                 </div>
                 <div class="oe_structure"/>
+                <div class="footer_contact" style="position: fixed; bottom: 0;">
+                    <span>@2022 - No copyright - Sản phẩm thuộc bản quyền công ty Gia Duc Technology Joint Stock
+                        Company</span>
+                </div>
             </div>
         </t>
     </template>
@@ -484,7 +490,7 @@
                 <h2 class="text-center bold"><center>HÓA ĐƠN BÁN HÀNG</center></h2>
                 <div>
                     <span width="30px"
-                       style="font-weight: bold;">
+                          style="font-weight: bold;">
                         Khách hàng: <span>
                         <t t-if="doc.partner_id.name">
                             <t t-esc="doc.partner_id.name"/>
@@ -492,7 +498,7 @@
                     </span>
                     </span><br/>
                     <span width="30px"
-                       style="font-weight: bold;">
+                          style="font-weight: bold;">
                         Mã KH: <span>
                         <t t-if="doc.partner_id.code">
                             <t t-esc="doc.partner_id.code"/>
@@ -500,7 +506,7 @@
                     </span>
                     </span><br/>
                     <span width="20px"
-                       style="font-weight: bold;">
+                          style="font-weight: bold;">
                         Địa chỉ: <span>
                         <t t-if="doc.partner_id.village_id.name">
                             <t t-esc="doc.partner_id.village_id.name"/>
@@ -518,7 +524,7 @@
                         </span>
                     </span><br/>
                     <span width="20px"
-                       style="font-weight: bold;">
+                          style="font-weight: bold;">
                         SĐT: <span>
                         <t t-if="doc.partner_id.phone">
                             <t t-esc="doc.partner_id.phone"/>
@@ -526,7 +532,7 @@
                     </span>
                     </span><br/>
                     <span width="20px"
-                       style="font-weight: bold;">
+                          style="font-weight: bold;">
                         Thời gian: <span t-if="doc.date_order">
                         <span t-field="doc.date_order" t-options='{"widget": "date"}'/>
                     </span>
@@ -578,21 +584,20 @@
                                 </tr>
                             </t>
                         </tbody>
-                    <div name="total">
-                        <div class="col-xs-4 pull-right">
-                            <table class="table table-condensed">
-                                <tr class="border-black">
-                                    <td><strong>Tổng:</strong></td>
+                        <div name="total">
+                            <div class="col-xs-4 pull-right">
+                                <table class="table table-condensed">
+                                    <tr class="border-black">
+                                        <td><strong>Tổng:</strong></td>
                                         <td class="text-right">
                                             <span t-field="doc.amount_untaxed_1"
                                                   t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
                                         </td>
-                                </tr>
-                            </table>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
-                    </div>
                     </table>
-
 
 
                     <table class="table table-bordered">
@@ -619,7 +624,7 @@
                                         <span groups="uom.group_uom" t-field="l.product_uom"/>
                                     </td>
                                     <td class="text-right">
-                                        <span t-esc = "abs(l.price_unit)" />
+                                        <span t-esc="abs(l.price_unit)"/>
                                     </td>
                                     <td class="text-right">
                                         <span t-esc="abs(l.price_subtotal)"
@@ -633,10 +638,10 @@
                                 <table class="table table-condensed">
                                     <tr class="border-black">
                                         <td><strong>Tổng giảm giá:</strong></td>
-                                            <td class="text-right">
-                                                <span t-field="doc.amount_untaxed_2"
-                                                      t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
-                                            </td>
+                                        <td class="text-right">
+                                            <span t-field="doc.amount_untaxed_2"
+                                                  t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
+                                        </td>
                                     </tr>
                                 </table>
                             </div>
@@ -673,23 +678,25 @@
                     </p>
                 </div>
                 <div class="oe_structure"/>
+                <div class="footer_contact" style="position: fixed; bottom: 0;">
+                    <span>@2022 - No copyright - Sản phẩm thuộc bản quyền công ty Gia Duc Technology Joint Stock
+                        Company</span>
+                </div>
             </div>
         </t>
     </template>
 
     <template id="custom_report_saleorder" inherit_id="sale.report_saleorder">
         <xpath expr="//t[@t-call='web.html_container']" position="replace">
-            <t t-call="web.html_container">
-                <t t-foreach="docs" t-as="doc">
-                    <t t-if="doc.order_line[0].product_id.categ_id.id == 10">
-                        <t t-call="sale_inheritance.cavi_report_saleorder_document" t-lang="doc.partner_id.lang"/>
-                    </t>
-                    <t t-if="doc.order_line[0].product_id.categ_id.id == 11">
-                        <t t-call="sale_inheritance.bonong_report_saleorder_document" t-lang="doc.partner_id.lang"/>
-                    </t>
-                    <t t-if="doc.order_line[0].product_id.categ_id.id == 12">
-                        <t t-call="sale_inheritance.biochem_report_saleorder_document" t-lang="doc.partner_id.lang"/>
-                    </t>
+            <t t-foreach="docs" t-as="doc">
+                <t t-if="doc.order_line[0].product_id.categ_id.id == 10">
+                    <t t-call="sale_inheritance.cavi_report_saleorder_document" t-lang="doc.partner_id.lang"/>
+                </t>
+                <t t-if="doc.order_line[0].product_id.categ_id.id == 11">
+                    <t t-call="sale_inheritance.bonong_report_saleorder_document" t-lang="doc.partner_id.lang"/>
+                </t>
+                <t t-if="doc.order_line[0].product_id.categ_id.id == 12">
+                    <t t-call="sale_inheritance.biochem_report_saleorder_document" t-lang="doc.partner_id.lang"/>
                 </t>
             </t>
         </xpath>
