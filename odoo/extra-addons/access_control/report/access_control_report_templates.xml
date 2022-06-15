@@ -30,26 +30,26 @@
                     </t>
                     <br/>
                     <div>
-                        <table class="table table-bordered" style="border-collapse: collapse">
+                        <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
                             <thead>
                                 <tr>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :9%;"
                                         class="text-left">Mã khách hàng</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :15%;"
                                         class="text-left">Tên khách</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :15%;"
                                         class="text-left">Tài Xế</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :25%;"
                                         class="text-left">Địa chỉ</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :10%;"
                                         class="text-right">Thời gian vào</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :10%;"
                                         class="text-right">Thời gian ra</th>
                                     <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work' ">
-                                        <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                        <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :8%;"
                                             class="text-right">Mục đích</th>
                                     </t>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :8%;"
                                         class="text-right">Ghi chú</th>
                                 </tr>
                             </thead>
