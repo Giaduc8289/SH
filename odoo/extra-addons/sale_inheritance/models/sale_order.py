@@ -181,6 +181,8 @@ class ReportSaleOrder(models.Model):
     invoice_status = fields.Selection([('no', 'Không xuất hóa đơn'), ('to invoice', 'Để xuất hóa đơn')],
                                       'Invoice Status')
 
+    group_products = fields.Many2one("product.category", "Product", domain="[('id', '!=', None)]")
+    vung = fields.Many2one("res.country.location", "Vùng", domain="[('state_id', '!=', None)]")
     # @api.constrains('f_date', 't_date')
     def action_print_report(self):
         action = self.env["ir.actions.actions"]._for_xml_id('sale_inheritance.action_orders_1')
@@ -191,6 +193,10 @@ class ReportSaleOrder(models.Model):
             domain = expression.AND([domain, [('date_order', '<=', self.t_date)]])
         if self.invoice_status:
             domain = expression.AND([domain, [('invoice_status', '=', self.invoice_status)]])
+        if self.group_products:
+            domain = expression.AND([domain, [('order_line.name.categ_id', '=', self.group_products.id)]])
+        if self.vung:
+            domain = expression.AND([domain, [('parent_id.id.state_id', '=', self.vung.state_id)]])
         action['domain'] = domain
         return action
 
