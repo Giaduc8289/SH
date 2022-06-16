@@ -17,7 +17,7 @@ class AccessControl(models.Model):
     makh = fields.Char('Code')
     name = fields.Char('Name')
     phone = fields.Char('Phone')
-    taixe = fields.Char('taixe')
+    taixe = fields.Char('Driver')
     address = fields.Char('Address')
     number_plate = fields.Char('Number plate')
     purpose = fields.Selection([('sale', 'Sale'), ('purchase', 'Purchase'), ('visit', 'Visit'), ('work', 'Work')],
@@ -28,6 +28,7 @@ class AccessControl(models.Model):
 
     weight_in = fields.Float('Weight in', default=0)
     weight_out = fields.Float('Weight out', default=0)
+    weight_goods = fields.Float('Weight goods', compute='_weight_goods')
 
     product_template_ids = fields.Many2many('product.template', column1='product_template_id', column2='id',
                                             relation='access_control_product_template_rel', string="Products")
@@ -48,6 +49,11 @@ class AccessControl(models.Model):
         ('weighout', 'Vehicle Weigh Out'),
         ('out', 'Out'),
     ], string='Status', readonly=True, copy=False, index=True, default='in')
+
+    @api.depends("weight_in", "weight_out")
+    def _weight_goods(self):
+        for record in self:
+            record.weight_goods = abs(record.weight_in - record.weight_out)
 
     @api.onchange('purpose')
     def onchange_purpose(self):

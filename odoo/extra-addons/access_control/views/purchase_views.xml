@@ -22,7 +22,7 @@
                 <field name="number_plate" optional="show"/>
                 <field name="name" optional="show"></field>
                 <field name="address" optional="show"></field>
-                <field name="purpose" optional="show"></field>
+                <field name="purpose" optional="hide"></field>
                 <field name="purpose_descript" optional="show"/>
                 <field name="in_time" optional="show"></field>
                 <field name="ordinal_number" optional="show"></field>
