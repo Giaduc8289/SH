@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="sale_inheritance.action_report_sale_order" model="ir.actions.report">
-            <field name="name">Report Sale</field>
+        <record id="sale_inheritance.action_report_sale_order_list" model="ir.actions.report">
+            <field name="name">Report Sale List</field>
             <field name="model">sale.order</field>
             <field name="report_type">qweb-html</field>
-            <field name="report_name">sale_inheritance.report_sale_order_document</field>
-            <field name="report_file">sale_inheritance.report_sale_order_document</field>
+            <field name="report_name">sale_inheritance.report_sale_order_document_list</field>
+            <field name="report_file">sale_inheritance.report_sale_order_document_list</field>
             <field name="print_report_name">Báo cáo bán hàng</field>
             <field name="binding_model_id" ref="model_sale_order"/>
             <field name="binding_type">report</field>
         </record>
     </data>
+    <data>
+        <record id="sale_inheritance.action_report_sale_order" model="ir.actions.report">
+            <field name="name">Report Sale Business Employee</field>
+            <field name="model">sale.order</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">sale_inheritance.report_sale_order_document</field>
+            <field name="report_file">sale_inheritance.report_sale_order_document</field>
+            <field name="print_report_name">Báo cáo bán hàng theo nhân viên kinh doanh</field>
+            <field name="binding_model_id" ref="model_sale_order"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+
 
     <record id="report_sale_order_view" model="ir.ui.view">
         <field name="name">report.sale.order.form</field>
