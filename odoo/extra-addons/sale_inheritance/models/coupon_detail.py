@@ -13,7 +13,7 @@ class CouponDetail(models.Model):
     discount_percentage_detail = fields.Float(string="Phần trăm chiết khấu", default=10, help='The discount in percentage, between 1 and 100')
 
     program_id = fields.Many2one('coupon.program', string="Chương trình chiết khấu")
-    partner_ids = fields.Many2many('res.partner', column1='partner_id', column2='program_id', relation='coupon_program_partner_rel', string="Khách hàng")
+    partner_ids = fields.Many2many('res.partner', column1='partner_id', column2='program_id', relation='coupon_program_partner_rel', string="Khách hàng", domain="[('code', 'like', 'KH%')]")
 
     @api.constrains('discount_hold_amount_detail')
     def _check_discount_hold_amount_detail(self):

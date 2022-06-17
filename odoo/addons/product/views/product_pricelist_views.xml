@@ -123,6 +123,7 @@
                                     <span>%%</span>
                                 </div>
                                 <field name="price_surcharge" widget="monetary" string="Extra Fee" attrs="{'invisible':[('compute_price', '!=', 'formula')]}"/>
+                                <field name="price_surcharge" widget="monetary" string="Extra Fee" attrs="{'invisible':[('compute_price', '!=', 'formula')]}"/>
                                 <field name="price_round" string="Rounding Method" attrs="{'invisible':[('compute_price', '!=', 'formula')]}"/>
                                 <label string="Margins" for="price_min_margin" attrs="{'invisible':[('compute_price', '!=', 'formula')]}"/>
                                 <div class="o_row" attrs="{'invisible':[('compute_price', '!=', 'formula')]}">
