@@ -205,6 +205,8 @@ class ReportSaleOrder(models.Model):
             domain = expression.AND([domain, [('partner_id.code', '=', self.khachhang.code)]])
         if self.sanpham:
             domain = expression.AND([domain, [('order_line.product_id', '=', self.sanpham.id)]])
+        if self.nhanvienkinhdoanh:
+            domain = expression.AND([domain, [('partner_id.user_id.name', '=', self.nhanvienkinhdoanh.name)]])
         action['domain'] = domain
         return action
 
