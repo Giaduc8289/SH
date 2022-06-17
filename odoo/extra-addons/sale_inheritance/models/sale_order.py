@@ -178,8 +178,14 @@ class ReportSaleOrder(models.Model):
 
     f_date = fields.Date('From date')
     t_date = fields.Date('To date')
-    invoice_status = fields.Selection([('no', 'Không xuất hóa đơn'), ('to invoice', 'Để xuất hóa đơn')],
-                                      'Invoice Status')
+    # invoice_status = fields.Selection([('no', 'Không xuất hóa đơn'), ('to invoice', 'Để xuất hóa đơn')],
+    #                                   'Invoice Status')
+
+    group_products = fields.Many2one("product.category", "Nhóm sản phẩm", domain="[('id', '!=', None)]")
+    vung = fields.Many2one("res.country.state", "Tỉnh/ Thành phố", domain="[('code', 'like', 'VN-%')]")
+    khachhang = fields.Many2one("res.partner", "Khách hàng", domain="[('code', 'like', 'KH%')]")
+    sanpham = fields.Many2one("product.template", "Sản phẩm", domain="[('default_code', 'not like', 'OT%')]")
+    nhanvienkinhdoanh = fields.Many2one("res.partner", "Nhân viên kinh doanh", domain="[('user_id', '=', None)]")
 
     # @api.constrains('f_date', 't_date')
     def action_print_report(self):
@@ -189,8 +195,16 @@ class ReportSaleOrder(models.Model):
             domain = expression.AND([domain, [('date_order', '>=', self.f_date)]])
         if self.t_date:
             domain = expression.AND([domain, [('date_order', '<=', self.t_date)]])
-        if self.invoice_status:
-            domain = expression.AND([domain, [('invoice_status', '=', self.invoice_status)]])
+        # if self.invoice_status:
+        #     domain = expression.AND([domain, [('invoice_status', '=', self.invoice_status)]])
+        if self.group_products:
+            domain = expression.AND([domain, [('order_line.product_id.categ_id', '=', self.group_products.id)]])
+        if self.vung:
+            domain = expression.AND([domain, [('partner_id.state_id', '=', self.vung.name)]])
+        if self.khachhang:
+            domain = expression.AND([domain, [('partner_id.code', '=', self.khachhang.code)]])
+        if self.sanpham:
+            domain = expression.AND([domain, [('order_line.product_id', '=', self.sanpham.id)]])
         action['domain'] = domain
         return action
 

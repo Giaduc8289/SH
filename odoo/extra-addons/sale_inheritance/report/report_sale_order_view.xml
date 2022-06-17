@@ -11,25 +11,47 @@
                     <h2 class="text-center bold"><center>BÁO CÁO BÁN HÀNG</center></h2>
                     <br/>
                     <div>
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
                             <thead>
                                 <tr>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: white !important;"
                                         class="text-left">Mã</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: white !important;"
                                         class="text-left">Nhân viên kinh doanh</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: white !important;"
                                         class="text-left">Khách hàng</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: white !important;"
                                         class="text-left">Ngày đặt hàng</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: white !important;"
                                         class="text-right">Tổng</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: white !important;"
                                         class="text-right">Tình trạng hóa đơn</th>
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
                                 <t t-foreach="docs" t-as="o">
+
+                                    <tr>
+                                        <td class="text-left" style="border: 1px solid black">
+                                            <span t-field="o.name"/>
+                                        </td>
+                                        <td class="text-left" style="border: 1px solid black">
+                                            <span t-field="o.user_id"/>
+                                        </td>
+                                        <td class="text-left" style="border: 1px solid black">
+                                            <span t-field="o.partner_id"/>
+                                        </td>
+                                        <td class="text-right" style="border: 1px solid black">
+                                            <span t-field="o.date_order"/>
+                                        </td>
+                                        <td class="text-right" style="border: 1px solid black">
+                                            <span t-field="o.amount_total"/>
+                                        </td>
+                                        <td class="text-right" style="border: 1px solid black">
+                                            <span t-field="o.invoice_status"/>
+                                        </td>
+                                    </tr>
+                                    <t t-set="nhanvien" t-value="o.user_id"></t>
                                     <t t-if="o.user_id != nhanvien">
                                         <tr>
                                             <td lass="text-right" colspan="1">
@@ -46,27 +68,6 @@
                                             </td>
                                         </tr>
                                     </t>
-                                    <tr>
-                                        <td class="text-left">
-                                            <span t-field="o.name"/>
-                                        </td>
-                                        <td class="text-left">
-                                            <span t-field="o.user_id"/>
-                                        </td>
-                                        <td class="text-left">
-                                            <span t-field="o.partner_id"/>
-                                        </td>
-                                        <td class="text-right">
-                                            <span t-field="o.date_order"/>
-                                        </td>
-                                        <td class="text-right">
-                                            <span t-field="o.amount_total"/>
-                                        </td>
-                                        <td class="text-right">
-                                            <span t-field="o.invoice_status"/>
-                                        </td>
-                                    </tr>
-                                    <t t-set="nhanvien" t-value="o.user_id"></t>
                                 </t>
                             </tbody>
                         </table>
