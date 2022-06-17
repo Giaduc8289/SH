@@ -18,20 +18,30 @@
                 </header>
                 <sheet>
                     <div class="oe_title">
-                        <field name="purpose" widget="radio" options="{'horizontal': true}"
-                               attrs="{'readonly': 1}"></field>
+                        <group>
+                            <field name="purpose" widget="radio" options="{'horizontal': true}"
+                                   attrs="{'readonly': 1}"></field>
+                        </group>
                         <br/>
                         <group>
-                            <label for="number_plate" string="Number plate"/>
-                            <h1><field name="number_plate" placeholder="30A 123.45" attrs="{'readonly': 1}"/></h1>
+                            <group>
+                                <label for="number_plate" string="Number plate"/>
+                                <h1><field name="number_plate" placeholder="30A 123.45" attrs="{'readonly': 1}"/></h1>
+                            </group>
+                                <group attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}">
+                                    <label for="taixe" string="Driver"/>
+                                    <h1><field name="taixe" attrs="{'readonly': 1}"/></h1>
+                                </group>
                         </group>
                         <group attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}">
-                            <label for="res_partner_id" string="Partner"/>
-                            <h1><field name="res_partner_id" attrs="{'readonly': 1}"/></h1>
-                            <label for="makh" string="Mã khách hàng"/>
-                            <h1><field name="makh" attrs="{'readonly': 1}"/></h1>
-
-                            <!--                                       domain="[('code', 'like', 'NCC%')]"/></h1>-->
+                            <group>
+                                <label for="res_partner_id" string="Partner"/>
+                                <h1><field name="res_partner_id" attrs="{'readonly': 1}"/></h1>
+                            </group>
+                            <group>
+                                <label for="makh" string="Mã khách hàng"/>
+                                <h1><field name="makh" attrs="{'readonly': 1}"/></h1>
+                            </group>
                         </group>
                         <group attrs="{'invisible': [('purpose', 'in', ('sale', 'purchase'))]}">
                             <label for="name" string="Name"/>
@@ -41,11 +51,6 @@
                             <label for="phone" string="Số điện thoại"/>
                             <h3><field name="phone" attrs="{'readonly': 1}"/></h3>
                         </group>
-                        <group attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}">
-                            <label for="taixe" string="Tên tài xế"/>
-                            <h3><field name="taixe" attrs="{'readonly': 1}"/></h3>
-                        </group>
-
                         <group>
                             <label for="address" string="Address"/>
                             <h3><field name="address" attrs="{'readonly': 1}"/></h3>
@@ -271,28 +276,6 @@
         </field>
     </record>
 
-    <record id="report_access_control_form_view" model="ir.ui.view">
-        <field name="name">filter.access.control.form</field>
-        <field name="model">filter.access.control</field>
-        <field name="arch" type="xml">
-            <form create="false">
-                <sheet>
-                    <group>
-                        <group>
-                            <field name="f_date" widget="date"/>
-                            <field name="purpose" widget="selection"/>
-                        </group>
-                        <group>
-                            <field name="t_date" widget="date"/>
-                            <field name="res_partner_id" widget="many2one"/>
-                        </group>
-                    </group>
-                    <button name="action_filter_data" type="object" string="Filter" class="oe_highlight"/>
-                </sheet>
-            </form>
-        </field>
-    </record>
-
     <!-- Views for weight-->
     <record id="access_control_search_view_for_weight" model="ir.ui.view">
         <field name="name">access.control.search</field>
@@ -326,6 +309,49 @@
         </field>
     </record>
 
+    <!-- Views filter-->
+    <record id="filter_report_access_control_form_view" model="ir.ui.view">
+        <field name="name">filter.access.control.form</field>
+        <field name="model">filter.access.control</field>
+        <field name="arch" type="xml">
+            <form create="false">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="f_date" widget="date"/>
+                            <field name="purpose" widget="selection"/>
+                        </group>
+                        <group>
+                            <field name="t_date" widget="date"/>
+                            <field name="res_partner_id" widget="many2one"/>
+                        </group>
+                    </group>
+                    <button name="action_print_report_access_control" type="object" string="Filter" class="oe_highlight"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="filter_report_weight_form_view" model="ir.ui.view">
+        <field name="name">filter.access.control.form</field>
+        <field name="model">filter.access.control</field>
+        <field name="arch" type="xml">
+            <form create="false">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="f_date" widget="date"/>
+                            <field name="purpose" widget="selection"/>
+                        </group>
+                        <group>
+                            <field name="t_date" widget="date"/>
+                            <field name="res_partner_id" widget="many2one"/>
+                        </group>
+                    </group>
+                    <button name="action_print_report_weight" type="object" string="Filter" class="oe_highlight"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
     <!-- Actions -->
     <!-- Actions Access control-->
@@ -342,25 +368,7 @@
         <field name="name">Access Control</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">filter.access.control</field>
-        <field name="view_id" ref="report_access_control_form_view"/>
-    </record>
-
-    <record id="action_filter_access_control" model="ir.actions.act_window">
-        <field name="name">Access Control</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">access.control</field>
-        <field name="view_mode">tree,kanban,form,graph</field>
-        <field name="context">{}</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                Create a new quotation, the first step of a new sale!
-            </p>
-            <p>
-                Once the quotation is confirmed, it becomes a sales order.
-                <br/>
-                You will be able to create an invoice and collect the payment.
-            </p>
-        </field>
+        <field name="view_id" ref="filter_report_access_control_form_view"/>
     </record>
 
     <!-- Actions Weight vehicle-->
@@ -378,7 +386,7 @@
         <field name="name">Weight Vehicle</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">filter.access.control</field>
-        <field name="view_id" ref="report_access_control_form_view"/>
+        <field name="view_id" ref="filter_report_weight_form_view"/>
     </record>
 
     <!-- Top menu item -->

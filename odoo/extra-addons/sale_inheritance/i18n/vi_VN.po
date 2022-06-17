@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-09 14:40+0000\n"
-"PO-Revision-Date: 2022-06-09 14:40+0000\n"
+"POT-Creation-Date: 2022-06-16 03:28+0000\n"
+"PO-Revision-Date: 2022-06-16 03:28+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -40,6 +40,15 @@ msgid ""
 "                    <br/>\n"
 "                    <span style=\"font-weight:bold\">Tel: 043.818.2266, Fax: 043.216.1165</span>\n"
 "                    <br/>"
+msgstr ""
+
+#. module: sale_inheritance
+#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
+msgid ""
+"<span>@2022 - No copyright - Sản phẩm thuộc bản quyền công ty Gia Duc Technology Joint Stock\n"
+"                        Company</span>"
 msgstr ""
 
 #. module: sale_inheritance
@@ -90,12 +99,18 @@ msgstr ""
 
 #. module: sale_inheritance
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document
+#: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document_list
 msgid "BÁO CÁO BÁN HÀNG"
 msgstr ""
 
 #. module: sale_inheritance
 #: model:ir.actions.report,print_report_name:sale_inheritance.action_report_sale_order
 msgid "Báo cáo bán hàng"
+msgstr ""
+
+#. module: sale_inheritance
+#: model:ir.actions.report,print_report_name:sale_inheritance.action_report_sale_order_list
+msgid "Báo cáo bán hàng list"
 msgstr ""
 
 #. module: sale_inheritance
@@ -158,6 +173,11 @@ msgid ""
 msgstr ""
 "Ngày tạo đơn hàng nháp/đã gửi,\n"
 "Ngày xác nhận của đơn hàng được xác nhận. "
+
+#. module: sale_inheritance
+#: model:ir.model.fields,field_description:sale_inheritance.field_sale_order__partner_id
+msgid "Customer"
+msgstr "Khách hàng"
 
 #. module: sale_inheritance
 #: model:ir.model.fields,field_description:sale_inheritance.field_coupon_program__config_detail
@@ -255,6 +275,7 @@ msgstr "Tình trạng hóa đơn"
 #. module: sale_inheritance
 #: model:ir.model.fields,field_description:sale_inheritance.field_coupon_detail__partner_ids
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document
+#: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document_list
 msgid "Khách hàng"
 msgstr ""
 
@@ -295,6 +316,7 @@ msgstr "Tháng"
 
 #. module: sale_inheritance
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document
+#: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document_list
 msgid "Mã"
 msgstr ""
 
@@ -328,11 +350,13 @@ msgstr ""
 
 #. module: sale_inheritance
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document
+#: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document_list
 msgid "Ngày đặt hàng"
 msgstr ""
 
 #. module: sale_inheritance
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document
+#: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document_list
 msgid "Nhân viên kinh doanh"
 msgstr ""
 
@@ -387,9 +411,14 @@ msgid "Report"
 msgstr "Báo cáo"
 
 #. module: sale_inheritance
-#: model:ir.actions.report,name:sale_inheritance.action_report_sale_order
-msgid "Report Sale"
+#: model:ir.actions.report,name:sale_inheritance.action_report_sale_order_list
+msgid "Report Sale List"
 msgstr "Báo cáo bán hàng"
+
+#. module: sale_inheritance
+#: model:ir.actions.report,name:sale_inheritance.action_report_sale_order
+msgid "Report Sale Business Employee"
+msgstr "Báo cáo bán hàng nhân viên kinh doanh"
 
 #. module: sale_inheritance
 #: model:ir.model,name:sale_inheritance.model_sale_order
@@ -456,11 +485,13 @@ msgstr ""
 
 #. module: sale_inheritance
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document
+#: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document_list
 msgid "Tình trạng hóa đơn"
 msgstr ""
 
 #. module: sale_inheritance
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document
+#: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document_list
 msgid "Tổng"
 msgstr ""
 
