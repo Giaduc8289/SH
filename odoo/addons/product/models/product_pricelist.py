@@ -397,7 +397,7 @@ class PricelistItem(models.Model):
         'Price Surcharge', digits='Product Price',
         help='Specify the fixed amount to add or substract(if negative) to the amount calculated with the discount.')
     price_discount = fields.Float(
-        'Price Discount', default=0, digits=(16, 2),
+        'Price Discount', default=0, digits=(16, 5),
         help="You can apply a mark-up by setting a negative discount.")
     price_round = fields.Float(
         'Price Rounding', digits='Product Price',
