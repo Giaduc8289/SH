@@ -131,6 +131,7 @@
             </xpath>
         </field>
     </record>
+
     <record id="access_control_form_view_group_sale" model="ir.ui.view">
         <field name="name">access.control.form.group_sale</field>
         <field name="model">access.control</field>
@@ -139,8 +140,8 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='product_category_ids']/.." position="after">
                 <group>
-                    <field name="sale_ids" widget="many2many"
-                           attrs="{'invisible': [('purpose', 'in', ('visit', 'work', 'sale'))]}"/>
+                    <field name="sale_ids" widget="many2many" context="{'default_partner_id': res_partner_id}"
+                           attrs="{'invisible': [('purpose', 'in', ('visit', 'work', 'sale'))]}" />
                 </group>
             </xpath>
         </field>
@@ -153,7 +154,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='product_category_ids']/.." position="after">
                 <group>
-                    <field name="purchase_ids" widget="many2many"
+                    <field name="purchase_ids" widget="many2many" context="{'default_partner_id': res_partner_id}"
                            attrs="{'invisible': [('purpose', 'in', ('visit', 'work', 'purchase'))]}"/>
                 </group>
             </xpath>

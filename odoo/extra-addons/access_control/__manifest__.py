@@ -7,7 +7,7 @@
     "sequence": "8",
     "license": "LGPL-3",
     # "category": "Hidden",
-    "depends": ["account", 'base_inheritance', 'quality_assurance'],
+    "depends": ['account', 'base_inheritance', 'quality_assurance', 'sale_inheritance', 'purchase_inheritance'],
     "data": [
         'security/access_control.xml',
         'security/ir.model.access.csv',

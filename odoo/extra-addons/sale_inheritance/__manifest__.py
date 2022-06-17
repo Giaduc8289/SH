@@ -7,7 +7,7 @@
     "sequence": "8",
     "license": "LGPL-3",
     "category": "Hidden",
-    "depends": ["base_inheritance", "sale", 'coupon', "sale_coupon", "access_control"],
+    "depends": ["base_inheritance", "sale", 'coupon', "sale_coupon"],
     "data": [
         'security/ir.model.access.csv',
         "report/sale_report_views.xml",
