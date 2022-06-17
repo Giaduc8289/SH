@@ -276,28 +276,6 @@
         </field>
     </record>
 
-    <record id="report_access_control_form_view" model="ir.ui.view">
-        <field name="name">filter.access.control.form</field>
-        <field name="model">filter.access.control</field>
-        <field name="arch" type="xml">
-            <form create="false">
-                <sheet>
-                    <group>
-                        <group>
-                            <field name="f_date" widget="date"/>
-                            <field name="purpose" widget="selection"/>
-                        </group>
-                        <group>
-                            <field name="t_date" widget="date"/>
-                            <field name="res_partner_id" widget="many2one"/>
-                        </group>
-                    </group>
-                    <button name="action_filter_data" type="object" string="Filter" class="oe_highlight"/>
-                </sheet>
-            </form>
-        </field>
-    </record>
-
     <!-- Views for weight-->
     <record id="access_control_search_view_for_weight" model="ir.ui.view">
         <field name="name">access.control.search</field>
@@ -331,6 +309,49 @@
         </field>
     </record>
 
+    <!-- Views filter-->
+    <record id="filter_report_access_control_form_view" model="ir.ui.view">
+        <field name="name">filter.access.control.form</field>
+        <field name="model">filter.access.control</field>
+        <field name="arch" type="xml">
+            <form create="false">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="f_date" widget="date"/>
+                            <field name="purpose" widget="selection"/>
+                        </group>
+                        <group>
+                            <field name="t_date" widget="date"/>
+                            <field name="res_partner_id" widget="many2one"/>
+                        </group>
+                    </group>
+                    <button name="action_print_report_access_control" type="object" string="Filter" class="oe_highlight"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="filter_report_weight_form_view" model="ir.ui.view">
+        <field name="name">filter.access.control.form</field>
+        <field name="model">filter.access.control</field>
+        <field name="arch" type="xml">
+            <form create="false">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="f_date" widget="date"/>
+                            <field name="purpose" widget="selection"/>
+                        </group>
+                        <group>
+                            <field name="t_date" widget="date"/>
+                            <field name="res_partner_id" widget="many2one"/>
+                        </group>
+                    </group>
+                    <button name="action_print_report_weight" type="object" string="Filter" class="oe_highlight"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
     <!-- Actions -->
     <!-- Actions Access control-->
@@ -347,25 +368,7 @@
         <field name="name">Access Control</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">filter.access.control</field>
-        <field name="view_id" ref="report_access_control_form_view"/>
-    </record>
-
-    <record id="action_filter_access_control" model="ir.actions.act_window">
-        <field name="name">Access Control</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">access.control</field>
-        <field name="view_mode">tree,kanban,form,graph</field>
-        <field name="context">{}</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                Create a new quotation, the first step of a new sale!
-            </p>
-            <p>
-                Once the quotation is confirmed, it becomes a sales order.
-                <br/>
-                You will be able to create an invoice and collect the payment.
-            </p>
-        </field>
+        <field name="view_id" ref="filter_report_access_control_form_view"/>
     </record>
 
     <!-- Actions Weight vehicle-->
@@ -383,7 +386,7 @@
         <field name="name">Weight Vehicle</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">filter.access.control</field>
-        <field name="view_id" ref="report_access_control_form_view"/>
+        <field name="view_id" ref="filter_report_weight_form_view"/>
     </record>
 
     <!-- Top menu item -->

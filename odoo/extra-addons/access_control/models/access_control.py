@@ -153,9 +153,9 @@ class AccessControl(models.Model):
             record.phone = record.res_partner_id.phone
 
 
-def action_print_report(self):
-    action = self.env.ref('access_control.action_report_access_control').report_action(None, data=None)
-    return action
+# def action_print_report(self):
+#     action = self.env.ref('access_control.action_report_access_control').report_action(None, data=None)
+#     return action
 
 
 class FilterAccessControl(models.Model):
@@ -168,8 +168,8 @@ class FilterAccessControl(models.Model):
                                'Purpose')
     res_partner_id = fields.Many2one("res.partner", "Partner", domain="[('code', '!=', None)]")
 
-    def action_filter_data(self):
-        action = self.env["ir.actions.actions"]._for_xml_id('access_control.action_filter_access_control')
+    def action_print_report_access_control(self):
+        # action = self.env["ir.actions.actions"]._for_xml_id('access_control.action_filter_access_control')
         domain = []
         if self.f_date:
             domain = expression.AND([domain, [('in_time', '>=', self.f_date)]])
@@ -179,19 +179,40 @@ class FilterAccessControl(models.Model):
             domain = expression.AND([domain, [('purpose', '=', self.purpose)]])
         if self.res_partner_id:
             domain = expression.AND([domain, [('res_partner_id.code', 'like', self.res_partner_id.code)]])
-        action['domain'] = domain
+        # action['domain'] = domain
+        datas = self.env['access.control'].search(domain)
+        docs = self.env['access.control'].browse(datas.ids)
+        # data = {'date_start': self.start_date, 'date_stop': self.end_date, 'config_ids': self.pos_config_ids.ids}
+        action = self.env.ref('access_control.action_report_access_control').report_action(docs)
+        return action
+
+    def action_print_report_weight(self):
+        # action = self.env["ir.actions.actions"]._for_xml_id('access_control.action_filter_access_control')
+        domain = []
+        if self.f_date:
+            domain = expression.AND([domain, [('in_time', '>=', self.f_date)]])
+        if self.t_date:
+            domain = expression.AND([domain, [('in_time', '<=', self.t_date)]])
+        if self.purpose:
+            domain = expression.AND([domain, [('purpose', '=', self.purpose)]])
+        if self.res_partner_id:
+            domain = expression.AND([domain, [('res_partner_id.code', 'like', self.res_partner_id.code)]])
+        # action['domain'] = domain
+        datas = self.env['access.control'].search(domain)
+        docs = self.env['access.control'].browse(datas.ids)
+        action = self.env.ref('access_control.action_report_weight_vehicle').report_action(docs)
         return action
 
 
-class AccessControlReport(models.AbstractModel):
-    _name = 'access.control.report_access_control_document'
-
-    @api.model
-    def _get_report_values(self, docids, data=None):
-        docs = self.env['access.control'].browse(docids)
-        return {
-            'doc_ids': docids,
-            'doc_model': 'access.control',
-            'docs': docs,
-            'data': data,
-        }
+# class AccessControlReport(models.AbstractModel):
+#     _name = 'access.control.report_access_control_document'
+#
+#     @api.model
+#     def _get_report_values(self, docids, data):
+#         docs = self.env['access.control'].browse(data.ids)
+#         return {
+#             'doc_ids': docids,
+#             'doc_model': 'access.control',
+#             'docs': docs,
+#             'data': data,
+#         }
