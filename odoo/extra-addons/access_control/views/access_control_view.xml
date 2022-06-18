@@ -17,47 +17,45 @@
                     <field name="state" widget="statusbar" statusbar_visible="in,weighin,unload,weighout,out"/>
                 </header>
                 <sheet>
-                    <div class="oe_title">
+                    <group>
+                        <field name="purpose" widget="radio" options="{'horizontal': true}"
+                               attrs="{'readonly': 1}"></field>
+                    </group>
+                    <br/>
+                    <group>
                         <group>
-                            <field name="purpose" widget="radio" options="{'horizontal': true}"
-                                   attrs="{'readonly': 1}"></field>
-                        </group>
-                        <br/>
-                        <group>
-                            <group>
-                                <label for="number_plate" string="Number plate"/>
-                                <h1><field name="number_plate" placeholder="30A 123.45" attrs="{'readonly': 1}"/></h1>
-                            </group>
-                                <group attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}">
-                                    <label for="taixe" string="Driver"/>
-                                    <h1><field name="taixe" attrs="{'readonly': 1}"/></h1>
-                                </group>
+                            <label for="number_plate" string="Number plate"/>
+                            <h1><field name="number_plate" placeholder="30A 123.45" attrs="{'readonly': 1}"/></h1>
                         </group>
                         <group attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}">
-                            <group>
-                                <label for="res_partner_id" string="Partner"/>
-                                <h1><field name="res_partner_id" attrs="{'readonly': 1}"/></h1>
-                            </group>
-                            <group>
-                                <label for="makh" string="Mã khách hàng"/>
-                                <h1><field name="makh" attrs="{'readonly': 1}"/></h1>
-                            </group>
+                            <label for="taixe" string="Driver"/>
+                            <h1><field name="taixe" attrs="{'readonly': 1}"/></h1>
                         </group>
-                        <group attrs="{'invisible': [('purpose', 'in', ('sale', 'purchase'))]}">
-                            <label for="name" string="Name"/>
-                            <h1><field name="name" required="1" attrs="{'readonly': 1}"/></h1>
+                    </group>
+                    <group attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}">
+                        <group>
+                            <label for="res_partner_id" string="Partner"/>
+                            <h1><field name="res_partner_id" attrs="{'readonly': 1}"/></h1>
                         </group>
                         <group>
-                            <label for="phone" string="Số điện thoại"/>
-                            <h3><field name="phone" attrs="{'readonly': 1}"/></h3>
+                            <label for="makh" string="Mã khách hàng"/>
+                            <h1><field name="makh" attrs="{'readonly': 1}"/></h1>
                         </group>
-                        <group>
-                            <label for="address" string="Address"/>
-                            <h3><field name="address" attrs="{'readonly': 1}"/></h3>
-                            <field name="purpose_descript"
-                                   attrs="{'invisible': [('purpose', '!=', 'visit')], 'readonly': 1}"/>
-                        </group>
-                    </div>
+                    </group>
+                    <group attrs="{'invisible': [('purpose', 'in', ('sale', 'purchase'))]}">
+                        <label for="name" string="Name"/>
+                        <h1><field name="name" required="1" attrs="{'readonly': 1}"/></h1>
+                    </group>
+                    <group>
+                        <label for="phone" string="Số điện thoại"/>
+                        <h3><field name="phone" attrs="{'readonly': 1}"/></h3>
+                    </group>
+                    <group>
+                        <label for="address" string="Address"/>
+                        <h3><field name="address" attrs="{'readonly': 1}"/></h3>
+                        <field name="purpose_descript"
+                               attrs="{'invisible': [('purpose', '!=', 'visit')], 'readonly': 1}"/>
+                    </group>
                     <group>
                         <group>
                             <field name="ordinal_number" readonly="1"></field>
@@ -141,7 +139,7 @@
             <xpath expr="//field[@name='product_category_ids']/.." position="after">
                 <group>
                     <field name="sale_ids" widget="many2many" context="{'default_partner_id': res_partner_id}"
-                           attrs="{'invisible': [('purpose', 'in', ('visit', 'work', 'sale'))]}" />
+                           attrs="{'invisible': [('purpose', 'in', ('visit', 'work', 'sale'))]}"/>
                 </group>
             </xpath>
         </field>
@@ -327,7 +325,8 @@
                             <field name="res_partner_id" widget="many2one"/>
                         </group>
                     </group>
-                    <button name="action_print_report_access_control" type="object" string="Filter" class="oe_highlight"/>
+                    <button name="action_print_report_access_control" type="object" string="Filter"
+                            class="oe_highlight"/>
                 </sheet>
             </form>
         </field>
