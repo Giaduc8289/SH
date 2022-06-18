@@ -66,5 +66,6 @@ where sl.usage='internal'
 mrp_production  --đơn sản xuất
 mrp_workorder  --công đoạn sản xuất
 
-
+--Update thuộc tính bán được cho toàn bộ sản phẩm trừ nhóm chiết khấu tự động sinh
+update product_template set sale_ok=true where default_code not like 'OT%'
 
