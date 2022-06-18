@@ -16,12 +16,11 @@
                         <group name="conditions" string="Conditions">
                             <field name="active" invisible="1"/>
                             <field name="program_type" invisible="1"/>
-<!--                            <field name="rule_products_domain" placeholder="Select product" widget="domain" options="{'model': 'product.product', 'in_dialog': true}"/>-->
-<!--                            <label string="Quantity" for="rule_min_quantity" attrs="{'invisible': [('rule_products_domain', '=', False)]}"/>-->
-<!--                            <div attrs="{'invisible': [('rule_products_domain', '=',False)]}">-->
-<!--                                <field name="rule_min_quantity" class="oe_inline"/>-->
-<!--                            </div>-->
-                            <field name="rule_min_quantity" class="oe_inline"/>
+                            <field name="rule_products_domain" placeholder="Select product" widget="domain" options="{'model': 'product.product', 'in_dialog': true}"/>
+                            <label string="Quantity" for="rule_min_quantity" attrs="{'invisible': [('rule_products_domain', '=', False)]}"/>
+                            <div attrs="{'invisible': [('rule_products_domain', '=',False)]}">
+                                <field name="rule_min_quantity" class="oe_inline"/>
+                            </div>
                             <label string="Minimum Purchase Of" for="rule_minimum_amount" />
                             <div name="rule_minimum_amount" class="o_row">
                                 <field name="currency_id" invisible="1"/>
