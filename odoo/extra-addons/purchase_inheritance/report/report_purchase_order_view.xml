@@ -47,7 +47,7 @@
                                             <span t-field="o.amount_untaxed"/>
                                         </td>
                                         <td class="text-right">
-                                            <span t-field="o.invoice_status"/>
+                                            <span t-field="o.state"/>
                                         </td>
                                     </tr>
                                 </t>
