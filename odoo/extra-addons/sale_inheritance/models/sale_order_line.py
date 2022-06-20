@@ -9,7 +9,7 @@ class SaleOrderLine(models.Model):
 
     product_default_code = fields.Char(related="product_template_id.default_code", string="Mã hàng")
     product_weight = fields.Float(related="product_template_id.weight", string="Quy cách")
-    amount_package = fields.Integer(string='Số lượng (bao)')
+    amount_package = fields.Integer(string='Số bao')
 
     @api.onchange("amount_package")
     def _amount_package(self):
