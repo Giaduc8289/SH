@@ -3,7 +3,7 @@
     <template id="web.html_container">
         <t t-set="body_classname" t-value="'container'"/>
         <t t-call="web.report_layout">
-            <div class="header">
+            <div t-attf-class="header" t-att-style="report_header_style">
                 <div class="row mt32 mb32">
                     <div class="col-4">
                         <img src="/sale_inheritance/static/img/logobc.png" style="max-height: 50px;"/>
@@ -24,11 +24,19 @@
 
             <t t-out="0"/>
 
-            <div class="footer_contact" style="position: fixed; bottom: 0;">
-                <span>@2022 - No copyright - Sản phẩm thuộc bản quyền công ty Gia Duc Technology Joint Stock
-                    Company</span>
+            <div t-attf-class="footer o_standard_footer">
+                <div class="text-left" style="border-top: 1px solid black;">
+                    <span>@2022 - No copyright - Sản phẩm thuộc bản quyền công ty Gia Duc Technology Joint Stock
+                        Company</span>
+
+                    <div t-if="report_type == 'pdf'" class="text-muted">
+                        Page: <span class="page"/> / <span class="topage"/>
+                    </div>
+                </div>
+
             </div>
         </t>
     </template>
+
 
 </odoo>
