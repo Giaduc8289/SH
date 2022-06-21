@@ -36,13 +36,10 @@
                         <t t-set="doc" t-value="doc.with_context({'lang':zh_CN})"/>
                         <div class="page">
                             <div class="oe_structure"/>
-                            <strong style="font-weight: bold;">
-                                <h2 class="text-center bold"><center>HÓA ĐƠN MUA HÀNG</center></h2>
-                            </strong>
-                            <br/><br/><br/>
+                            <h2 class="text-center bold"><center>HÓA ĐƠN MUA HÀNG</center></h2>
                             <div>
                                 <span width="30px"
-                                      style="font-weight: bold; font-size:20px;">
+                                      style="font-weight: bold; font-size:2rem;">
                                     Đơn mua hàng: <span>
                                     <t t-if="doc.name">
                                         <t t-esc="doc.name"/>
@@ -50,7 +47,7 @@
                                 </span>
                                 </span><br/>
                                 <span width="30px"
-                                      style="font-weight: bold; font-size:20px;">
+                                      style="font-weight: bold;">
                                     Nhà cung cấp: <span>
                                     <t t-if="doc.partner_id.name">
                                         <t t-esc="doc.partner_id.name"/>
@@ -59,7 +56,7 @@
                                 </span><br/>
 
                                 <span width="30px"
-                                      style="font-weight: bold; font-size:20px;">
+                                      style="font-weight: bold;">
                                     Số điện thoại: <span>
                                     <t t-if="doc.partner_id.phone">
                                         <t t-esc="doc.partner_id.phone"/>
@@ -67,7 +64,7 @@
                                 </span>
                                 </span><br/><br/>
                                 <span width="30px"
-                                      style="font-weight: bold; font-size:20px;">
+                                      style="font-weight: bold;">
                                     Đơn hàng của bạn: <span>
                                     <t t-if="doc.partner_ref">
                                         <t t-esc="doc.partner_ref"/>
@@ -83,7 +80,7 @@
                                 </span>
                                 </span><br/>
                                 <span width="30px"
-                                      style="font-weight: bold; font-size:20px;">
+                                      style="font-weight: bold;">
                                     Địa chỉ giao hàng:
                                 </span>
                                 <span> Lô 44G KCN Quang Minh - Mê Linh - Hà Nội <br/>
@@ -92,20 +89,20 @@
                                 </span><br/>
 
 
-                                <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
+                                <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                            <th style="background-color:#3498DB !important;color:#FFF !important;"
                                                 class="text-left">Mã SP</th>
-                                            <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                            <th style="background-color:#3498DB !important;color:#FFF !important;"
                                                 class="text-left">Tên sản phẩm</th>
-                                            <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                            <th style="background-color:#3498DB !important;color:#FFF !important;"
                                                 class="text-right">Thuế</th>
-                                            <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                            <th style="background-color:#3498DB !important;color:#FFF !important;"
                                                 class="text-right">Số lượng</th>
-                                            <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                            <th style="background-color:#3498DB !important;color:#FFF !important;"
                                                 class="text-right">Đơn giá</th>
-                                            <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                            <th style="background-color:#3498DB !important;color:#FFF !important;"
                                                 class="text-right">Thành tiền</th>
                                         </tr>
                                     </thead>
@@ -114,23 +111,23 @@
                                         <t t-foreach="doc.order_line" t-as="l">
                                             <tr>
 
-                                                <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                                <td class="text-left">
                                                     <span t-field="l.product_id.code"/>
                                                 </td>
-                                                <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                                <td class="text-left">
                                                     <span t-field="l.name"/>
                                                 </td>
-                                                <td nclass="text-right" style="border: 1px solid black;text-align: right !important;">
+                                                <td nclass="text-right">
                                                     <span t-esc="', '.join(map(lambda x: x.name, l.taxes_id))"/>
                                                 </td>
-                                                <td class="text-right" style="border: 1px solid black;text-align: right !important;">
+                                                <td class="text-right">
                                                     <span t-field="l.product_qty"/>
                                                     <span t-field="l.product_uom.name" groups="uom.group_uom"/>
                                                 </td>
-                                                <td class="text-right" style="border: 1px solid black;text-align: right !important;">
+                                                <td class="text-right">
                                                     <span t-field="l.price_unit"/>
                                                 </td>
-                                                <td class="text-right" style="border: 1px solid black;text-align: right !important;">
+                                                <td class="text-right">
                                                     <span t-field="l.price_subtotal"
                                                           t-field-options='{"widget": "monetary", "display_currency": "doc.currency_id"}'/>
                                                 </td>
@@ -151,14 +148,9 @@
                                         </tr>
                                     </table>
                                 </div>
-                            </div>
-                            <br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                        </div>
+                            </div></div>
                     </t>
-                    <p style="page-break-after : always;"></p>
                 </t>
-
-
             </t>
         </xpath>
 
