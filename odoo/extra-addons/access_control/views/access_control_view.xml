@@ -352,6 +352,11 @@
             </form>
         </field>
     </record>
+    <template id="report_error" inherit_id="http_routing.500">
+        <xpath expr="//html" position="replace">
+            <div><h1>Không tồn tại dữ liệu đang tìm kiếm</h1></div>
+        </xpath>
+    </template>
 
     <!-- Actions -->
     <!-- Actions Access control-->
