@@ -8,7 +8,9 @@ _logger = logging.getLogger(__name__)
 class EmployeeInfo(models.Model):
     _inherit = ["hr.employee"]
     _log_access = False
-
+    address_2 = fields.Char(string="Địa chỉ đầy đủ")
+    phone_2 = fields.Char(string="Số điện thoại 2")
+    start_date = fields.Datetime('Bắt đầu công việc')
     @api.model
     def _default_country_id(self):
         vn = self.env['res.country'].search([('code', '=ilike', 'VN')])
