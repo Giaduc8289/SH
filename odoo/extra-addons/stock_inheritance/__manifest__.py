@@ -15,6 +15,9 @@
         "views/stock_report_views.xml",
         "report/stock_action_report.xml",
         "report/stock_report_templates.xml",
+        "report/stock_report_views.xml",
+        "report/report_stockpicking_operations.xml",
+        "report/report_deliveryslip.xml",
     ],
     "installable": True,
     "maintainers": ["hungtv2012@gmail.com"]

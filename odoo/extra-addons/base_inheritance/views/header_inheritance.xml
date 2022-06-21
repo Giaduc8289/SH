@@ -1,34 +1,155 @@
 <odoo>
 
+<!--    <template id="web.html_container">-->
+<!--        <t t-set="body_classname" t-value="'container'"/>-->
+<!--        <t t-call="web.report_layout">-->
+
+<!--            <div t-attf-class="header" t-att-style="report_header_style">-->
+<!--                <div class="row mt32 mb32">-->
+<!--                    <div class="col-4">-->
+<!--                        <img src="/sale_inheritance/static/img/logobc.png" style="max-height: 50px;"/>-->
+<!--                    </div>-->
+<!--                    <div class="col-8 text-right" style="font:12px lucida-console,sans-serif !important;">-->
+<!--                        <span style="font-weight:bold">CÔNG TY TNHH TM &#38; CÔNG NGHỆ SINH HÓA</span>-->
+<!--                        <br/>-->
+<!--                        <span>Trụ sở : Số 10, ngõ 80/3, Phố Nhân Hòa, Phường Nhân Chính, Q.Thanh Xuân - TP. Hà-->
+<!--                            Nội</span>-->
+<!--                        <br/>-->
+<!--                        <span>Nhà máy: Lô 44G, KCN Quang Minh, Mê Linh, Hà Nội</span>-->
+<!--                        <br/>-->
+<!--                        <span style="font-weight:bold">Tel: 043.818.2266, Fax: 043.216.1165</span>-->
+<!--                        <br/>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <t t-out="0"/>-->
+
+<!--            <div t-attf-class="footer o_standard_footer">-->
+<!--                <div class="text-left" style="border-top: 1px solid black;">-->
+<!--                    <span>@2022 - No copyright - Sản phẩm thuộc bản quyền công ty Gia Duc Technology Joint Stock-->
+<!--                        Company</span>-->
+
+<!--                    <div t-if="report_type == 'pdf'" class="text-muted">-->
+<!--                        Page: <span class="page"/> / <span class="topage"/>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </t>-->
+<!--    </template>-->
+
     <template id="web.html_container">
         <t t-set="body_classname" t-value="'container'"/>
-        <t t-call="web.report_layout">
-            <div class="header">
-                <div class="row mt32 mb32">
-                    <div class="col-4">
-                        <img src="/sale_inheritance/static/img/logobc.png" style="max-height: 50px;"/>
-                    </div>
-                    <div class="col-8 text-right" style="font:12px lucida-console,sans-serif !important;">
-                        <span style="font-weight:bold">CÔNG TY TNHH TM &#38; CÔNG NGHỆ SINH HÓA</span>
-                        <br/>
-                        <span>Trụ sở : Số 10, ngõ 80/3, Phố Nhân Hòa, Phường Nhân Chính, Q.Thanh Xuân - TP. Hà
-                            Nội</span>
-                        <br/>
-                        <span>Nhà máy: Lô 44G, KCN Quang Minh, Mê Linh, Hà Nội</span>
-                        <br/>
-                        <span style="font-weight:bold">Tel: 043.818.2266, Fax: 043.216.1165</span>
-                        <br/>
-                    </div>
-                </div>
-            </div>
-
+<!--        <t t-call="web.report_layout">-->
             <t t-out="0"/>
+<!--        </t>-->
+    </template>
 
-            <div class="footer_contact" style="position: fixed; bottom: 0;">
-                <span>@2022 - No copyright - Sản phẩm thuộc bản quyền công ty Gia Duc Technology Joint Stock
-                    Company</span>
-            </div>
-        </t>
+    <template id="web.report_layout" name="Report layout">&lt;!DOCTYPE html&gt;
+        <html t-att-lang="lang and lang.replace('_', '-')"
+              t-att-data-report-margin-top="data_report_margin_top"
+              t-att-data-report-header-spacing="data_report_header_spacing"
+              t-att-data-report-dpi="data_report_dpi"
+              t-att-data-report-landscape="data_report_landscape"
+              t-att-web-base-url="web_base_url">
+            <head>
+                <meta charset="utf-8"/>
+                <meta name="viewport" content="initial-scale=1"/>
+                <title><t t-esc="title or 'Odoo Report'"/></title>
+                <t t-call-assets="web.report_assets_common" t-js="false"/>
+                <!--The following is kind of a hack-->
+                <!--in an iframe, we don't want the session to perform qweb_templates rpc-->
+                <script type="text/javascript">
+                    window.odoo = {};
+                    window.odoo.__session_info__ = {is_report: true};
+                </script>
+                <t t-call-assets="web.assets_common" t-css="false"/>
+                <t t-call-assets="web.report_assets_common" t-css="false"/>
+            </head>
+            <body t-att-class="'container' if not full_width else 'container-fluid'">
+                <div id="wrapwrap">
+
+                    <div t-attf-class="header" t-att-style="report_header_style">
+                        <div class="row mt32 mb32">
+                            <div class="col-4">
+                                <img src="/sale_inheritance/static/img/logobc.png" style="max-height: 50px;"/>
+                            </div>
+                            <div class="col-8 text-right" style="font:12px lucida-console,sans-serif !important;">
+                                <span style="font-weight:bold">CÔNG TY TNHH TM &#38; CÔNG NGHỆ SINH HÓA</span>
+                                <br/>
+                                <span>Trụ sở : Số 10, ngõ 80/3, Phố Nhân Hòa, Phường Nhân Chính, Q.Thanh Xuân - TP. Hà
+                                    Nội</span>
+                                <br/>
+                                <span>Nhà máy: Lô 44G, KCN Quang Minh, Mê Linh, Hà Nội</span>
+                                <br/>
+                                <span style="font-weight:bold">Tel: 043.818.2266, Fax: 043.216.1165</span>
+                                <br/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <main>
+                        <t t-out="0"/>
+                    </main>
+
+                    <div t-attf-class="footer o_standard_footer">
+                        <div class="text-left" style="border-top: 1px solid black;">
+                            <span>@2022 - No copyright - Sản phẩm thuộc bản quyền công ty Gia Duc Technology Joint Stock
+                                Company</span>
+
+                            <div t-if="report_type == 'pdf'" class="text-muted">
+                                Page: <span class="page"/> / <span class="topage"/>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </body>
+        </html>
+    </template>
+
+    <template id="report_no_logo_layout" name="Report layout">&lt;!DOCTYPE html&gt;
+        <html t-att-lang="lang and lang.replace('_', '-')"
+              t-att-data-report-margin-top="data_report_margin_top"
+              t-att-data-report-header-spacing="data_report_header_spacing"
+              t-att-data-report-dpi="data_report_dpi"
+              t-att-data-report-landscape="data_report_landscape"
+              t-att-web-base-url="web_base_url">
+            <head>
+                <meta charset="utf-8"/>
+                <meta name="viewport" content="initial-scale=1"/>
+                <title><t t-esc="title or 'Odoo Report'"/></title>
+                <t t-call-assets="web.report_assets_common" t-js="false"/>
+                <!--The following is kind of a hack-->
+                <!--in an iframe, we don't want the session to perform qweb_templates rpc-->
+                <script type="text/javascript">
+                    window.odoo = {};
+                    window.odoo.__session_info__ = {is_report: true};
+                </script>
+                <t t-call-assets="web.assets_common" t-css="false"/>
+                <t t-call-assets="web.report_assets_common" t-css="false"/>
+            </head>
+            <body t-att-class="'container' if not full_width else 'container-fluid'">
+                <div id="wrapwrap">
+
+                    <main>
+                        <t t-out="0"/>
+                    </main>
+
+                    <div t-attf-class="footer o_standard_footer">
+                        <div class="text-left" style="border-top: 1px solid black;">
+                            <span>@2022 - No copyright - Sản phẩm thuộc bản quyền công ty Gia Duc Technology Joint Stock
+                                Company</span>
+
+                            <div t-if="report_type == 'pdf'" class="text-muted">
+                                Page: <span class="page"/> / <span class="topage"/>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </body>
+        </html>
     </template>
 
 </odoo>

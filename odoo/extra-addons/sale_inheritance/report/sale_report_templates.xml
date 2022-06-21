@@ -30,7 +30,7 @@
                 </div>
             </div>
 
-            <t t-call="web.report_layout">
+            <t t-call="base_inheritance.report_no_logo_layout">
                 <t t-set="doc" t-value="doc.with_context({'lang':zh_CN})"/>
                 <div class="page">
                     <div class="oe_structure"/>
@@ -270,7 +270,7 @@
                 </div>
             </div>
         </div>
-        <t t-call="web.report_layout">
+        <t t-call="base_inheritance.report_no_logo_layout">
             <t t-set="doc" t-value="doc.with_context({'lang':zh_CN})"/>
             <div class="page">
                 <div class="oe_structure"/>
@@ -503,7 +503,7 @@
                 </div>
             </div>
         </div>
-        <t t-call="web.report_layout">
+        <t t-call="base_inheritance.report_no_logo_layout">
             <t t-set="doc" t-value="doc.with_context({'lang':zh_CN})"/>
             <div class="page">
                 <div class="oe_structure"/>

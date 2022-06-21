@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-16 03:28+0000\n"
-"PO-Revision-Date: 2022-06-16 03:28+0000\n"
+"POT-Creation-Date: 2022-06-20 03:11+0000\n"
+"PO-Revision-Date: 2022-06-20 03:11+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,16 +16,24 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: sale_inheritance
+#: model_terms:ir.ui.view,arch_db:sale_inheritance.sale_coupon_program_view_promo_program_form_v1
+msgid ""
+"<span class=\"o_form_label oe_inline\"> Days</span> <span class=\"oe_grey\">if 0, infinite\n"
+"                        use</span>"
+msgstr ""
+
+#. module: sale_inheritance
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
 msgid ""
 "<span style=\"font-weight:bold\">CÔNG TY TNHH LIÊN DOANH VIỆT NAM - CANADA</span>\n"
-"                    <br/>\n"
-"                    <span>Số 155, Đường Cầu giấy, Phường Quan Hoa, Quận Cầu Giấy, TP. Hà Nội</span>\n"
-"                    <br/>\n"
-"                    <span>Nhà máy sản xuất : Lô 44G, KCN Quang Minh, Huyện Mê Linh, TP. Hà Nội</span>\n"
-"                    <br/>\n"
-"                    <span style=\"font-weight:bold\">Email: info@cavigroup.com.vn, Website: www.cavigroup.com.vn</span>\n"
-"                    <br/>"
+"                        <br/>\n"
+"                        <span>Số 155, Đường Cầu giấy, Phường Quan Hoa, Quận Cầu Giấy, TP. Hà Nội</span>\n"
+"                        <br/>\n"
+"                        <span>Nhà máy sản xuất : Lô 44G, KCN Quang Minh, Huyện Mê Linh, TP. Hà Nội</span>\n"
+"                        <br/>\n"
+"                        <span style=\"font-weight:bold\">Email: info@cavigroup.com.vn, Website:\n"
+"                            www.cavigroup.com.vn</span>\n"
+"                        <br/>"
 msgstr ""
 
 #. module: sale_inheritance
@@ -43,28 +51,33 @@ msgid ""
 msgstr ""
 
 #. module: sale_inheritance
+#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
+msgid ""
+"<span>@2022 - No copyright - Sản phẩm thuộc bản quyền công ty Gia Duc Technology Joint Stock\n"
+"                            Company</span>"
+msgstr ""
+
+#. module: sale_inheritance
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
 msgid ""
 "<span>@2022 - No copyright - Sản phẩm thuộc bản quyền công ty Gia Duc Technology Joint Stock\n"
 "                        Company</span>"
 msgstr ""
 
 #. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
 msgid ""
 "<strong>\n"
-"                                    Tổng thành tiền</strong>"
+"                                        Tổng thành tiền</strong>"
 msgstr ""
 
 #. module: sale_inheritance
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
-msgid "<strong><span>Note:</span></strong>"
+msgid ""
+"<strong>\n"
+"                                    Tổng thành tiền</strong>"
 msgstr ""
 
 #. module: sale_inheritance
@@ -76,6 +89,17 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
+msgid "<strong>Tổng : </strong>"
+msgstr ""
+
+#. module: sale_inheritance
+#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
+msgid "<strong>Tổng giảm giá : </strong>"
+msgstr ""
+
+#. module: sale_inheritance
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.preview
 msgid "<strong>Tổng giảm giá:</strong>"
 msgstr ""
@@ -83,13 +107,6 @@ msgstr ""
 #. module: sale_inheritance
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.preview
 msgid "<strong>Tổng thành tiền:</strong>"
-msgstr ""
-
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
-msgid "<strong>Tổng:</strong>"
 msgstr ""
 
 #. module: sale_inheritance
@@ -104,13 +121,13 @@ msgid "BÁO CÁO BÁN HÀNG"
 msgstr ""
 
 #. module: sale_inheritance
-#: model:ir.actions.report,print_report_name:sale_inheritance.action_report_sale_order
+#: model:ir.actions.report,print_report_name:sale_inheritance.action_report_sale_order_list
 msgid "Báo cáo bán hàng"
 msgstr ""
 
 #. module: sale_inheritance
-#: model:ir.actions.report,print_report_name:sale_inheritance.action_report_sale_order_list
-msgid "Báo cáo bán hàng list"
+#: model:ir.actions.report,print_report_name:sale_inheritance.action_report_sale_order
+msgid "Báo cáo bán hàng theo nhân viên kinh doanh"
 msgstr ""
 
 #. module: sale_inheritance
@@ -132,6 +149,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:sale_inheritance.field_coupon_detail__program_id
 msgid "Chương trình chiết khấu"
 msgstr ""
+
+#. module: sale_inheritance
+#: model_terms:ir.ui.view,arch_db:sale_inheritance.sale_coupon_program_view_promo_program_form_v1
+msgid "Conditions"
+msgstr "Điều kiện"
 
 #. module: sale_inheritance
 #: model:ir.model,name:sale_inheritance.model_coupon_detail
@@ -187,7 +209,7 @@ msgstr ""
 #. module: sale_inheritance
 #: model:ir.model.fields,field_description:sale_inheritance.field_sale_order__amount_untaxed_2
 msgid "Discount Amount"
-msgstr ""
+msgstr "Số tiền chiết khấu"
 
 #. module: sale_inheritance
 #: model:ir.model.fields,field_description:sale_inheritance.field_coupon_program__discount_for_amount
@@ -218,7 +240,7 @@ msgstr ""
 #: code:addons/sale_inheritance/models/sale_order.py:0
 #, python-format
 msgid "Discount: %s"
-msgstr ""
+msgstr "Giảm giá: %s"
 
 #. module: sale_inheritance
 #: model:ir.model.fields,field_description:sale_inheritance.field_coupon_detail__display_name
@@ -268,12 +290,9 @@ msgid "ID"
 msgstr ""
 
 #. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_report_sale_order__invoice_status
-msgid "Invoice Status"
-msgstr "Tình trạng hóa đơn"
-
-#. module: sale_inheritance
 #: model:ir.model.fields,field_description:sale_inheritance.field_coupon_detail__partner_ids
+#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_program__coupon_partner_ids
+#: model:ir.model.fields,field_description:sale_inheritance.field_report_sale_order__khachhang
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document_list
 msgid "Khách hàng"
@@ -284,11 +303,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
 msgid "Khách hàng:"
-msgstr ""
-
-#. module: sale_inheritance
-#: model:ir.model.fields.selection,name:sale_inheritance.selection__report_sale_order__invoice_status__no
-msgid "Không xuất hóa đơn"
 msgstr ""
 
 #. module: sale_inheritance
@@ -308,6 +322,11 @@ msgstr "Cập nhật lần cuối bởi"
 #: model:ir.model.fields,field_description:sale_inheritance.field_report_sale_order__write_date
 msgid "Last Updated on"
 msgstr "Cập nhật lần cuối vào"
+
+#. module: sale_inheritance
+#: model_terms:ir.ui.view,arch_db:sale_inheritance.sale_coupon_program_view_promo_program_form_v1
+msgid "Minimum Purchase Of"
+msgstr ""
 
 #. module: sale_inheritance
 #: model:ir.model.fields.selection,name:sale_inheritance.selection__coupon_reward__discount_hold_time__month
@@ -355,9 +374,15 @@ msgid "Ngày đặt hàng"
 msgstr ""
 
 #. module: sale_inheritance
+#: model:ir.model.fields,field_description:sale_inheritance.field_report_sale_order__nhanvienkinhdoanh
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document_list
 msgid "Nhân viên kinh doanh"
+msgstr ""
+
+#. module: sale_inheritance
+#: model:ir.model.fields,field_description:sale_inheritance.field_report_sale_order__group_products
+msgid "Nhóm sản phẩm"
 msgstr ""
 
 #. module: sale_inheritance
@@ -411,14 +436,14 @@ msgid "Report"
 msgstr "Báo cáo"
 
 #. module: sale_inheritance
-#: model:ir.actions.report,name:sale_inheritance.action_report_sale_order_list
-msgid "Report Sale List"
+#: model:ir.actions.report,name:sale_inheritance.action_report_sale_order
+msgid "Report Sale Business Employee"
 msgstr "Báo cáo bán hàng"
 
 #. module: sale_inheritance
-#: model:ir.actions.report,name:sale_inheritance.action_report_sale_order
-msgid "Report Sale Business Employee"
-msgstr "Báo cáo bán hàng nhân viên kinh doanh"
+#: model:ir.actions.report,name:sale_inheritance.action_report_sale_order_list
+msgid "Report Sale List"
+msgstr "Báo cáo bán hàng"
 
 #. module: sale_inheritance
 #: model:ir.model,name:sale_inheritance.model_sale_order
@@ -431,6 +456,11 @@ msgid "Sales Order Line"
 msgstr "Dòng đơn bán hàng"
 
 #. module: sale_inheritance
+#: model_terms:ir.ui.view,arch_db:sale_inheritance.sale_coupon_program_view_promo_program_form_v1
+msgid "Select company"
+msgstr ""
+
+#. module: sale_inheritance
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
@@ -438,8 +468,14 @@ msgid "SĐT:"
 msgstr ""
 
 #. module: sale_inheritance
+#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_program__coupon_products_ids
+#: model:ir.model.fields,field_description:sale_inheritance.field_report_sale_order__sanpham
+msgid "Sản phẩm"
+msgstr ""
+
+#. module: sale_inheritance
 #: model:ir.model.fields,field_description:sale_inheritance.field_sale_order_line__amount_package
-msgid "Số lượng (bao)"
+msgid "Số bao"
 msgstr ""
 
 #. module: sale_inheritance
@@ -490,10 +526,25 @@ msgid "Tình trạng hóa đơn"
 msgstr ""
 
 #. module: sale_inheritance
+#: model:ir.model.fields,field_description:sale_inheritance.field_report_sale_order__vung
+msgid "Tỉnh/ Thành phố"
+msgstr ""
+
+#. module: sale_inheritance
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document_list
 msgid "Tổng"
 msgstr ""
+
+#. module: sale_inheritance
+#: model_terms:ir.ui.view,arch_db:sale_inheritance.sale_coupon_program_view_promo_program_form_v1
+msgid "Validity"
+msgstr "Ngày xác nhận"
+
+#. module: sale_inheritance
+#: model_terms:ir.ui.view,arch_db:sale_inheritance.sale_coupon_program_view_promo_program_form_v1
+msgid "Validity Duration"
+msgstr "Thời hạn hiệu lực"
 
 #. module: sale_inheritance
 #: model:ir.model.fields.selection,name:sale_inheritance.selection__coupon_reward__discount_hold_time__year
@@ -504,7 +555,7 @@ msgstr "Năm"
 #: code:addons/sale_inheritance/models/sale_order.py:0
 #, python-format
 msgid "limited to "
-msgstr ""
+msgstr "giới hạn cho "
 
 #. module: sale_inheritance
 #: model:ir.model,name:sale_inheritance.model_report_sale_order
@@ -522,11 +573,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
 #: model_terms:ir.ui.view,arch_db:sale_inheritance.preview
 msgid "Đơn giá"
-msgstr ""
-
-#. module: sale_inheritance
-#: model:ir.model.fields.selection,name:sale_inheritance.selection__report_sale_order__invoice_status__to_invoice
-msgid "Để xuất hóa đơn"
 msgstr ""
 
 #. module: sale_inheritance
