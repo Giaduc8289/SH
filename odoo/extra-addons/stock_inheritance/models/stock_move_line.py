@@ -4,6 +4,7 @@
 from collections import Counter, defaultdict
 
 from odoo import _, api, fields, tools, models
+from odoo.odoo.osv.expression import expression
 
 
 class StockMoveLine(models.Model):
@@ -12,5 +13,10 @@ class StockMoveLine(models.Model):
 
     manufacturing_date = fields.Datetime('Date', default=fields.Datetime.now, required=True)
 
-    # def action_filter_data(self):
-    #     return
+    def action_alarm_data(self):
+        action = self.env["ir.actions.actions"]._for_xml_id('stock_inheritance.action_stock_alarm')
+        domain = []
+        if self.location_dest_id:
+            domain = expression.AND([domain, [('location_dest_id', '=', self.location_dest_id.name)]])
+        action['domain'] = domain
+        return action

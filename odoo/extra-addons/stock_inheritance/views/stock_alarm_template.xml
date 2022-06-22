@@ -8,18 +8,32 @@
             <form create="false">
                 <sheet>
                     <group>
-                        <field name="date"/>
+                        <field name="location_dest_id" string="Kho cuối"/>
                     </group>
-<!--                    <button name="action_filter_data" type="object" string="Filter" class="oe_highlight"/>-->
+                    <button name="action_alarm_data" type="object" string="Filter" class="oe_highlight"/>
                 </sheet>
             </form>
         </field>
     </record>
+
     <record id="action_stock_move_alarm" model="ir.actions.act_window">
         <field name="name">Alarm</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">stock.move.line</field>
         <field name="view_mode">form</field>
         <field name="view_id" ref="stock_alarm_view"/>
+    </record>
+
+    <record id="action_stock_alarm" model="ir.actions.act_window">
+        <field name="name">Báo cáo hạn dùng chi tiết</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.move.line</field>
+        <field name="view_mode">tree,kanban,form,graph</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Không có dữ liệu truy xuất, yêu cầu quay lại form lọc điều kiện!
+            </p>
+        </field>
     </record>
 </odoo>
