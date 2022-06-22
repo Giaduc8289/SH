@@ -10,6 +10,7 @@
                 <field name="phone_2"/>
             </xpath>
             <xpath expr="//form/sheet/group/group/field[@name='work_email']" position="after">
+                <field name="type_contract" widget="selection"/>
                 <field name="start_date" widget="date"/>
             </xpath>
             <xpath expr="//form/sheet/group/group/field[@name='coach_id']" position="replace">

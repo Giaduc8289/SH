@@ -9,8 +9,11 @@ class EmployeeInfo(models.Model):
     _inherit = ["hr.employee"]
     _log_access = False
     address_2 = fields.Char(string="Địa chỉ đầy đủ")
-    phone_2 = fields.Char(string="Số điện thoại 2")
+    phone_2 = fields.Char(string="Di động 2")
     start_date = fields.Datetime('Bắt đầu công việc')
+    type_contract = fields.Selection(
+        [('DH', 'Hợp đồng dài hạn'), ('NH', 'Hợp đồng ngắn hạn'), ('TV', 'Hợp đồng thời vụ')],
+        'Hợp đồng')
     @api.model
     def _default_country_id(self):
         vn = self.env['res.country'].search([('code', '=ilike', 'VN')])
