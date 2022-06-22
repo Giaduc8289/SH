@@ -4,13 +4,13 @@
 
     <template id="cavi_report_saleorder_document">
         <meta charset="utf-8"/>
-<!--        <t t-if="o and 'company_id' in o">-->
-<!--            <t t-set="company" t-value="o.company_id"></t>-->
-<!--        </t>-->
-<!--        <t t-if="not o or not 'company_id' in o">-->
-<!--            <t t-set="company" t-value="res_company"></t>-->
-<!--        </t>-->
-        <div class="page" style="font-family: Helvetica , sans-serif !important;">
+        <!--        <t t-if="o and 'company_id' in o">-->
+        <!--            <t t-set="company" t-value="o.company_id"></t>-->
+        <!--        </t>-->
+        <!--        <t t-if="not o or not 'company_id' in o">-->
+        <!--            <t t-set="company" t-value="res_company"></t>-->
+        <!--        </t>-->
+        <div class="page">
             <div class="header">
                 <div class="row mt32 mb32">
                     <div class="col-6">
@@ -137,21 +137,21 @@
                                     </tr>
                                 </t>
                             </tbody>
+                            <br/>
                             <div name="total">
-                                <div class="col-xs-4 pull-right">
-                                    <table class="table table-condensed">
-                                        <tr class="border-black">
-                                            <td><strong>Tổng : </strong></td>
-                                            <td class="text-right">
-                                                <span t-field="doc.amount_untaxed_1"
-                                                      t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
+                                <table align="right" class="table table-condensed"
+                                       style="width: 30%; font-size:20px;">
+                                    <tr class="border-black">
+                                        <td style="text-align:left !important;"><strong>Tổng : </strong></td>
+                                        <td class="text-right" style="text-align:right !important;">
+                                            <span t-field="doc.amount_untaxed_1"
+                                                  t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
                         </table>
-
+                        <br/>
 
                         <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
                             <thead>
@@ -190,37 +190,34 @@
                                     </tr>
                                 </t>
                             </tbody>
+                            <br/>
                             <div name="total">
-                                <div class="col-xs-4 pull-right">
-                                    <table class="table table-condensed">
-                                        <tr class="border-black">
-                                            <td><strong>Tổng giảm giá : </strong></td>
-                                            <td class="text-right">
-                                                <span t-field="doc.amount_untaxed_2"
-                                                      t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
+                                <table align="right" class="table table-condensed"
+                                       style="width: 30%; font-size:20px;">
+                                    <tr class="border-black">
+                                        <td style="text-align:left !important;"><strong>Tổng giảm giá : </strong></td>
+                                        <td class="text-right" style="text-align:right !important;">
+                                            <span t-field="doc.amount_untaxed_2"
+                                                  t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
                         </table>
                     </div>
 
-
+                    <br/><br/><br/>
                     <div name="total">
-                        <div class="col-xs-4 pull-right">
-                            <table class="table table-condensed">
-                                <tr class="border-black">
-                                    <td style="color:#FFF ;"><strong>
-                                        Tổng thành tiền</strong></td>
-                                    <td style="color:#FFF ;"
-                                        class="text-right">
-                                        <span t-field="doc.amount_total"
-                                              t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
+                        <table align="right" class="table table-condensed" style="width: 30%; font-size:20px;">
+                            <tr class="border-black">
+                                <td style="text-align:left !important;"><strong>
+                                    Tổng thành tiền</strong></td>
+                                <td class="text-right" style="text-align:right !important;">
+                                    <span t-field="doc.amount_total"
+                                          t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                     <br/><br/><br/><br/><br/><br/><br/><br/><br/>
                     <div style=" background-color: #3498DB; color:#fff !important; font:15px lucida-console,sans-serif ;">
@@ -242,12 +239,12 @@
 
     <template id="biochem_report_saleorder_document">
         <meta charset="utf-8"/>
-<!--        <t t-if="o and 'company_id' in o">-->
-<!--            <t t-set="company" t-value="o.company_id"></t>-->
-<!--        </t>-->
-<!--        <t t-if="not o or not 'company_id' in o">-->
-<!--            <t t-set="company" t-value="res_company"></t>-->
-<!--        </t>-->
+        <!--        <t t-if="o and 'company_id' in o">-->
+        <!--            <t t-set="company" t-value="o.company_id"></t>-->
+        <!--        </t>-->
+        <!--        <t t-if="not o or not 'company_id' in o">-->
+        <!--            <t t-set="company" t-value="res_company"></t>-->
+        <!--        </t>-->
         <div class="header">
             <div class="row mt32 mb32">
                 <div class="col-6">
@@ -370,19 +367,19 @@
                                 </tr>
                             </t>
                         </tbody>
+                        <br/>
                         <div name="total">
-                            <div class="col-xs-4 pull-right">
-                                <table class="table table-condensed">
-                                    <tr class="border-black">
-                                        <td><strong>Tổng : </strong></td>
-                                        <td class="text-right">
-                                            <span t-field="doc.amount_untaxed_1"
-                                                  t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
+                            <table align="right" class="table table-condensed" style="width: 30%; font-size:20px;">
+                                <tr class="border-black">
+                                    <td style="text-align:left !important;"><strong>Tổng : </strong></td>
+                                    <td class="text-right" style="text-align:right !important;">
+                                        <span t-field="doc.amount_untaxed_1"
+                                              t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
+                        <br/>
                     </table>
 
 
@@ -422,37 +419,34 @@
                                 </tr>
                             </t>
                         </tbody>
+                        <br/>
                         <div name="total">
-                            <div class="col-xs-4 pull-right">
-                                <table class="table table-condensed">
-                                    <tr class="border-black">
-                                        <td><strong>Tổng giảm giá : </strong></td>
-                                        <td class="text-right">
-                                            <span t-field="doc.amount_untaxed_2"
-                                                  t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
+                            <table align="right" class="table table-condensed" style="width: 30%; font-size:20px;">
+                                <tr class="border-black">
+                                    <td style="text-align:left !important;"><strong>Tổng giảm giá : </strong></td>
+                                    <td class="text-right" style="text-align:right !important;">
+                                        <span t-field="doc.amount_untaxed_2"
+                                              t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </table>
                 </div>
-
+                <br/><br/><br/>
 
                 <div name="total">
-                    <div class="col-xs-4 pull-right">
-                        <table class="table table-condensed">
-                            <tr class="border-black">
-                                <td style="color:#FFF !important;"><strong>
-                                    Tổng thành tiền</strong></td>
-                                <td style="color:#FFF !important;"
-                                    class="text-right">
-                                    <span t-field="doc.amount_total"
-                                          t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+                    <table align="right" class="table table-condensed" style="width: 30%; font-size:20px;">
+                        <tr class="border-black">
+                            <td style="text-align:left !important;"><strong>
+                                Tổng thành tiền</strong></td>
+                            <td style="text-align:right !important;"
+                                class="text-right">
+                                <span t-field="doc.amount_total"
+                                      t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <br/><br/><br/><br/><br/><br/><br/><br/><br/>
                 <div style=" background-color: #3498DB; color:#fff !important; font:15px lucida-console,sans-serif !important;">
@@ -473,12 +467,12 @@
 
     <template id="bonong_report_saleorder_document">
         <meta charset="utf-8"/>
-<!--        <t t-if="o and 'company_id' in o">-->
-<!--            <t t-set="company" t-value="o.company_id"></t>-->
-<!--        </t>-->
-<!--        <t t-if="not o or not 'company_id' in o">-->
-<!--            <t t-set="company" t-value="res_company"></t>-->
-<!--        </t>-->
+        <!--        <t t-if="o and 'company_id' in o">-->
+        <!--            <t t-set="company" t-value="o.company_id"></t>-->
+        <!--        </t>-->
+        <!--        <t t-if="not o or not 'company_id' in o">-->
+        <!--            <t t-set="company" t-value="res_company"></t>-->
+        <!--        </t>-->
         <div class="header">
             <div class="row mt32 mb32">
                 <div class="col-6">
@@ -601,19 +595,19 @@
                                 </tr>
                             </t>
                         </tbody>
+                        <br/>
                         <div name="total">
-                            <div class="col-xs-4 pull-right">
-                                <table class="table table-condensed">
-                                    <tr class="border-black">
-                                        <td><strong>Tổng : </strong></td>
-                                        <td class="text-right">
-                                            <span t-field="doc.amount_untaxed_1"
-                                                  t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
+                            <table align="right" class="table table-condensed" style="width: 30%; font-size:20px;">
+                                <tr class="border-black">
+                                    <td style="text-align:left !important;"><strong>Tổng : </strong></td>
+                                    <td class="text-right" style="text-align:right !important;">
+                                        <span t-field="doc.amount_untaxed_1"
+                                              t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
+                        <br/>
                     </table>
 
 
@@ -653,37 +647,34 @@
                                 </tr>
                             </t>
                         </tbody>
+                        <br/>
                         <div name="total">
-                            <div class="col-xs-4 pull-right">
-                                <table class="table table-condensed">
-                                    <tr class="border-black">
-                                        <td><strong>Tổng giảm giá : </strong></td>
-                                        <td class="text-right">
-                                            <span t-field="doc.amount_untaxed_2"
-                                                  t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
+                            <table align="right" class="table table-condensed" style="width: 30%; font-size:20px;">
+                                <tr class="border-black">
+                                    <td style="text-align:left !important;"><strong>Tổng giảm giá : </strong></td>
+                                    <td class="text-right !important" style="text-align:right;">
+                                        <span t-field="doc.amount_untaxed_2"
+                                              t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </table>
                 </div>
-
+                <br/><br/><br/>
 
                 <div name="total">
-                    <div class="col-xs-4 pull-right">
-                        <table class="table table-condensed">
-                            <tr class="border-black">
-                                <td style="color:#FFF !important;"><strong>
-                                    Tổng thành tiền</strong></td>
-                                <td style="color:#FFF !important;"
-                                    class="text-right">
-                                    <span t-field="doc.amount_total"
-                                          t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+                    <table align="right" class="table table-condensed" style="width: 30%; font-size:20px;">
+                        <tr class="border-black">
+                            <td style="text-align:left !important;"><strong>
+                                Tổng thành tiền</strong></td>
+                            <td style="text-align:right !important;"
+                                class="text-right">
+                                <span t-field="doc.amount_total"
+                                      t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
