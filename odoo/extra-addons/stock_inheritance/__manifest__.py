@@ -11,6 +11,7 @@
     "data": [
         "security/ir.model.access.csv",
         "views/product_template_view.xml",
+        "views/stock_alarm_template.xml",
         "views/stock_alarm_views.xml",
         "views/stock_quant_views.xml",
         "views/stock_report_views.xml",

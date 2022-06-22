@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="stock_alarm_view" model="ir.ui.view">
+        <field name="name">stock.move.line.form</field>
+        <field name="model">stock.move.line</field>
+        <field name="arch" type="xml">
+            <form create="false">
+                <sheet>
+                    <group>
+                        <field name="date"/>
+                    </group>
+<!--                    <button name="action_filter_data" type="object" string="Filter" class="oe_highlight"/>-->
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_stock_move_alarm" model="ir.actions.act_window">
+        <field name="name">Alarm</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.move.line</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="stock_alarm_view"/>
+    </record>
+</odoo>

@@ -12,3 +12,5 @@ class StockMoveLine(models.Model):
 
     manufacturing_date = fields.Datetime('Date', default=fields.Datetime.now, required=True)
 
+    # def action_filter_data(self):
+    #     return
