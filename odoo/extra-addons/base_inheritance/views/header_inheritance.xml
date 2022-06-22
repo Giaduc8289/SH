@@ -67,8 +67,6 @@
                 <t t-call-assets="web.report_assets_common" t-css="false"/>
             </head>
             <body t-att-class="'container' if not full_width else 'container-fluid'">
-                <div id="wrapwrap">
-
                     <div t-attf-class="header" t-att-style="report_header_style">
                         <div class="row mt32 mb32">
                             <div class="col-4">
@@ -102,8 +100,6 @@
                             </div>
                         </div>
                     </div>
-
-                </div>
             </body>
         </html>
     </template>
@@ -130,8 +126,6 @@
                 <t t-call-assets="web.report_assets_common" t-css="false"/>
             </head>
             <body t-att-class="'container' if not full_width else 'container-fluid'">
-                <div id="wrapwrap">
-
                     <main>
                         <t t-out="0"/>
                     </main>
@@ -146,8 +140,6 @@
                             </div>
                         </div>
                     </div>
-
-                </div>
             </body>
         </html>
     </template>
