@@ -62,6 +62,9 @@ select product_id, sq.location_id, lot_id, removal_date, quantity
 from stock_quant sq left join stock_location sl on sq.location_id=sl.id
 where sl.usage='internal'
 
+--View tổng quan kho
+stock_picking_type_kanban
+
 --Dữ liệu sản xuất
 mrp_production  --đơn sản xuất
 mrp_workorder  --công đoạn sản xuất
