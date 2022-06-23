@@ -5,48 +5,49 @@
     <template id="report_stock_move_inventory_document">
         <t t-call="web.html_container">
             <t t-call="web.report_layout">
-                <div class="page">
+                <meta charset="utf-8"/>
+                <div class="page" style="font-family :Arial !important;">
                     <div class="oe_structure"/>
                     <br/>
                     <h2 class="text-center bold"><center>BÁO CÁO NHẬP XUẤT TỒN</center></h2>
                     <br/>
                     <div>
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
                             <thead>
                                 <tr>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                        class="text-left">Mã sản phẩm</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                        class="text-left">Tên sản phẩm</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                        class="text-right">Tồn đầu</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                        class="text-right">Nhập kho</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                        class="text-right">Xuất kho</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                        class="text-right">Tồn cuối</th>
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
+                                        class="text-center">Mã sản phẩm</th>
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
+                                        class="text-center">Tên sản phẩm</th>
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
+                                        class="text-center">Tồn đầu</th>
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
+                                        class="text-center">Nhập kho</th>
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
+                                        class="text-center">Xuất kho</th>
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
+                                        class="text-center">Tồn cuối</th>
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
                                 <t t-foreach="docs" t-as="o">
                                     <tr>
-                                        <td class="text-left">
+                                        <td class="text-left" style="border: 1px solid black;text-align: left !important;">
                                             <span t-field="o.product_tmpl_id.default_code"/>
                                         </td>
-                                        <td class="text-left">
+                                        <td class="text-left" style="border: 1px solid black;text-align: left !important;">
                                             <span t-field="o.product_tmpl_id.name"/>
                                         </td>
-                                        <td class="text-right">
+                                        <td class="text-right" style="border: 1px solid black;text-align: right !important;">
                                             <span t-field="o.begin_inventory"/>
                                         </td>
-                                        <td class="text-right">
+                                        <td class="text-right" style="border: 1px solid black;text-align: right !important;">
                                             <span t-field="o.warehouse_entry"/>
                                         </td>
-                                        <td class="text-right">
+                                        <td class="text-right" style="border: 1px solid black;text-align: right !important;">
                                             <span t-field="o.warehouse_export"/>
                                         </td>
-                                        <td class="text-right">
+                                        <td class="text-right" style="border: 1px solid black;text-align: right !important;">
                                             <span t-field="o.end_inventory"/>
                                         </td>
                                     </tr>
