@@ -11,7 +11,7 @@ class StockMoveLine(models.Model):
     _inherit = "stock.move.line"
     _description = "Product Moves (Stock Move Line)"
 
-    manufacturing_date = fields.Datetime('Date', default=fields.Datetime.now, required=True)
+    manufacturing_date = fields.Datetime('Manufacturing Date')
 
 class FilterAlarmStock(models.Model):
     _name = 'filter.alarm.stock'
