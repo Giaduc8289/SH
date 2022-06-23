@@ -10,7 +10,7 @@
         <!--        <t t-if="not o or not 'company_id' in o">-->
         <!--            <t t-set="company" t-value="res_company"></t>-->
         <!--        </t>-->
-        <div class="page">
+        <div class="page" style="font-family :Arial !important;">
             <div class="header">
                 <div class="row mt32 mb32">
                     <div class="col-6">
@@ -32,7 +32,7 @@
 
             <t t-call="base_inheritance.report_no_logo_layout">
                 <t t-set="doc" t-value="doc.with_context({'lang':zh_CN})"/>
-                <div class="page">
+                <div class="page" style="font-family :Arial !important;">
                     <div class="oe_structure"/>
                     <h2 class="text-center bold"><center>HÓA ĐƠN BÁN HÀNG</center></h2>
                     <div>
@@ -84,28 +84,30 @@
                             <span t-field="doc.date_order" t-options='{"widget": "date"}'/>
                         </span>
                         </span>
-
+                        <br/>
                         <!-- Is there a discount on at least one line? -->
                         <t t-set="display_discount" t-value="any([l.discount for l in doc.order_line])"/>
 
-                        <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
+                        <table class="table table-bordered"
+                               style="border-collapse: collapse ; width : 100%; font-family :Arial !important;">
                             <thead>
                                 <tr>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:10%;"
                                         class="text-center">Mã SP</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 30%;"
                                         class="text-center">Tên sản phẩm</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 15%;"
                                         class="text-center">Mã sản phẩm</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 15%;"
                                         class="text-center">Trọng lượng</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 15%;"
                                         class="text-center">Đơn giá</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important;width: 15%;"
                                         class="text-center">Thành tiền</th>
                                 </tr>
                             </thead>
-                            <tbody class="sale_tbody" style="border-collapse: collapse ; width : 100%;">
+                            <tbody class="sale_tbody"
+                                   style="border-collapse: collapse ; width : 100%; font-family :Arial !important;">
                                 <t t-foreach="doc.order_line" t-as="l">
                                     <tr t-if="l.product_id.categ_id.id in (10,11,12)">
                                         <td class="text-left"
@@ -140,7 +142,7 @@
                             <br/>
                             <div name="total">
                                 <table align="right" class="table table-condensed"
-                                       style="width: 30%; font-size:20px;">
+                                       style="width: 30%; font-size:18px;">
                                     <tr class="border-black">
                                         <td style="text-align:left !important;"><strong>Tổng : </strong></td>
                                         <td class="text-right" style="text-align:right !important;">
@@ -153,16 +155,17 @@
                         </table>
                         <br/>
 
-                        <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
+                        <table class="table table-bordered"
+                               style="border-collapse: collapse ; width : 100%; font-family :Arial !important;">
                             <thead>
                                 <tr>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:25%;"
                                         class="text-center">Giảm giá</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important;width:25%;"
                                         class="text-center">Trọng lượng</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:25%;"
                                         class="text-center">Đơn giá</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:25%;"
                                         class="text-center">Thành tiền</th>
                                 </tr>
                             </thead>
@@ -193,7 +196,7 @@
                             <br/>
                             <div name="total">
                                 <table align="right" class="table table-condensed"
-                                       style="width: 30%; font-size:20px;">
+                                       style="width: 30%; font-size:18px;">
                                     <tr class="border-black">
                                         <td style="text-align:left !important;"><strong>Tổng giảm giá : </strong></td>
                                         <td class="text-right" style="text-align:right !important;">
@@ -207,8 +210,8 @@
                     </div>
 
                     <br/><br/><br/>
-                    <div name="total">
-                        <table align="right" class="table table-condensed" style="width: 30%; font-size:20px;">
+                    <div name="total" style="font-family :Arial !important;">
+                        <table align="right" class="table table-condensed" style="width: 30%; font-size:18px;">
                             <tr class="border-black">
                                 <td style="text-align:left !important;"><strong>
                                     Tổng thành tiền</strong></td>
@@ -220,7 +223,7 @@
                         </table>
                     </div>
                     <br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                    <div style=" background-color: #3498DB; color:#fff !important; font:15px lucida-console,sans-serif ;">
+                    <div style=" background-color: #3498DB;  font:15px lucida-console,sans-serif ;">
                         <p t-if="doc.payment_term_id ">
                             <strong><div name="payment_term">Payment Term :<span
                                     t-field="doc.payment_term_id"/></div></strong>
@@ -264,7 +267,7 @@
         </div>
         <t t-call="base_inheritance.report_no_logo_layout">
             <t t-set="doc" t-value="doc.with_context({'lang':zh_CN})"/>
-            <div class="page">
+            <div class="page" style="font-family :Arial !important;">
                 <div class="oe_structure"/>
                 <h2 class="text-center bold"><center>HÓA ĐƠN BÁN HÀNG</center></h2>
                 <div>
@@ -316,24 +319,25 @@
                         <span t-field="doc.date_order" t-options='{"widget": "date"}'/>
                     </span>
                     </span>
-
+                    <br/>
                     <!-- Is there a discount on at least one line? -->
                     <t t-set="display_discount" t-value="any([l.discount for l in doc.order_line])"/>
 
-                    <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
+                    <table class="table table-bordered"
+                           style="border-collapse: collapse ; width : 100%; font-family :Arial !important;">
                         <thead>
                             <tr>
-                                <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:10%;"
                                     class="text-center">Mã SP</th>
-                                <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 30%;"
                                     class="text-center">Tên sản phẩm</th>
-                                <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 15%;"
                                     class="text-center">Mã sản phẩm</th>
-                                <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 15%;"
                                     class="text-center">Trọng lượng</th>
-                                <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 15%;"
                                     class="text-center">Đơn giá</th>
-                                <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important;width: 15%;"
                                     class="text-center">Thành tiền</th>
                             </tr>
                         </thead>
@@ -369,7 +373,7 @@
                         </tbody>
                         <br/>
                         <div name="total">
-                            <table align="right" class="table table-condensed" style="width: 30%; font-size:20px;">
+                            <table align="right" class="table table-condensed" style="width: 30%; font-size:18px;">
                                 <tr class="border-black">
                                     <td style="text-align:left !important;"><strong>Tổng : </strong></td>
                                     <td class="text-right" style="text-align:right !important;">
@@ -383,16 +387,17 @@
                     </table>
 
 
-                    <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
+                    <table class="table table-bordered"
+                           style="border-collapse: collapse ; width : 100%; font-family :Arial !important;">
                         <thead>
                             <tr>
-                                <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:25%;"
                                     class="text-center">Giảm giá</th>
-                                <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important;width:25%;"
                                     class="text-center">Trọng lượng</th>
-                                <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:25%;"
                                     class="text-center">Đơn giá</th>
-                                <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:25%;"
                                     class="text-center">Thành tiền</th>
                             </tr>
                         </thead>
@@ -421,7 +426,7 @@
                         </tbody>
                         <br/>
                         <div name="total">
-                            <table align="right" class="table table-condensed" style="width: 30%; font-size:20px;">
+                            <table align="right" class="table table-condensed" style="width: 30%; font-size:18px;">
                                 <tr class="border-black">
                                     <td style="text-align:left !important;"><strong>Tổng giảm giá : </strong></td>
                                     <td class="text-right" style="text-align:right !important;">
@@ -435,8 +440,8 @@
                 </div>
                 <br/><br/><br/>
 
-                <div name="total">
-                    <table align="right" class="table table-condensed" style="width: 30%; font-size:20px;">
+                <div name="total" style="font-family :Arial !important;">
+                    <table align="right" class="table table-condensed" style="width: 30%; font-size:18px;">
                         <tr class="border-black">
                             <td style="text-align:left !important;"><strong>
                                 Tổng thành tiền</strong></td>
@@ -449,7 +454,7 @@
                     </table>
                 </div>
                 <br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                <div style=" background-color: #3498DB; color:#fff !important; font:15px lucida-console,sans-serif !important;">
+                <div style=" background-color: #3498DB;  font:15px lucida-console,sans-serif !important;">
                     <p t-if="doc.payment_term_id ">
                         <strong><div name="payment_term">Payment Term :<span
                                 t-field="doc.payment_term_id"/></div></strong>
@@ -492,7 +497,7 @@
         </div>
         <t t-call="base_inheritance.report_no_logo_layout">
             <t t-set="doc" t-value="doc.with_context({'lang':zh_CN})"/>
-            <div class="page">
+            <div class="page" style="font-family :Arial !important;">
                 <div class="oe_structure"/>
                 <h2 class="text-center bold"><center>HÓA ĐƠN BÁN HÀNG</center></h2>
                 <div>
@@ -544,24 +549,25 @@
                         <span t-field="doc.date_order" t-options='{"widget": "date"}'/>
                     </span>
                     </span>
-
+                    <br/>
                     <!-- Is there a discount on at least one line? -->
                     <t t-set="display_discount" t-value="any([l.discount for l in doc.order_line])"/>
 
-                    <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
+                    <table class="table table-bordered"
+                           style="border-collapse: collapse ; width : 100%; font-family :Arial !important;">
                         <thead>
                             <tr>
-                                <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
-                                    class="text-left">Mã SP</th>
-                                <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:10%;"
+                                    class="text-center">Mã SP</th>
+                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 30%;"
                                     class="text-center">Tên sản phẩm</th>
-                                <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 15%;"
                                     class="text-center">Mã sản phẩm</th>
-                                <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 15%;"
                                     class="text-center">Trọng lượng</th>
-                                <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 15%;"
                                     class="text-center">Đơn giá</th>
-                                <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important;width: 15%;"
                                     class="text-center">Thành tiền</th>
                             </tr>
                         </thead>
@@ -597,7 +603,7 @@
                         </tbody>
                         <br/>
                         <div name="total">
-                            <table align="right" class="table table-condensed" style="width: 30%; font-size:20px;">
+                            <table align="right" class="table table-condensed" style="width: 30%; font-size:18px;">
                                 <tr class="border-black">
                                     <td style="text-align:left !important;"><strong>Tổng : </strong></td>
                                     <td class="text-right" style="text-align:right !important;">
@@ -611,16 +617,17 @@
                     </table>
 
 
-                    <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
+                    <table class="table table-bordered"
+                           style="border-collapse: collapse ; width : 100%; font-family :Arial !important;">
                         <thead>
                             <tr>
-                                <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
-                                    class="text-left">Giảm giá</th>
-                                <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:25%;"
+                                    class="text-center">Giảm giá</th>
+                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important;width:25%;"
                                     class="text-center">Trọng lượng</th>
-                                <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:25%;"
                                     class="text-center">Đơn giá</th>
-                                <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;"
+                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:25%;"
                                     class="text-center">Thành tiền</th>
                             </tr>
                         </thead>
@@ -649,7 +656,7 @@
                         </tbody>
                         <br/>
                         <div name="total">
-                            <table align="right" class="table table-condensed" style="width: 30%; font-size:20px;">
+                            <table align="right" class="table table-condensed" style="width: 30%; font-size:18px;">
                                 <tr class="border-black">
                                     <td style="text-align:left !important;"><strong>Tổng giảm giá : </strong></td>
                                     <td class="text-right !important" style="text-align:right;">
@@ -663,8 +670,8 @@
                 </div>
                 <br/><br/><br/>
 
-                <div name="total">
-                    <table align="right" class="table table-condensed" style="width: 30%; font-size:20px;">
+                <div name="total" style="font-family :Arial !important;">
+                    <table align="right" class="table table-condensed" style="width: 30%; font-size:18px;">
                         <tr class="border-black">
                             <td style="text-align:left !important;"><strong>
                                 Tổng thành tiền</strong></td>
@@ -678,7 +685,7 @@
                 </div>
                 <br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-                <div style=" background-color: #3498DB; color:#fff !important; font:15px lucida-console,sans-serif !important;">
+                <div style=" background-color: #3498DB;  font:15px lucida-console,sans-serif !important;">
                     <p t-if="doc.payment_term_id ">
                         <strong><div name="payment_term">Payment Term :<span
                                 t-field="doc.payment_term_id"/></div></strong>
