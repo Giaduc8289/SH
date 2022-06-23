@@ -6,8 +6,15 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/group/field[@name='mobile_phone']" position="after">
+                <field name="phone_2"/>
+            </xpath>
+            <xpath expr="//form/sheet/group/group/field[@name='work_email']" position="after">
+                <field name="type_contract" widget="selection"/>
+                <field name="start_date" widget="date"/>
+            </xpath>
             <xpath expr="//form/sheet/group/group/field[@name='coach_id']" position="replace">
-                <field name="state_ids" widget="many2many_tags" />
+                <field name="state_ids" widget="many2many_tags"/>
             </xpath>
             <xpath expr="//field[@name='address_home_id']" position="attributes">
                 <attribute name="invisible">1</attribute>
@@ -15,11 +22,12 @@
             <xpath expr="//form/sheet/notebook/page/group/group/field[@name='address_home_id']" position="after">
                 <field name="state_id" string="City"/>
             </xpath>
-             <xpath expr="//form/sheet/notebook/page/group/group/field[@name='private_email']" position="replace">
+            <xpath expr="//form/sheet/notebook/page/group/group/field[@name='private_email']" position="replace">
                 <field name="district_id"/>
             </xpath>
             <xpath expr="//form/sheet/notebook/page/group/group/field[@name='phone']" position="replace">
                 <field name="village_id"/>
+                <field name="address_2"/>
             </xpath>
         </field>
     </record>
