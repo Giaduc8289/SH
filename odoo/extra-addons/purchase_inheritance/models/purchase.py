@@ -73,7 +73,7 @@ class FilterPurchaseOrder(models.Model):
                 trangthai = ('cancel',)
             domain = expression.AND([domain, [('state', 'in', trangthai)]])
         if self.group_products:
-            domain = expression.AND([domain, [('order_line.product_id.categ_id', '=', self.group_products.id)]])
+            domain = expression.AND([domain, [('order_line.product_id.categ_id', 'child_of', self.group_products.id)]])
         if self.nhacungcap:
             domain = expression.AND([domain, [('partner_id.code', '=', self.nhacungcap.code)]])
         action['domain'] = domain

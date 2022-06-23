@@ -7,10 +7,12 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="product_tmpl_id"/>
+                <field name="write_date"/>
                 <field name="begin_inventory"/>
                 <field name="warehouse_entry"/>
                 <field name="warehouse_export"/>
                 <field name="end_inventory"/>
+
             </tree>
         </field>
     </record>
@@ -23,11 +25,11 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="f_date" widget="date"/>
+<!--                            <field name="f_date" widget="date"/>-->
                             <field name="product_tmpl_id" widget="many2one"/>
                         </group>
                         <group>
-                            <field name="t_date" widget="date"/>
+<!--                            <field name="t_date" widget="date"/>-->
 <!--                            <field name="location_id" widget="many2one"/>-->
                         </group>
                     </group>
@@ -64,7 +66,7 @@
 
     <menuitem id="report_stock_move_inventory_menu"
               action="action_stock_move_inventory"
-              name="Nhập xuất tồn"
+              name="Báo cáo kiểm kho"
               parent="stock.menu_warehouse_report"
               sequence="150"/>
 

@@ -198,7 +198,7 @@ class ReportSaleOrder(models.Model):
         # if self.invoice_status:
         #     domain = expression.AND([domain, [('invoice_status', '=', self.invoice_status)]])
         if self.group_products:
-            domain = expression.AND([domain, [('order_line.product_id.categ_id', '=', self.group_products.id)]])
+            domain = expression.AND([domain, [('order_line.product_id.categ_id', 'child_of', self.group_products.id)]])
         if self.vung:
             domain = expression.AND([domain, [('partner_id.state_id', '=', self.vung.name)]])
         if self.khachhang:

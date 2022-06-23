@@ -3,3 +3,5 @@ filter_stock_user,filter.stock.user,model_filter_stock_quant,base.group_user,1,0
 filter_stock_manager,filter.stock.manager,model_filter_stock_quant,stock.group_stock_manager,1,1,1,1
 stock_move_inventory_user,stock.move.inventory.user,model_stock_move_inventory,base.group_user,1,0,0,0
 stock_move_inventory_manager,stock.move.inventory.manager,model_stock_move_inventory,stock.group_stock_manager,1,1,1,1
+filter_stock_entry_user,filter.stock.entry.user,model_filter_stock_entry,base.group_user,1,0,1,0
+filter_stock_entry_manager,filter.stock.entry.manager,model_filter_stock_entry,stock.group_stock_manager,1,1,1,1

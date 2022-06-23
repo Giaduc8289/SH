@@ -20,6 +20,7 @@ class StockMoveInventory(models.Model):
     warehouse_entry = fields.Float('Warehouse Entry')
     warehouse_export = fields.Float('Warehouse Export')
     end_inventory = fields.Float('End Inventory')
+    write_date = fields.Datetime('Ngày kiểm tra')
 
     def action_print_report(self):
         action = self.env.ref('stock_inheritance.action_report_stock_move_inventory').report_action(None, data=None)
@@ -40,13 +41,17 @@ class FilterStockQuant(models.Model):
 
     f_date = fields.Date('From date', default=datetime.now().date())
     t_date = fields.Date('To date', default=datetime.now().date())
-    product_tmpl_id = fields.Many2one('product.template', string='Product Template')
+    product_tmpl_id = fields.Many2one("product.template", "Product Template", domain="[('default_code', 'not like', 'OT%')]")
 
     def action_filter_data(self):
         tree_view_id = self.env.ref('stock_inheritance.stock_move_inventory_tree_view').id
         domain = [('type', '=', 'product'), ('qty_available', '>', 0)]  # , ('location_id', '=', self.location_id)]
         if self.product_tmpl_id:
             domain = expression.AND([domain, [('product_tmpl_id', '=', self.product_tmpl_id.id)]])
+        # if self.f_date:
+        #     domain = expression.AND([domain, [('write_date', '>=', self.f_date)]])
+        # if self.t_date:
+        #     domain = expression.AND([domain, [('write_date', '<=', self.t_date)]])
         # We pass `to_date` in the context so that `qty_available` will be computed across
         # moves until date.
         begin_inventory_data = self.env['product.product'].search(domain).with_context(self.env.context,
@@ -139,3 +144,26 @@ class StockQuantReport(models.AbstractModel):
             'docs': docs,
             'data': data,
         }
+
+class FilterStockEntry(models.Model):
+    _name = 'filter.stock.entry'
+    _rec_name = 't_date'
+
+
+    f_date = fields.Date('From date')
+    t_date = fields.Date('To date')
+    location_id = fields.Many2one("stock.location", "Từ kho", domain = "[('id', '!=', None)]")
+    location_dest_id = fields.Many2one("stock.location", "Đến kho", domain="[('id', '!=', None)]")
+    def action_filter_data_entry(self):
+        action = self.env["ir.actions.actions"]._for_xml_id('stock_inheritance.action_entry_1')
+        domain = []
+        if self.f_date:
+            domain = expression.AND([domain, [('date', '>=', self.f_date)]])
+        if self.t_date:
+            domain = expression.AND([domain, [('date', '<=', self.t_date)]])
+        if self.location_id:
+            domain = expression.AND([domain, [('location_id', '=', self.location_id.id)]])
+        if self.location_dest_id:
+            domain = expression.AND([domain, [('location_dest_id', '=', self.location_dest_id.id)]])
+        action['domain'] = domain
+        return action
