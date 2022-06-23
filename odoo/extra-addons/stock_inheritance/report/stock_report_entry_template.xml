@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <template id="report_stock_entry_document">
+        <t t-call="web.html_container">
+            <t t-call="web.report_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <br/>
+                    <h2 class="text-center bold"><center>BÁO CÁO NHẬP HÀNG</center></h2>
+                    <br/>
+                    <div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-left">Tài liệu gốc</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-left">Tên</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-left">Ngày giao</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-right">Khối lượng</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-right">Khối lượng (theo đơn vị đo)</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-right">Đơn vị đo</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-right">Từ kho</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-right">Đến kho</th>
+                                </tr>
+                            </thead>
+                            <tbody class="sale_tbody">
+                                <t t-foreach="docs" t-as="o">
+                                    <tr>
+                                        <td class="text-left">
+                                            <span t-field="o.origin"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-field="o.name"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-field="o.date"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.product_qty"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.product_uom_qty"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.product_uom"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.location_id"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.location_dest_id"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="oe_structure"/>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

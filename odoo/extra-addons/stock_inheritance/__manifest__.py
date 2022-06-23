@@ -15,6 +15,8 @@
         "views/stock_alarm_views.xml",
         "views/stock_quant_views.xml",
         "views/stock_report_views.xml",
+        "report/stock_report_entry.xml",
+        "report/stock_report_entry_template.xml",
         "report/stock_action_report.xml",
         "report/stock_report_templates.xml",
         "report/stock_report_views.xml",

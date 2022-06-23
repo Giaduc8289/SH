@@ -7,3 +7,6 @@ stock_move_line_user,stock.move.line.user,model_stock_move_line,base.group_user,
 stock_move_line_manager,stock.move.line.manager,model_stock_move_line,stock.group_stock_manager,1,1,1,1
 filter_alarm_stock_user,filter.alarm.stock.user,model_filter_alarm_stock,base.group_user,1,0,0,0
 filter_alarm_stock_manager,filter.alarm.stock.manager,model_filter_alarm_stock,stock.group_stock_manager,1,1,1,1
+filter_stock_entry_user,filter.stock.entry.user,model_filter_stock_entry,base.group_user,1,0,1,0
+filter_stock_entry_manager,filter.stock.entry.manager,model_filter_stock_entry,stock.group_stock_manager,1,1,1,1
+
