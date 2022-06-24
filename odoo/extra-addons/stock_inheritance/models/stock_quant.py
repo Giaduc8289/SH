@@ -1,7 +1,7 @@
 from odoo import fields, models, api
-from odoo.odoo.exceptions import UserError
-from odoo.odoo.osv import expression
-from odoo.odoo.tools import float_compare, OrderedSet, float_round, float_is_zero
+from odoo.exceptions import UserError
+from odoo.osv import expression
+from odoo.tools import float_compare, OrderedSet, float_round, float_is_zero
 
 
 class StockQuant(models.Model):

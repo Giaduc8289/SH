@@ -18,6 +18,9 @@
         "views/preview_sale.xml",
         "report/report_sale_order_view.xml",
         "report/sale_report.xml",
+        "wizard/sale_summary_report_temp.xml",
+        "wizard/paperformat_sale_summary_report.xml",
+        "wizard/sale_summary_report_view.xml",
     ],
     "installable": True,
     "maintainers": ["anhnth.mta@gmail.com"]

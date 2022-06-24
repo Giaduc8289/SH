@@ -6,8 +6,8 @@ from collections import Counter, defaultdict
 from odoo import _, api, fields, tools, models
 from odoo.osv import expression
 
-from odoo.odoo.exceptions import UserError
-from odoo.odoo.tools import OrderedSet, float_round, float_compare
+from odoo.exceptions import UserError
+from odoo.tools import OrderedSet, float_round, float_compare
 
 
 class StockMoveLine(models.Model):
