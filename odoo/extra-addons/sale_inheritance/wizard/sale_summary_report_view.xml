@@ -1,33 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-<record id="sale_summary_report_wizard" model="ir.ui.view" >
-    <field name="name">Sale Summary Report</field>
-    <field name="model">sale.summary.report.wizard</field>
-    <field name="type">form</field>
-    <field name="arch" type="xml">
-        <form string="Sale Summary Report">
-            <group>
+    <record id="sale_summary_report_wizard" model="ir.ui.view">
+        <field name="name">Sale Summary Report</field>
+        <field name="model">sale.summary.report.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Sale Summary Report">
                 <group>
-                    <field name="date_start"/>
+                    <group>
+                        <field name="date_start"/>
+                    </group>
+                    <group>
+                        <field name="date_end"/>
+                    </group>
                 </group>
-                <group>
-                    <field name="date_end"/>
-                </group>
-            </group>
-            <footer>
-                <button name="get_report" string="Get Report" type="object" class="oe_highlight"/>
-                <button string="Cancel" special="cancel"/>
-            </footer>
-        </form>
-    </field>
-</record>
-
-<!--<act_window id="action_sale_summary_report_wizard"-->
-<!--    name="Sale Summary Report"-->
-<!--    res_model="sale.summary.report.wizard"-->
-<!--    view_mode="form"-->
-<!--    target="new"/>-->
+                <footer>
+                    <button name="get_report" string="Get Report" type="object" class="oe_highlight"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
 
     <record id="action_sale_summary_report_wizard" model="ir.actions.act_window">
         <field name="name">Sale Summary Report</field>
@@ -37,8 +31,8 @@
         <field name="view_id" ref="sale_summary_report_wizard"/>
     </record>
 
-<menuitem action="action_sale_summary_report_wizard"
-    id="menu_sale_summary_report_wizard"
-    parent="sale.menu_sale_report"/>
+    <menuitem action="action_sale_summary_report_wizard"
+              id="menu_sale_summary_report_wizard"
+              parent="sale.menu_sale_report"/>
 
 </odoo>
