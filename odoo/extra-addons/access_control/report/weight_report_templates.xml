@@ -3,26 +3,26 @@
 <odoo>
 
     <template id="report_weight_vehicle_document">
-        <t t-set="change" t-value="0"/>
-        <t t-foreach="docs" t-as="o">
-            <t t-if="docs[0].purpose != o.purpose">
-                <t t-set="change" t-value="1"/>
-            </t>
-        </t>
+<!--        <t t-set="change" t-value="0"/>-->
+<!--        <t t-foreach="docs" t-as="o">-->
+<!--            <t t-if="docs[0].purpose != o.purpose">-->
+<!--                <t t-set="change" t-value="1"/>-->
+<!--            </t>-->
+<!--        </t>-->
         <t t-call="web.html_container">
             <t t-call="web.report_layout">
                 <div class="page">
                     <div class="oe_structure"/>
                     <br/>
-                    <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work'">
-                        <h2 class="text-center bold"><center>BÁO CÁO CÂN XE</center></h2>
-                    </t>
-                    <t t-if="change == 0 and docs[0].purpose == 'sale'">
-                        <h2 class="text-center bold"><center>BÁO CÁO CÂN XE BÁN HÀNG</center></h2>
-                    </t>
-                    <t t-if="change == 0 and docs[0].purpose == 'purchase'">
-                        <h2 class="text-center bold"><center>BÁO CÁO CÂN XE MUA HÀNG</center></h2>
-                    </t>
+<!--                    <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work'">-->
+<!--                        <h2 class="text-center bold"><center>BÁO CÁO CÂN XE</center></h2>-->
+<!--                    </t>-->
+<!--                    <t t-if="change == 0 and docs[0].purpose == 'sale'">-->
+<!--                        <h2 class="text-center bold"><center>BÁO CÁO CÂN XE BÁN HÀNG</center></h2>-->
+<!--                    </t>-->
+<!--                    <t t-if="change == 0 and docs[0].purpose == 'purchase'">-->
+<!--                        <h2 class="text-center bold"><center>BÁO CÁO CÂN XE MUA HÀNG</center></h2>-->
+<!--                    </t>-->
                     <br/>
                     <div>
                         <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
@@ -32,10 +32,10 @@
                                         class="text-center">Biển kiểm soát</th>
                                     <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :25%;"
                                         class="text-center">Tài xế</th>
-                                    <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work' ">
-                                        <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :10%;"
-                                            class="text-center">Mục đích</th>
-                                    </t>
+<!--                                    <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work' ">-->
+<!--                                        <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :10%;"-->
+<!--                                            class="text-center">Mục đích</th>-->
+<!--                                    </t>-->
                                     <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :10%;"
                                         class="text-center">Thời gian vào</th>
                                     <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :10%;"
@@ -57,11 +57,11 @@
                                         <td class="text-left" style="border: 1px solid black;text-align: left !important;">
                                             <span t-field="o.taixe"/>
                                         </td>
-                                        <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work' ">
-                                            <td class="text-left" style="border: 1px solid black;text-align: left !important;">
-                                                <span t-field="o.purpose"/>
-                                            </td>
-                                        </t>
+<!--                                        <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work' ">-->
+<!--                                            <td class="text-left" style="border: 1px solid black;text-align: left !important;">-->
+<!--                                                <span t-field="o.purpose"/>-->
+<!--                                            </td>-->
+<!--                                        </t>-->
                                         <td class="text-center" style="border: 1px solid black;text-align: center !important;">
                                             <span t-field="o.in_time"/>
                                         </td>

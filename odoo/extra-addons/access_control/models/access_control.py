@@ -158,7 +158,7 @@ class AccessControl(models.Model):
 #     return action
 
 
-class FilterAccessControl(models.Model):
+class FilterAccessControl(models.TransientModel):
     _name = 'filter.access.control'
     _rec_name = 'f_date'
 
@@ -198,17 +198,24 @@ class FilterAccessControl(models.Model):
         if self.res_partner_id:
             domain = expression.AND([domain, [('res_partner_id.code', 'like', self.res_partner_id.code)]])
         # action['domain'] = domain
-        datas = self.env['access.control'].search(domain)
-        docs = self.env['access.control'].browse(datas.ids)
-        action = self.env.ref('access_control.action_report_weight_vehicle').report_action(docs)
+        data_ac = self.env['access.control'].search(domain)
+        docs = self.env['access.control'].browse(data_ac.ids)
+        [data_fil] = self.read()
+        datas = {
+            'ids': [],
+            'model': 'filter.access.control',
+            'form': data_fil
+        }
+        action = self.env.ref('access_control.action_report_weight_vehicle').report_action(self, data_ac.ids, datas)
+        # action = self.env.ref('access_control.action_report_weight_vehicle').report_action(docs)
         return action
 
 
 # class AccessControlReport(models.AbstractModel):
-#     _name = 'access.control.report_access_control_document'
+#     _name = 'access_control.report_weight_vehicle_document'
 #
 #     @api.model
-#     def _get_report_values(self, docids, data):
+#     def _get_report_values(self, docids, data=None):
 #         docs = self.env['access.control'].browse(data.ids)
 #         return {
 #             'doc_ids': docids,
