@@ -9,13 +9,18 @@
                     <div class="oe_structure"/>
                     <br/>
                     <h2 class="text-center bold"><center>BÁO CÁO CÂN XE</center></h2>
-                    <t t-if="res_partner_id != 'res.partner()'">
-                        <span class="text-center bold">Tên khách: <t t-esc="res_partner_id"/></span>
+                    <t t-if="res_partner_id != ''">
+                        <span><center>Tên khách: <t t-esc="res_partner_id"/></center></span>
                     </t>
                     <t t-if="purpose != False">
-                        <span class="text-center bold">Mục đích đến: <t t-esc="purpose"/></span>
+                        <span><center>Mục đích đến: <t t-esc="purpose"/></center></span>
                     </t>
-                    <span class="text-center bold"><center>Từ ngày: <t t-esc="date_start"/> Đến ngày: <t t-esc="date_end"/> </center></span>
+                    <span>
+                        <center>
+                            <t t-if="date_start != False">Từ ngày: <t t-esc="date_start"/></t>
+                            <t t-if="date_end != False">Đến ngày: <t t-esc="date_end"/></t>
+                        </center>
+                    </span>
                     <br/>
                     <div>
                         <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
