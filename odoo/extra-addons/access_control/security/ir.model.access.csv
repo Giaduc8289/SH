@@ -3,8 +3,10 @@ access_control_user,access.control.user,model_access_control,base.group_user,1,0
 access_control_manager,access.control.manager,model_access_control,access_control.group_access_control_user,1,1,1,1
 weight_user,weight.user,model_access_control,access_control.group_weight_user,1,0,0,0
 weight_manager,weight.manager,model_access_control,access_control.group_weight_manager,1,1,0,1
-filter_access_control_user,filter.access.control.user,model_filter_access_control,base.group_user,1,0,1,0
-filter_access_control_manager,filter.access.control.manager,model_filter_access_control,access_control.group_access_control_user,1,1,1,1
+access_control_report_wizard_user,access.control.report.wizard.user,model_access_control_report_wizard,access_control.group_access_control_user,1,0,1,0
+access_control_report_wizard_manager,access.control.report.wizard.manager,model_access_control_report_wizard,access_control.group_access_control_manager,1,1,1,1
+weight_vehicle_report_wizard_user,weight.vehicle.report.wizard.user,model_weight_vehicle_report_wizard,access_control.group_weight_user,1,0,1,0
+weight_vehicle_report_wizard_manager,weight.vehicle.report.wizard.manager,model_weight_vehicle_report_wizard,access_control.group_weight_manager,1,1,1,1
 sale_access_control_user,sale.access.control.user,model_access_control,sales_team.group_sale_salesman,1,0,0,0
 sale_access_control_manager,sale.access.control.manager,model_access_control,sales_team.group_sale_manager,1,1,0,1
 stock_access_control_user,stock.access.control.user,model_access_control,stock.group_stock_user,1,0,0,0

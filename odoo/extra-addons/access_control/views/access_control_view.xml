@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
+    <template id="report_error" inherit_id="http_routing.500">
+        <xpath expr="//html" position="replace">
+            <div><h1>Không tồn tại dữ liệu đang tìm kiếm</h1></div>
+        </xpath>
+    </template>
+
     <!-- Views -->
     <record id="access_control_form_view" model="ir.ui.view">
         <field name="name">access.control.form</field>
@@ -308,55 +315,6 @@
         </field>
     </record>
 
-    <!-- Views filter-->
-    <record id="filter_report_access_control_form_view" model="ir.ui.view">
-        <field name="name">filter.access.control.form</field>
-        <field name="model">filter.access.control</field>
-        <field name="arch" type="xml">
-            <form create="false">
-                <sheet>
-                    <group>
-                        <group>
-                            <field name="f_date" widget="date"/>
-                            <field name="purpose" widget="selection"/>
-                        </group>
-                        <group>
-                            <field name="t_date" widget="date"/>
-                            <field name="res_partner_id" widget="many2one"/>
-                        </group>
-                    </group>
-                    <button name="action_print_report_access_control" type="object" string="Filter"
-                            class="oe_highlight"/>
-                </sheet>
-            </form>
-        </field>
-    </record>
-    <record id="filter_report_weight_form_view" model="ir.ui.view">
-        <field name="name">filter.access.control.form</field>
-        <field name="model">filter.access.control</field>
-        <field name="arch" type="xml">
-            <form create="false">
-                <sheet>
-                    <group>
-                        <group>
-                            <field name="f_date" widget="date"/>
-                            <field name="purpose" widget="selection"/>
-                        </group>
-                        <group>
-                            <field name="t_date" widget="date"/>
-                            <field name="res_partner_id" widget="many2one"/>
-                        </group>
-                    </group>
-                    <button name="action_print_report_weight" type="object" string="Filter" class="oe_highlight"/>
-                </sheet>
-            </form>
-        </field>
-    </record>
-    <template id="report_error" inherit_id="http_routing.500">
-        <xpath expr="//html" position="replace">
-            <div><h1>Không tồn tại dữ liệu đang tìm kiếm</h1></div>
-        </xpath>
-    </template>
 
     <!-- Actions -->
     <!-- Actions Access control-->
@@ -369,13 +327,6 @@
         <field name="view_id" ref="access_control_kanban_view"/>
     </record>
 
-    <record id="action_report_access_control_form" model="ir.actions.act_window">
-        <field name="name">Access Control</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">filter.access.control</field>
-        <field name="view_id" ref="filter_report_access_control_form_view"/>
-    </record>
-
     <!-- Actions Weight vehicle-->
     <record id="action_weight_form" model="ir.actions.act_window">
         <field name="name">Weight Vehicle</field>
@@ -385,13 +336,6 @@
         <field name="domain">[('purpose', 'in', ['sale', 'purchase']), ('state', 'not in', ['out'])]</field>
         <field name="search_view_id" ref="access_control_search_view_for_weight"/>
         <field name="view_id" ref="access_control_list_view_for_weight"/>
-    </record>
-
-    <record id="action_report_weight_form" model="ir.actions.act_window">
-        <field name="name">Weight Vehicle</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">filter.access.control</field>
-        <field name="view_id" ref="filter_report_weight_form_view"/>
     </record>
 
     <!-- Top menu item -->
@@ -416,18 +360,5 @@
               name="Report"
               parent="access_control_menu_root"
               sequence="3"/>
-
-    <menuitem id="report_access_control_menu"
-              action="action_report_access_control_form"
-              name="Access Control"
-              parent="report_menu"
-              sequence="1" groups="access_control.group_access_control_user"/>
-
-    <menuitem id="report_weight_menu"
-              action="action_report_weight_form"
-              name="Weight Vehicle"
-              parent="report_menu"
-              sequence="2" groups="access_control.group_weight_user"/>
-
 
 </odoo>

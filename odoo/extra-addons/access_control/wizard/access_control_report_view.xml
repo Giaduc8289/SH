@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Views wizard-->
+    <record id="access_control_report_wizard" model="ir.ui.view">
+        <field name="name">Access Control Report</field>
+        <field name="model">access.control.report.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Access Control Report">
+                <group>
+                    <group>
+                        <field name="date_start"/>
+                        <field name="purpose" widget="selection"/>
+                    </group>
+                    <group>
+                        <field name="date_end"/>
+                        <field name="res_partner_id" widget="many2one"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="get_report" string="Get Report" type="object" class="oe_highlight"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="weight_vehicle_report_wizard" model="ir.ui.view">
+        <field name="name">Weight Vehicle Report</field>
+        <field name="model">weight.vehicle.report.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Weight Vehicle Report">
+                <group>
+                    <group>
+                        <field name="date_start"/>
+                        <field name="purpose" widget="selection"/>
+                    </group>
+                    <group>
+                        <field name="date_end"/>
+                        <field name="res_partner_id" widget="many2one"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="get_report" string="Get Report" type="object" class="oe_highlight"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Actions -->
+    <record id="action_report_access_control_form" model="ir.actions.act_window">
+        <field name="name">Access Control</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">access.control.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="access_control_report_wizard"/>
+    </record>
+
+    <record id="action_report_weight_vehicle_form" model="ir.actions.act_window">
+        <field name="name">Weight Vehicle</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">weight.vehicle.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="weight_vehicle_report_wizard"/>
+    </record>
+
+
+    <!-- Menu item -->
+    <menuitem id="report_access_control_menu"
+              action="action_report_access_control_form"
+              name="Access Control"
+              parent="report_menu"
+              sequence="1" groups="access_control.group_access_control_user"/>
+
+    <menuitem id="report_weight_menu"
+              action="action_report_weight_vehicle_form"
+              name="Weight Vehicle"
+              parent="report_menu"
+              sequence="2" groups="access_control.group_weight_user"/>
+
+</odoo>
