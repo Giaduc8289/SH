@@ -8,10 +8,21 @@
                 <div class="page">
                     <div class="oe_structure"/>
                     <br/>
-                    <h2 class="text-center bold"><center>BÁO CÁO NHẬP HÀNG</center></h2>
+                    <h2 class="text-center bold"><center>BÁO CÁO NHẬP XUẤT HÀNG</center></h2>
+                    <div>
+                        <t t-if="date_start">
+                            <h4 class="text-center bold"><center>Từ ngày: <t t-esc="date_start"/></center></h4>
+                        </t>
+
+                    </div>
+                    <div>
+                        <t t-if="date_end">
+                            <h4 class="text-center bold"><center>Đến ngày: <t t-esc="date_end"/></center></h4>
+                        </t>
+                    </div>
                     <br/>
                     <div>
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
                             <thead>
                                 <tr>
                                     <th style="background-color:#3498DB !important;color:#FFF !important;"
@@ -21,15 +32,15 @@
                                     <th style="background-color:#3498DB !important;color:#FFF !important;"
                                         class="text-left">Ngày giao</th>
                                     <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                        class="text-right">Khối lượng</th>
+                                        class="text-right">Khối lượng nhập</th>
                                     <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                        class="text-right">Khối lượng (theo đơn vị đo)</th>
+                                        class="text-right">Khối lượng xuất</th>
                                     <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                        class="text-right">Đơn vị đo</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                        class="text-right">Từ kho</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                        class="text-right">Đến kho</th>
+                                        class="text-right">Đơn vị</th>
+                                    <!--                                    <th style="background-color:#3498DB !important;color:#FFF !important;"-->
+                                    <!--                                        class="text-right">Từ kho</th>-->
+                                    <!--                                    <th style="background-color:#3498DB !important;color:#FFF !important;"-->
+                                    <!--                                        class="text-right">Đến kho</th>-->
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
@@ -45,20 +56,24 @@
                                             <span t-field="o.date"/>
                                         </td>
                                         <td class="text-right">
-                                            <span t-field="o.product_qty"/>
+                                            <t t-if="stock == o.location_dest_id.id ">
+                                                <span t-field="o.product_qty"/>
+                                            </t>
                                         </td>
                                         <td class="text-right">
-                                            <span t-field="o.product_uom_qty"/>
+                                            <t t-if="stock == o.location_id.id ">
+                                                <span t-field="o.product_qty"/>
+                                            </t>
                                         </td>
                                         <td class="text-right">
                                             <span t-field="o.product_uom"/>
                                         </td>
-                                        <td class="text-right">
-                                            <span t-field="o.location_id"/>
-                                        </td>
-                                        <td class="text-right">
-                                            <span t-field="o.location_dest_id"/>
-                                        </td>
+                                        <!--                                        <td class="text-right">-->
+                                        <!--                                            <span t-field="o.location_id"/>-->
+                                        <!--                                        </td>-->
+                                        <!--                                        <td class="text-right">-->
+                                        <!--                                            <span t-field="o.location_dest_id"/>-->
+                                        <!--                                        </td>-->
                                     </tr>
                                 </t>
                             </tbody>

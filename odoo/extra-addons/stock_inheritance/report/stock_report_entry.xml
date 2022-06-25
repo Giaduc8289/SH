@@ -3,22 +3,23 @@
 
     <record id="filter_stock_entry_form_view" model="ir.ui.view">
         <field name="name">report.stock.entry.form</field>
-        <field name="model">filter.stock.entry</field>
+        <field name="model">stock.entry.report.wizard</field>
+        <field name="type">form</field>
         <field name="arch" type="xml">
-            <form create="false">
-                <sheet>
+            <form string="Stock Entry Report">
+                <group>
                     <group>
-                        <group>
-                            <field name="f_date" widget="date"/>
-                            <field name="location_id" widget="many2one"/>
-                        </group>
-                        <group>
-                            <field name="t_date" widget="date"/>
-                            <field name="location_dest_id" widget="many2one"/>
-                        </group>
+                        <field name="date_start" widget="date"/>
+                        <field name="stock" widget="many2one"/>
                     </group>
-                    <button name="action_filter_data_entry" type="object" string="Filter" class="oe_highlight"/>
-                </sheet>
+                    <group>
+                        <field name="date_end" widget="date"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="get_report" string="Get Report" type="object" class="oe_highlight"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
             </form>
         </field>
     </record>
@@ -27,7 +28,7 @@
     <record id="action_stock_entry" model="ir.actions.act_window">
         <field name="name">Report</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">filter.stock.entry</field>
+        <field name="res_model">stock.entry.report.wizard</field>
         <field name="view_mode">form</field>
         <field name="view_id" ref="filter_stock_entry_form_view"/>
     </record>
@@ -39,38 +40,39 @@
               sequence="151"/>
 
 
-    <record id="action_entry_1" model="ir.actions.act_window">
-        <field name="name">Báo cáo nhập xuất kho</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">stock.move</field>
-        <field name="view_mode">tree,kanban,form,graph</field>
-        <field name="context">{}</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                Create a new order, the first step of a new report!
-            </p>
-            <p>
-                Once the quotation is confirmed, it becomes a purchase order.
-                <br/>
-                You will be able to create an invoice and collect the payment.
-            </p>
-        </field>
-    </record>
+<!--    <record id="action_entry_1" model="ir.actions.act_window">-->
+<!--        <field name="name">Báo cáo nhập xuất kho</field>-->
+<!--        <field name="type">ir.actions.act_window</field>-->
+<!--        <field name="res_model">stock.move</field>-->
+<!--        <field name="view_mode">tree,kanban,form,graph</field>-->
+<!--        <field name="context">{}</field>-->
+<!--        <field name="help" type="html">-->
+<!--            <p class="o_view_nocontent_smiling_face">-->
+<!--                Create a new order, the first step of a new report!-->
+<!--            </p>-->
+<!--            <p>-->
+<!--                Once the quotation is confirmed, it becomes a purchase order.-->
+<!--                <br/>-->
+<!--                You will be able to create an invoice and collect the payment.-->
+<!--            </p>-->
+<!--        </field>-->
+<!--    </record>-->
 
 
-    <record id="view_picking_move_tree_inherit" model="ir.ui.view">
-        <field name="name">stock.picking.move.tree</field>
-        <field name="model">stock.move</field>
-        <field eval="50" name="priority"/>
-        <field name="inherit_id" ref="stock.view_move_tree_receipt_picking"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='product_uom']" position="after">
-                    <field name="location_id" options="{'no_create': True} " optional="show" invisible="0"/>
-                    <field name="location_dest_id" optional="show" invisible="0"/>
-                <field name="date" invisible="0"  optional="show" />
-            </xpath>
-        </field>
-    </record>
+<!--        <record id="view_picking_move_tree_inherit" model="ir.ui.view">-->
+<!--            <field name="name">stock.picking.move.tree</field>-->
+<!--            <field name="model">stock.move</field>-->
+<!--            <field eval="50" name="priority"/>-->
+<!--            <field name="inherit_id" ref="stock.view_move_tree_receipt_picking"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//field[@name='product_uom']" position="after">-->
+<!--                    <field name="location_id" options="{'no_create': True} " optional="show" invisible="0"/>-->
+<!--                    <field name="location_dest_id" optional="show" invisible="0"/>-->
+<!--                    <field name="date" invisible="0" optional="show"/>-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
+
 
     <data>
         <record id="stock_inheritance.action_report_stock_entry" model="ir.actions.report">
@@ -79,7 +81,7 @@
             <field name="report_type">qweb-html</field>
             <field name="report_name">stock_inheritance.report_stock_entry_document</field>
             <field name="report_file">stock_inheritance.report_stock_entry_document</field>
-            <field name="print_report_name">Báo cáo nhập kho</field>
+            <field name="print_report_name">Báo cáo nhập xuất kho</field>
             <field name="binding_model_id" ref="stock.model_stock_move"/>
             <field name="binding_type">report</field>
         </record>
