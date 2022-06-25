@@ -48,8 +48,8 @@ class ReportAccessControl(models.AbstractModel):
             domain = expression.AND([domain, [('in_time', '<=', date_end)]])
         if purpose:
             domain = expression.AND([domain, [('purpose', '=', purpose)]])
-        # if res_partner_id:
-        #     domain = expression.AND([domain, [('res_partner_id.code', 'like', res_partner_id.code)]])
+        if res_partner_id != 'res.partner()':
+            domain = expression.AND([domain, [('res_partner_id.code', 'like', res_partner_id.code)]])
         data_ac = self.env['access.control'].search(domain)
         docs = self.env['access.control'].browse(data_ac.ids)
 
