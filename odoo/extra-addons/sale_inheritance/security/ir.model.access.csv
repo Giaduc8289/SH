@@ -3,5 +3,7 @@ access_coupon_detail_user,coupon.detail.user,model_coupon_detail,base.group_user
 access_coupon_detail_manager,coupon.detail.manager,model_coupon_detail,base.group_system,1,1,1,1
 report_sale_order_user,report.sale.order.user,model_report_sale_order,base.group_user,1,0,1,0
 report_sale_order_manager,report.sale.order.manager,model_report_sale_order,base.group_system,1,1,1,1
-sale_summary_report_user,sale.summar.report.user,model_sale_summary_report_wizard,base.group_user,1,0,1,0
+sale_summary_report_user,sale.summary.report.user,model_sale_summary_report_wizard,base.group_user,1,0,1,0
 sale_summary_report_manager,sale.summary.report.manager,model_sale_summary_report_wizard,base.group_system,1,1,1,1
+sale_report_user,sale.report.user,model_sale_report_wizard,base.group_user,1,0,1,0
+sale_report_manager,sale.report.manager,model_sale_report_wizard,base.group_system,1,1,1,1
