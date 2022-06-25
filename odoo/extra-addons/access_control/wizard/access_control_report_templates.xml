@@ -3,26 +3,19 @@
 <odoo>
 
     <template id="report_access_control_document">
-        <t t-set="change" t-value="0"/>
-        <t t-foreach="docs" t-as="o">
-            <t t-if="docs[0].purpose != o.purpose">
-                <t t-set="change" t-value="1"/>
-            </t>
-        </t>
         <t t-call="web.html_container">
             <t t-call="web.report_layout">
                 <div class="page">
                     <div class="oe_structure"/>
                     <br/>
-                    <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work'">
-                        <h2 class="text-center bold"><center>BÁO CÁO KIỂM SOÁT VÀO RA</center></h2>
+                    <h2 class="text-center bold"><center>BÁO CÁO KIỂM SOÁT VÀO RA</center></h2>
+                    <t t-if="res_partner_id != ''">
+                        <span class="text-center bold">Tên khách: <t t-esc="res_partner_id"/></span>
                     </t>
-                    <t t-if="change == 0 and docs[0].purpose == 'sale'">
-                        <h2 class="text-center bold"><center>BÁO CÁO KIỂM SOÁT VÀO RA BÁN HÀNG</center></h2>
+                    <t t-if="purpose != False">
+                        <span class="text-center bold">Mục đích đến: <t t-esc="purpose"/></span>
                     </t>
-                    <t t-if="change == 0 and docs[0].purpose == 'purchase'">
-                        <h2 class="text-center bold"><center>BÁO CÁO KIỂM SOÁT VÀO RA MUA HÀNG</center></h2>
-                    </t>
+                    <span class="text-center bold"><center>Từ ngày: <t t-esc="date_start"/> Đến ngày: <t t-esc="date_end"/></center></span>
                     <br/>
                     <div>
                         <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
@@ -40,10 +33,10 @@
                                         class="text-center">Thời gian vào</th>
                                     <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :10%;"
                                         class="text-center">Thời gian ra</th>
-                                    <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work' ">
-                                        <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :8%;"
-                                            class="text-center">Mục đích</th>
-                                    </t>
+<!--                                    <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work' ">-->
+<!--                                        <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :8%;"-->
+<!--                                            class="text-center">Mục đích</th>-->
+<!--                                    </t>-->
                                     <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :8%;"
                                         class="text-center">Ghi chú</th>
                                 </tr>
@@ -51,30 +44,38 @@
                             <tbody class="sale_tbody">
                                 <t t-foreach="docs" t-as="o">
                                     <tr>
-                                        <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left"
+                                            style="border: 1px solid black;text-align: left !important;">
                                             <span t-field="o.makh"/>
                                         </td>
-                                        <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left"
+                                            style="border: 1px solid black;text-align: left !important;">
                                             <span t-field="o.name"/>
                                         </td>
-                                        <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left"
+                                            style="border: 1px solid black;text-align: left !important;">
                                             <span t-field="o.taixe"/>
                                         </td>
-                                        <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left"
+                                            style="border: 1px solid black;text-align: left !important;">
                                             <span t-field="o.address"/>
                                         </td>
-                                        <td class="text-center" style="border: 1px solid black;text-align: center !important;">
+                                        <td class="text-center"
+                                            style="border: 1px solid black;text-align: center !important;">
                                             <span t-field="o.in_time"/>
                                         </td>
-                                        <td class="text-center" style="border: 1px solid black;text-align: center !important;">
+                                        <td class="text-center"
+                                            style="border: 1px solid black;text-align: center !important;">
                                             <span t-field="o.out_time"/>
                                         </td>
-                                        <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work' ">
-                                            <td class="text-left" style="border: 1px solid black;text-align: left !important;">
-                                                <span t-field="o.purpose"/>
-                                            </td>
-                                        </t>
-                                        <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+<!--                                        <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work' ">-->
+<!--                                            <td class="text-left"-->
+<!--                                                style="border: 1px solid black;text-align: left !important;">-->
+<!--                                                <span t-field="o.purpose"/>-->
+<!--                                            </td>-->
+<!--                                        </t>-->
+                                        <td class="text-left"
+                                            style="border: 1px solid black;text-align: left !important;">
                                             <span t-field="o.purpose_descript"/>
                                         </td>
                                     </tr>

@@ -11,6 +11,7 @@ from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT as DATETIME_FORMAT
 
 class WeightVehicleReportWizard(models.TransientModel):
     _name = 'weight.vehicle.report.wizard'
+    _rec_name = 'date_start'
 
     date_start = fields.Date(string='Start Date')
     date_end = fields.Date(string='End Date')
@@ -19,11 +20,21 @@ class WeightVehicleReportWizard(models.TransientModel):
     res_partner_id = fields.Many2one("res.partner", "Partner", domain="[('code', '!=', None)]")
 
     def get_report(self):
+        domain = []
+        if self.date_start:
+            domain = expression.AND([domain, [('in_time', '>=', self.date_start)]])
+        if self.date_end:
+            domain = expression.AND([domain, [('in_time', '<=', self.date_end)]])
+        if self.purpose:
+            domain = expression.AND([domain, [('purpose', '=', self.purpose)]])
+        if self.res_partner_id:
+            domain = expression.AND([domain, [('res_partner_id.code', '=', self.res_partner_id.code)]])
+
         data = {
             'model': self._name,
             'ids': self.ids,
             'form': {
-                'date_start': self.date_start, 'date_end': self.date_end, 'purpose': self.purpose, 'res_partner_id': self.res_partner_id
+                'date_start': self.date_start, 'date_end': self.date_end, 'purpose': self.purpose, 'res_partner_id': self.res_partner_id.name, 'domain': domain
             },
         }
 
@@ -39,16 +50,8 @@ class ReportWeightVehicle(models.AbstractModel):
         date_end = data['form']['date_end']
         purpose = data['form']['purpose']
         res_partner_id = data['form']['res_partner_id']
+        domain = data['form']['domain']
 
-        domain = []
-        if date_start:
-            domain = expression.AND([domain, [('in_time', '>=', date_start)]])
-        if date_end:
-            domain = expression.AND([domain, [('in_time', '<=', date_end)]])
-        if purpose:
-            domain = expression.AND([domain, [('purpose', '=', purpose)]])
-        if res_partner_id != 'res.partner()':
-            domain = expression.AND([domain, [('res_partner_id.code', 'like', res_partner_id.code)]])
         data_ac = self.env['access.control'].search(domain)
         docs = self.env['access.control'].browse(data_ac.ids)
 
