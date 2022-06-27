@@ -10,10 +10,10 @@
     "depends": ["base", "web", "base_inheritance", "purchase"],
     "data": [
         "security/ir.model.access.csv",
-        "views/purchase_report_views.xml",
         "views/product_template_view.xml",
         "report/purchase_report_templates.xml",
-        "report/report_purchase_order_view.xml",
+        "wizard/purchase_report_views.xml",
+        "wizard/report_purchase_order_view.xml",
         "views/purchase_quotation_templates.xml",
     ],
     "installable": True,
