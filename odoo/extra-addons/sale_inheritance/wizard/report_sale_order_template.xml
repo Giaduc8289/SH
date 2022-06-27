@@ -10,6 +10,32 @@
                     <div class="oe_structure"/>
                     <br/>
                     <h2 class="text-center bold"><center>BÁO CÁO BÁN HÀNG</center></h2>
+                    <t t-if="khachhang">
+                        <span class="text-center bold">Tên khách: <t t-esc="khachhang"/></span>
+                        <br/>
+                    </t>
+                    <t t-if="group_products">
+                        <span class="text-center bold">Nhóm sản phẩm: <t t-esc="group_products"/></span>
+                        <br/>
+                    </t>
+                    <t t-if="vung">
+                        <span class="text-center bold">Vùng: <t t-esc="vung"/></span>
+                        <br/>
+                    </t>
+                    <t t-if="sanpham">
+                        <span class="text-center bold">Sản phẩm: <t t-esc="sanpham"/></span>
+                        <br/>
+                    </t>
+                    <t t-if="nhanvienkinhdoanh">
+                        <span class="text-center bold">Nhân viên kinh doanh: <t t-esc="nhanvienkinhdoanh"/></span>
+                        <br/>
+                    </t>
+                    <span class="text-center bold"><center><t t-if="date_start">
+                        <span class="text-center bold">Từ ngày: <t t-esc="date_start"/></span>
+                    </t>
+                        <t t-if="date_end">
+                            <span class="text-center bold">Đến ngày : <t t-esc="date_end"/></span>
+                        </t></center></span>
                     <br/>
                     <div>
                         <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
@@ -32,22 +58,28 @@
                             <tbody class="sale_tbody">
                                 <t t-foreach="docs" t-as="o">
                                     <tr>
-                                        <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left"
+                                            style="border: 1px solid black;text-align: left !important;">
                                             <span t-field="o.name"/>
                                         </td>
-                                        <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left"
+                                            style="border: 1px solid black;text-align: left !important;">
                                             <span t-field="o.user_id"/>
                                         </td>
-                                        <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left"
+                                            style="border: 1px solid black;text-align: left !important;">
                                             <span t-field="o.partner_id"/>
                                         </td>
-                                        <td class="text-right" style="border: 1px solid black;text-align: right !important;">
+                                        <td class="text-right"
+                                            style="border: 1px solid black;text-align: right !important;">
                                             <span t-field="o.date_order"/>
                                         </td>
-                                        <td class="text-right" style="border: 1px solid black;text-align: right !important;">
+                                        <td class="text-right"
+                                            style="border: 1px solid black;text-align: right !important;">
                                             <span t-field="o.amount_total"/>
                                         </td>
-                                        <td class="text-center" style="border: 1px solid black;text-align: center !important;">
+                                        <td class="text-center"
+                                            style="border: 1px solid black;text-align: center !important;">
                                             <span t-field="o.invoice_status"/>
                                         </td>
                                     </tr>
@@ -63,7 +95,7 @@
                                             <td class="text-right">
                                                 <strong>
                                                     <span t-field="o.amount_total_1"
-                                                        t-field-options='{"widget": "monetary", "display_currency": "o.pricelist_id.currency_id"}'/>
+                                                          t-field-options='{"widget": "monetary", "display_currency": "o.pricelist_id.currency_id"}'/>
                                                 </strong>
                                             </td>
                                         </tr>
@@ -89,7 +121,8 @@
                     <h2 class="text-center bold"><center>BÁO CÁO BÁN HÀNG</center></h2>
                     <br/>
                     <div>
-                       <table class="table table-bordered" style="border-collapse: collapse ; width : 100%; font-family :Arial !important;">
+                        <table class="table table-bordered"
+                               style="border-collapse: collapse ; width : 100%; font-family :Arial !important;">
                             <thead>
                                 <tr>
                                     <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
@@ -109,22 +142,28 @@
                             <tbody class="sale_tbody">
                                 <t t-foreach="docs" t-as="o">
                                     <tr>
-                                        <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left"
+                                            style="border: 1px solid black;text-align: left !important;">
                                             <span t-field="o.name"/>
                                         </td>
-                                        <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left"
+                                            style="border: 1px solid black;text-align: left !important;">
                                             <span t-field="o.user_id"/>
                                         </td>
-                                        <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left"
+                                            style="border: 1px solid black;text-align: left !important;">
                                             <span t-field="o.partner_id"/>
                                         </td>
-                                        <td class="text-right" style="border: 1px solid black;text-align: right !important;">
+                                        <td class="text-right"
+                                            style="border: 1px solid black;text-align: right !important;">
                                             <span t-field="o.date_order"/>
                                         </td>
-                                        <td class="text-right" style="border: 1px solid black;text-align: right !important;">
+                                        <td class="text-right"
+                                            style="border: 1px solid black;text-align: right !important;">
                                             <span t-field="o.amount_total"/>
                                         </td>
-                                        <td class="text-center" style="border: 1px solid black;text-align: center !important;">
+                                        <td class="text-center"
+                                            style="border: 1px solid black;text-align: center !important;">
                                             <span t-field="o.invoice_status"/>
                                         </td>
                                     </tr>
