@@ -31,7 +31,7 @@ class StockEntryReportWizard(models.TransientModel):
             'model': self._name,
             'ids': self.ids,
             'form': {
-                'date_start': self.date_start, 'date_end': self.date_end, 'stock': self.stock.id, 'domain': domain
+                'date_start': self.date_start, 'date_end': self.date_end, 'stock': self.stock.id, 'domain': domain, 'name_stock': self.stock.complete_name
             },
         }
 
@@ -47,6 +47,7 @@ class ReportStockEntry(models.AbstractModel):
         date_start = data['form']['date_start']
         date_end = data['form']['date_end']
         stock = data['form']['stock']
+        name_stock= data['form']['name_stock']
         domain = data['form']['domain']
 
         data_sv = self.env['stock.move'].search(domain)
@@ -58,5 +59,6 @@ class ReportStockEntry(models.AbstractModel):
             'date_start': date_start,
             'date_end': date_end,
             'stock': stock,
+            'name_stock': name_stock,
             'docs': docs,
         }

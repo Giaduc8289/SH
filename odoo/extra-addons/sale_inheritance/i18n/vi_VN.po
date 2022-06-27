@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* sale_inheritance
+# 	* stock_inheritance
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-20 03:11+0000\n"
-"PO-Revision-Date: 2022-06-20 03:11+0000\n"
+"POT-Creation-Date: 2022-06-27 02:03+0000\n"
+"PO-Revision-Date: 2022-06-27 02:03+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,569 +15,465 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.sale_coupon_program_view_promo_program_form_v1
+#. module: stock_inheritance
+#: model:ir.actions.report,print_report_name:stock_inheritance.action_report_delivery
 msgid ""
-"<span class=\"o_form_label oe_inline\"> Days</span> <span class=\"oe_grey\">if 0, infinite\n"
-"                        use</span>"
+"'Delivery Slip - %s - %s' % (object.partner_id.name or '', object.name)"
 msgstr ""
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
+#. module: stock_inheritance
+#: model:ir.actions.report,print_report_name:stock_inheritance.action_report_picking
 msgid ""
-"<span style=\"font-weight:bold\">CÔNG TY TNHH LIÊN DOANH VIỆT NAM - CANADA</span>\n"
-"                        <br/>\n"
-"                        <span>Số 155, Đường Cầu giấy, Phường Quan Hoa, Quận Cầu Giấy, TP. Hà Nội</span>\n"
-"                        <br/>\n"
-"                        <span>Nhà máy sản xuất : Lô 44G, KCN Quang Minh, Huyện Mê Linh, TP. Hà Nội</span>\n"
-"                        <br/>\n"
-"                        <span style=\"font-weight:bold\">Email: info@cavigroup.com.vn, Website:\n"
-"                            www.cavigroup.com.vn</span>\n"
-"                        <br/>"
+"'Picking Operations - %s - %s' % (object.partner_id.name or '', object.name)"
 msgstr ""
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
-msgid ""
-"<span style=\"font-weight:bold\">CÔNG TY TNHH TM &amp; CÔNG NGHỆ SINH HÓA</span>\n"
-"                    <br/>\n"
-"                    <span>Trụ sở : Số 10, ngõ 80/3, Phố Nhân Hòa, Phường Nhân Chính, Q.Thanh Xuân - TP. Hà Nội</span>\n"
-"                    <br/>\n"
-"                    <span>Nhà máy: Lô 44G, KCN Quang Minh, Mê Linh, Hà Nội</span>\n"
-"                    <br/>\n"
-"                    <span style=\"font-weight:bold\">Tel: 043.818.2266, Fax: 043.216.1165</span>\n"
-"                    <br/>"
+#. module: stock_inheritance
+#: model:ir.actions.act_window,name:stock_inheritance.action_stock_move_alarm
+msgid "Alarm"
+msgstr "Cảnh báo"
+
+#. module: stock_inheritance
+#: model:ir.model,name:stock_inheritance.model_filter_alarm_stock
+msgid "Alarm Stock"
+msgstr "Cảnh báo kho"
+
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_move_inventory__begin_inventory
+msgid "Beginning Inventory"
+msgstr "Tồn đầu"
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
+msgid "BÁO CÁO NHẬP XUẤT HÀNG"
 msgstr ""
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
-msgid ""
-"<span>@2022 - No copyright - Sản phẩm thuộc bản quyền công ty Gia Duc Technology Joint Stock\n"
-"                            Company</span>"
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
+msgid "BÁO CÁO NHẬP XUẤT TỒN"
 msgstr ""
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
-msgid ""
-"<span>@2022 - No copyright - Sản phẩm thuộc bản quyền công ty Gia Duc Technology Joint Stock\n"
-"                        Company</span>"
+#. module: stock_inheritance
+#: model:ir.actions.act_window,name:stock_inheritance.action_filter_stock_move_inventory
+msgid "Báo cáo chi tiết nhập xuất tồn kho"
 msgstr ""
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
-msgid ""
-"<strong>\n"
-"                                        Tổng thành tiền</strong>"
+#. module: stock_inheritance
+#: model:ir.ui.menu,name:stock_inheritance.report_stock_move_inventory_menu
+msgid "Báo cáo kiểm kho"
 msgstr ""
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
-msgid ""
-"<strong>\n"
-"                                    Tổng thành tiền</strong>"
+#. module: stock_inheritance
+#: model:ir.actions.report,print_report_name:stock_inheritance.action_report_stock_entry
+#: model:ir.ui.menu,name:stock_inheritance.report_stock_entry_menu
+msgid "Báo cáo nhập xuất kho"
 msgstr ""
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.preview
-msgid "<strong>Thành tiền:</strong>"
+#. module: stock_inheritance
+#: model:ir.actions.report,print_report_name:stock_inheritance.action_report_stock_move_inventory
+msgid "Báo cáo nhập xuất tồn"
 msgstr ""
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
-msgid "<strong>Tổng : </strong>"
-msgstr ""
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.filter_stock_entry_form_view
+msgid "Cancel"
+msgstr "Hủy"
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
-msgid "<strong>Tổng giảm giá : </strong>"
-msgstr ""
-
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.preview
-msgid "<strong>Tổng giảm giá:</strong>"
-msgstr ""
-
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.preview
-msgid "<strong>Tổng thành tiền:</strong>"
-msgstr ""
-
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_sale_order__amount_total_1
-msgid "Amount Sale Group"
-msgstr ""
-
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document_list
-msgid "BÁO CÁO BÁN HÀNG"
-msgstr ""
-
-#. module: sale_inheritance
-#: model:ir.actions.report,print_report_name:sale_inheritance.action_report_sale_order_list
-msgid "Báo cáo bán hàng"
-msgstr ""
-
-#. module: sale_inheritance
-#: model:ir.actions.report,print_report_name:sale_inheritance.action_report_sale_order
-msgid "Báo cáo bán hàng theo nhân viên kinh doanh"
-msgstr ""
-
-#. module: sale_inheritance
-#: model:ir.ui.menu,name:sale_inheritance.report_access_control_menu
-msgid "Báo cáo chi tiết"
-msgstr ""
-
-#. module: sale_inheritance
-#: model:ir.actions.act_window,name:sale_inheritance.action_orders_1
-msgid "Báo cáo số liệu chi tiết"
-msgstr ""
-
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_program__coupon_detail_ids
-msgid "Chiết khấu chi tiết"
-msgstr ""
-
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_detail__program_id
-msgid "Chương trình chiết khấu"
-msgstr ""
-
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.sale_coupon_program_view_promo_program_form_v1
-msgid "Conditions"
-msgstr "Điều kiện"
-
-#. module: sale_inheritance
-#: model:ir.model,name:sale_inheritance.model_coupon_detail
-msgid "Coupon Detail"
-msgstr "Chi tiết khuyến mại"
-
-#. module: sale_inheritance
-#: model:ir.model,name:sale_inheritance.model_coupon_program
-msgid "Coupon Program"
-msgstr "Chương trình phiếu khuyến mãi"
-
-#. module: sale_inheritance
-#: model:ir.model,name:sale_inheritance.model_coupon_reward
-msgid "Coupon Reward"
-msgstr "Phần thưởng"
-
-#. module: sale_inheritance
-#: model_terms:ir.actions.act_window,help:sale_inheritance.action_orders_1
+#. module: stock_inheritance
+#: model_terms:ir.actions.act_window,help:stock_inheritance.action_stock_alarm
 msgid "Create a new order, the first step of a new report!"
 msgstr ""
 
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_detail__create_uid
-#: model:ir.model.fields,field_description:sale_inheritance.field_report_sale_order__create_uid
+#. module: stock_inheritance
+#: model_terms:ir.actions.act_window,help:stock_inheritance.action_filter_stock_move_inventory
+msgid "Create a new quotation, the first step of a new sale!"
+msgstr ""
+
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_alarm_stock__create_uid
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_entry__create_uid
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_quant__create_uid
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_entry_report_wizard__create_uid
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_move_inventory__create_uid
 msgid "Created by"
 msgstr "Tạo bởi"
 
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_detail__create_date
-#: model:ir.model.fields,field_description:sale_inheritance.field_report_sale_order__create_date
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_alarm_stock__create_date
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_entry__create_date
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_quant__create_date
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_entry_report_wizard__create_date
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_move_inventory__create_date
 msgid "Created on"
 msgstr "Thời điểm tạo"
 
-#. module: sale_inheritance
-#: model:ir.model.fields,help:sale_inheritance.field_sale_order__date_order
-msgid ""
-"Creation date of draft/sent orders,\n"
-"Confirmation date of confirmed orders."
-msgstr ""
-"Ngày tạo đơn hàng nháp/đã gửi,\n"
-"Ngày xác nhận của đơn hàng được xác nhận. "
-
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_sale_order__partner_id
-msgid "Customer"
-msgstr "Khách hàng"
-
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_program__config_detail
-msgid "Cấu hình chi tiết"
+#. module: stock_inheritance
+#: model:ir.actions.act_window,name:stock_inheritance.action_stock_alarm
+#: model:ir.ui.menu,name:stock_inheritance.stock_alarm_menu
+msgid "Cảnh báo"
 msgstr ""
 
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_sale_order__amount_untaxed_2
-msgid "Discount Amount"
-msgstr "Số tiền chiết khấu"
-
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_program__discount_for_amount
-#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_reward__discount_for_amount
-msgid "Discount for amount"
-msgstr "CK theo khối lượng"
-
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_program__discount_hold_amount
-#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_reward__discount_hold_amount
-msgid "Discount hold amount"
-msgstr "Giá trị giữ lại"
-
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_program__discount_hold_time
-#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_reward__discount_hold_time
-msgid "Discount hold time"
-msgstr "Thời gian giữ lại"
-
-#. module: sale_inheritance
-#: code:addons/sale_inheritance/models/sale_order.py:0
-#, python-format
-msgid "Discount: %(program)s - On product with following taxes: %(taxes)s"
+#. module: stock_inheritance
+#: model:ir.ui.menu,name:stock_inheritance.stock_alarm_menu_date
+msgid "Cảnh báo hạn sử dụng"
 msgstr ""
 
-#. module: sale_inheritance
-#: code:addons/sale_inheritance/models/sale_order.py:0
-#: code:addons/sale_inheritance/models/sale_order.py:0
-#, python-format
-msgid "Discount: %s"
-msgstr "Giảm giá: %s"
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
+msgid "Cập nhật lần cuối"
+msgstr ""
 
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_detail__display_name
-#: model:ir.model.fields,field_description:sale_inheritance.field_report_sale_order__display_name
+#. module: stock_inheritance
+#: model:ir.actions.report,name:stock_inheritance.action_report_delivery
+msgid "Delivery Slip"
+msgstr "Phiếu giao hàng"
+
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_alarm_stock__display_name
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_entry__display_name
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_quant__display_name
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_entry_report_wizard__display_name
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_move_inventory__display_name
 msgid "Display Name"
 msgstr "Tên hiển thị"
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_view
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_entry_report_wizard__date_end
+msgid "End Date"
+msgstr "Đến ngày"
+
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_move_inventory__end_inventory
+msgid "End Inventory"
+msgstr "Tồn cuối"
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.filter_stock_move_inventory_form_view
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.stock_alarm_view
 msgid "Filter"
 msgstr "Lọc"
 
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_report_sale_order__f_date
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_entry__f_date
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_quant__f_date
 msgid "From date"
 msgstr "Từ ngày"
 
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_detail__discount_fixed_amount_detail
-msgid "Giá trị chiết khấu"
-msgstr ""
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.filter_stock_entry_form_view
+msgid "Get Report"
+msgstr "Lập báo cáo"
 
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_detail__discount_hold_amount_detail
-msgid "Giá trị giữ lại"
-msgstr ""
-
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.preview
-msgid "Giảm giá"
-msgstr ""
-
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
-msgid "HÓA ĐƠN BÁN HÀNG"
-msgstr ""
-
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_detail__id
-#: model:ir.model.fields,field_description:sale_inheritance.field_report_sale_order__id
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_alarm_stock__id
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_entry__id
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_quant__id
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_entry_report_wizard__id
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_move_inventory__id
 msgid "ID"
 msgstr ""
 
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_detail__partner_ids
-#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_program__coupon_partner_ids
-#: model:ir.model.fields,field_description:sale_inheritance.field_report_sale_order__khachhang
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document_list
-msgid "Khách hàng"
+#. module: stock_inheritance
+#: model:ir.actions.report,name:stock_inheritance.action_report_stock_move_inventory
+msgid "In báo cáo chi tiết"
 msgstr ""
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
-msgid "Khách hàng:"
+#. module: stock_inheritance
+#: code:addons/stock_inheritance/models/stock_quant.py:0
+#, python-format
+msgid ""
+"It is not possible to reserve more products of %s than you have in stock."
 msgstr ""
 
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_detail____last_update
-#: model:ir.model.fields,field_description:sale_inheritance.field_report_sale_order____last_update
+#. module: stock_inheritance
+#: code:addons/stock_inheritance/models/stock_quant.py:0
+#, python-format
+msgid ""
+"It is not possible to unreserve more products of %s than you have in stock."
+msgstr ""
+
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_entry_report_wizard__stock
+msgid "Kho"
+msgstr ""
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.stock_alarm_view
+msgid "Kho cuối"
+msgstr ""
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
+msgid "Khối lượng nhập"
+msgstr ""
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
+msgid "Khối lượng xuất"
+msgstr ""
+
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_alarm_stock____last_update
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_entry____last_update
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_quant____last_update
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_entry_report_wizard____last_update
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_move_inventory____last_update
 msgid "Last Modified on"
 msgstr "Sửa lần cuối vào"
 
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_detail__write_uid
-#: model:ir.model.fields,field_description:sale_inheritance.field_report_sale_order__write_uid
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_alarm_stock__write_uid
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_entry__write_uid
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_quant__write_uid
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_entry_report_wizard__write_uid
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_move_inventory__write_uid
 msgid "Last Updated by"
 msgstr "Cập nhật lần cuối bởi"
 
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_detail__write_date
-#: model:ir.model.fields,field_description:sale_inheritance.field_report_sale_order__write_date
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_alarm_stock__write_date
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_entry__write_date
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_quant__write_date
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_entry_report_wizard__write_date
 msgid "Last Updated on"
 msgstr "Cập nhật lần cuối vào"
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.sale_coupon_program_view_promo_program_form_v1
-msgid "Minimum Purchase Of"
-msgstr ""
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_alarm_stock__location_id
+msgid "Location"
+msgstr "Vị trí"
 
-#. module: sale_inheritance
-#: model:ir.model.fields.selection,name:sale_inheritance.selection__coupon_reward__discount_hold_time__month
-msgid "Month"
-msgstr "Tháng"
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_move_line__manufacturing_date
+msgid "Manufacturing Date"
+msgstr "Ngày sản xuất"
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document_list
-msgid "Mã"
-msgstr ""
-
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
-msgid "Mã KH:"
-msgstr ""
-
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.preview
-msgid "Mã SP"
-msgstr ""
-
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_sale_order_line__product_default_code
-msgid "Mã hàng"
-msgstr ""
-
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.preview
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
 msgid "Mã sản phẩm"
 msgstr ""
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document_list
-msgid "Ngày đặt hàng"
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
+msgid "Ngày giao"
 msgstr ""
 
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_report_sale_order__nhanvienkinhdoanh
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document_list
-msgid "Nhân viên kinh doanh"
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_quant__expiration_date
+msgid "Ngày hết hạn"
 msgstr ""
 
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_report_sale_order__group_products
-msgid "Nhóm sản phẩm"
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_move_inventory__write_date
+msgid "Ngày kiểm tra"
 msgstr ""
 
-#. module: sale_inheritance
-#: model_terms:ir.actions.act_window,help:sale_inheritance.action_orders_1
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_quant__manufacturing_date
+msgid "Ngày sản xuất"
+msgstr ""
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
+msgid "Nhập kho"
+msgstr ""
+
+#. module: stock_inheritance
+#: code:addons/stock_inheritance/models/stock_move_line.py:0
+#, python-format
+msgid "No negative quantities allowed"
+msgstr ""
+
+#. module: stock_inheritance
+#: model_terms:ir.actions.act_window,help:stock_inheritance.action_filter_stock_move_inventory
+#: model_terms:ir.actions.act_window,help:stock_inheritance.action_stock_alarm
 msgid ""
 "Once the quotation is confirmed, it becomes a sales order.\n"
 "                <br>\n"
 "                You will be able to create an invoice and collect the payment."
 msgstr ""
 
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_sale_order__date_order
-msgid "Order Date"
-msgstr "Ngày đặt hàng"
+#. module: stock_inheritance
+#: model:ir.actions.report,name:stock_inheritance.action_report_picking
+msgid "Picking Operations"
+msgstr "Hoạt động giao nhận"
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
-msgid "Payment Term :"
+#. module: stock_inheritance
+#: model:ir.model,name:stock_inheritance.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr "Dịch chuyển sản phẩm (Dòng dịch chuyển kho)"
+
+#. module: stock_inheritance
+#: model:ir.model,name:stock_inheritance.model_product_template
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_quant__product_tmpl_id
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_move_inventory__product_tmpl_id
+msgid "Product Template"
+msgstr "Mẫu sản phẩm"
+
+#. module: stock_inheritance
+#: code:addons/stock_inheritance/models/stock_report.py:0
+#, python-format
+msgid "Products"
+msgstr "Sản phẩm"
+
+#. module: stock_inheritance
+#: code:addons/stock_inheritance/models/stock_quant.py:0
+#, python-format
+msgid "Quant's creation is restricted, you can't do this operation."
 msgstr ""
 
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_detail__discount_percentage_detail
-msgid "Phần trăm chiết khấu"
+#. module: stock_inheritance
+#: code:addons/stock_inheritance/models/stock_quant.py:0
+#, python-format
+msgid "Removal strategy %s not implemented."
 msgstr ""
 
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_sale_order__amount_untaxed_1
-msgid "Price Amount"
-msgstr "Giá cả"
-
-#. module: sale_inheritance
-#: model:ir.ui.menu,name:sale_inheritance.menu_product_kind_config_sale
-msgid "Product Kinds"
-msgstr "Loại sản phẩm"
-
-#. module: sale_inheritance
-#: model:ir.model.fields.selection,name:sale_inheritance.selection__coupon_reward__discount_hold_time__quarter
-msgid "Quarter"
-msgstr "Quý"
-
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_sale_order_line__product_weight
-msgid "Quy cách"
-msgstr ""
-
-#. module: sale_inheritance
-#: model:ir.actions.act_window,name:sale_inheritance.report_sale_report_action_form
+#. module: stock_inheritance
+#: model:ir.actions.act_window,name:stock_inheritance.action_stock_entry
+#: model:ir.actions.act_window,name:stock_inheritance.action_stock_move_inventory
 msgid "Report"
 msgstr "Báo cáo"
 
-#. module: sale_inheritance
-#: model:ir.actions.report,name:sale_inheritance.action_report_sale_order
-msgid "Report Sale Business Employee"
-msgstr "Báo cáo bán hàng"
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_entry_report_wizard__date_start
+msgid "Start Date"
+msgstr "Từ ngày"
 
-#. module: sale_inheritance
-#: model:ir.actions.report,name:sale_inheritance.action_report_sale_order_list
-msgid "Report Sale List"
-msgstr "Báo cáo bán hàng"
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.filter_stock_entry_form_view
+msgid "Stock Entry Report"
+msgstr "Báo cáo nhập/xuất kho"
 
-#. module: sale_inheritance
-#: model:ir.model,name:sale_inheritance.model_sale_order
-msgid "Sales Order"
-msgstr "Đơn bán hàng"
+#. module: stock_inheritance
+#: model:ir.model,name:stock_inheritance.model_stock_move_inventory
+msgid "Stock Move Inventory"
+msgstr "Nhập xuất tồn kho"
 
-#. module: sale_inheritance
-#: model:ir.model,name:sale_inheritance.model_sale_order_line
-msgid "Sales Order Line"
-msgstr "Dòng đơn bán hàng"
+#. module: stock_inheritance
+#: model:ir.model,name:stock_inheritance.model_stock_quant
+msgid "Stock Quant"
+msgstr "Số lượng tồn kho"
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.sale_coupon_program_view_promo_program_form_v1
-msgid "Select company"
+#. module: stock_inheritance
+#: model:ir.actions.report,name:stock_inheritance.action_report_stock_entry
+msgid "Stock entry report"
+msgstr "Báo cáo nhập/xuất kho"
+
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_product_product__amount_package
+#: model:ir.model.fields,field_description:stock_inheritance.field_product_template__amount_package
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_quant__amount_package
+msgid "Số lượng bao"
 msgstr ""
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
-msgid "SĐT:"
+#. module: stock_inheritance
+#: code:addons/stock_inheritance/models/stock_move_line.py:0
+#, python-format
+msgid ""
+"The quantity done for the product \"%s\" doesn't respect the rounding "
+"precision defined on the unit of measure \"%s\". Please change the quantity "
+"done or the rounding precision of your unit of measure."
 msgstr ""
 
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_coupon_program__coupon_products_ids
-#: model:ir.model.fields,field_description:sale_inheritance.field_report_sale_order__sanpham
-msgid "Sản phẩm"
-msgstr ""
-
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_sale_order_line__amount_package
-msgid "Số bao"
-msgstr ""
-
-#. module: sale_inheritance
-#: model:ir.model.fields,help:sale_inheritance.field_coupon_detail__discount_percentage_detail
-msgid "The discount in percentage, between 1 and 100"
-msgstr "Phần trăm chiết khấu, giữa 1 và 100"
-
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.preview
-msgid "Thành tiền"
-msgstr ""
-
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
-msgid "Thời gian:"
-msgstr ""
-
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_report_sale_order__t_date
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_entry__t_date
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_quant__t_date
 msgid "To date"
 msgstr "Đến ngày"
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.preview
-msgid "Trọng lượng"
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
+msgid "Tài liệu gốc"
 msgstr ""
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.preview
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
+msgid "Tên"
+msgstr ""
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
 msgid "Tên sản phẩm"
 msgstr ""
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document_list
-msgid "Tình trạng hóa đơn"
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
+msgid "Tồn cuối"
 msgstr ""
 
-#. module: sale_inheritance
-#: model:ir.model.fields,field_description:sale_inheritance.field_report_sale_order__vung
-msgid "Tỉnh/ Thành phố"
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
+msgid "Tồn đầu"
 msgstr ""
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.report_sale_order_document_list
-msgid "Tổng"
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_entry__location_id
+msgid "Từ kho"
 msgstr ""
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.sale_coupon_program_view_promo_program_form_v1
-msgid "Validity"
-msgstr "Ngày xác nhận"
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
+msgid "Từ ngày:"
+msgstr ""
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.sale_coupon_program_view_promo_program_form_v1
-msgid "Validity Duration"
-msgstr "Thời hạn hiệu lực"
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_move_inventory__warehouse_entry
+msgid "Warehouse Entry"
+msgstr "Nhập kho"
 
-#. module: sale_inheritance
-#: model:ir.model.fields.selection,name:sale_inheritance.selection__coupon_reward__discount_hold_time__year
-msgid "Year"
-msgstr "Năm"
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_stock_move_inventory__warehouse_export
+msgid "Warehouse Export"
+msgstr "Xuất kho"
 
-#. module: sale_inheritance
-#: code:addons/sale_inheritance/models/sale_order.py:0
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
+msgid "Xuất kho"
+msgstr ""
+
+#. module: stock_inheritance
+#: code:addons/stock_inheritance/models/stock_move_line.py:0
 #, python-format
-msgid "limited to "
-msgstr "giới hạn cho "
-
-#. module: sale_inheritance
-#: model:ir.model,name:sale_inheritance.model_report_sale_order
-msgid "report.sale.order"
+msgid ""
+"You need to supply a Lot/Serial Number for product: \n"
+" - "
 msgstr ""
 
-#. module: sale_inheritance
-#: model:ir.model,name:sale_inheritance.model_sale_order_report_sale_order_document
-msgid "sale.order.report_sale_order_document"
+#. module: stock_inheritance
+#: model:ir.model,name:stock_inheritance.model_filter_stock_entry
+msgid "filter.stock.entry"
 msgstr ""
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.preview
-msgid "Đơn giá"
+#. module: stock_inheritance
+#: model:ir.model,name:stock_inheritance.model_filter_stock_quant
+msgid "filter.stock.quant"
 msgstr ""
 
-#. module: sale_inheritance
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.biochem_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.bonong_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale_inheritance.cavi_report_saleorder_document
-msgid "Địa chỉ:"
+#. module: stock_inheritance
+#: model:ir.model,name:stock_inheritance.model_report_stock_inheritance_report_stock_entry_document
+msgid "report.stock_inheritance.report_stock_entry_document"
+msgstr ""
+
+#. module: stock_inheritance
+#: model:ir.model,name:stock_inheritance.model_stock_entry_report_wizard
+msgid "stock.entry.report.wizard"
+msgstr ""
+
+#. module: stock_inheritance
+#: model:ir.model,name:stock_inheritance.model_stock_quant_report_stock_move_inventory_document
+msgid "stock.quant.report_stock_move_inventory_document"
+msgstr ""
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
+msgid "Đơn vị"
+msgstr ""
+
+#. module: stock_inheritance
+#: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_entry__location_dest_id
+msgid "Đến kho"
+msgstr ""
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
+msgid "Đến ngày:"
 msgstr ""

@@ -136,7 +136,7 @@ msgstr "Mẫu sản phẩm"
 #: code:addons/stock_inheritance/models/stock_report.py:0
 #, python-format
 msgid "Products"
-msgstr ""
+msgstr "Sản phẩm"
 
 #. module: stock_inheritance
 #: model:ir.actions.act_window,name:stock_inheritance.action_stock_move_inventory
@@ -151,7 +151,7 @@ msgstr "Nhập xuất tồn kho"
 #. module: stock_inheritance
 #: model:ir.model,name:stock_inheritance.model_stock_quant
 msgid "Stock Quant"
-msgstr ""
+msgstr "Số lượng tồn kho"
 
 #. module: stock_inheritance
 #: model:ir.model.fields,field_description:stock_inheritance.field_product_product__amount_package

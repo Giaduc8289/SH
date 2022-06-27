@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-16 07:18+0000\n"
-"PO-Revision-Date: 2022-06-16 07:18+0000\n"
+"POT-Creation-Date: 2022-06-27 02:00+0000\n"
+"PO-Revision-Date: 2022-06-27 02:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,6 @@ msgid "30A 123.45"
 msgstr ""
 
 #. module: access_control
-#: model:ir.actions.act_window,name:access_control.action_filter_access_control
 #: model:ir.actions.act_window,name:access_control.action_report_access_control_form
 #: model:ir.model,name:access_control.model_access_control
 #: model:ir.module.category,name:access_control.module_category_access_control
@@ -30,6 +29,11 @@ msgstr ""
 #: model:ir.ui.menu,name:access_control.report_access_control_menu
 msgid "Access Control"
 msgstr "Kiểm soát vào ra"
+
+#. module: access_control
+#: model_terms:ir.ui.view,arch_db:access_control.access_control_report_wizard
+msgid "Access Control Report"
+msgstr "Báo cáo vào ra"
 
 #. module: access_control
 #: model:ir.actions.act_window,name:access_control.action_access_control_form
@@ -74,28 +78,8 @@ msgid "BÁO CÁO CÂN XE"
 msgstr ""
 
 #. module: access_control
-#: model_terms:ir.ui.view,arch_db:access_control.report_weight_vehicle_document
-msgid "BÁO CÁO CÂN XE BÁN HÀNG"
-msgstr ""
-
-#. module: access_control
-#: model_terms:ir.ui.view,arch_db:access_control.report_weight_vehicle_document
-msgid "BÁO CÁO CÂN XE MUA HÀNG"
-msgstr ""
-
-#. module: access_control
 #: model_terms:ir.ui.view,arch_db:access_control.report_access_control_document
 msgid "BÁO CÁO KIỂM SOÁT VÀO RA"
-msgstr ""
-
-#. module: access_control
-#: model_terms:ir.ui.view,arch_db:access_control.report_access_control_document
-msgid "BÁO CÁO KIỂM SOÁT VÀO RA BÁN HÀNG"
-msgstr ""
-
-#. module: access_control
-#: model_terms:ir.ui.view,arch_db:access_control.report_access_control_document
-msgid "BÁO CÁO KIỂM SOÁT VÀO RA MUA HÀNG"
 msgstr ""
 
 #. module: access_control
@@ -109,6 +93,12 @@ msgid "Báo cáo kiểm soát vào ra"
 msgstr ""
 
 #. module: access_control
+#: model_terms:ir.ui.view,arch_db:access_control.access_control_report_wizard
+#: model_terms:ir.ui.view,arch_db:access_control.weight_vehicle_report_wizard
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: access_control
 #: model_terms:ir.ui.view,arch_db:access_control.access_control_form_view
 #: model_terms:ir.ui.view,arch_db:access_control.access_control_inout_form_view
 msgid "Check out"
@@ -120,19 +110,16 @@ msgid "Code"
 msgstr "Mã khách"
 
 #. module: access_control
-#: model_terms:ir.actions.act_window,help:access_control.action_filter_access_control
-msgid "Create a new quotation, the first step of a new sale!"
-msgstr ""
-
-#. module: access_control
 #: model:ir.model.fields,field_description:access_control.field_access_control__create_uid
-#: model:ir.model.fields,field_description:access_control.field_filter_access_control__create_uid
+#: model:ir.model.fields,field_description:access_control.field_access_control_report_wizard__create_uid
+#: model:ir.model.fields,field_description:access_control.field_weight_vehicle_report_wizard__create_uid
 msgid "Created by"
 msgstr "Tạo bởi"
 
 #. module: access_control
 #: model:ir.model.fields,field_description:access_control.field_access_control__create_date
-#: model:ir.model.fields,field_description:access_control.field_filter_access_control__create_date
+#: model:ir.model.fields,field_description:access_control.field_access_control_report_wizard__create_date
+#: model:ir.model.fields,field_description:access_control.field_weight_vehicle_report_wizard__create_date
 msgid "Created on"
 msgstr "Tạo ở"
 
@@ -145,7 +132,8 @@ msgstr "Khách đến"
 
 #. module: access_control
 #: model:ir.model.fields,field_description:access_control.field_access_control__display_name
-#: model:ir.model.fields,field_description:access_control.field_filter_access_control__display_name
+#: model:ir.model.fields,field_description:access_control.field_access_control_report_wizard__display_name
+#: model:ir.model.fields,field_description:access_control.field_weight_vehicle_report_wizard__display_name
 msgid "Display Name"
 msgstr "Tên"
 
@@ -156,14 +144,16 @@ msgid "Driver"
 msgstr "Tài xế"
 
 #. module: access_control
-#: model_terms:ir.ui.view,arch_db:access_control.report_access_control_form_view
-msgid "Filter"
-msgstr "Lọc"
+#: model:ir.model.fields,field_description:access_control.field_access_control_report_wizard__date_end
+#: model:ir.model.fields,field_description:access_control.field_weight_vehicle_report_wizard__date_end
+msgid "End Date"
+msgstr "Đến ngày"
 
 #. module: access_control
-#: model:ir.model.fields,field_description:access_control.field_filter_access_control__f_date
-msgid "From date"
-msgstr "Từ ngày"
+#: model_terms:ir.ui.view,arch_db:access_control.access_control_report_wizard
+#: model_terms:ir.ui.view,arch_db:access_control.weight_vehicle_report_wizard
+msgid "Get Report"
+msgstr "Lập báo cáo"
 
 #. module: access_control
 #: model_terms:ir.ui.view,arch_db:access_control.report_access_control_document
@@ -186,7 +176,8 @@ msgstr "Giúp bạn quản lý các quy trình kiểm soát vào ra công ty"
 
 #. module: access_control
 #: model:ir.model.fields,field_description:access_control.field_access_control__id
-#: model:ir.model.fields,field_description:access_control.field_filter_access_control__id
+#: model:ir.model.fields,field_description:access_control.field_access_control_report_wizard__id
+#: model:ir.model.fields,field_description:access_control.field_weight_vehicle_report_wizard__id
 msgid "ID"
 msgstr ""
 
@@ -201,20 +192,28 @@ msgid "In time"
 msgstr "Thời gian vào"
 
 #. module: access_control
+#: model_terms:ir.ui.view,arch_db:access_control.report_error
+msgid "Không tồn tại dữ liệu đang tìm kiếm"
+msgstr ""
+
+#. module: access_control
 #: model:ir.model.fields,field_description:access_control.field_access_control____last_update
-#: model:ir.model.fields,field_description:access_control.field_filter_access_control____last_update
+#: model:ir.model.fields,field_description:access_control.field_access_control_report_wizard____last_update
+#: model:ir.model.fields,field_description:access_control.field_weight_vehicle_report_wizard____last_update
 msgid "Last Modified on"
 msgstr "Chỉnh sửa lần cuối"
 
 #. module: access_control
 #: model:ir.model.fields,field_description:access_control.field_access_control__write_uid
-#: model:ir.model.fields,field_description:access_control.field_filter_access_control__write_uid
+#: model:ir.model.fields,field_description:access_control.field_access_control_report_wizard__write_uid
+#: model:ir.model.fields,field_description:access_control.field_weight_vehicle_report_wizard__write_uid
 msgid "Last Updated by"
 msgstr "Cập nhật lần cuối bởi"
 
 #. module: access_control
 #: model:ir.model.fields,field_description:access_control.field_access_control__write_date
-#: model:ir.model.fields,field_description:access_control.field_filter_access_control__write_date
+#: model:ir.model.fields,field_description:access_control.field_access_control_report_wizard__write_date
+#: model:ir.model.fields,field_description:access_control.field_weight_vehicle_report_wizard__write_date
 msgid "Last Updated on"
 msgstr "Cập nhật lần cuối"
 
@@ -227,7 +226,7 @@ msgstr ""
 #. module: access_control
 #: model_terms:ir.ui.view,arch_db:access_control.report_access_control_document
 #: model_terms:ir.ui.view,arch_db:access_control.report_weight_vehicle_document
-msgid "Mục đích"
+msgid "Mục đích đến:"
 msgstr ""
 
 #. module: access_control
@@ -242,14 +241,6 @@ msgstr "Tên khách"
 #: model_terms:ir.ui.view,arch_db:access_control.access_control_inout_form_view
 msgid "Number plate"
 msgstr "Biển kiểm soát"
-
-#. module: access_control
-#: model_terms:ir.actions.act_window,help:access_control.action_filter_access_control
-msgid ""
-"Once the quotation is confirmed, it becomes a sales order.\n"
-"                <br>\n"
-"                You will be able to create an invoice and collect the payment."
-msgstr ""
 
 #. module: access_control
 #: model:ir.model.fields,field_description:access_control.field_access_control__ordinal_number
@@ -268,7 +259,8 @@ msgstr "Thời gian ra"
 
 #. module: access_control
 #: model:ir.model.fields,field_description:access_control.field_access_control__res_partner_id
-#: model:ir.model.fields,field_description:access_control.field_filter_access_control__res_partner_id
+#: model:ir.model.fields,field_description:access_control.field_access_control_report_wizard__res_partner_id
+#: model:ir.model.fields,field_description:access_control.field_weight_vehicle_report_wizard__res_partner_id
 #: model_terms:ir.ui.view,arch_db:access_control.access_control_form_view
 #: model_terms:ir.ui.view,arch_db:access_control.access_control_inout_form_view
 msgid "Partner"
@@ -300,7 +292,8 @@ msgstr "Sản phẩm"
 
 #. module: access_control
 #: model:ir.model.fields.selection,name:access_control.selection__access_control__purpose__purchase
-#: model:ir.model.fields.selection,name:access_control.selection__filter_access_control__purpose__purchase
+#: model:ir.model.fields.selection,name:access_control.selection__access_control_report_wizard__purpose__purchase
+#: model:ir.model.fields.selection,name:access_control.selection__weight_vehicle_report_wizard__purpose__purchase
 msgid "Purchase"
 msgstr "Mua hàng"
 
@@ -311,7 +304,8 @@ msgstr "Đơn mua hàng"
 
 #. module: access_control
 #: model:ir.model.fields,field_description:access_control.field_access_control__purpose
-#: model:ir.model.fields,field_description:access_control.field_filter_access_control__purpose
+#: model:ir.model.fields,field_description:access_control.field_access_control_report_wizard__purpose
+#: model:ir.model.fields,field_description:access_control.field_weight_vehicle_report_wizard__purpose
 #: model_terms:ir.ui.view,arch_db:access_control.access_control_search_view
 msgid "Purpose"
 msgstr "Mục đích"
@@ -338,7 +332,8 @@ msgstr "Báo cáo cân xe"
 
 #. module: access_control
 #: model:ir.model.fields.selection,name:access_control.selection__access_control__purpose__sale
-#: model:ir.model.fields.selection,name:access_control.selection__filter_access_control__purpose__sale
+#: model:ir.model.fields.selection,name:access_control.selection__access_control_report_wizard__purpose__sale
+#: model:ir.model.fields.selection,name:access_control.selection__weight_vehicle_report_wizard__purpose__sale
 msgid "Sale"
 msgstr "Bán hàng"
 
@@ -346,6 +341,12 @@ msgstr "Bán hàng"
 #: model:ir.model.fields,field_description:access_control.field_access_control__sale_ids
 msgid "Sale Orders"
 msgstr "Đơn bán hàng"
+
+#. module: access_control
+#: model:ir.model.fields,field_description:access_control.field_access_control_report_wizard__date_start
+#: model:ir.model.fields,field_description:access_control.field_weight_vehicle_report_wizard__date_start
+msgid "Start Date"
+msgstr "Từ ngày"
 
 #. module: access_control
 #: model_terms:ir.ui.view,arch_db:access_control.access_control_search_view_for_purchase
@@ -378,11 +379,6 @@ msgid "Thời gian vào"
 msgstr ""
 
 #. module: access_control
-#: model:ir.model.fields,field_description:access_control.field_filter_access_control__t_date
-msgid "To date"
-msgstr "Đến ngày"
-
-#. module: access_control
 #: model_terms:ir.ui.view,arch_db:access_control.report_weight_vehicle_document
 msgid "Trọng lượng hàng"
 msgstr ""
@@ -409,6 +405,18 @@ msgid "Tên khách"
 msgstr ""
 
 #. module: access_control
+#: model_terms:ir.ui.view,arch_db:access_control.report_access_control_document
+#: model_terms:ir.ui.view,arch_db:access_control.report_weight_vehicle_document
+msgid "Tên khách:"
+msgstr ""
+
+#. module: access_control
+#: model_terms:ir.ui.view,arch_db:access_control.report_access_control_document
+#: model_terms:ir.ui.view,arch_db:access_control.report_weight_vehicle_document
+msgid "Từ ngày:"
+msgstr ""
+
+#. module: access_control
 #: model:ir.model.fields.selection,name:access_control.selection__access_control__state__unload
 msgid "Unload Goods"
 msgstr "Giao dịch"
@@ -432,7 +440,8 @@ msgstr "Người bán đến"
 
 #. module: access_control
 #: model:ir.model.fields.selection,name:access_control.selection__access_control__purpose__visit
-#: model:ir.model.fields.selection,name:access_control.selection__filter_access_control__purpose__visit
+#: model:ir.model.fields.selection,name:access_control.selection__access_control_report_wizard__purpose__visit
+#: model:ir.model.fields.selection,name:access_control.selection__weight_vehicle_report_wizard__purpose__visit
 msgid "Visit"
 msgstr "Khách viếng thăm"
 
@@ -457,12 +466,17 @@ msgid "Weight User"
 msgstr "Người dùng cân xe"
 
 #. module: access_control
-#: model:ir.actions.act_window,name:access_control.action_report_weight_form
+#: model:ir.actions.act_window,name:access_control.action_report_weight_vehicle_form
 #: model:ir.actions.act_window,name:access_control.action_weight_form
 #: model:ir.ui.menu,name:access_control.report_weight_menu
 #: model:ir.ui.menu,name:access_control.weight_menu
 msgid "Weight Vehicle"
 msgstr "Cân xe"
+
+#. module: access_control
+#: model_terms:ir.ui.view,arch_db:access_control.weight_vehicle_report_wizard
+msgid "Weight Vehicle Report"
+msgstr "Báo cáo cân xe"
 
 #. module: access_control
 #: model:ir.model.fields,field_description:access_control.field_access_control__weight_goods
@@ -481,18 +495,35 @@ msgstr "Trọng lượng ra"
 
 #. module: access_control
 #: model:ir.model.fields.selection,name:access_control.selection__access_control__purpose__work
-#: model:ir.model.fields.selection,name:access_control.selection__filter_access_control__purpose__work
+#: model:ir.model.fields.selection,name:access_control.selection__access_control_report_wizard__purpose__work
+#: model:ir.model.fields.selection,name:access_control.selection__weight_vehicle_report_wizard__purpose__work
 msgid "Work"
 msgstr "Làm việc"
 
 #. module: access_control
-#: model:ir.model,name:access_control.model_access_control_report_access_control_document
-msgid "access.control.report_access_control_document"
+#: model:ir.model,name:access_control.model_access_control_report_wizard
+msgid "access.control.report.wizard"
 msgstr ""
 
 #. module: access_control
-#: model:ir.model,name:access_control.model_filter_access_control
-msgid "filter.access.control"
+#: model:ir.model,name:access_control.model_report_access_control_report_access_control_document
+msgid "report.access_control.report_access_control_document"
+msgstr ""
+
+#. module: access_control
+#: model:ir.model,name:access_control.model_report_access_control_report_weight_vehicle_document
+msgid "report.access_control.report_weight_vehicle_document"
+msgstr ""
+
+#. module: access_control
+#: model:ir.model,name:access_control.model_weight_vehicle_report_wizard
+msgid "weight.vehicle.report.wizard"
+msgstr ""
+
+#. module: access_control
+#: model_terms:ir.ui.view,arch_db:access_control.report_access_control_document
+#: model_terms:ir.ui.view,arch_db:access_control.report_weight_vehicle_document
+msgid "Đến ngày:"
 msgstr ""
 
 #. module: access_control
