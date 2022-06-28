@@ -8,18 +8,20 @@
                 <div class="page">
                     <div class="oe_structure"/>
                     <br/>
-                    <h2 style="text-transform: uppercase" class="text-center bold" ><center>BÁO CÁO NHẬP XUẤT KHO <t t-if ="stock" ><t t-esc ="name_stock"/></t></center></h2>
-                    <div>
+                    <h2 style="text-transform: uppercase" class="text-center bold"><center>BÁO CÁO NHẬP XUẤT KHO <t
+                            t-if="stock"><t t-esc="name_stock"/></t></center></h2>
+                    <span class="text-center bold"><center>
                         <t t-if="date_start">
-                            <h4 class="text-center bold"><center>Từ ngày: <t t-esc="date_start"/></center></h4>
+                            <span class="text-center bold">Từ ngày : <t t-esc="date_start"/></span>
                         </t>
-
-                    </div>
-                    <div>
+                        <t t-if="date_start and date_end">
+                            <span class="text-center bold"> - </span>
+                        </t>
                         <t t-if="date_end">
-                            <h4 class="text-center bold"><center>Đến ngày: <t t-esc="date_end"/></center></h4>
+                            <span class="text-center bold">Đến ngày : <t t-esc="date_end"/></span>
                         </t>
-                    </div>
+                    </center>
+                    </span>
                     <br/>
                     <div>
                         <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
@@ -80,10 +82,10 @@
                                         </group>
                                         <group t-if="not stock">
                                             <td class="text-right">
-                                                    <span t-field="o.product_qty"/>
+                                                <span t-field="o.product_qty"/>
                                             </td>
                                             <td class="text-right">
-                                                    <span t-field="o.product_uom"/>
+                                                <span t-field="o.product_uom"/>
                                             </td>
                                             <td class="text-right">
                                                 <span t-field="o.location_id"/>

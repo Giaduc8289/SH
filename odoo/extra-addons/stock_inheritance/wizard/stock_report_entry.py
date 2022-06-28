@@ -17,11 +17,15 @@ class StockEntryReportWizard(models.TransientModel):
     stock = fields.Many2one("stock.location", "Kho", domain="['&', ('id', '!=', None), ('usage', '!=', 'view')]")
 
     def get_report(self):
+        date_start = self.date_start
+        date_end = self.date_end
         domain = []
         if self.date_start:
             domain = expression.AND([domain, [('date', '>=', self.date_start)]])
+            date_start = date_start.strftime('%d/%m/%Y')
         if self.date_end:
             domain = expression.AND([domain, [('date', '<=', self.date_end)]])
+            date_end = date_end.strftime('%d/%m/%Y')
         if self.stock:
             domain = expression.AND([domain, ['|', ('location_id', '=', self.stock.id),
                                               ('location_dest_id', '=', self.stock.id)]])
@@ -31,7 +35,8 @@ class StockEntryReportWizard(models.TransientModel):
             'model': self._name,
             'ids': self.ids,
             'form': {
-                'date_start': self.date_start, 'date_end': self.date_end, 'stock': self.stock.id, 'domain': domain, 'name_stock': self.stock.complete_name
+                'date_start': date_start, 'date_end': date_end, 'stock': self.stock.id, 'domain': domain,
+                'name_stock': self.stock.complete_name
             },
         }
 
@@ -47,7 +52,7 @@ class ReportStockEntry(models.AbstractModel):
         date_start = data['form']['date_start']
         date_end = data['form']['date_end']
         stock = data['form']['stock']
-        name_stock= data['form']['name_stock']
+        name_stock = data['form']['name_stock']
         domain = data['form']['domain']
 
         data_sv = self.env['stock.move'].search(domain)

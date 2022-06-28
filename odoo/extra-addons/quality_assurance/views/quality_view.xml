@@ -99,6 +99,12 @@
 
         <menuitem id="menu_quality_assurance" name="Quality Assurance" parent="menu_quality_root"/>
 
+        <menuitem id="report_quality_menu"
+              name="Reporting"
+              parent="quality_assurance.menu_quality_root"
+              groups="group_quality_manager"
+              sequence="99"/>
+
 
         <record id="quality_alert_tree" model="ir.ui.view">
             <field name="name">quality.alert.tree</field>
