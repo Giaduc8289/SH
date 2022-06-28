@@ -27,11 +27,16 @@ class PurchaseReportWizard(models.TransientModel):
                                      " ('default_code', 'not like', 'BN%'), ('default_code', 'not like', 'CA%')]")
 
     def get_report(self):
+        date_start = self.date_start
+        date_end = self.date_end
         domain = []
         if self.date_start:
             domain = expression.AND([domain, [('date_order', '>=', self.date_start)]])
+            date_start = date_start.strftime('%d/%m/%Y')
         if self.date_end:
             domain = expression.AND([domain, [('date_order', '<=', self.date_end)]])
+            date_end = date_end.strftime('%d/%m/%Y')
+
         # if self.invoice_status:
         #     domain = expression.AND([domain, [('invoice_status', '=', self.invoice_status)]])
         if self.state:
@@ -53,7 +58,7 @@ class PurchaseReportWizard(models.TransientModel):
             'model': self._name,
             'ids': self.ids,
             'form': {
-                'date_start': self.date_start, 'date_end': self.date_end, 'group_products': self.group_products.complete_name, 'state': self.state, 'nhacungcap': self.nhacungcap.name,
+                'date_start': date_start, 'date_end': date_end, 'group_products': self.group_products.complete_name, 'state': self.state, 'nhacungcap': self.nhacungcap.name,
                 'sanpham': self.sanpham.name, 'domain': domain
             },
         }
@@ -73,10 +78,8 @@ class ReportPurchase(models.AbstractModel):
         sanpham = data['form']['sanpham']
         nhacungcap = data['form']['nhacungcap']
         domain = data['form']['domain']
-
         data_pu = self.env['purchase.order'].search(domain)
         docs = self.env['purchase.order'].browse(data_pu.ids)
-
         return {
             'doc_ids': data['ids'],
             'doc_model': data['model'],

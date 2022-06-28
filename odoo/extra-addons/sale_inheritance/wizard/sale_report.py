@@ -22,11 +22,15 @@ class SaleReportWizard(models.TransientModel):
     nhanvienkinhdoanh = fields.Many2one("res.partner", "Nhân viên kinh doanh", domain="[('user_id', '=', None)]")
 
     def get_report(self):
+        date_start = self.date_start
+        date_end = self.date_end
         domain = []
         if self.date_start:
             domain = expression.AND([domain, [('date_order', '>=', self.date_start)]])
+            date_start = date_start.strftime('%d/%m/%Y')
         if self.date_end:
             domain = expression.AND([domain, [('date_order', '<=', self.date_end)]])
+            date_end = date_end.strftime('%d/%m/%Y')
         # if self.invoice_status:
         #     domain = expression.AND([domain, [('invoice_status', '=', self.invoice_status)]])
         if self.group_products:
@@ -44,7 +48,7 @@ class SaleReportWizard(models.TransientModel):
             'model': self._name,
             'ids': self.ids,
             'form': {
-                'date_start': self.date_start, 'date_end': self.date_end, 'group_products': self.group_products.complete_name, 'vung': self.vung.name, 'khachhang':self.khachhang.name, 'sanpham':self.sanpham.name,
+                'date_start': date_start, 'date_end': date_end, 'group_products': self.group_products.complete_name, 'vung': self.vung.name, 'khachhang':self.khachhang.name, 'sanpham':self.sanpham.name,
                 'nhanvienkinhdoanh':self.nhanvienkinhdoanh.name, 'domain': domain
             },
         }
