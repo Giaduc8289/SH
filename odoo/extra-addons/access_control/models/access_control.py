@@ -92,6 +92,11 @@ class AccessControl(models.Model):
             if (record.state == 'in'):
                 record.state = 'weighin'
 
+    def action_create_order(self):
+        for record in self:
+            if (record.state == 'weighin'):
+                record.state = 'unload'
+
     def action_unload(self):
         for record in self:
             if (record.state == 'weighin'):
