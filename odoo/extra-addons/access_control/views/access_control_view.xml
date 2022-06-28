@@ -16,6 +16,8 @@
                 <header>
                     <button name="action_weigh_in" type="object" string="Weigh In" class="oe_highlight"
                             attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}"/>
+                    <button name="action_create_order" type="object" string="Create Order" class="oe_highlight"
+                            attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}"/>
                     <button name="action_weigh_out" type="object" string="Weigh Out" class="oe_highlight"
                             attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}"/>
                     <button name="action_check_out" id="action_confirm" data-hotkey="v"
@@ -146,7 +148,7 @@
             <xpath expr="//field[@name='product_category_ids']/.." position="after">
                 <group>
                     <field name="sale_ids" widget="many2many" context="{'default_partner_id': res_partner_id}"
-                           attrs="{'invisible': [('purpose', 'in', ('visit', 'work', 'sale'))]}"/>
+                           attrs="{'invisible': [('purpose', 'in', ('visit', 'work', 'sale'))], 'readonly': [('state', 'not in', ('unload'))] }"/>
                 </group>
             </xpath>
         </field>
@@ -160,7 +162,7 @@
             <xpath expr="//field[@name='product_category_ids']/.." position="after">
                 <group>
                     <field name="purchase_ids" widget="many2many" context="{'default_partner_id': res_partner_id}"
-                           attrs="{'invisible': [('purpose', 'in', ('visit', 'work', 'purchase'))]}"/>
+                           attrs="{'invisible': [('purpose', 'in', ('visit', 'work', 'purchase'))], 'readonly': [('state', 'not in', ('unload'))] }"/>
                 </group>
             </xpath>
         </field>
@@ -204,6 +206,7 @@
             </form>
         </field>
     </record>
+
     <record id="access_control_search_view" model="ir.ui.view">
         <field name="name">access.control.search</field>
         <field name="model">access.control</field>
