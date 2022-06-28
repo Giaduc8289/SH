@@ -15,14 +15,18 @@
             <form class="oe_form_configuration">
                 <header>
                     <button name="action_weigh_in" type="object" string="Weigh In" class="oe_highlight"
-                            attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}"/>
+                            attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}"
+                            groups="access_control.group_weight_user"/>
                     <button name="action_create_order" type="object" string="Create Order" class="oe_highlight"
-                            attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}"/>
+                            attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}"
+                            groups="sales_team.group_sale_salesman, purchase.group_purchase_user"/>
                     <button name="action_weigh_out" type="object" string="Weigh Out" class="oe_highlight"
-                            attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}"/>
+                            attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}"
+                            groups="access_control.group_weight_user"/>
                     <button name="action_check_out" id="action_confirm" data-hotkey="v"
                             string="Check out" class="btn-primary" type="object"
-                            attrs="{'invisible': [('state', '=', 'out')]}"/>
+                            attrs="{'invisible': [('state', '=', 'out')]}"
+                            groups="access_control.group_access_control_user"/>
                     <field name="state" widget="statusbar" statusbar_visible="in,weighin,unload,weighout,out"/>
                 </header>
                 <sheet>
