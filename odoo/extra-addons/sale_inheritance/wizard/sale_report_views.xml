@@ -27,26 +27,29 @@
 
 
     <record id="report_sale_order_view" model="ir.ui.view">
-        <field name="name">report.sale.order.form</field>
-        <field name="model">report.sale.order</field>
+        <field name="name">sale.report.wizard.form</field>
+        <field name="model">sale.report.wizard</field>
         <field name="arch" type="xml">
             <form create="false">
                 <sheet>
                     <group>
                         <group>
-                            <field name="f_date" widget="date"/>
+                            <field name="date_start" widget="date"/>
 <!--                            <field name="invoice_status" widget="selection"/>-->
                             <field name="group_products" widget="many2one"/>
                             <field name="khachhang" widget="many2one"/>
                             <field name="nhanvienkinhdoanh" widget="many2one"/>
                         </group>
                         <group>
-                            <field name="t_date" widget="date"/>
+                            <field name="date_end" widget="date"/>
                             <field name="vung" widget="many2one"/>
                             <field name="sanpham" widget="many2one"/>
                         </group>
                     </group>
-                    <button name="action_print_report" type="object" string="Filter" class="oe_highlight"/>
+                    <footer>
+                    <button name="get_report" type="object" string="Filter" class="oe_highlight"/>
+                    <button string="Cancel" special="cancel"/>
+                    </footer>
                 </sheet>
             </form>
         </field>
@@ -55,7 +58,7 @@
     <record id="report_sale_report_action_form" model="ir.actions.act_window">
         <field name="name">Report</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">report.sale.order</field>
+        <field name="res_model">sale.report.wizard</field>
         <field name="view_mode">form</field>
         <field name="view_id" ref="report_sale_order_view"/>
     </record>

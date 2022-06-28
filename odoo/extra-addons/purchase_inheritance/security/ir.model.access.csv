@@ -1,3 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 filter_purchase_order_user,filter.purchase.order.user,model_filter_purchase_order,base.group_user,1,0,1,0
 filter_purchase_order_manager,filter.purchase.order.manager,model_filter_purchase_order,base.group_system,1,1,1,1
+purchase_report_wizard_user,purchase.report.wizard.user,model_purchase_report_wizard,base.group_user,1,0,1,0
+purchase_report_wizard_manager,purchase.report.wizard.manager,model_purchase_report_wizard,base.group_system,1,1,1,1
+

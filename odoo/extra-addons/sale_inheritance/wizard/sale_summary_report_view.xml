@@ -31,8 +31,8 @@
         <field name="view_id" ref="sale_summary_report_wizard"/>
     </record>
 
-    <menuitem action="action_sale_summary_report_wizard"
-              id="menu_sale_summary_report_wizard"
-              parent="sale.menu_sale_report"/>
+<!--    <menuitem action="action_sale_summary_report_wizard"-->
+<!--              id="menu_sale_summary_report_wizard"-->
+<!--              parent="sale.menu_sale_report"/>-->
 
 </odoo>
