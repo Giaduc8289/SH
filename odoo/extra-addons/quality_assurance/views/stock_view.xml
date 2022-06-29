@@ -1,19 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <record id="quality_stock_picking" model="ir.ui.view">
-            <field name="name">quality.stock.picking.form</field>
-            <field name="model">stock.picking</field>
-            <field name="inherit_id" ref="stock.view_picking_form"/>
-            <field name="arch" type="xml">
-                <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
-                    <button type="object"
+    <record id="quality_stock_picking" model="ir.ui.view">
+        <field name="name">quality.stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button type="object"
                         name="quality_alert_action"
                         class="oe_stat_button"
                         icon="fa-check-circle-o">
-                        <field name="alert_count" widget="statinfo" string="Quality Alerts" help="Quality Alerts"/>
-                        <field name="alert_ids" invisible="1"/>
-                    </button>
-                </xpath>
-            </field>
-        </record>
+                    <field name="alert_count" widget="statinfo" string="Quality Alerts" help="Quality Alerts"/>
+                    <field name="alert_ids" invisible="1"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="quality_stock_quant_product" model="ir.ui.view">
+        <field name="name">stock.quant.tree.editable.stock_inheritance.quality</field>
+        <field name="model">stock.quant</field>
+        <field name="inherit_id" ref="stock.view_stock_quant_tree_editable"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='product_uom_id']" position="after">
+                <button type="object"
+                        name="quality_alert_action"
+                        class="btn btn-warning"
+                        string="Quality Alerts" />
+            </xpath>
+        </field>
+    </record>
 </odoo>
