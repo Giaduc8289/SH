@@ -5,44 +5,52 @@
     <template id="report_weight_vehicle_document">
         <t t-call="web.html_container">
             <t t-call="web.report_layout">
-                <div class="page">
+                <meta charset="utf-8"/>
+                <div class="page" style="font-family :Arial !important;">
                     <div class="oe_structure"/>
                     <br/>
                     <h2 class="text-center bold"><center>BÁO CÁO CÂN XE</center></h2>
+                    <br/>
+                    <span class="text-center bold"><center>
+                        <t t-if="date_start" >
+                        <span class="text-center bold"> <strong>Từ ngày : </strong> <t t-esc="date_start"/></span>
+                        </t>
+                         <t t-if="date_start and date_end">
+                            <span class="text-center bold"> - </span>
+                        </t>
+                        <t t-if="date_end">
+                            <span class="text-center bold"> <strong> Đến ngày : </strong><t t-esc="date_end"/></span>
+                        </t>
+                    </center>
+                    </span>
                     <t t-if="res_partner_id">
-                        <span><center>Tên khách: <t t-esc="res_partner_id"/></center></span>
+                        <span><strong>Tên khách : </strong> <t t-esc="res_partner_id"/></span>
                     </t>
                     <t t-if="purpose">
-                        <span><center>Mục đích đến: <t t-esc="purpose"/></center></span>
+                        <span><strong>Mục đích đến: </strong><t t-esc="purpose"/></span>
                     </t>
-                    <span>
-                        <center>
-                            <t t-if="date_start">Từ ngày: <t t-esc="date_start"/></t>
-                            <t t-if="date_end">Đến ngày: <t t-esc="date_end"/></t>
-                        </center>
-                    </span>
                     <br/>
                     <div>
                         <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
                             <thead>
                                 <tr>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :15%;"
+                                    <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :15%;"
                                         class="text-center">Biển kiểm soát</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :25%;"
+                                    <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :25%;"
                                         class="text-center">Tài xế</th>
 <!--                                    <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work' ">-->
-<!--                                        <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :10%;"-->
+<!--                                        <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :10%;"-->
 <!--                                            class="text-center">Mục đích</th>-->
 <!--                                    </t>-->
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :10%;"
+                                    <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :10%;"
                                         class="text-center">Thời gian vào</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :10%;"
+                                    <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :10%;"
                                         class="text-center">Thời gian ra</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :10%;"
+                                    <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :10%;"
                                         class="text-center">Trọng lượng vào</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :10%;"
+                                    <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :10%;"
                                         class="text-center">Trọng lượng ra</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :10%;"
+                                    <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :10%;"
                                         class="text-center">Trọng lượng hàng</th>
                                 </tr>
                             </thead>

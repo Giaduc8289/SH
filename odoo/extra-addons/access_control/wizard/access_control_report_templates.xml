@@ -5,7 +5,8 @@
     <template id="report_access_control_document">
         <t t-call="web.html_container">
             <t t-call="web.report_layout">
-                <div class="page">
+                <meta charset="utf-8"/>
+                <div class="page" style="font-family :Arial !important;">
                     <div class="oe_structure"/>
                     <br/>
                     <h2 class="text-center bold"><center>BÁO CÁO KIỂM SOÁT VÀO RA</center></h2>
@@ -35,23 +36,23 @@
                         <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
                             <thead>
                                 <tr>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :9%;"
+                                    <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :9%;"
                                         class="text-center">Mã khách hàng</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :15%;"
+                                    <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :15%;"
                                         class="text-center">Tên khách</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :15%;"
+                                    <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :15%;"
                                         class="text-center">Tài xế</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :25%;"
+                                    <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :25%;"
                                         class="text-center">Địa chỉ</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :10%;"
+                                    <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :10%;"
                                         class="text-center">Thời gian vào</th>
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :10%;"
+                                    <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :10%;"
                                         class="text-center">Thời gian ra</th>
                                     <!--                                    <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work' ">-->
-                                    <!--                                        <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :8%;"-->
+                                    <!--                                        <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :8%;"-->
                                     <!--                                            class="text-center">Mục đích</th>-->
                                     <!--                                    </t>-->
-                                    <th style="background-color:#343A40 !important;color:#FFF !important; border-color: #FFF !important;width :8%;"
+                                    <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :8%;"
                                         class="text-center">Ghi chú
                                     </th>
                                 </tr>
