@@ -74,3 +74,10 @@ update product_template set sale_ok=true where default_code not like 'OT%'
 
 --Cấu hình theo dõi lô, ngày hết hạn cho toàn bộ sản phẩm trừ nhóm chiết khấu tự động sinh
 update product_template set tracking='lot', use_expiration_date=true where default_code not like 'OT%'
+
+--Xóa công ty mã id=2 (khi tạo mới 1 công ty phần mềm sẽ tự động tạo dữ liệu trong các bảng sau)
+delete from stock_rule where picking_type_id in (select id from stock_picking_type where company_id=2)
+delete from stock_picking_type where company_id=2
+delete from stock_warehouse where company_id=2
+delete from res_company where id=2
+
