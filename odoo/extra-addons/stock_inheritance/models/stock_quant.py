@@ -1,4 +1,4 @@
-from odoo import fields, models, api
+from odoo import fields, models, api, _
 from odoo.exceptions import UserError
 from odoo.osv import expression
 from odoo.tools import float_compare, OrderedSet, float_round, float_is_zero
@@ -191,7 +191,7 @@ class StockQuant(models.Model):
 
     @api.model
     def _update_reserved_quantity(self, product_id, location_id, quantity, manufacturing_date=None,
-                                   expiration_date=None, lot_id=None, package_id=None, owner_id=None):
+                                   expiration_date=None, lot_id=None, package_id=None, owner_id=None, strict=False):
         """ Increase the reserved quantity, i.e. increase `reserved_quantity` for the set of quants
         sharing the combination of `product_id, location_id` if `strict` is set to False or sharing
         the *exact same characteristics* otherwise. Typically, this method is called when reserving
