@@ -29,6 +29,16 @@
                 <field name="village_id"/>
                 <field name="address_2"/>
             </xpath>
+            <xpath expr="//form/sheet/notebook/page/group/group[@name='has_work_permit']" position="replace">
+            </xpath>
+            <xpath expr="//form/sheet/notebook/page/group/group/field[@name='emergency_contact']" position="replace">
+            </xpath>
+            <xpath expr="//form/sheet/notebook/page/group/group/field[@name='emergency_phone']" position="replace">
+            </xpath>
+            <xpath expr="//form/sheet/notebook/page/group/group/field[@name='place_of_birth']" position="replace">
+            </xpath>
+            <xpath expr="//form/sheet/notebook/page/group/group/field[@name='country_of_birth']" position="replace">
+            </xpath>
         </field>
     </record>
 </odoo>
