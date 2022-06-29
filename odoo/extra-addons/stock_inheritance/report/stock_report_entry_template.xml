@@ -63,7 +63,7 @@
                                             <span t-field="o.name"/>
                                         </td>
                                         <td class="text-left">
-                                            <span t-field="o.date"/>
+                                            <span t-field="o.date" t-options='{"widget": "date"}'/>
                                         </td>
                                         <group t-if="stock">
                                             <td class="text-right">
