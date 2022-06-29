@@ -48,11 +48,11 @@
                                     <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
                                         class="text-center">Mã phiếu</th>
                                     <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                        class="text-center">Ngày xác nhận</th>
+                                        class="text-center">Ngày đặt hàng</th>
                                     <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
                                         class="text-center">Nhà cung cấp</th>
                                     <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                        class="text-center">Ngày nhận</th>
+                                        class="text-center">Ngày xác nhận</th>
                                     <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
                                         class="text-center">Tổng</th>
                                     <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
@@ -68,7 +68,7 @@
                                         </td>
                                         <td class="text-left"
                                             style="border: 1px solid black;text-align: left !important;">
-                                            <span t-field="o.date_approve"/>
+                                            <span t-field="o.date_order" t-options='{"widget": "date"}'/>
                                         </td>
                                         <td class="text-left"
                                             style="border: 1px solid black;text-align: left !important;">
@@ -76,7 +76,7 @@
                                         </td>
                                         <td class="text-right"
                                             style="border: 1px solid black;text-align: right !important;">
-                                            <span t-field="o.date_order"/>
+                                            <span t-field="o.date_approve" t-options='{"widget": "date"}'/>
                                         </td>
                                         <td class="text-right"
                                             style="border: 1px solid black;text-align: right !important;">
