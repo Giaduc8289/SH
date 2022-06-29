@@ -10,32 +10,39 @@
                     <div class="oe_structure"/>
                     <br/>
                     <h2 class="text-center bold"><center>BÁO CÁO BÁN HÀNG</center></h2>
+                    <br/>
+                    <span class="text-center bold"><center>
+                        <t t-if="date_start" >
+                            <span class="text-center bold"><strong>Từ ngày : </strong><t t-esc="date_start"/></span>
+                        </t>
+                         <t t-if="date_start and date_end">
+                            <span class="text-center bold"> - </span>
+                        </t>
+                        <t t-if="date_end">
+                            <span class="text-center bold"><strong>Đến ngày : </strong><t t-esc="date_end"/></span>
+                        </t>
+                    </center>
+                    </span>
                     <t t-if="khachhang">
-                        <span class="text-center bold">Tên khách: <t t-esc="khachhang"/></span>
+                        <span class="text-center bold"><strong>Tên khách : </strong><t t-esc="khachhang"/></span>
                         <br/>
                     </t>
                     <t t-if="group_products">
-                        <span class="text-center bold">Nhóm sản phẩm: <t t-esc="group_products"/></span>
+                        <span class="text-center bold"><strong>Nhóm sản phẩm : </strong><t t-esc="group_products"/></span>
                         <br/>
                     </t>
                     <t t-if="vung">
-                        <span class="text-center bold">Vùng: <t t-esc="vung"/></span>
+                        <span class="text-center bold"><strong>Vùng : </strong><t t-esc="vung"/></span>
                         <br/>
                     </t>
                     <t t-if="sanpham">
-                        <span class="text-center bold">Sản phẩm: <t t-esc="sanpham"/></span>
+                        <span class="text-center bold"><strong>Sản phẩm : </strong><t t-esc="sanpham"/></span>
                         <br/>
                     </t>
                     <t t-if="nhanvienkinhdoanh">
-                        <span class="text-center bold">Nhân viên kinh doanh: <t t-esc="nhanvienkinhdoanh"/></span>
+                        <span class="text-center bold"><strong>Nhân viên kinh doanh : </strong><t t-esc="nhanvienkinhdoanh"/></span>
                         <br/>
                     </t>
-                    <span class="text-center bold"><center><t t-if="date_start">
-                        <span class="text-center bold">Từ ngày: <t t-esc="date_start"/></span>
-                    </t>
-                        <t t-if="date_end">
-                            <span class="text-center bold">Đến ngày : <t t-esc="date_end"/></span>
-                        </t></center></span>
                     <br/>
                     <div>
                         <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">

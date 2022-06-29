@@ -32,7 +32,7 @@
     'website': "https:www.cybrosys.com",
     'maintainer': 'Cybrosys Techno Solutions',
     'category': 'Inventory',
-    'depends': ['product', 'stock', 'purchase', 'mrp', ],
+    'depends': ['base_inheritance', 'product', 'stock', 'purchase', 'mrp', ],
     'data': [
         'data/data.xml',
         'security/quality_security.xml',
@@ -40,6 +40,8 @@
         'views/quality_view.xml',
         'views/stock_view.xml',
         'views/mrp_production_view.xml',
+        'views/Report_quality_purchase.xml',
+        'report/quality_purchase_template.xml',
     ],
     'images': ['static/description/banner.jpg'],
     'license': 'LGPL-3',

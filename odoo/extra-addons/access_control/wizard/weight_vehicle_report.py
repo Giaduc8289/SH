@@ -20,11 +20,15 @@ class WeightVehicleReportWizard(models.TransientModel):
     res_partner_id = fields.Many2one("res.partner", "Partner", domain="[('code', '!=', None)]")
 
     def get_report(self):
+        date_start = self.date_start
+        date_end = self.date_end
         domain = []
         if self.date_start:
             domain = expression.AND([domain, [('in_time', '>=', self.date_start)]])
+            date_start = date_start.strftime('%d/%m/%Y')
         if self.date_end:
             domain = expression.AND([domain, [('in_time', '<=', self.date_end)]])
+            date_end = date_end.strftime('%d/%m/%Y')
         if self.purpose:
             domain = expression.AND([domain, [('purpose', '=', self.purpose)]])
         if self.res_partner_id:
@@ -34,7 +38,7 @@ class WeightVehicleReportWizard(models.TransientModel):
             'model': self._name,
             'ids': self.ids,
             'form': {
-                'date_start': self.date_start, 'date_end': self.date_end, 'purpose': self.purpose, 'res_partner_id': self.res_partner_id.name, 'domain': domain
+                'date_start': date_start, 'date_end': date_end, 'purpose': self.purpose, 'res_partner_id': self.res_partner_id.name, 'domain': domain
             },
         }
 

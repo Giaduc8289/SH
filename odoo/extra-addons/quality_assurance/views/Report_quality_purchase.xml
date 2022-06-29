@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="filter_quality_purchase_form_view" model="ir.ui.view">
+        <field name="name">report.quality.purchase.form</field>
+        <field name="model">quality.purchase.report.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Quality purchase Report">
+                <group>
+                    <group>
+                        <field name="date_start" widget="date"/>
+                        <field name="sanpham" widget="many2one"/>
+                        <field name="kho" widget="many2one"/>
+                    </group>
+                    <group>
+                        <field name="date_end" widget="date"/>
+                        <field name="ketqua" widget="selection"/>
+                        <field name="nhacungcap" widget="many2one"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="get_report" string="Get Report" type="object" class="oe_highlight"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_quality_purchase" model="ir.actions.act_window">
+        <field name="name">Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">quality.purchase.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="filter_quality_purchase_form_view"/>
+    </record>
+
+
+    <menuitem id="report_quality_purchase_menu"
+              action="action_quality_purchase"
+              name="Báo cáo quản lý chất lượng mua hàng"
+              parent="report_quality_menu"
+              sequence="1"/>
+
+
+    <data>
+        <record id="quality_assurance.action_report_quality_purchase" model="ir.actions.report">
+            <field name="name">Quality Purchase report</field>
+            <field name="model">quality.alert</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">quality_assurance.report_quality_purchase_document</field>
+            <field name="report_file">quality_assurance.report_quality_purchase_document</field>
+            <field name="print_report_name">Báo cáo quản lý chất lượng</field>
+            <field name="binding_model_id" ref="quality_assurance.model_quality_alert"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+
+</odoo>

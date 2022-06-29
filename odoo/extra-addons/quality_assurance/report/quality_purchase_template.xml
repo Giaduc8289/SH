@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <template id="report_quality_purchase_document">
+        <t t-call="web.html_container">
+            <t t-call="web.report_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <br/>
+                    <h2 style="text-transform: uppercase" class="text-center bold"><center>báo cáo quản lý chất
+                        lượng</center></h2>
+                    <span class="text-center bold"><center>
+                        <t t-if="date_start">
+                            <span class="text-center bold">Từ ngày : <t t-esc="date_start"/></span>
+                        </t>
+                        <t t-if="date_start and date_end">
+                            <span class="text-center bold"> - </span>
+                        </t>
+                        <t t-if="date_end">
+                            <span class="text-center bold">Đến ngày : <t t-esc="date_end"/></span>
+                        </t>
+                    </center>
+                    </span>
+                    <br/>
+                    <div>
+                        <t t-if="nhacungcap">
+                            <strong>Từ nhà cung cấp: </strong><t t-esc="nhacungcap"/>
+                        </t>
+                        <br/>
+                        <t t-if="sanpham">
+                            <strong>Sản phẩm: </strong><t t-esc="sanpham"/>
+                        </t>
+                        <br/>
+                        <t t-if="kho">
+                            <strong>Từ kho: </strong><t t-esc="kho"/>
+                        </t>
+                        <br/>
+                        <t t-if="ketqua">
+                            <strong>Kết quả: </strong><t t-esc="ketqua"/>
+                        </t>
+                        <br/>
+                        <br/>
+                    </div>
+                    <div>
+                        <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
+                            <thead>
+                                <tr>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-left">Origin</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-left">ID</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-left">Name</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-left">Date</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-left">Partner</th>
+                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
+                                        class="text-left">Final status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="sale_tbody">
+                                <t t-foreach="docs" t-as="o">
+                                    <tr>
+                                        <td class="text-left">
+                                            <span t-field="o.origin"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-field="o.name"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-field="o.product_id.name"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-field="o.date"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-field="o.picking_id.partner_id.name"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-field="o.final_status"/>
+                                        </td>
+                                        <!--                                        <td class="text-left">-->
+                                        <!--                                            <span t-field="o.date"/>-->
+                                        <!--                                        </td>-->
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="oe_structure"/>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

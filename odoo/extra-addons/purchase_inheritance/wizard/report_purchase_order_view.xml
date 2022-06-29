@@ -11,6 +11,36 @@
                     <br/>
                     <h2 class="text-center bold"><center>BÁO CÁO MUA HÀNG</center></h2>
                     <br/>
+                    <span class="text-center bold"><center>
+                        <t t-if="date_start" >
+                            <span class="text-center bold"><strong>Từ ngày : </strong><t t-esc="date_start"/></span>
+                        </t>
+                         <t t-if="date_start and date_end">
+                            <span class="text-center bold"><strong> - </strong></span>
+                        </t>
+                        <t t-if="date_end">
+                            <span class="text-center bold"><strong>Đến ngày : </strong><t t-esc="date_end"/></span>
+                        </t>
+                    </center>
+                    </span>
+                    <br/>
+                    <t t-if="state">
+                        <span class="text-center bold"><strong>Trạng thái hợp đồng : </strong><t t-esc="state"/></span>
+                        <br/>
+                    </t>
+                    <t t-if="group_products">
+                        <span class="text-center bold"><strong>Nhóm sản phẩm: </strong><t t-esc="group_products"/></span>
+                        <br/>
+                    </t>
+                    <t t-if="nhacungcap">
+                        <span class="text-center bold"><strong>Nhà cung cấp : </strong><t t-esc="nhacungcap"/></span>
+                        <br/>
+                    </t>
+                    <t t-if="sanpham">
+                        <span class="text-center bold"><strong>Sản phẩm: </strong><t t-esc="sanpham"/></span>
+                        <br/>
+                    </t>
+                    <br/>
                     <div>
                         <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
                             <thead>
@@ -32,22 +62,28 @@
                             <tbody class="sale_tbody">
                                 <t t-foreach="docs" t-as="o">
                                     <tr>
-                                        <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left"
+                                            style="border: 1px solid black;text-align: left !important;">
                                             <span t-field="o.name"/>
                                         </td>
-                                        <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left"
+                                            style="border: 1px solid black;text-align: left !important;">
                                             <span t-field="o.date_approve"/>
                                         </td>
-                                        <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left"
+                                            style="border: 1px solid black;text-align: left !important;">
                                             <span t-field="o.partner_id"/>
                                         </td>
-                                        <td class="text-right" style="border: 1px solid black;text-align: right !important;">
+                                        <td class="text-right"
+                                            style="border: 1px solid black;text-align: right !important;">
                                             <span t-field="o.date_order"/>
                                         </td>
-                                        <td class="text-right" style="border: 1px solid black;text-align: right !important;">
+                                        <td class="text-right"
+                                            style="border: 1px solid black;text-align: right !important;">
                                             <span t-field="o.amount_untaxed"/>
                                         </td>
-                                        <td class="text-center" style="border: 1px solid black;text-align: center !important;">
+                                        <td class="text-center"
+                                            style="border: 1px solid black;text-align: center !important;">
                                             <span t-field="o.state"/>
                                         </td>
                                     </tr>
