@@ -26,7 +26,9 @@
                 <button type="object"
                         name="quality_alert_action"
                         class="btn btn-warning"
-                        string="Quality Alerts" />
+                        string="Quality Alerts"/>
+                <field name="alert_count" widget="statinfo" string="Quality Alerts" help="Quality Alerts"/>
+                <field name="alert_ids" invisible="1"/>
             </xpath>
         </field>
     </record>

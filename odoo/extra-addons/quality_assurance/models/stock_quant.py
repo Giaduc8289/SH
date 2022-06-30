@@ -9,6 +9,7 @@ class StockQuant(models.Model):
     move_finished_ids = fields.One2many(
         'stock.move', 'workorder_id', 'Finished Moves',
         domain=[('raw_material_production_id', '=', False), ('production_id', '!=', False)])
+    date_done = fields.Datetime('Date of Transfer', copy=False, readonly=True, help="Date at which the transfer has been processed or cancelled.")
 
     @api.depends('alert_ids')
     def _compute_alert(self):
@@ -112,6 +113,7 @@ class StockQuant(models.Model):
                 if alert.final_status == 'fail':
                     raise UserError(_('There are items failed in quality test'))
         todo_moves._action_done()
+        self.write({'date_done': fields.Datetime.now()})
         return True
 
     def action_confirm(self):
