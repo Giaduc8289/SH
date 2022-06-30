@@ -10,8 +10,7 @@
                 <xpath expr="//notebook" position="replace">
                 </xpath>
                 <xpath expr="//div[@class='oe_title']" position="after">
-                    <group name="pricelist_rule_computation" groups="product.group_sale_pricelist"
-                           string="Price Computation">
+                    <group name="pricelist_rule_computation" groups="product.group_sale_pricelist">
                         <group name="pricelist_rule_method">
                             <field name="compute_price" string="Computation" widget="radio"/>
                         </group>
@@ -21,13 +20,20 @@
                                 'invisible': ['|', ('compute_price', '!=', 'formula'), ('base', '!=', 'pricelist')],
                                 'required': [('compute_price', '=', 'formula'), ('base', '=', 'pricelist')],
                                 'readonly': [('base', '!=', 'pricelist')]}"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
                             <field name="date_start"/>
+                        </group>
+                        <group>
                             <field name="date_end"/>
                         </group>
                     </group>
                     <notebook>
                         <page name="product_pricelist" string="Product Pricelist">
-                            <field name="item_ids" nolabel="1" context="{'default_base':'list_price'}">
+                            <field name="item_ids" nolabel="1" context="{'default_base':'list_price'}"
+                                   attrs="{'invisible':[('compute_price', '==', 'fixed')]}">
                                 <tree string="Product Pricelist" editable="bottom">
                                     <field name="product_tmpl_id" string="Products" required="1"/>
                                     <field name="product_id" string="Variants"
