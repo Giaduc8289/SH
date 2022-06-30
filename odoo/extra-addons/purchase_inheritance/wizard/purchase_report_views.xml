@@ -6,21 +6,24 @@
         <field name="name">report.purchase.wizard.form</field>
         <field name="model">purchase.report.wizard</field>
         <field name="arch" type="xml">
-                   <form create="false">
+            <form string="Purchase Order Report" create="false">
                 <sheet>
                     <group>
                         <group>
-                            <field name="date_start" widget="date" />
-                            <field name="state"  widget="selection"/>
-                            <field name="nhacungcap"  widget="many2one"/>
+                            <field name="date_start" widget="date"/>
+                            <field name="state" widget="selection"/>
+                            <field name="nhacungcap" widget="many2one"/>
                         </group>
                         <group>
-                            <field name="date_end" widget="date" />
-                            <field name="group_products"  widget="many2one"/>
-                            <field name="sanpham"  widget="many2one"/>
+                            <field name="date_end" widget="date"/>
+                            <field name="group_products" widget="many2one"/>
+                            <field name="sanpham" widget="many2one"/>
                         </group>
                     </group>
-                    <button name="get_report" type="object" string="Filter" class="oe_highlight"/>
+                    <footer>
+                        <button name="get_report" type="object" string="Get Report" class="oe_highlight"/>
+                        <button string="Cancel" special="cancel"/>
+                    </footer>
                 </sheet>
             </form>
         </field>
@@ -38,20 +41,20 @@
               name="Báo cáo chi tiết"
               parent="purchase.purchase_report_main"
               sequence="100"/>
-<!--    <record id="action_purchase_order_1" model="ir.actions.act_window">-->
-<!--        <field name="name">Báo cáo mua hàng chi tiết</field>-->
-<!--        <field name="type">ir.actions.act_window</field>-->
-<!--        <field name="res_model">purchase.order</field>-->
-<!--        <field name="view_mode">tree,kanban,form,graph</field>-->
-<!--        <field name="context">{}</field>-->
-<!--        <field name="help" type="html">-->
-<!--            <p class="o_view_nocontent_smiling_face">-->
-<!--                Create a new order, the first step of a new report!-->
-<!--            </p><p>-->
-<!--                Once the quotation is confirmed, it becomes a purchase order.<br/> You will be able to create an invoice and collect the payment.-->
-<!--            </p>-->
-<!--        </field>-->
-<!--    </record>-->
+    <!--    <record id="action_purchase_order_1" model="ir.actions.act_window">-->
+    <!--        <field name="name">Báo cáo mua hàng chi tiết</field>-->
+    <!--        <field name="type">ir.actions.act_window</field>-->
+    <!--        <field name="res_model">purchase.order</field>-->
+    <!--        <field name="view_mode">tree,kanban,form,graph</field>-->
+    <!--        <field name="context">{}</field>-->
+    <!--        <field name="help" type="html">-->
+    <!--            <p class="o_view_nocontent_smiling_face">-->
+    <!--                Create a new order, the first step of a new report!-->
+    <!--            </p><p>-->
+    <!--                Once the quotation is confirmed, it becomes a purchase order.<br/> You will be able to create an invoice and collect the payment.-->
+    <!--            </p>-->
+    <!--        </field>-->
+    <!--    </record>-->
     <data>
         <record id="purchase_inheritance.action_report_purchase_order" model="ir.actions.report">
             <field name="name">Purchase report</field>
