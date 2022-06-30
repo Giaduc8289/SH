@@ -7,19 +7,21 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="Stock Entry Report">
-                <group>
+                <sheet>
                     <group>
-                        <field name="date_start" widget="date"/>
-                        <field name="stock" widget="many2one"/>
+                        <group>
+                            <field name="date_start" widget="date"/>
+                            <field name="stock" widget="many2one"/>
+                        </group>
+                        <group>
+                            <field name="date_end" widget="date"/>
+                        </group>
                     </group>
-                    <group>
-                        <field name="date_end" widget="date"/>
-                    </group>
-                </group>
-                <footer>
-                    <button name="get_report" string="Get Report" type="object" class="oe_highlight"/>
-                    <button string="Cancel" special="cancel"/>
-                </footer>
+                    <footer>
+                        <button name="get_report" string="Get Report" type="object" class="oe_highlight"/>
+                        <button string="Cancel" special="cancel"/>
+                    </footer>
+                </sheet>
             </form>
         </field>
     </record>
@@ -40,38 +42,38 @@
               sequence="151"/>
 
 
-<!--    <record id="action_entry_1" model="ir.actions.act_window">-->
-<!--        <field name="name">Báo cáo nhập xuất kho</field>-->
-<!--        <field name="type">ir.actions.act_window</field>-->
-<!--        <field name="res_model">stock.move</field>-->
-<!--        <field name="view_mode">tree,kanban,form,graph</field>-->
-<!--        <field name="context">{}</field>-->
-<!--        <field name="help" type="html">-->
-<!--            <p class="o_view_nocontent_smiling_face">-->
-<!--                Create a new order, the first step of a new report!-->
-<!--            </p>-->
-<!--            <p>-->
-<!--                Once the quotation is confirmed, it becomes a purchase order.-->
-<!--                <br/>-->
-<!--                You will be able to create an invoice and collect the payment.-->
-<!--            </p>-->
-<!--        </field>-->
-<!--    </record>-->
+    <!--    <record id="action_entry_1" model="ir.actions.act_window">-->
+    <!--        <field name="name">Báo cáo nhập xuất kho</field>-->
+    <!--        <field name="type">ir.actions.act_window</field>-->
+    <!--        <field name="res_model">stock.move</field>-->
+    <!--        <field name="view_mode">tree,kanban,form,graph</field>-->
+    <!--        <field name="context">{}</field>-->
+    <!--        <field name="help" type="html">-->
+    <!--            <p class="o_view_nocontent_smiling_face">-->
+    <!--                Create a new order, the first step of a new report!-->
+    <!--            </p>-->
+    <!--            <p>-->
+    <!--                Once the quotation is confirmed, it becomes a purchase order.-->
+    <!--                <br/>-->
+    <!--                You will be able to create an invoice and collect the payment.-->
+    <!--            </p>-->
+    <!--        </field>-->
+    <!--    </record>-->
 
 
-<!--        <record id="view_picking_move_tree_inherit" model="ir.ui.view">-->
-<!--            <field name="name">stock.picking.move.tree</field>-->
-<!--            <field name="model">stock.move</field>-->
-<!--            <field eval="50" name="priority"/>-->
-<!--            <field name="inherit_id" ref="stock.view_move_tree_receipt_picking"/>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <xpath expr="//field[@name='product_uom']" position="after">-->
-<!--                    <field name="location_id" options="{'no_create': True} " optional="show" invisible="0"/>-->
-<!--                    <field name="location_dest_id" optional="show" invisible="0"/>-->
-<!--                    <field name="date" invisible="0" optional="show"/>-->
-<!--                </xpath>-->
-<!--            </field>-->
-<!--        </record>-->
+    <!--        <record id="view_picking_move_tree_inherit" model="ir.ui.view">-->
+    <!--            <field name="name">stock.picking.move.tree</field>-->
+    <!--            <field name="model">stock.move</field>-->
+    <!--            <field eval="50" name="priority"/>-->
+    <!--            <field name="inherit_id" ref="stock.view_move_tree_receipt_picking"/>-->
+    <!--            <field name="arch" type="xml">-->
+    <!--                <xpath expr="//field[@name='product_uom']" position="after">-->
+    <!--                    <field name="location_id" options="{'no_create': True} " optional="show" invisible="0"/>-->
+    <!--                    <field name="location_dest_id" optional="show" invisible="0"/>-->
+    <!--                    <field name="date" invisible="0" optional="show"/>-->
+    <!--                </xpath>-->
+    <!--            </field>-->
+    <!--        </record>-->
 
 
     <data>

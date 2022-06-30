@@ -7,22 +7,24 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="Quality purchase Report">
-                <group>
+                <sheet>
                     <group>
-                        <field name="date_start" widget="date"/>
-                        <field name="sanpham" widget="many2one"/>
-                        <field name="kho" widget="many2one"/>
+                        <group>
+                            <field name="date_start" widget="date"/>
+                            <field name="sanpham" widget="many2one"/>
+                            <field name="kho" widget="many2one"/>
+                        </group>
+                        <group>
+                            <field name="date_end" widget="date"/>
+                            <field name="ketqua" widget="selection"/>
+                            <field name="nhacungcap" widget="many2one"/>
+                        </group>
                     </group>
-                    <group>
-                        <field name="date_end" widget="date"/>
-                        <field name="ketqua" widget="selection"/>
-                        <field name="nhacungcap" widget="many2one"/>
-                    </group>
-                </group>
-                <footer>
-                    <button name="get_report" string="Get Report" type="object" class="oe_highlight"/>
-                    <button string="Cancel" special="cancel"/>
-                </footer>
+                    <footer>
+                        <button name="get_report" string="Get Report" type="object" class="oe_highlight"/>
+                        <button string="Cancel" special="cancel"/>
+                    </footer>
+                </sheet>
             </form>
         </field>
     </record>

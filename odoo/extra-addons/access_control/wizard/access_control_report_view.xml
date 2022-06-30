@@ -8,20 +8,22 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="Access Control Report">
-                <group>
+                <sheet>
                     <group>
-                        <field name="date_start"/>
-                        <field name="purpose" widget="selection"/>
+                        <group>
+                            <field name="date_start"/>
+                            <field name="purpose" widget="selection"/>
+                        </group>
+                        <group>
+                            <field name="date_end"/>
+                            <field name="res_partner_id" widget="many2one"/>
+                        </group>
                     </group>
-                    <group>
-                        <field name="date_end"/>
-                        <field name="res_partner_id" widget="many2one"/>
-                    </group>
-                </group>
-                <footer>
-                    <button name="get_report" string="Get Report" type="object" class="oe_highlight"/>
-                    <button string="Cancel" special="cancel"/>
-                </footer>
+                    <footer>
+                        <button name="get_report" string="Get Report" type="object" class="oe_highlight"/>
+                        <button string="Cancel" special="cancel"/>
+                    </footer>
+                </sheet>
             </form>
         </field>
     </record>
@@ -31,20 +33,22 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="Weight Vehicle Report">
-                <group>
+                <sheet>
                     <group>
-                        <field name="date_start"/>
-                        <field name="purpose" widget="selection"/>
+                        <group>
+                            <field name="date_start"/>
+                            <field name="purpose" widget="selection"/>
+                        </group>
+                        <group>
+                            <field name="date_end"/>
+                            <field name="res_partner_id" widget="many2one"/>
+                        </group>
                     </group>
-                    <group>
-                        <field name="date_end"/>
-                        <field name="res_partner_id" widget="many2one"/>
-                    </group>
-                </group>
-                <footer>
-                    <button name="get_report" string="Get Report" type="object" class="oe_highlight"/>
-                    <button string="Cancel" special="cancel"/>
-                </footer>
+                    <footer>
+                        <button name="get_report" string="Get Report" type="object" class="oe_highlight"/>
+                        <button string="Cancel" special="cancel"/>
+                    </footer>
+                </sheet>
             </form>
         </field>
     </record>
