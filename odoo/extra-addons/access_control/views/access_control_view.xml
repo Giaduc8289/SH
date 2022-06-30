@@ -86,7 +86,7 @@
                         </group>
                     </group>
                     <group attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}">
-                        <field name="product_category_ids" widget="many2many_tags">
+                        <field name="product_category_ids" widget="many2many_tags" attrs="{'readonly': 1 }">
                         </field>
                     </group>
                 </sheet>
@@ -138,6 +138,9 @@
                 <attribute name="attrs">{'readonly': 0}</attribute>
             </xpath>
             <xpath expr="//field[@name='purpose_descript']" position="attributes">
+                <attribute name="attrs">{'readonly': 0}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='product_category_ids']" position="attributes">
                 <attribute name="attrs">{'readonly': 0}</attribute>
             </xpath>
         </field>

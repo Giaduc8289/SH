@@ -64,8 +64,8 @@
                                         <td class="text-left" style="border: 1px solid black;text-align: left !important;">
                                             <span t-field="o.name"/>
                                         </td>
-                                        <td class="text-right" style="border: 1px solid black;text-align: right !important;">
-                                            <span t-field="o.date"/>
+                                        <td class="text-left">
+                                            <span t-field="o.date" t-options='{"widget": "date"}'/>
                                         </td>
                                         <group t-if="stock">
                                             <td class="text-left" style="border: 1px solid black;text-align: right !important;">
