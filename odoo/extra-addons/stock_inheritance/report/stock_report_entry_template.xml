@@ -5,8 +5,9 @@
     <template id="report_stock_entry_document">
         <t t-call="web.html_container">
             <t t-call="web.report_layout">
+                <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css" />
                 <meta charset="utf-8"/>
-                <div class="page" style="font-family :Arial !important;">
+                <div class="page">
                     <div class="oe_structure"/>
                     <br/>
                     <h2 style="text-transform: uppercase" class="text-center bold"><center>BÁO CÁO NHẬP XUẤT KHO <t
@@ -26,73 +27,63 @@
                     </span>
                     <br/>
                     <div>
-                        <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
+                        <table class="table-bordered">
                             <thead>
                                 <tr>
-                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                        class="text-center">Tài liệu gốc</th>
-                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                        class="text-center">Tên</th>
-                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                        class="text-center">Ngày giao</th>
+                                    <th class="text-center">Tài liệu gốc</th>
+                                    <th class="text-center">Tên</th>
+                                    <th class="text-center">Ngày giao</th>
                                     <group t-if="stock">
-                                        <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                            class="text-center">Khối lượng nhập</th>
-                                        <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                            class="text-center">Khối lượng xuất</th>
-                                        <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                            class="text-center">Đơn vị</th>
+                                        <th class="text-center">Khối lượng nhập</th>
+                                        <th class="text-center">Khối lượng xuất</th>
+                                        <th class="text-center">Đơn vị</th>
                                     </group>
                                     <group t-if="not stock">
-                                        <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                            class="text-center">Khối lượng</th>
-                                        <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                            class="text-center">Đơn vị</th>
-                                        <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                            class="text-center">Kho nguồn</th>
-                                        <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                            class="text-center">Kho đích</th>
+                                        <th class="text-center">Khối lượng</th>
+                                        <th class="text-center">Đơn vị</th>
+                                        <th class="text-center">Kho nguồn</th>
+                                        <th class="text-center">Kho đích</th>
                                     </group>
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
                                 <t t-foreach="docs" t-as="o">
                                     <tr>
-                                            <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                            <td class="text-left" >
                                             <span t-field="o.origin"/>
                                         </td>
-                                        <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left" >
                                             <span t-field="o.name"/>
                                         </td>
-                                        <td class="text-left">
+                                        <td class="text-right" >
                                             <span t-field="o.date" t-options='{"widget": "date"}'/>
                                         </td>
                                         <group t-if="stock">
-                                            <td class="text-left" style="border: 1px solid black;text-align: right !important;">
+                                            <td class="text-right" >
                                                 <t t-if="stock == o.location_dest_id.id ">
                                                     <span t-field="o.product_qty"/>
                                                 </t>
                                             </td>
-                                            <td class="text-left" style="border: 1px solid black;text-align: right !important;">
+                                            <td class="text-right" >
                                                 <t t-if="stock == o.location_id.id ">
                                                     <span t-field="o.product_qty"/>
                                                 </t>
                                             </td>
-                                            <td class="text-left" style="border: 1px solid black;text-align: right !important;">
+                                            <td class="text-right" >
                                                 <span t-field="o.product_uom"/>
                                             </td>
                                         </group>
                                         <group t-if="not stock" >
-                                            <td class="text-right" style="border: 1px solid black;text-align: right !important;">
+                                            <td class="text-right" >
                                                 <span t-field="o.product_qty"/>
                                             </td>
-                                            <td class="text-right" style="border: 1px solid black;text-align: right !important;">
+                                            <td class="text-right" >
                                                 <span t-field="o.product_uom"/>
                                             </td>
-                                            <td class="text-right" style="border: 1px solid black;text-align: left !important;">
+                                            <td class="text-right" >
                                                 <span t-field="o.location_id"/>
                                             </td>
-                                            <td class="text-right" style="border: 1px solid black;text-align: left !important;">
+                                            <td class="text-right" >
                                                 <span t-field="o.location_dest_id"/>
                                             </td>
                                         </group>

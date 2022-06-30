@@ -6,7 +6,8 @@
         <t t-call="web.html_container">
             <t t-call="web.report_layout">
                 <meta charset="utf-8"/>
-                <div class="page" style="font-family :Arial !important;">
+                <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css" />
+                <div class="page">
                     <div class="oe_structure"/>
                     <br/>
                     <h2 class="text-center bold"><center>BÁO CÁO KIỂM SOÁT VÀO RA</center></h2>
@@ -33,65 +34,58 @@
                     <br/>
                     <br/>
                     <div>
-                        <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
+                        <table class="table-bordered">
                             <thead>
                                 <tr>
-                                    <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :9%;"
-                                        class="text-center">Mã khách hàng</th>
-                                    <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :15%;"
-                                        class="text-center">Tên khách</th>
-                                    <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :15%;"
-                                        class="text-center">Tài xế</th>
-                                    <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :25%;"
-                                        class="text-center">Địa chỉ</th>
-                                    <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :10%;"
-                                        class="text-center">Thời gian vào</th>
-                                    <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :10%;"
-                                        class="text-center">Thời gian ra</th>
+                                    <th style="width :9%;"
+                                        class="table-item">Mã khách hàng</th>
+                                    <th style="width :15%;"
+                                        class="">Tên khách</th>
+                                    <th style="width :15%;"
+                                        class="">Tài xế</th>
+                                    <th style="width :25%;"
+                                        class="">Địa chỉ</th>
+                                    <th style="width :10%;"
+                                        class="">Thời gian vào</th>
+                                    <th style="width :10%;"
+                                        class="">Thời gian ra</th>
                                     <!--                                    <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work' ">-->
-                                    <!--                                        <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :8%;"-->
-                                    <!--                                            class="text-center">Mục đích</th>-->
+                                    <!--                                        <th style="width :8%;"-->
+                                    <!--                                            class="">Mục đích</th>-->
                                     <!--                                    </t>-->
-                                    <th style="background-color:#4cb1a7 !important;color:#FFF !important; border: 1px solid black;width :8%;"
-                                        class="text-center">Ghi chú
+                                    <th style="width :8%;"
+                                        class="">Ghi chú
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
                                 <t t-foreach="docs" t-as="o">
                                     <tr>
-                                        <td class="text-left"
-                                            style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left">
                                             <span t-field="o.makh"/>
                                         </td>
-                                        <td class="text-left"
-                                            style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left">
                                             <span t-field="o.name"/>
                                         </td>
-                                        <td class="text-left"
-                                            style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left">
                                             <span t-field="o.taixe"/>
                                         </td>
-                                        <td class="text-left"
-                                            style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left">
                                             <span t-field="o.address"/>
                                         </td>
-                                        <td class="text-center"
-                                            style="border: 1px solid black;text-align: center !important;">
+                                        <td class="text-center">
                                             <span t-field="o.in_time"/>
                                         </td>
-                                        <td class="text-center"
-                                            style="border: 1px solid black;text-align: center !important;">
+                                        <td class="text-center">
                                             <span t-field="o.out_time"/>
                                         </td>
                                         <!--                                        <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work' ">-->
                                         <!--                                            <td class="text-left"-->
-                                        <!--                                                style="border: 1px solid black;text-align: left !important;">-->
+                                        <!--                                               >-->
                                         <!--                                                <span t-field="o.purpose"/>-->
                                         <!--                                            </td>-->
                                         <!--                                        </t>-->
-                                        <td class="text-left"
-                                            style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left">
                                             <span t-field="o.purpose_descript"/>
                                         </td>
                                     </tr>
@@ -100,7 +94,6 @@
                         </table>
                     </div>
                     <div class="oe_structure"/>
-
                 </div>
             </t>
         </t>
