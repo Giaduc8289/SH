@@ -18,6 +18,7 @@
         "report/sale_report_templates.xml",
         "views/preview_sale.xml",
         "wizard/report_sale_order_template.xml",
+        "wizard/report_select_sale_order_template.xml",
         "report/sale_report.xml",
         "wizard/sale_summary_report_temp.xml",
         "wizard/sale_summary_report_view.xml",
