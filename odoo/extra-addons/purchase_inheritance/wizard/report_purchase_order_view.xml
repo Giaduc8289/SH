@@ -5,8 +5,9 @@
     <template id="report_purchase_order_document">
         <t t-call="web.html_container">
             <t t-call="web.report_layout">
+                <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css" />
                 <meta charset="utf-8"/>
-                <div class="page" style="font-family :Arial !important;">
+                <div class="page">
                     <div class="oe_structure"/>
                     <br/>
                     <h2 class="text-center bold"><center>BÁO CÁO MUA HÀNG</center></h2>
@@ -42,48 +43,36 @@
                     </t>
                     <br/>
                     <div>
-                        <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
+                        <table class="table-bordered">
                             <thead>
                                 <tr>
-                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                        class="text-center">Mã phiếu</th>
-                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                        class="text-center">Ngày đặt hàng</th>
-                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                        class="text-center">Nhà cung cấp</th>
-                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                        class="text-center">Ngày xác nhận</th>
-                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                        class="text-center">Tổng</th>
-                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                        class="text-center">Trạng thái</th>
+                                    <th class="text-center">Mã phiếu</th>
+                                    <th class="text-center">Ngày đặt hàng</th>
+                                    <th class="text-center">Nhà cung cấp</th>
+                                    <th class="text-center">Ngày xác nhận</th>
+                                    <th class="text-center">Tổng</th>
+                                    <th class="text-center">Trạng thái</th>
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
                                 <t t-foreach="docs" t-as="o">
                                     <tr>
-                                        <td class="text-left"
-                                            style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left">
                                             <span t-field="o.name"/>
                                         </td>
-                                        <td class="text-left"
-                                            style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left">
                                             <span t-field="o.date_order" t-options='{"widget": "date"}'/>
                                         </td>
-                                        <td class="text-left"
-                                            style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left">
                                             <span t-field="o.partner_id"/>
                                         </td>
-                                        <td class="text-right"
-                                            style="border: 1px solid black;text-align: right !important;">
+                                        <td class="text-right">
                                             <span t-field="o.date_approve" t-options='{"widget": "date"}'/>
                                         </td>
-                                        <td class="text-right"
-                                            style="border: 1px solid black;text-align: right !important;">
+                                        <td class="text-right">
                                             <span t-field="o.amount_untaxed"/>
                                         </td>
-                                        <td class="text-center"
-                                            style="border: 1px solid black;text-align: center !important;">
+                                        <td class="text-center">
                                             <span t-field="o.state"/>
                                         </td>
                                     </tr>

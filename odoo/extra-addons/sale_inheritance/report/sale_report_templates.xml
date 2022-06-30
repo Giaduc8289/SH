@@ -3,6 +3,7 @@
 <odoo>
 
     <template id="cavi_report_saleorder_document">
+        <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css" />
         <meta charset="utf-8"/>
         <!--        <t t-if="o and 'company_id' in o">-->
         <!--            <t t-set="company" t-value="o.company_id"></t>-->
@@ -88,51 +89,37 @@
                         <!-- Is there a discount on at least one line? -->
                         <t t-set="display_discount" t-value="any([l.discount for l in doc.order_line])"/>
 
-                        <table class="table table-bordered"
-                               style="border-collapse: collapse ; width : 100%; font-family :Arial !important;">
+                        <table class="table-bordered">
                             <thead>
                                 <tr>
-                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:10%;"
-                                        class="text-center">Mã SP</th>
-                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 30%;"
-                                        class="text-center">Tên sản phẩm</th>
-                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 15%;"
-                                        class="text-center">Mã sản phẩm</th>
-                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 15%;"
-                                        class="text-center">Trọng lượng</th>
-                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 15%;"
-                                        class="text-center">Đơn giá</th>
-                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important;width: 15%;"
-                                        class="text-center">Thành tiền</th>
+                                    <th style="width:10%;" class="text-center">Mã SP</th>
+                                    <th style="width: 30%;" class="text-center">Tên sản phẩm</th>
+                                    <th style="width: 15%;" class="text-center">Mã sản phẩm</th>
+                                    <th style="width: 15%;" class="text-center">Trọng lượng</th>
+                                    <th style="width: 15%;" class="text-center">Đơn giá</th>
+                                    <th style="width: 15%;" class="text-center">Thành tiền</th>
                                 </tr>
                             </thead>
-                            <tbody class="sale_tbody"
-                                   style="border-collapse: collapse ; width : 100%; font-family :Arial !important;">
+                            <tbody class="sale_tbody">
                                 <t t-foreach="doc.order_line" t-as="l">
                                     <tr t-if="l.product_id.categ_id.id in (10,11,12)">
-                                        <td class="text-left"
-                                            style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left">
                                             <span t-field="l.product_id.code"/>
                                         </td>
-                                        <td class="text-left"
-                                            style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left">
                                             <span t-field="l.name"/>
                                         </td>
-                                        <td class="text-right"
-                                            style="border: 1px solid black;text-align: right !important;">
+                                        <td class="text-right">
                                             <span t-field="l.product_id.product_spec"/>
                                         </td>
-                                        <td class="text-right"
-                                            style="border: 1px solid black;text-align: right !important;">
+                                        <td class="text-right">
                                             <span t-field="l.product_uom_qty"/>
                                             <span groups="uom.group_uom" t-field="l.product_uom"/>
                                         </td>
-                                        <td class="text-right"
-                                            style="border: 1px solid black;text-align: right !important;">
+                                        <td class="text-right">
                                             <span t-field="l.price_unit"/>
                                         </td>
-                                        <td class="text-right"
-                                            style="border: 1px solid black;text-align: right !important;">
+                                        <td class="text-right">
                                             <span t-field="l.price_subtotal"
                                                   t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
                                         </td>
@@ -155,38 +142,30 @@
                         </table>
                         <br/>
 
-                        <table class="table table-bordered"
-                               style="border-collapse: collapse ; width : 100%; font-family :Arial !important;">
+                        <table class="table-bordered"
+                               >
                             <thead>
                                 <tr>
-                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:25%;"
-                                        class="text-center">Giảm giá</th>
-                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important;width:25%;"
-                                        class="text-center">Trọng lượng</th>
-                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:25%;"
-                                        class="text-center">Đơn giá</th>
-                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:25%;"
-                                        class="text-center">Thành tiền</th>
+                                    <th style="width:25%;" class="text-center">Giảm giá</th>
+                                    <th style="width:25%;" class="text-center">Trọng lượng</th>
+                                    <th style="width:25%;" class="text-center">Đơn giá</th>
+                                    <th style="width:25%;" class="text-center">Thành tiền</th>
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
                                 <t t-foreach="doc.order_line" t-as="l">
                                     <tr t-if="l.product_id.categ_id.id not in (10,11,12)">
-                                        <td class="text-left"
-                                            style="border: 1px solid black;text-align: left !important;">
+                                        <td class="text-left">
                                             <span t-field="l.name"/>
                                         </td>
-                                        <td class="text-right"
-                                            style="border: 1px solid black;text-align: right !important;">
+                                        <td class="text-right">
                                             <span t-field="l.product_uom_qty"/>
                                             <span groups="uom.group_uom" t-field="l.product_uom"/>
                                         </td>
-                                        <td class="text-right"
-                                            style="border: 1px solid black;text-align: right !important;">
+                                        <td class="text-right">
                                             <span t-esc="abs(l.price_unit)"/>
                                         </td>
-                                        <td class="text-right"
-                                            style="border: 1px solid black;text-align: right !important;">
+                                        <td class="text-right">
                                             <span t-esc="abs(l.price_subtotal)"
                                                   t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
                                         </td>
@@ -241,6 +220,7 @@
     </template>
 
     <template id="biochem_report_saleorder_document">
+        <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css" />
         <meta charset="utf-8"/>
         <!--        <t t-if="o and 'company_id' in o">-->
         <!--            <t t-set="company" t-value="o.company_id"></t>-->
@@ -323,48 +303,37 @@
                     <!-- Is there a discount on at least one line? -->
                     <t t-set="display_discount" t-value="any([l.discount for l in doc.order_line])"/>
 
-                    <table class="table table-bordered"
-                           style="border-collapse: collapse ; width : 100%; font-family :Arial !important;">
+                    <table class="table-bordered">
                         <thead>
                             <tr>
-                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:10%;"
-                                    class="text-center">Mã SP</th>
-                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 30%;"
-                                    class="text-center">Tên sản phẩm</th>
-                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 15%;"
-                                    class="text-center">Mã sản phẩm</th>
-                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 15%;"
-                                    class="text-center">Trọng lượng</th>
-                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 15%;"
-                                    class="text-center">Đơn giá</th>
-                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important;width: 15%;"
-                                    class="text-center">Thành tiền</th>
+                                <th style="width:10%;" class="text-center">Mã SP</th>
+                                <th style="width: 30%;" class="text-center">Tên sản phẩm</th>
+                                <th style="width: 15%;" class="text-center">Mã sản phẩm</th>
+                                <th style="width: 15%;" class="text-center">Trọng lượng</th>
+                                <th style="width: 15%;" class="text-center">Đơn giá</th>
+                                <th style="width: 15%;" class="text-center">Thành tiền</th>
                             </tr>
                         </thead>
                         <tbody class="sale_tbody">
                             <t t-foreach="doc.order_line" t-as="l">
                                 <tr t-if="l.product_id.categ_id.id in (10,11,12)">
-                                    <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                    <td class="text-left" >
                                         <span t-field="l.product_id.code"/>
                                     </td>
-                                    <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                    <td class="text-left" >
                                         <span t-field="l.name"/>
                                     </td>
-                                    <td class="text-right"
-                                        style="border: 1px solid black;text-align: right !important;">
+                                    <td class="text-right">
                                         <span t-field="l.product_id.product_spec"/>
                                     </td>
-                                    <td class="text-right"
-                                        style="border: 1px solid black;text-align: right !important;">
+                                    <td class="text-right">
                                         <span t-field="l.product_uom_qty"/>
                                         <span groups="uom.group_uom" t-field="l.product_uom"/>
                                     </td>
-                                    <td class="text-right"
-                                        style="border: 1px solid black;text-align: right !important;">
+                                    <td class="text-right">
                                         <span t-field="l.price_unit"/>
                                     </td>
-                                    <td class="text-right"
-                                        style="border: 1px solid black;text-align: right !important;">
+                                    <td class="text-right">
                                         <span t-field="l.price_subtotal"
                                               t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
                                     </td>
@@ -387,37 +356,29 @@
                     </table>
 
 
-                    <table class="table table-bordered"
-                           style="border-collapse: collapse ; width : 100%; font-family :Arial !important;">
+                    <table class="table-bordered">
                         <thead>
                             <tr>
-                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:25%;"
-                                    class="text-center">Giảm giá</th>
-                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important;width:25%;"
-                                    class="text-center">Trọng lượng</th>
-                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:25%;"
-                                    class="text-center">Đơn giá</th>
-                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:25%;"
-                                    class="text-center">Thành tiền</th>
+                                <th style="width:25%;" class="text-center">Giảm giá</th>
+                                <th style="width:25%;" class="text-center">Trọng lượng</th>
+                                <th style="width:25%;" class="text-center">Đơn giá</th>
+                                <th style="width:25%;" class="text-center">Thành tiền</th>
                             </tr>
                         </thead>
                         <tbody class="sale_tbody">
                             <t t-foreach="doc.order_line" t-as="l">
                                 <tr t-if="l.product_id.categ_id.id not in (10,11,12)">
-                                    <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                    <td class="text-left" >
                                         <span t-field="l.name"/>
                                     </td>
-                                    <td class="text-right"
-                                        style="border: 1px solid black;text-align: right !important;">
+                                    <td class="text-right">
                                         <span t-field="l.product_uom_qty"/>
                                         <span groups="uom.group_uom" t-field="l.product_uom"/>
                                     </td>
-                                    <td class="text-right"
-                                        style="border: 1px solid black;text-align: right !important;">
+                                    <td class="text-right">
                                         <span t-esc="abs(l.price_unit)"/>
                                     </td>
-                                    <td class="text-right"
-                                        style="border: 1px solid black;text-align: right !important;">
+                                    <td class="text-right">
                                         <span t-esc="abs(l.price_subtotal)"
                                               t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
                                     </td>
@@ -471,6 +432,7 @@
     </template>
 
     <template id="bonong_report_saleorder_document">
+        <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css" />
         <meta charset="utf-8"/>
         <!--        <t t-if="o and 'company_id' in o">-->
         <!--            <t t-set="company" t-value="o.company_id"></t>-->
@@ -553,48 +515,37 @@
                     <!-- Is there a discount on at least one line? -->
                     <t t-set="display_discount" t-value="any([l.discount for l in doc.order_line])"/>
 
-                    <table class="table table-bordered"
-                           style="border-collapse: collapse ; width : 100%; font-family :Arial !important;">
+                    <table class="table-bordered">
                         <thead>
                             <tr>
-                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:10%;"
-                                    class="text-center">Mã SP</th>
-                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 30%;"
-                                    class="text-center">Tên sản phẩm</th>
-                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 15%;"
-                                    class="text-center">Mã sản phẩm</th>
-                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 15%;"
-                                    class="text-center">Trọng lượng</th>
-                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 15%;"
-                                    class="text-center">Đơn giá</th>
-                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important;width: 15%;"
-                                    class="text-center">Thành tiền</th>
+                                <th style="width:10%;" class="text-center">Mã SP</th>
+                                <th style="width: 30%;" class="text-center">Tên sản phẩm</th>
+                                <th style="width: 15%;" class="text-center">Mã sản phẩm</th>
+                                <th style="width: 15%;" class="text-center">Trọng lượng</th>
+                                <th style="width: 15%;" class="text-center">Đơn giá</th>
+                                <th style="width: 15%;" class="text-center">Thành tiền</th>
                             </tr>
                         </thead>
                         <tbody class="sale_tbody">
                             <t t-foreach="doc.order_line" t-as="l">
                                 <tr t-if="l.product_id.categ_id.id in (10,11,12)">
-                                    <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                    <td class="text-left" >
                                         <span t-field="l.product_id.code"/>
                                     </td>
-                                    <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                    <td class="text-left" >
                                         <span t-field="l.name"/>
                                     </td>
-                                    <td class="text-right"
-                                        style="border: 1px solid black;text-align: right !important;">
+                                    <td class="text-right">
                                         <span t-field="l.product_id.product_spec"/>
                                     </td>
-                                    <td class="text-right"
-                                        style="border: 1px solid black;text-align: right !important;">
+                                    <td class="text-right">
                                         <span t-field="l.product_uom_qty"/>
                                         <span groups="uom.group_uom" t-field="l.product_uom"/>
                                     </td>
-                                    <td class="text-right"
-                                        style="border: 1px solid black;text-align: right !important;">
+                                    <td class="text-right">
                                         <span t-field="l.price_unit"/>
                                     </td>
-                                    <td class="text-right"
-                                        style="border: 1px solid black;text-align: right !important;">
+                                    <td class="text-right">
                                         <span t-field="l.price_subtotal"
                                               t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
                                     </td>
@@ -617,37 +568,29 @@
                     </table>
 
 
-                    <table class="table table-bordered"
-                           style="border-collapse: collapse ; width : 100%; font-family :Arial !important;">
+                    <table class="table-bordered">
                         <thead>
                             <tr>
-                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:25%;"
-                                    class="text-center">Giảm giá</th>
-                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important;width:25%;"
-                                    class="text-center">Trọng lượng</th>
-                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:25%;"
-                                    class="text-center">Đơn giá</th>
-                                <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:25%;"
-                                    class="text-center">Thành tiền</th>
+                                <th style="width:25%;" class="text-center">Giảm giá</th>
+                                <th style="width:25%;" class="text-center">Trọng lượng</th>
+                                <th style="width:25%;" class="text-center">Đơn giá</th>
+                                <th style="width:25%;" class="text-center">Thành tiền</th>
                             </tr>
                         </thead>
                         <tbody class="sale_tbody">
                             <t t-foreach="doc.order_line" t-as="l">
                                 <tr t-if="l.product_id.categ_id.id not in (10,11,12)">
-                                    <td class="text-left" style="border: 1px solid black;text-align: left !important;">
+                                    <td class="text-left" >
                                         <span t-field="l.name"/>
                                     </td>
-                                    <td class="text-right"
-                                        style="border: 1px solid black;text-align: right !important;">
+                                    <td class="text-right">
                                         <span t-field="l.product_uom_qty"/>
                                         <span groups="uom.group_uom" t-field="l.product_uom"/>
                                     </td>
-                                    <td class="text-right"
-                                        style="border: 1px solid black;text-align: right !important;">
+                                    <td class="text-right">
                                         <span t-esc="abs(l.price_unit)"/>
                                     </td>
-                                    <td class="text-right"
-                                        style="border: 1px solid black;text-align: right !important;">
+                                    <td class="text-right">
                                         <span t-esc="abs(l.price_subtotal)"
                                               t-field-options='{"widget": "monetary", "display_currency": "doc.pricelist_id.currency_id"}'/>
                                     </td>

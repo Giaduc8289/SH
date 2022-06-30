@@ -5,11 +5,12 @@
     <template id="report_quality_purchase_document">
         <t t-call="web.html_container">
             <t t-call="web.report_layout">
+                <meta charset="utf-8"/>
+                <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css" />
                 <div class="page">
                     <div class="oe_structure"/>
                     <br/>
-                    <h2 style="text-transform: uppercase" class="text-center bold"><center>báo cáo quản lý chất
-                        lượng</center></h2>
+                    <h2 style="text-transform: uppercase" class="text-center bold"><center>báo cáo quản lý chất lượng</center></h2>
                     <span class="text-center bold"><center>
                         <t t-if="date_start">
                             <span class="text-center bold">Từ ngày : <t t-esc="date_start"/></span>
@@ -40,24 +41,17 @@
                             <strong>Kết quả: </strong><t t-esc="ketqua"/>
                         </t>
                         <br/>
-                        <br/>
                     </div>
                     <div>
-                        <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
+                        <table class="table-bordered">
                             <thead>
                                 <tr>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                        class="text-left">Origin</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                        class="text-left">ID</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                        class="text-left">Name</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                        class="text-left">Date</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                        class="text-left">Partner</th>
-                                    <th style="background-color:#3498DB !important;color:#FFF !important;"
-                                        class="text-left">Final status</th>
+                                    <th class="table-item">Origin</th>
+                                    <th class="table-item">ID</th>
+                                    <th class="table-item">Name</th>
+                                    <th class="table-item">Date</th>
+                                    <th class="table-item">Partner</th>
+                                    <th class="table-item">Final status</th>
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
@@ -72,13 +66,13 @@
                                         <td class="text-left">
                                             <span t-field="o.product_id.name"/>
                                         </td>
-                                        <td class="text-left">
+                                        <td class="text-right">
                                             <span t-field="o.date" t-options='{"widget": "date"}'/>
                                         </td>
                                         <td class="text-left">
                                             <span t-field="o.picking_id.partner_id.name"/>
                                         </td>
-                                        <td class="text-left">
+                                        <td class="text-center">
                                             <span t-field="o.final_status"/>
                                         </td>
                                         <!--                                        <td class="text-left">-->
