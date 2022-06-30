@@ -1,0 +1,32 @@
+.page{
+padding : 0;
+margin : 0;
+font-family : Arial;
+}
+h2{
+color : red;
+}
+.table-bordered {
+    border-collapse: collapse;
+    width : 100%;
+    border : border-box;
+}
+.table-item{
+padding : 5px 0px ;
+color : #ffffff;
+text-align: center;
+border: 1px solid black;
+}
+.table-bordered thead tr {
+    background-color: #4cb1a7;
+    color: #ffffff;
+    border: 1px solid black;
+}
+.table-bordered th{
+    padding : 8px;
+    border: 1px solid black;
+}
+.table-bordered td {
+    padding : 8px;
+    border: 1px solid black;
+}

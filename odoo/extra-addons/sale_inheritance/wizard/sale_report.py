@@ -53,7 +53,7 @@ class SaleReportWizard(models.TransientModel):
             },
         }
 
-        action = self.env.ref('sale_inheritance.action_report_sale_order').report_action(self, data=data)
+        action = self.env.ref('sale_inheritance.action_report_sale_order_bc').report_action(self, data=data)
         return action
 
 class ReportSale(models.AbstractModel):

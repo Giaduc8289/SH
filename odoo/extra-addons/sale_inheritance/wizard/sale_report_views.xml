@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!--Action cho nút in-->
     <data>
-        <record id="sale_inheritance.action_report_sale_order_list" model="ir.actions.report">
-            <field name="name">Report Sale List</field>
+        <record id="sale_inheritance.action_report_sale_order" model="ir.actions.report">
+            <field name="name">Report Sale Order</field>
             <field name="model">sale.order</field>
             <field name="report_type">qweb-html</field>
-            <field name="report_name">sale_inheritance.report_sale_order_document_list</field>
-            <field name="report_file">sale_inheritance.report_sale_order_document_list</field>
-            <field name="print_report_name">Báo cáo bán hàng</field>
+            <field name="report_name">sale_inheritance.report_select_sale_order_document</field>
+            <field name="report_file">sale_inheritance.report_select_sale_order_document</field>
+            <field name="print_report_name">Báo cáo bán hàng theo nhân viên kinh doanh</field>
             <field name="binding_model_id" ref="model_sale_order"/>
             <field name="binding_type">report</field>
         </record>
     </data>
+
+    <!--Action cho báo cáo chi tiết-->
     <data>
-        <record id="sale_inheritance.action_report_sale_order" model="ir.actions.report">
-            <field name="name">Report Sale Business Employee</field>
-            <field name="model">sale.order</field>
+        <record id="action_report_sale_order_bc" model="ir.actions.report">
+            <field name="name">Report Sale Order</field>
+            <field name="model">sale.report.wizard</field>
             <field name="report_type">qweb-html</field>
             <field name="report_name">sale_inheritance.report_sale_order_document</field>
             <field name="report_file">sale_inheritance.report_sale_order_document</field>
-            <field name="print_report_name">Báo cáo bán hàng theo nhân viên kinh doanh</field>
-            <field name="binding_model_id" ref="model_sale_order"/>
+            <field name="print_report_name">Báo cáo bán hàng chi tiết</field>
+            <field name="binding_model_id" ref="model_report_sale_inheritance_report_sale_order_document"/>
             <field name="binding_type">report</field>
         </record>
     </data>

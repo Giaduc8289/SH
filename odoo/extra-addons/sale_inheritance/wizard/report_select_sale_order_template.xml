@@ -2,12 +2,11 @@
 
 <odoo>
 
-    <template id="report_sale_order_document">
+    <template id="report_select_sale_order_document">
         <t t-call="web.html_container">
             <t t-call="web.report_layout">
-                <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css" />
                 <meta charset="utf-8"/>
-                <div class="page">
+                <div class="page" style="font-family :Arial !important;">
                     <div class="oe_structure"/>
                     <br/>
                     <h2 class="text-center bold"><center>BÁO CÁO BÁN HÀNG</center></h2>
@@ -46,36 +45,48 @@
                     </t>
                     <br/>
                     <div>
-                        <table class="table-bordered" >
+                        <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
                             <thead>
                                 <tr>
-                                    <th class="text-center">Mã</th>
-                                    <th class="text-center">Nhân viên kinh doanh</th>
-                                    <th class="text-center">Khách hàng</th>
-                                    <th class="text-center">Ngày đặt hàng</th>
-                                    <th class="text-center">Tổng</th>
-                                    <th class="text-center">Tình trạng hóa đơn</th>
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
+                                        class="text-center">Mã</th>
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
+                                        class="text-center">Nhân viên kinh doanh</th>
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
+                                        class="text-center">Khách hàng</th>
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
+                                        class="text-center">Ngày đặt hàng</th>
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
+                                        class="text-center">Tổng</th>
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
+                                        class="text-center">Tình trạng hóa đơn</th>
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
                                 <t t-foreach="docs" t-as="o">
                                     <tr>
-                                        <td class="text-left">
+                                        <td class="text-left"
+                                            style="border: 1px solid black;text-align: left !important;">
                                             <span t-field="o.name"/>
                                         </td>
-                                        <td class="text-left">
+                                        <td class="text-left"
+                                            style="border: 1px solid black;text-align: left !important;">
                                             <span t-field="o.user_id"/>
                                         </td>
-                                        <td class="text-left">
+                                        <td class="text-left"
+                                            style="border: 1px solid black;text-align: left !important;">
                                             <span t-field="o.partner_id"/>
                                         </td>
-                                        <td class="text-right">
+                                        <td class="text-right"
+                                            style="border: 1px solid black;text-align: right !important;">
                                             <span t-field="o.date_order" t-options='{"widget": "date"}'/>
                                         </td>
-                                        <td class="text-right">
+                                        <td class="text-right"
+                                            style="border: 1px solid black;text-align: right !important;">
                                             <span t-field="o.amount_total"/>
                                         </td>
-                                        <td class="text-center">
+                                        <td class="text-center"
+                                            style="border: 1px solid black;text-align: center !important;">
                                             <span t-field="o.invoice_status"/>
                                         </td>
                                     </tr>
@@ -106,5 +117,6 @@
             </t>
         </t>
     </template>
+
 
 </odoo>

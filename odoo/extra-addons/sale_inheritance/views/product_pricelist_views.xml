@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="product_pricelist_view" model="ir.ui.view">
+            <field name="name">product.pricelist.form</field>
+            <field name="model">product.pricelist</field>
+            <field name="inherit_id" ref="product.product_pricelist_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="replace">
+                </xpath>
+                <xpath expr="//div[@class='oe_title']" position="after">
+                    <group name="pricelist_rule_computation" groups="product.group_sale_pricelist"
+                           string="Price Computation">
+                        <group name="pricelist_rule_method">
+                            <field name="compute_price" string="Computation" widget="radio"/>
+                        </group>
+                        <group>
+                            <field name="base" attrs="{'invisible':[('compute_price', '!=', 'formula')]}"/>
+                            <field name="base_pricelist_id" attrs="{
+                                'invisible': ['|', ('compute_price', '!=', 'formula'), ('base', '!=', 'pricelist')],
+                                'required': [('compute_price', '=', 'formula'), ('base', '=', 'pricelist')],
+                                'readonly': [('base', '!=', 'pricelist')]}"/>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="product_pricelist" string="Product Pricelist">
+                            <field name="item_ids" nolabel="1" context="{'default_base':'list_price'}">
+                                <tree string="Product Pricelist" editable="bottom">
+                                    <field name="product_tmpl_id" string="Products" required="1"/>
+                                    <field name="product_id" string="Variants"
+                                           groups="product.group_product_variant"
+                                           domain="[('product_tmpl_id', '=', product_tmpl_id)]"
+                                           options="{'no_create':1}"/>
+                                    <field name="min_quantity" invisible="1"/>
+                                    <field name="fixed_price" string="Price"/>
+                                    <field name="discount_month"/>
+                                    <field name="discount_year"/>
+                                    <field name="reduce_direct"/>
+                                    <field name="bonus_quantity"/>
+                                    <field name="support_shipping"/>
+                                    <field name="support_new_agency"/>
+                                    <field name="reduce_loss"/>
+
+                                    <field name="company_id" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
