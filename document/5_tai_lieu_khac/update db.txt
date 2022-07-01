@@ -81,3 +81,10 @@ delete from stock_picking_type where company_id=2
 delete from stock_warehouse where company_id=2
 delete from res_company where id=2
 
+--Tạo cột đếm số dòng
+increment = 1
+for record in self:
+  record['row_number'] = increment
+  increment = increment + 1
+
+

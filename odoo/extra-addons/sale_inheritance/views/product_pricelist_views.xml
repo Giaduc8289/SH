@@ -32,13 +32,13 @@
                     </group>
                     <notebook>
                         <page name="product_pricelist" string="Product Pricelist">
-                            <field name="item_ids" nolabel="1" context="{'default_base':'list_price'}"
-                                   attrs="{'invisible':[('compute_price', '==', 'fixed')]}">
+                            <field name="item_ids" nolabel="1" context="{'default_base':'list_price'}">
                                 <tree string="Product Pricelist" editable="bottom">
-                                    <field name="product_tmpl_id" string="Products" required="1"/>
+                                    <field name="product_tmpl_id" string="Products" required="1"
+                                           domain="[('categ_id', 'in', (10, 11, 12))]" />
                                     <field name="product_id" string="Variants"
                                            groups="product.group_product_variant"
-                                           domain="[('product_tmpl_id', '=', product_tmpl_id)]"
+                                           domain="[('product_tmpl_id', '=', product_tmpl_id), ('categ_id', 'in', (10, 11, 12))]"
                                            options="{'no_create':1}"/>
                                     <field name="min_quantity" invisible="1"/>
                                     <field name="fixed_price" string="Price"/>
@@ -49,6 +49,7 @@
                                     <field name="support_shipping"/>
                                     <field name="support_new_agency"/>
                                     <field name="reduce_loss"/>
+                                    <field name="final_price"/>
 
                                     <field name="company_id" invisible="1"/>
                                 </tree>
