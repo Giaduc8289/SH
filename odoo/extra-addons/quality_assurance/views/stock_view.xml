@@ -26,9 +26,10 @@
                 <button type="object"
                         name="quality_alert_action"
                         class="btn btn-warning"
-                        string="Quality Alerts"/>
-                <field name="alert_count" widget="statinfo" string="Quality Alerts" help="Quality Alerts"/>
-                <field name="alert_ids" invisible="1"/>
+                        icon="fa-check-circle-o">
+<!--                    <field name="alert_count" widget="statinfo" string="Quality Alerts" help="Quality Alerts"/>-->
+                    <field name="alert_ids" invisible="1"/>
+                </button>
             </xpath>
         </field>
     </record>
