@@ -6,19 +6,18 @@ class StockQuant(models.Model):
     _inherit = 'stock.quant'
     _description = 'Custom Work Order'
 
-    move_finished_ids = fields.One2many(
-        'stock.move', 'workorder_id', 'Finished Moves',
-        domain=[('raw_material_production_id', '=', False), ('production_id', '!=', False)])
+    move_lines = fields.One2many('stock.move', 'picking_id', string="Stock Moves", copy=True)
+    date_done = fields.Datetime('Date of Transfer', copy=False, readonly=True, help="Date at which the transfer has been processed or cancelled.")
 
-    @api.depends('alert_ids')
+    @api.depends('move_lines')
     def _compute_alert(self):
         '''
         This function computes the number of quality alerts generated from given picking.
         '''
-        for production in self:
-            alerts = self.env['quality.alert'].search([('picking_id', '=', production.id)])
-            production.alert_ids = alerts
-            production.alert_count = len(alerts)
+        for picking in self:
+            alerts = self.env['quality.alert'].search([('picking_id', '=', picking.id)])
+            picking.alert_ids = alerts
+            picking.alert_count = len(alerts)
 
     def quality_alert_action(self):
         '''This function returns an action that display existing quality alerts generated from a given picking.'''
@@ -47,7 +46,7 @@ class StockQuant(models.Model):
         '''
         quality_alert = self.env['quality.alert']
         quality_measure = self.env['quality.measure']
-        for move in self.move_finished_ids:
+        for move in self.move_lines:
             measures = quality_measure.search(
                 [('product_id', '=', move.product_id.id), ('trigger_time', 'in', self.picking_type_id.id)])
             if measures:
@@ -79,7 +78,7 @@ class StockQuant(models.Model):
         """
         # TDE FIXME: remove decorator when migration the remaining
         # TDE FIXME: draft -> automatically done, if waiting ?? CLEAR ME
-        todo_moves = self.mapped('move_finished_ids').filtered(
+        todo_moves = self.mapped('move_lines').filtered(
             lambda self: self.state in ['draft', 'partially_available', 'assigned', 'confirmed'])
         # Check if there are ops not linked to moves yet
         for pick in self:
@@ -112,35 +111,5 @@ class StockQuant(models.Model):
                 if alert.final_status == 'fail':
                     raise UserError(_('There are items failed in quality test'))
         todo_moves._action_done()
-        return True
-
-    def action_confirm(self):
-        self._check_company()
-        for production in self:
-            if production.bom_id:
-                production.consumption = production.bom_id.consumption
-            # In case of Serial number tracking, force the UoM to the UoM of product
-            if production.product_tracking == 'serial' and production.product_uom_id != production.product_id.uom_id:
-                production.write({
-                    'product_qty': production.product_uom_id._compute_quantity(production.product_qty,
-                                                                               production.product_id.uom_id),
-                    'product_uom_id': production.product_id.uom_id
-                })
-                for move_finish in production.move_finished_ids.filtered(
-                        lambda m: m.product_id == production.product_id):
-                    move_finish.write({
-                        'product_uom_qty': move_finish.product_uom._compute_quantity(move_finish.product_uom_qty,
-                                                                                     move_finish.product_id.uom_id),
-                        'product_uom': move_finish.product_id.uom_id
-                    })
-            production.move_raw_ids._adjust_procure_method()
-            (production.move_raw_ids | production.move_finished_ids)._action_confirm(merge=False)
-            production.workorder_ids._action_confirm()
-        # run scheduler for moves forecasted to not have enough in stock
-        self.move_raw_ids._trigger_scheduler()
-        self.picking_ids.filtered(
-            lambda p: p.state not in ['cancel', 'done']).action_confirm()
-        # Force confirm state only for draft production not for more advanced state like
-        # 'progress' (in case of backorders with some qty_producing)
-        self.filtered(lambda mo: mo.state == 'pending').state = 'waiting'
+        self.write({'date_done': fields.Datetime.now()})
         return True

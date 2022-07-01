@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from collections import Counter, defaultdict
-
-from odoo import _, api, fields, tools, models
-from odoo.osv import expression
-
 from odoo.exceptions import UserError
+from odoo.osv import expression
 from odoo.tools import OrderedSet, float_round, float_compare
+
+from odoo import _, fields, models
 
 
 class StockMoveLine(models.Model):
@@ -15,6 +13,7 @@ class StockMoveLine(models.Model):
     _description = "Product Moves (Stock Move Line)"
 
     manufacturing_date = fields.Datetime('Manufacturing Date')
+
     def _action_done(self):
         """ This method is called during a move's `action_done`. It'll actually move a quant from
         the source location to the destination location, and unreserve if needed in the source
@@ -42,7 +41,8 @@ class StockMoveLine(models.Model):
             if float_compare(uom_qty, qty_done, precision_digits=precision_digits) != 0:
                 raise UserError(_('The quantity done for the product "%s" doesn\'t respect the rounding precision '
                                   'defined on the unit of measure "%s". Please change the quantity done or the '
-                                  'rounding precision of your unit of measure.') % (ml.product_id.display_name, ml.product_uom_id.name))
+                                  'rounding precision of your unit of measure.') % (
+                                ml.product_id.display_name, ml.product_uom_id.name))
 
             qty_done_float_compared = float_compare(ml.qty_done, 0, precision_rounding=ml.product_uom_id.rounding)
             if qty_done_float_compared > 0:
@@ -83,7 +83,7 @@ class StockMoveLine(models.Model):
         if ml_ids_tracked_without_lot:
             mls_tracked_without_lot = self.env['stock.move.line'].browse(ml_ids_tracked_without_lot)
             raise UserError(_('You need to supply a Lot/Serial Number for product: \n - ') +
-                              '\n - '.join(mls_tracked_without_lot.mapped('product_id.display_name')))
+                            '\n - '.join(mls_tracked_without_lot.mapped('product_id.display_name')))
         ml_to_create_lot = self.env['stock.move.line'].browse(ml_ids_to_create_lot)
         ml_to_create_lot._create_and_assign_production_lot()
 
@@ -100,28 +100,55 @@ class StockMoveLine(models.Model):
                 rounding = ml.product_uom_id.rounding
 
                 # if this move line is force assigned, unreserve elsewhere if needed
-                if not ml.move_id._should_bypass_reservation(ml.location_id) and float_compare(ml.qty_done, ml.product_uom_qty, precision_rounding=rounding) > 0:
-                    qty_done_product_uom = ml.product_uom_id._compute_quantity(ml.qty_done, ml.product_id.uom_id, rounding_method='HALF-UP')
+                if not ml.move_id._should_bypass_reservation(ml.location_id) and float_compare(ml.qty_done,
+                                                                                               ml.product_uom_qty,
+                                                                                               precision_rounding=rounding) > 0:
+                    qty_done_product_uom = ml.product_uom_id._compute_quantity(ml.qty_done, ml.product_id.uom_id,
+                                                                               rounding_method='HALF-UP')
                     extra_qty = qty_done_product_uom - ml.product_qty
-                    ml._free_reservation(ml.product_id, ml.location_id, extra_qty, lot_id=ml.lot_id, package_id=ml.package_id, owner_id=ml.owner_id, ml_ids_to_ignore=ml_ids_to_ignore)
+                    ml._free_reservation(ml.product_id, ml.location_id, extra_qty, lot_id=ml.lot_id,
+                                         package_id=ml.package_id, owner_id=ml.owner_id,
+                                         ml_ids_to_ignore=ml_ids_to_ignore)
                 # unreserve what's been reserved
-                if not ml.move_id._should_bypass_reservation(ml.location_id) and ml.product_id.type == 'product' and ml.product_qty:
+                if not ml.move_id._should_bypass_reservation(
+                        ml.location_id) and ml.product_id.type == 'product' and ml.product_qty:
                     try:
-                        Quant._update_reserved_quantity(ml.product_id, ml.location_id, -ml.product_qty, lot_id=ml.lot_id, manufacturing_date=None, expiration_date=None, package_id=ml.package_id, owner_id=ml.owner_id, strict=True)
+                        Quant._update_reserved_quantity(ml.product_id, ml.location_id, -ml.product_qty,
+                                                        lot_id=ml.lot_id, manufacturing_date=None, expiration_date=None,
+                                                        package_id=ml.package_id, owner_id=ml.owner_id, strict=True)
                     except UserError:
-                        Quant._update_reserved_quantity(ml.product_id, ml.location_id, -ml.product_qty, lot_id=False, manufacturing_date=None, expiration_date=None, package_id=ml.package_id, owner_id=ml.owner_id, strict=True)
+                        Quant._update_reserved_quantity(ml.product_id, ml.location_id, -ml.product_qty, lot_id=False,
+                                                        manufacturing_date=None, expiration_date=None,
+                                                        package_id=ml.package_id, owner_id=ml.owner_id, strict=True)
 
                 # move what's been actually done
-                quantity = ml.product_uom_id._compute_quantity(ml.qty_done, ml.move_id.product_id.uom_id, rounding_method='HALF-UP')
-                available_qty, in_date = Quant._update_available_quantity(ml.product_id, ml.location_id, -quantity, lot_id=ml.lot_id, manufacturing_date=ml.manufacturing_date,expiration_date=ml.expiration_date, package_id=ml.package_id, owner_id=ml.owner_id)
+                quantity = ml.product_uom_id._compute_quantity(ml.qty_done, ml.move_id.product_id.uom_id,
+                                                               rounding_method='HALF-UP')
+                available_qty, in_date = Quant._update_available_quantity(ml.product_id, ml.location_id, -quantity,
+                                                                          lot_id=ml.lot_id,
+                                                                          manufacturing_date=ml.manufacturing_date,
+                                                                          expiration_date=ml.expiration_date,
+                                                                          package_id=ml.package_id,
+                                                                          owner_id=ml.owner_id)
                 if available_qty < 0 and ml.lot_id:
                     # see if we can compensate the negative quants with some untracked quants
-                    untracked_qty = Quant._get_available_quantity(ml.product_id, ml.location_id, lot_id=False, manufacturing_date=None, expiration_date=None, package_id=ml.package_id, owner_id=ml.owner_id, strict=True)
+                    untracked_qty = Quant._get_available_quantity(ml.product_id, ml.location_id, lot_id=False,
+                                                                  manufacturing_date=None, expiration_date=None,
+                                                                  package_id=ml.package_id, owner_id=ml.owner_id,
+                                                                  strict=True)
                     if untracked_qty:
                         taken_from_untracked_qty = min(untracked_qty, abs(quantity))
-                        Quant._update_available_quantity(ml.product_id, ml.location_id, -taken_from_untracked_qty, lot_id=False, manufacturing_date=None, expiration_date=None, package_id=ml.package_id, owner_id=ml.owner_id)
-                        Quant._update_available_quantity(ml.product_id, ml.location_id, taken_from_untracked_qty, lot_id=ml.lot_id, manufacturing_date=ml.manufacturing_date, expiration_date=ml.expiration_date, package_id=ml.package_id, owner_id=ml.owner_id)
-                Quant._update_available_quantity(ml.product_id, ml.location_dest_id, quantity, lot_id=ml.lot_id, manufacturing_date=ml.manufacturing_date, expiration_date=ml.expiration_date, package_id=ml.result_package_id, owner_id=ml.owner_id, in_date=in_date)
+                        Quant._update_available_quantity(ml.product_id, ml.location_id, -taken_from_untracked_qty,
+                                                         lot_id=False, manufacturing_date=None, expiration_date=None,
+                                                         package_id=ml.package_id, owner_id=ml.owner_id)
+                        Quant._update_available_quantity(ml.product_id, ml.location_id, taken_from_untracked_qty,
+                                                         lot_id=ml.lot_id, manufacturing_date=ml.manufacturing_date,
+                                                         expiration_date=ml.expiration_date, package_id=ml.package_id,
+                                                         owner_id=ml.owner_id)
+                Quant._update_available_quantity(ml.product_id, ml.location_dest_id, quantity, lot_id=ml.lot_id,
+                                                 manufacturing_date=ml.manufacturing_date,
+                                                 expiration_date=ml.expiration_date, package_id=ml.result_package_id,
+                                                 owner_id=ml.owner_id, in_date=in_date)
             ml_ids_to_ignore.add(ml.id)
         # Reset the reserved quantity as we just moved it to the destination location.
         mls_todo.with_context(bypass_reservation_update=True).write({
@@ -129,17 +156,20 @@ class StockMoveLine(models.Model):
             'date': fields.Datetime.now(),
         })
 
+
 class FilterAlarmStock(models.Model):
     _name = 'filter.alarm.stock'
     _description = "Alarm Stock"
 
     location_id = fields.Many2one(
         'stock.location', 'Location',
-        auto_join=True, ondelete='restrict', required=True, index=True, domain="['&', ('id', '!=', None), ('usage', '!=', 'view')]")
+        auto_join=True, ondelete='restrict', required=True, index=True,
+        domain="['&', ('id', '!=', None), ('usage', '!=', 'view')]")
+
     def action_alarm_data(self):
         action = self.env["ir.actions.actions"]._for_xml_id('stock_inheritance.action_stock_alarm')
         domain = []
         if self.location_id:
-            domain = expression.AND([domain, [('picking_id.location_dest_id', '=', self.location_id.id)]])
+            domain = expression.AND([domain, [('location_id', '=', self.location_id.id)]])
         action['domain'] = domain
         return action
