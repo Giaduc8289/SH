@@ -42,6 +42,7 @@
         'views/mrp_production_view.xml',
         'views/Report_quality_purchase.xml',
         'report/quality_purchase_template.xml',
+        'report/product_quality_check_template.xml',
     ],
     'images': ['static/description/banner.jpg'],
     'license': 'LGPL-3',

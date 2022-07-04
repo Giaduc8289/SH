@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <template id="report_product_quality_check_document">
+        <t t-call="web.html_container">
+            <t t-call="web.report_layout">
+                <meta charset="utf-8"/>
+                <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css"/>
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <br/>
+                    <h2 style="text-transform: uppercase" class="text-center bold"><center>Phiếu kiểm
+                        hóa</center></h2>
+                    <p class="text-center"><strong>Tên sản phẩm: <t t-esc="docs.product_id.name"/></strong></p>
+                    <p class="text-center"><strong>Ngày kiểm tra: <t t-esc="docs.date"
+                                                                     t-options='{"widget": "date"}'/></strong></p>
+                    <br/>
+
+                    <p><strong>Nhà cung cấp: </strong><t t-esc="nhacungcap"/></p>
+                    <p><strong>Biển số xe: </strong></p>
+
+                    <div>
+                        <table class="table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="table-item">Tiêu chí chất lượng</th>
+                                    <th class="table-item">CT quy định min</th>
+                                    <th class="table-item">CT quy định max</th>
+                                    <th class="table-item">kết quả 1</th>
+                                    <th class="table-item">kết quả 2</th>
+                                    <th class="table-item">kết quả trung bình</th>
+                                    <th class="table-item">ghi chú</th>
+                                </tr>
+                            </thead>
+                            <tbody class="sale_tbody">
+                                <t t-foreach="docs" t-as="doc">
+                                    <t t-foreach="doc.tests" t-as="o">
+                                        <tr>
+                                            <td class="text-left">
+                                                <span t-esc="o.name.split('- ',1)[1]"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <p><span t-field="o.quantity_min"/></p>
+                                            </td>
+                                            <td class="text-center">
+                                                <p><span t-field="o.quantity_max"/></p>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="o.test_result"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="o.test_result2"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="o.test_status"/>
+                                            </td>
+                                            <td class="text-center">
+
+                                            </td>
+                                            <!--                                        <td class="text-left">-->
+                                            <!--                                            <span t-field="o.date"/>-->
+                                            <!--                                        </td>-->
+                                        </tr>
+                                    </t>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br/>
+                    <p><strong>Kết luận của phòng KCS:</strong></p>
+                    <div style="display: flex; justify-content: space-between;width :50%; align: left;">
+                        <br/>
+                        <div>
+                            <p>1. Hàng đủ tiêu chuẩn nhập kho:</p>
+                            <p>2. Trả lại nhà cung cấp:</p>
+                            <p>3. Khác:</p>
+                        </div>
+                        <div>
+                            <p>4. Trừ độ protein:..............%</p>
+                            <p>5. Giảm giá:.....................đ/kg</p>
+                            <p>6. Giảm trừ khác:</p>
+                        </div>
+                    </div>
+                    <div class="oe_structure"/>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

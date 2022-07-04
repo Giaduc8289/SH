@@ -59,4 +59,17 @@
         </record>
     </data>
 
+    <data>
+        <record id="quality_assurance.action_report_product_quality_check" model="ir.actions.report">
+            <field name="name">Product Quality Check report</field>
+            <field name="model">quality.alert</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">quality_assurance.report_product_quality_check_document</field>
+            <field name="report_file">quality_assurance.report_product_quality_check_document</field>
+            <field name="print_report_name">Báo cáo quản lý chất lượng</field>
+            <field name="binding_model_id" ref="quality_assurance.model_quality_alert"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+
 </odoo>
