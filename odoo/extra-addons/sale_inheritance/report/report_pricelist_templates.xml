@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <template id="report_select_pricelist_document">
+        <t t-call="web.html_container">
+            <t t-call="web.report_layout">
+                <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css"/>
+                <meta charset="utf-8"/>
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <br/>
+                    <h2 style="text-transform: uppercase" class="text-center bold"><t t-esc="docs.name"/></h2>
+                    <br/>
+                    <div>
+                        <table class="table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
+                                        class="text-center">Sản phẩm</th>
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
+                                        class="text-center">Giá bán</th>
+                                    <t t-if="docs.compute_price=='formula'">
+                                        <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
+                                            class="text-center">CK tháng</th>
+                                        <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
+                                            class="text-center">CK năm</th>
+                                        <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
+                                            class="text-center">Giảm giá trực tiếp</th>
+                                        <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
+                                            class="text-center">Thưởng SL</th>
+                                        <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
+                                            class="text-center">Hỗ trợ VC</th>
+                                        <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
+                                            class="text-center">ĐL mới</th>
+                                        <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
+                                            class="text-center">Khoan lỗ</th>
+                                        <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
+                                            class="text-center">Final price</th>
+                                    </t>
+
+                                </tr>
+                            </thead>
+                            <tbody class="sale_tbody">
+                                <t t-foreach="docs" t-as="doc">
+                                    <t t-foreach="doc.item_ids" t-as="o">
+                                        <tr>
+                                            <td class="text-left"
+                                                style="border: 1px solid black;text-align: left !important;">
+                                                <span t-field="o.product_tmpl_id"/>
+                                            </td>
+                                            <td class="text-left"
+                                                style="border: 1px solid black;text-align: left !important;">
+                                                <span t-field="o.fixed_price"/>
+                                            </td>
+                                            <t t-if="docs.compute_price=='formula'">
+                                                <td class="text-left"
+                                                    style="border: 1px solid black;text-align: left !important;">
+                                                    <span t-field="o.discount_month"/>
+                                                </td>
+                                                <td class="text-right"
+                                                    style="border: 1px solid black;text-align: right !important;">
+                                                    <span t-field="o.discount_year"/>
+                                                </td>
+                                                <td class="text-right"
+                                                    style="border: 1px solid black;text-align: right !important;">
+                                                    <span t-field="o.reduce_direct"/>
+                                                </td>
+                                                <td class="text-center"
+                                                    style="border: 1px solid black;text-align: center !important;">
+                                                    <span t-field="o.bonus_quantity"/>
+                                                </td>
+                                                <td class="text-center"
+                                                    style="border: 1px solid black;text-align: center !important;">
+                                                    <span t-field="o.support_shipping"/>
+                                                </td>
+                                                <td class="text-center"
+                                                    style="border: 1px solid black;text-align: center !important;">
+                                                    <span t-field="o.support_new_agency"/>
+                                                </td>
+                                                <td class="text-center"
+                                                    style="border: 1px solid black;text-align: center !important;">
+                                                    <span t-field="o.reduce_loss"/>
+                                                </td>
+                                                <td class="text-center"
+                                                    style="border: 1px solid black;text-align: center !important;">
+                                                    <span t-field="o.final_price"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="oe_structure"/>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

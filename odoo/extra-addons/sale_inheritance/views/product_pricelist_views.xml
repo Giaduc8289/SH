@@ -61,4 +61,17 @@
         </record>
 
     </data>
+
+     <data>
+        <record id="sale_inheritance.action_report_pricelist" model="ir.actions.report">
+            <field name="name">Báo cáo bảng giá</field>
+            <field name="model">product.pricelist</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">sale_inheritance.report_select_pricelist_document</field>
+            <field name="report_file">sale_inheritance.report_select_pricelist_document</field>
+            <field name="print_report_name">Báo cáo bảng giá</field>
+            <field name="binding_model_id" ref="model_product_pricelist"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
 </odoo>

@@ -166,10 +166,6 @@ class SaleOrder(models.Model):
                     del reward_dict[val]
         return reward_dict.values()
 
-    def action_print_report_sale(self):
-        action = self.env.ref('sale_inheritance.action_report_sale_order').report_action(None, data=None)
-        return action
-
 
 class ReportSaleOrder(models.Model):
     _name = 'report.sale.order'
