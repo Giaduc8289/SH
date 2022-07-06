@@ -37,9 +37,9 @@ class SaleOrderLine(models.Model):
             product = product.with_context(
                 no_variant_attributes_price_extra=tuple(no_variant_attributes_price_extra)
             )
-
-        if self.order_id.pricelist_id.discount_policy == 'with_discount':
-            return product.with_context(pricelist=self.order_id.pricelist_id.id, uom=self.product_uom.id).price
+        # -----Hiệu chỉnh cách lấy giá trong bảng giá
+        # if self.order_id.pricelist_id.discount_policy == 'with_discount':
+        #     return product.with_context(pricelist=self.order_id.pricelist_id.id, uom=self.product_uom.id).price
         product_context = dict(self.env.context, partner_id=self.order_id.partner_id.id, date=self.order_id.date_order,
                                uom=self.product_uom.id)
 
