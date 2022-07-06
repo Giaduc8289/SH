@@ -10,28 +10,28 @@
                 <div class="page">
                     <div class="oe_structure"/>
                     <br/>
-                    <h2 style="text-transform: uppercase" class="text-center bold"><center>Phiếu kiểm
-                        hóa</center></h2>
-                    <p class="text-center"><strong>Tên sản phẩm: <t t-esc="docs.product_id.name"/></strong></p>
-                    <p class="text-center"><strong>Ngày kiểm tra: <t t-esc="docs.date"
+                    <h2 style="text-transform: uppercase" class="text-center bold"><center>Quality test report</center></h2>
+                    <p class="text-center"><strong>Product: <t t-esc="docs.product_id.name"/></strong></p>
+                    <p class="text-center"><strong>Date: <t t-esc="docs.date"
                                                                      t-options='{"widget": "date"}'/></strong></p>
                     <br/>
 
-                    <p><strong>Nhà cung cấp: </strong><t t-esc="nhacungcap"/></p>
-                    <p><strong>Biển số xe: </strong></p>
+                    <p><strong>Supplier: </strong><t t-esc="nhacungcap"/></p>
+                    <p><strong>License plates: </strong></p>
 
                     <div>
                         <table class="table-bordered">
                             <thead>
                                 <tr>
                                     <th style="width :3%" class="table-item">STT</th>
-                                    <th class="table-item">Tiêu chí chất lượng</th>
-                                    <th class="table-item">CT quy định min</th>
-                                    <th class="table-item">CT quy định max</th>
-                                    <th class="table-item">kết quả 1</th>
-                                    <th class="table-item">kết quả 2</th>
-                                    <th class="table-item">kết quả trung bình</th>
-                                    <th class="table-item">ghi chú</th>
+                                    <th style="width :12%" class="table-item">Criteria</th>
+                                    <th style="width :7.5%" class="table-item">Minimum</th>
+                                    <th style="width :7.5%" class="table-item">Maximum</th>
+                                    <th style="width :10%" class="table-item">Qualitative test</th>
+                                    <th style="width :10%" class="table-item">Quantitative test</th>
+                                    <th style="width :10%" class="table-item">Quality test results</th>
+                                    <th style="width :10%" class="table-item">Status</th>
+                                    <th style="width :30%" class="table-item">Note</th>
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
@@ -62,6 +62,14 @@
                                                 <span t-field="o.test_status"/>
                                             </td>
                                             <td class="text-center">
+                                                <t t-if="o.test_status=='pass'">
+                                                    <span>Receiving</span>
+                                                </t>
+                                                <t t-if="o.test_status=='fail'">
+                                                    <span>Returning or negotiate</span>
+                                                </t>
+                                            </td>
+                                            <td class="text-center">
 
                                             </td>
                                             <!--                                        <td class="text-left">-->
@@ -74,18 +82,18 @@
                         </table>
                     </div>
                     <br/>
-                    <p><strong>Kết luận của phòng KCS:</strong></p>
+                    <p><strong>Conclusion of the KCS:</strong></p>
                     <div style="display: flex; justify-content: space-between;width :50%; align: left;">
                         <br/>
                         <div>
-                            <p>1. Hàng đủ tiêu chuẩn nhập kho:</p>
-                            <p>2. Trả lại nhà cung cấp:</p>
-                            <p>3. Khác:</p>
+                            <p>1. Products can be put into stock:</p>
+                            <p>2. Return the provider:</p>
+                            <p>3. Other:</p>
                         </div>
                         <div>
-                            <p>4. Trừ độ protein:..............%</p>
-                            <p>5. Giảm giá:.....................đ/kg</p>
-                            <p>6. Giảm trừ khác:</p>
+                            <p>4. Reduced protein levels:..............%</p>
+                            <p>5. Discount:.....................đ/kg</p>
+                            <p>6. Other deductions:</p>
                         </div>
                     </div>
                     <div class="oe_structure"/>
