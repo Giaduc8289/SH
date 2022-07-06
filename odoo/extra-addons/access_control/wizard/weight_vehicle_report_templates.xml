@@ -35,9 +35,11 @@
                         <table class="table-bordered">
                             <thead>
                                 <tr>
+                                     <th style="width :3%"
+                                        class="table-item">STT</th>
                                     <th style="width :15%;"
                                         class="text-center">Biển kiểm soát</th>
-                                    <th style="width :25%;"
+                                    <th style="width :22%;"
                                         class="text-center">Tài xế</th>
 <!--                                    <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work' ">-->
 <!--                                        <th style="width :10%;"-->
@@ -56,8 +58,13 @@
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
+                                <t t-set="i" t-value="1" />
                                 <t t-foreach="docs" t-as="o">
                                     <tr>
+                                        <td class="text-center">
+                                            <span t-esc="i"/>
+                                            <t t-set="i" t-value="i+1"/>
+                                        </td>
                                         <td class="text-left" >
                                             <span t-field="o.number_plate"/>
                                         </td>
