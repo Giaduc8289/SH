@@ -5,83 +5,78 @@
     <template id="report_weight_vehicle_document">
         <t t-call="web.html_container">
             <t t-call="web.report_layout">
-                <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css" />
+                <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css"/>
                 <meta charset="utf-8"/>
                 <div class="page">
                     <div class="oe_structure"/>
                     <br/>
-                    <h2 class="text-center bold"><center>BÁO CÁO CÂN XE</center></h2>
+                    <h2 class="text-center bold"><center>Vehicle Weight Report</center></h2>
                     <br/>
-                    <span class="text-center bold"><center>
-                        <t t-if="date_start" >
-                        <span class="text-center bold"> <strong>Từ ngày : </strong> <t t-esc="date_start"/></span>
+                    <center>
+                        <span class="text-center bold"><center>
+                            <t t-if="date_start">
+                                <span class="text-center bold"><strong>From date: </strong> <t
+                                        t-esc="date_start"/></span>
+                            </t>
+                            <t t-if="date_start and date_end">
+                                <span class="text-center bold"> - </span>
+                            </t>
+                            <t t-if="date_end">
+                                <span class="text-center bold"><strong> To date: </strong><t t-esc="date_end"/></span>
+                            </t>
+                        </center>
+                        </span>
+                        <t t-if="res_partner_id">
+                            <span><strong>Guest name: </strong> <t t-esc="res_partner_id"/></span>
                         </t>
-                         <t t-if="date_start and date_end">
-                            <span class="text-center bold"> - </span>
-                        </t>
-                        <t t-if="date_end">
-                            <span class="text-center bold"> <strong> Đến ngày : </strong><t t-esc="date_end"/></span>
+                        <br/>
+                        <t t-if="purpose">
+                            <span><strong>Purpose: </strong><t t-esc="purpose"/></span>
                         </t>
                     </center>
-                    </span>
-                    <t t-if="res_partner_id">
-                        <span><strong>Tên khách : </strong> <t t-esc="res_partner_id"/></span>
-                    </t>
-                    <t t-if="purpose">
-                        <span><strong>Mục đích đến: </strong><t t-esc="purpose"/></span>
-                    </t>
                     <br/>
                     <div>
                         <table class="table-bordered">
                             <thead>
                                 <tr>
                                     <th style="width :15%;"
-                                        class="text-center">Biển kiểm soát</th>
+                                        class="text-center">License plates</th>
                                     <th style="width :25%;"
-                                        class="text-center">Tài xế</th>
-<!--                                    <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work' ">-->
-<!--                                        <th style="width :10%;"-->
-<!--                                            class="text-center">Mục đích</th>-->
-<!--                                    </t>-->
+                                        class="text-center">Driver's name</th>
                                     <th style="width :10%;"
-                                        class="text-center">Thời gian vào</th>
+                                        class="text-center">Time in</th>
                                     <th style="width :10%;"
-                                        class="text-center">Thời gian ra</th>
+                                        class="text-center">Time out</th>
                                     <th style="width :10%;"
-                                        class="text-center">Trọng lượng vào</th>
+                                        class="text-center">Weight in</th>
                                     <th style="width :10%;"
-                                        class="text-center">Trọng lượng ra</th>
+                                        class="text-center">Weight out</th>
                                     <th style="width :10%;"
-                                        class="text-center">Trọng lượng hàng</th>
+                                        class="text-center">Cargo weight</th>
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
                                 <t t-foreach="docs" t-as="o">
                                     <tr>
-                                        <td class="text-left" >
+                                        <td class="text-left">
                                             <span t-field="o.number_plate"/>
                                         </td>
-                                        <td class="text-left" >
+                                        <td class="text-left">
                                             <span t-field="o.taixe"/>
                                         </td>
-<!--                                        <t t-if="change == 1 or docs[0].purpose == 'visit' or docs[0].purpose == 'work' ">-->
-<!--                                            <td class="text-left" >-->
-<!--                                                <span t-field="o.purpose"/>-->
-<!--                                            </td>-->
-<!--                                        </t>-->
-                                        <td class="text-center" >
+                                        <td class="text-center">
                                             <span t-field="o.in_time"/>
                                         </td>
-                                        <td class="text-center" >
+                                        <td class="text-center">
                                             <span t-field="o.out_time"/>
                                         </td>
-                                        <td class="text-right" >
+                                        <td class="text-right">
                                             <span t-field="o.weight_in"/>
                                         </td>
-                                        <td class="text-right" >
+                                        <td class="text-right">
                                             <span t-field="o.weight_out"/>
                                         </td>
-                                        <td class="text-right" >
+                                        <td class="text-right">
                                             <span t-field="o.weight_goods"/>
                                         </td>
                                     </tr>
@@ -89,7 +84,6 @@
                             </tbody>
                         </table>
                     </div>
-
                     <div class="oe_structure"/>
                 </div>
             </t>
