@@ -6,11 +6,12 @@
         <t t-call="web.html_container">
             <t t-call="web.report_layout">
                 <meta charset="utf-8"/>
-                <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css" />
+                <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css"/>
                 <div class="page">
                     <div class="oe_structure"/>
                     <br/>
-                    <h2 style="text-transform: uppercase" class="text-center bold"><center>báo cáo quản lý chất lượng</center></h2>
+                    <h2 style="text-transform: uppercase" class="text-center bold"><center>báo cáo quản lý chất
+                        lượng</center></h2>
                     <span class="text-center bold"><center>
                         <t t-if="date_start">
                             <span class="text-center bold">Từ ngày : <t t-esc="date_start"/></span>
@@ -46,6 +47,7 @@
                         <table class="table-bordered">
                             <thead>
                                 <tr>
+                                    <th style="width :3%" class="table-item">STT</th>
                                     <th class="table-item">Origin</th>
                                     <th class="table-item">ID</th>
                                     <th class="table-item">Name</th>
@@ -55,8 +57,13 @@
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
+                                <t t-set="i" t-value="1"/>
                                 <t t-foreach="docs" t-as="o">
                                     <tr>
+                                        <td class="text-center">
+                                            <span t-esc="i"/>
+                                            <t t-set="i" t-value="i+1"/>
+                                        </td>
                                         <td class="text-left">
                                             <span t-field="o.origin"/>
                                         </td>

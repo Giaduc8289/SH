@@ -3,7 +3,7 @@
 <odoo>
 
     <template id="cavi_report_saleorder_document">
-        <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css" />
+        <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css"/>
         <meta charset="utf-8"/>
         <!--        <t t-if="o and 'company_id' in o">-->
         <!--            <t t-set="company" t-value="o.company_id"></t>-->
@@ -91,9 +91,9 @@
 
                         <table class="table-bordered">
                             <thead>
-                                <tr>
+                                <tr><th style="width :3%" class="table-item">STT</th>
                                     <th style="width:10%;" class="text-center">Mã SP</th>
-                                    <th style="width: 30%;" class="text-center">Tên sản phẩm</th>
+                                    <th style="width: 27%;" class="text-center">Tên sản phẩm</th>
                                     <th style="width: 15%;" class="text-center">Mã sản phẩm</th>
                                     <th style="width: 15%;" class="text-center">Trọng lượng</th>
                                     <th style="width: 15%;" class="text-center">Đơn giá</th>
@@ -101,8 +101,13 @@
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
+                                <t t-set="i" t-value="1"/>
                                 <t t-foreach="doc.order_line" t-as="l">
                                     <tr t-if="l.product_id.categ_id.id in (10,11,12)">
+                                        <td class="text-center">
+                                            <span t-esc="i"/>
+                                            <t t-set="i" t-value="i+1"/>
+                                        </td>
                                         <td class="text-left">
                                             <span t-field="l.product_id.code"/>
                                         </td>
@@ -143,18 +148,24 @@
                         <br/>
 
                         <table class="table-bordered"
-                               >
+                        >
                             <thead>
                                 <tr>
+                                    <th style="width :3%" class="table-item">STT</th>
                                     <th style="width:25%;" class="text-center">Giảm giá</th>
                                     <th style="width:25%;" class="text-center">Trọng lượng</th>
-                                    <th style="width:25%;" class="text-center">Đơn giá</th>
-                                    <th style="width:25%;" class="text-center">Thành tiền</th>
+                                    <th style="width:23.5%;" class="text-center">Đơn giá</th>
+                                    <th style="width:23.5%;" class="text-center">Thành tiền</th>
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
+                                <t t-set="i" t-value="1"/>
                                 <t t-foreach="doc.order_line" t-as="l">
                                     <tr t-if="l.product_id.categ_id.id not in (10,11,12)">
+                                        <td class="text-center">
+                                            <span t-esc="i"/>
+                                            <t t-set="i" t-value="i+1"/>
+                                        </td>
                                         <td class="text-left">
                                             <span t-field="l.name"/>
                                         </td>
@@ -220,7 +231,7 @@
     </template>
 
     <template id="biochem_report_saleorder_document">
-        <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css" />
+        <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css"/>
         <meta charset="utf-8"/>
         <!--        <t t-if="o and 'company_id' in o">-->
         <!--            <t t-set="company" t-value="o.company_id"></t>-->
@@ -306,21 +317,27 @@
                     <table class="table-bordered">
                         <thead>
                             <tr>
+                                <th style="width :3%" class="table-item">STT</th>
                                 <th style="width:10%;" class="text-center">Mã SP</th>
                                 <th style="width: 30%;" class="text-center">Tên sản phẩm</th>
-                                <th style="width: 15%;" class="text-center">Mã sản phẩm</th>
-                                <th style="width: 15%;" class="text-center">Trọng lượng</th>
+                                <th style="width: 14%;" class="text-center">Mã sản phẩm</th>
+                                <th style="width: 13%;" class="text-center">Trọng lượng</th>
                                 <th style="width: 15%;" class="text-center">Đơn giá</th>
                                 <th style="width: 15%;" class="text-center">Thành tiền</th>
                             </tr>
                         </thead>
                         <tbody class="sale_tbody">
+                            <t t-set="i" t-value="1"/>
                             <t t-foreach="doc.order_line" t-as="l">
                                 <tr t-if="l.product_id.categ_id.id in (10,11,12)">
-                                    <td class="text-left" >
+                                    <td class="text-center">
+                                        <span t-esc="i"/>
+                                        <t t-set="i" t-value="i+1"/>
+                                    </td>
+                                    <td class="text-left">
                                         <span t-field="l.product_id.code"/>
                                     </td>
-                                    <td class="text-left" >
+                                    <td class="text-left">
                                         <span t-field="l.name"/>
                                     </td>
                                     <td class="text-right">
@@ -359,16 +376,22 @@
                     <table class="table-bordered">
                         <thead>
                             <tr>
+                                <th style="width :3%" class="table-item">STT</th>
                                 <th style="width:25%;" class="text-center">Giảm giá</th>
                                 <th style="width:25%;" class="text-center">Trọng lượng</th>
-                                <th style="width:25%;" class="text-center">Đơn giá</th>
-                                <th style="width:25%;" class="text-center">Thành tiền</th>
+                                <th style="width:23.5%;" class="text-center">Đơn giá</th>
+                                <th style="width:23.5%;" class="text-center">Thành tiền</th>
                             </tr>
                         </thead>
                         <tbody class="sale_tbody">
+                            <t t-set="i" t-value="1"/>
                             <t t-foreach="doc.order_line" t-as="l">
                                 <tr t-if="l.product_id.categ_id.id not in (10,11,12)">
-                                    <td class="text-left" >
+                                    <td class="text-center">
+                                        <span t-esc="i"/>
+                                        <t t-set="i" t-value="i+1"/>
+                                    </td>
+                                    <td class="text-left">
                                         <span t-field="l.name"/>
                                     </td>
                                     <td class="text-right">
@@ -432,7 +455,7 @@
     </template>
 
     <template id="bonong_report_saleorder_document">
-        <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css" />
+        <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css"/>
         <meta charset="utf-8"/>
         <!--        <t t-if="o and 'company_id' in o">-->
         <!--            <t t-set="company" t-value="o.company_id"></t>-->
@@ -518,21 +541,27 @@
                     <table class="table-bordered">
                         <thead>
                             <tr>
+                                <th style="width :3%" class="table-item">STT</th>
                                 <th style="width:10%;" class="text-center">Mã SP</th>
                                 <th style="width: 30%;" class="text-center">Tên sản phẩm</th>
-                                <th style="width: 15%;" class="text-center">Mã sản phẩm</th>
-                                <th style="width: 15%;" class="text-center">Trọng lượng</th>
+                                <th style="width: 14%;" class="text-center">Mã sản phẩm</th>
+                                <th style="width: 13%;" class="text-center">Trọng lượng</th>
                                 <th style="width: 15%;" class="text-center">Đơn giá</th>
                                 <th style="width: 15%;" class="text-center">Thành tiền</th>
                             </tr>
                         </thead>
                         <tbody class="sale_tbody">
+                            <t t-set="i" t-value="1"/>
                             <t t-foreach="doc.order_line" t-as="l">
                                 <tr t-if="l.product_id.categ_id.id in (10,11,12)">
-                                    <td class="text-left" >
+                                    <td class="text-center">
+                                        <span t-esc="i"/>
+                                        <t t-set="i" t-value="i+1"/>
+                                    </td>
+                                    <td class="text-left">
                                         <span t-field="l.product_id.code"/>
                                     </td>
-                                    <td class="text-left" >
+                                    <td class="text-left">
                                         <span t-field="l.name"/>
                                     </td>
                                     <td class="text-right">
@@ -571,16 +600,22 @@
                     <table class="table-bordered">
                         <thead>
                             <tr>
+                                <th style="width :3%" class="table-item">STT</th>
                                 <th style="width:25%;" class="text-center">Giảm giá</th>
                                 <th style="width:25%;" class="text-center">Trọng lượng</th>
-                                <th style="width:25%;" class="text-center">Đơn giá</th>
-                                <th style="width:25%;" class="text-center">Thành tiền</th>
+                                <th style="width:23.5%;" class="text-center">Đơn giá</th>
+                                <th style="width:23.5%;" class="text-center">Thành tiền</th>
                             </tr>
                         </thead>
                         <tbody class="sale_tbody">
+                            <t t-set="i" t-value="1"/>
                             <t t-foreach="doc.order_line" t-as="l">
                                 <tr t-if="l.product_id.categ_id.id not in (10,11,12)">
-                                    <td class="text-left" >
+                                    <td class="text-center">
+                                        <span t-esc="i"/>
+                                        <t t-set="i" t-value="i+1"/>
+                                    </td>
+                                    <td class="text-left">
                                         <span t-field="l.name"/>
                                     </td>
                                     <td class="text-right">

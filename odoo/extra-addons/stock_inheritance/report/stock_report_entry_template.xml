@@ -5,7 +5,7 @@
     <template id="report_stock_entry_document">
         <t t-call="web.html_container">
             <t t-call="web.report_layout">
-                <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css" />
+                <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css"/>
                 <meta charset="utf-8"/>
                 <div class="page">
                     <div class="oe_structure"/>
@@ -30,6 +30,7 @@
                         <table class="table-bordered">
                             <thead>
                                 <tr>
+                                    <th style="width :3%" class="table-item">STT</th>
                                     <th class="text-center">Tài liệu gốc</th>
                                     <th class="text-center">Tên</th>
                                     <th class="text-center">Ngày giao</th>
@@ -47,43 +48,48 @@
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
+                                <t t-set="i" t-value="1"/>
                                 <t t-foreach="docs" t-as="o">
                                     <tr>
-                                            <td class="text-left" >
+                                        <td class="text-center">
+                                            <span t-esc="i"/>
+                                            <t t-set="i" t-value="i+1"/>
+                                        </td>
+                                        <td class="text-left">
                                             <span t-field="o.origin"/>
                                         </td>
-                                        <td class="text-left" >
+                                        <td class="text-left">
                                             <span t-field="o.name"/>
                                         </td>
-                                        <td class="text-right" >
+                                        <td class="text-right">
                                             <span t-field="o.date" t-options='{"widget": "date"}'/>
                                         </td>
                                         <group t-if="stock">
-                                            <td class="text-right" >
+                                            <td class="text-right">
                                                 <t t-if="stock == o.location_dest_id.id ">
                                                     <span t-field="o.product_qty"/>
                                                 </t>
                                             </td>
-                                            <td class="text-right" >
+                                            <td class="text-right">
                                                 <t t-if="stock == o.location_id.id ">
                                                     <span t-field="o.product_qty"/>
                                                 </t>
                                             </td>
-                                            <td class="text-right" >
+                                            <td class="text-right">
                                                 <span t-field="o.product_uom"/>
                                             </td>
                                         </group>
-                                        <group t-if="not stock" >
-                                            <td class="text-right" >
+                                        <group t-if="not stock">
+                                            <td class="text-right">
                                                 <span t-field="o.product_qty"/>
                                             </td>
-                                            <td class="text-right" >
+                                            <td class="text-right">
                                                 <span t-field="o.product_uom"/>
                                             </td>
-                                            <td class="text-right" >
+                                            <td class="text-right">
                                                 <span t-field="o.location_id"/>
                                             </td>
-                                            <td class="text-right" >
+                                            <td class="text-right">
                                                 <span t-field="o.location_dest_id"/>
                                             </td>
                                         </group>

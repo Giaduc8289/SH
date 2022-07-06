@@ -24,6 +24,7 @@
                         <table class="table-bordered">
                             <thead>
                                 <tr>
+                                    <th style="width :3%" class="table-item">STT</th>
                                     <th class="table-item">Tiêu chí chất lượng</th>
                                     <th class="table-item">CT quy định min</th>
                                     <th class="table-item">CT quy định max</th>
@@ -34,9 +35,14 @@
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
+                                <t t-set="i" t-value="1"/>
                                 <t t-foreach="docs" t-as="doc">
                                     <t t-foreach="doc.tests" t-as="o">
                                         <tr>
+                                            <td class="text-center">
+                                                <span t-esc="i"/>
+                                                <t t-set="i" t-value="i+1"/>
+                                            </td>
                                             <td class="text-left">
                                                 <span t-esc="o.name.split('- ',1)[1]"/>
                                             </td>

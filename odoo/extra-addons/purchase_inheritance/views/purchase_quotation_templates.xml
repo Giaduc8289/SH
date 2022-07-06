@@ -84,6 +84,8 @@
                                style="border-collapse: collapse ; width : 100%; font-family :Arial !important;">
                             <thead>
                                 <tr>
+                                    <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;width :3%"
+                                        class="table-item">STT</th>
                                     <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 8%;"
                                         class="text-center">Mã SP</th>
                                     <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; "
@@ -100,8 +102,14 @@
                             </thead>
                             <tbody class="sale_tbody">
                                 <t t-set="current_subtotal" t-value="0"/>
+                                <t t-set="i" t-value="1"/>
                                 <t t-foreach="doc.order_line" t-as="l">
                                     <tr>
+                                        <td class="text-center"
+                                            style="border: 1px solid black;text-align: left !important;">
+                                            <span t-esc="i"/>
+                                            <t t-set="i" t-value="i+1"/>
+                                        </td>
                                         <td class="text-left"
                                             style="border: 1px solid black;text-align: left !important;">
                                             <span t-field="l.product_id.code"/>
