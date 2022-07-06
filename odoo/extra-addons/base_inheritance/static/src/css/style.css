@@ -4,7 +4,9 @@ margin : 0;
 font-family : Arial;
 }
 h2{
-color : red;
+font-weight: 550;
+font-size: 40px;
+text-transform: uppercase;
 }
 .table-bordered {
     border-collapse: collapse;
