@@ -38,20 +38,19 @@
                     <group>
                         <group>
                             <field name="date_start" widget="date"/>
-<!--                            <field name="invoice_status" widget="selection"/>-->
-                            <field name="group_products" widget="many2one"/>
                             <field name="khachhang" widget="many2one"/>
-                            <field name="nhanvienkinhdoanh" widget="many2one"/>
+                            <field name="group_products" widget="many2one"/>
+                            <field name="vung" widget="many2one"/>
                         </group>
                         <group>
                             <field name="date_end" widget="date"/>
-                            <field name="vung" widget="many2one"/>
+                            <field name="nhanvienkinhdoanh" widget="many2one"/>
                             <field name="sanpham" widget="many2one"/>
                         </group>
                     </group>
                     <footer>
-                    <button name="get_report" type="object" string="Filter" class="oe_highlight"/>
-                    <button string="Cancel" special="cancel"/>
+                        <button name="get_report" type="object" string="Filter" class="oe_highlight"/>
+                        <button string="Cancel" special="cancel"/>
                     </footer>
                 </sheet>
             </form>
