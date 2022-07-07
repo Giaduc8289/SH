@@ -8,12 +8,21 @@ _logger = logging.getLogger(__name__)
 class EmployeeInfo(models.Model):
     _inherit = ["hr.employee"]
     _log_access = False
-    address_2 = fields.Char(string="Địa chỉ đầy đủ")
-    phone_2 = fields.Char(string="Di động 2")
-    start_date = fields.Datetime('Bắt đầu công việc')
+    address_2 = fields.Char(string="Home number")
+    phone_2 = fields.Char(string="Phone 2")
+    start_date = fields.Datetime('Start date')
+    end_date = fields.Datetime('End date')
     type_contract = fields.Selection(
-        [('DH', 'Hợp đồng dài hạn'), ('NH', 'Hợp đồng ngắn hạn'), ('TV', 'Hợp đồng thời vụ')],
-        'Hợp đồng')
+        [('DH', 'Unlimited time'), ('NH', 'Limited time'), ('TV', 'Part time')],
+        'Type of contract')
+    certificate = fields.Selection([
+        ('doctor', 'Doctor'),
+        ('master', 'Master'),
+        ('bachelor', 'Bachelor'),
+        ('vocational', 'Vocational training centers'),
+        ('graduate', 'Graduate'),
+        ('other', 'Other'),
+    ], 'Certificate Level', default='graduate', groups="hr.group_hr_user", tracking=True)
     @api.model
     def _default_country_id(self):
         vn = self.env['res.country'].search([('code', '=ilike', 'VN')])

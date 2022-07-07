@@ -12,6 +12,7 @@
             <xpath expr="//form/sheet/group/group/field[@name='work_email']" position="after">
                 <field name="type_contract" widget="selection"/>
                 <field name="start_date" widget="date"/>
+                <field name="end_date" widget="date"/>
             </xpath>
             <xpath expr="//form/sheet/group/group/field[@name='coach_id']" position="replace">
                 <field name="state_ids" widget="many2many_tags"/>
@@ -29,16 +30,16 @@
                 <field name="village_id"/>
                 <field name="address_2"/>
             </xpath>
-            <xpath expr="//form/sheet/notebook/page/group/group[@name='has_work_permit']" position="replace">
-            </xpath>
-            <xpath expr="//form/sheet/notebook/page/group/group/field[@name='emergency_contact']" position="replace">
-            </xpath>
-            <xpath expr="//form/sheet/notebook/page/group/group/field[@name='emergency_phone']" position="replace">
-            </xpath>
-            <xpath expr="//form/sheet/notebook/page/group/group/field[@name='place_of_birth']" position="replace">
-            </xpath>
-            <xpath expr="//form/sheet/notebook/page/group/group/field[@name='country_of_birth']" position="replace">
-            </xpath>
+            <xpath expr="//form/sheet/notebook/page/group/group[@name='has_work_permit']" position="replace"/>
+            <xpath expr="//form/sheet/notebook/page/group/group/field[@name='emergency_contact']" position="replace"/>
+            <xpath expr="//form/sheet/notebook/page/group/group/field[@name='emergency_phone']" position="replace"/>
+            <xpath expr="//form/sheet/notebook/page/group/group/field[@name='place_of_birth']" position="replace"/>
+            <xpath expr="//form/sheet/notebook/page/group/group/field[@name='country_of_birth']" position="replace"/>
+            <xpath expr="//form/sheet/notebook/page/div/div/group/field[@name='work_location_id']" position="replace"/>
+            <xpath expr="//form/sheet/notebook/page/group/group/field[@name='passport_id']" position="replace"/>
+            <xpath expr="//form/sheet/notebook/page/group/group/field[@name='lang']" position="replace"/>
+            <xpath expr="//form/sheet/notebook/page/group/group/label[@for='km_home_work']" position="replace"/>
+            <xpath expr="//form/sheet/notebook/page/group/group/div[@class='o_row']" position="replace"/>
         </field>
     </record>
 </odoo>
