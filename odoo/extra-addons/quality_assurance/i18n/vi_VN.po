@@ -6,14 +6,94 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-29 04:31+0000\n"
-"PO-Revision-Date: 2022-04-29 04:31+0000\n"
+"POT-Creation-Date: 2022-07-06 09:48+0000\n"
+"PO-Revision-Date: 2022-07-06 09:48+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
+msgid "1. Products can be put into stock:"
+msgstr "1. Hàng đủ tiêu chuẩn nhập kho:"
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
+msgid "2. Return the provider:"
+msgstr "2. Trả lại nhà cung cấp:"
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
+msgid "3. Other:"
+msgstr "3. Khác"
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
+msgid "4. Reduced protein levels:..............%"
+msgstr "4. Trừ độ protein:..............%"
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
+msgid "5. Discount:.....................đ/kg"
+msgstr "5. Giảm giá:.....................đ/kg"
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
+msgid "6. Other deductions:"
+msgstr "6. Giảm trừ khác:"
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_quality_purchase_document
+msgid "<span class=\"text-center bold\"> - </span>"
+msgstr ""
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
+msgid "<span>Receiving</span>"
+msgstr "Nhận hàng"
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
+msgid "<span>Returning or negotiate</span>"
+msgstr "Trả lại hoặc đàm phán"
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
+msgid "<strong>Conclusion of the KCS:</strong>"
+msgstr "<strong>Kết luận của phòng KCS:</strong>"
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_quality_purchase_document
+msgid "<strong>Kết quả: </strong>"
+msgstr ""
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
+msgid "<strong>License plates: </strong>"
+msgstr "<strong>Biển số xe:  </strong>"
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
+msgid "<strong>Supplier: </strong>"
+msgstr "<strong>Nhà cung cấp: </strong>"
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_quality_purchase_document
+msgid "<strong>Sản phẩm: </strong>"
+msgstr ""
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_quality_purchase_document
+msgid "<strong>Từ kho: </strong>"
+msgstr ""
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_quality_purchase_document
+msgid "<strong>Từ nhà cung cấp: </strong>"
+msgstr ""
 
 #. module: quality_assurance
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_alert__message_needaction
@@ -40,6 +120,22 @@ msgid "Attachment Count"
 msgstr "Số tệp đính kèm"
 
 #. module: quality_assurance
+#: model:ir.actions.report,print_report_name:quality_assurance.action_report_product_quality_check
+#: model:ir.actions.report,print_report_name:quality_assurance.action_report_quality_purchase
+msgid "Báo cáo quản lý chất lượng"
+msgstr ""
+
+#. module: quality_assurance
+#: model:ir.ui.menu,name:quality_assurance.report_quality_purchase_menu
+msgid "Báo cáo quản lý chất lượng mua hàng"
+msgstr ""
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.filter_quality_purchase_form_view
+msgid "Cancel"
+msgstr ""
+
+#. module: quality_assurance
 #: model_terms:ir.actions.act_window,help:quality_assurance.quality_alert_action
 msgid "Click here to add a new Quality Alert"
 msgstr "Nhấp vào đây để thêm một Cảnh báo Chất lượng mới"
@@ -64,6 +160,7 @@ msgstr "Cấu hình"
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_alert__create_uid
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_alert__user_id
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_measure__create_uid
+#: model:ir.model.fields,field_description:quality_assurance.field_quality_purchase_report_wizard__create_uid
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_test__create_uid
 msgid "Created by"
 msgstr "Tạo bởi"
@@ -71,6 +168,7 @@ msgstr "Tạo bởi"
 #. module: quality_assurance
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_alert__create_date
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_measure__create_date
+#: model:ir.model.fields,field_description:quality_assurance.field_quality_purchase_report_wizard__create_date
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_test__create_date
 msgid "Created on"
 msgstr "Thời điểm tạo"
@@ -81,13 +179,41 @@ msgid "Creation Date"
 msgstr "Ngày tạo"
 
 #. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
+msgid "Criteria"
+msgstr "Tiêu chí đánh giá"
+
+#. module: quality_assurance
+#: model:ir.model,name:quality_assurance.model_mrp_workorder
+#: model:ir.model,name:quality_assurance.model_stock_quant
+msgid "Custom Work Order"
+msgstr ""
+
+#. module: quality_assurance
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_alert__date
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_quality_purchase_document
 msgid "Date"
 msgstr "Ngày"
 
 #. module: quality_assurance
+#: model:ir.model.fields,help:quality_assurance.field_stock_quant__date_done
+msgid "Date at which the transfer has been processed or cancelled."
+msgstr ""
+
+#. module: quality_assurance
+#: model:ir.model.fields,field_description:quality_assurance.field_stock_quant__date_done
+msgid "Date of Transfer"
+msgstr ""
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
+msgid "Date:"
+msgstr "Ngày kiểm tra:"
+
+#. module: quality_assurance
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_alert__display_name
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_measure__display_name
+#: model:ir.model.fields,field_description:quality_assurance.field_quality_purchase_report_wizard__display_name
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_test__display_name
 msgid "Display Name"
 msgstr "Tên hiển thị"
@@ -96,7 +222,12 @@ msgstr "Tên hiển thị"
 #: model:ir.model.fields.selection,name:quality_assurance.selection__quality_alert__final_status__fail
 #: model:ir.model.fields.selection,name:quality_assurance.selection__quality_test__test_status__fail
 msgid "Failed"
-msgstr "Thất bại"
+msgstr "Không đạt"
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_quality_purchase_document
+msgid "Final status"
+msgstr ""
 
 #. module: quality_assurance
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_alert__message_follower_ids
@@ -116,6 +247,11 @@ msgstr "Người theo dõi (Đối tác)"
 #: model_terms:ir.ui.view,arch_db:quality_assurance.quality_alert_form
 msgid "Generate Tests"
 msgstr "Tạo các bài kiểm tra"
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.filter_quality_purchase_form_view
+msgid "Get Report"
+msgstr ""
 
 #. module: quality_assurance
 #: model_terms:ir.ui.view,arch_db:quality_assurance.quality_alert_view_search
@@ -138,7 +274,9 @@ msgstr "Giúp bạn quản lý các quy trình đảm bảo chất lượng củ
 #. module: quality_assurance
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_alert__id
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_measure__id
+#: model:ir.model.fields,field_description:quality_assurance.field_quality_purchase_report_wizard__id
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_test__id
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_quality_purchase_document
 msgid "ID"
 msgstr ""
 
@@ -170,8 +308,24 @@ msgid "Is Follower"
 msgstr "Là người theo dõi"
 
 #. module: quality_assurance
+#: model:ir.model.fields,field_description:quality_assurance.field_quality_purchase_report_wizard__kho
+msgid "Kho"
+msgstr ""
+
+#. module: quality_assurance
+#: model:ir.model.fields.selection,name:quality_assurance.selection__quality_purchase_report_wizard__ketqua__fail
+msgid "Không đạt"
+msgstr ""
+
+#. module: quality_assurance
+#: model:ir.model.fields,field_description:quality_assurance.field_quality_purchase_report_wizard__ketqua
+msgid "Kết quả"
+msgstr ""
+
+#. module: quality_assurance
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_alert____last_update
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_measure____last_update
+#: model:ir.model.fields,field_description:quality_assurance.field_quality_purchase_report_wizard____last_update
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_test____last_update
 msgid "Last Modified on"
 msgstr "Sửa lần cuối vào"
@@ -179,6 +333,7 @@ msgstr "Sửa lần cuối vào"
 #. module: quality_assurance
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_alert__write_uid
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_measure__write_uid
+#: model:ir.model.fields,field_description:quality_assurance.field_quality_purchase_report_wizard__write_uid
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_test__write_uid
 msgid "Last Updated by"
 msgstr "Cập nhật lần cuối bởi"
@@ -186,6 +341,7 @@ msgstr "Cập nhật lần cuối bởi"
 #. module: quality_assurance
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_alert__write_date
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_measure__write_date
+#: model:ir.model.fields,field_description:quality_assurance.field_quality_purchase_report_wizard__write_date
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_test__write_date
 msgid "Last Updated on"
 msgstr "Cập nhật lần cuối vào"
@@ -207,6 +363,11 @@ msgstr "Người quản lý"
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_test__quantity_max
 msgid "Max-Value"
 msgstr "Giá trị tối đa"
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
+msgid "Maximum"
+msgstr "CT max"
 
 #. module: quality_assurance
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_test__quality_measure
@@ -234,6 +395,11 @@ msgid "Min-Value"
 msgstr "Giá trị tối thiểu"
 
 #. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
+msgid "Minimum"
+msgstr "CT min"
+
+#. module: quality_assurance
 #: model_terms:ir.ui.view,arch_db:quality_assurance.quality_test_view_search
 msgid "My Tests"
 msgstr "Kiểm tra của tôi"
@@ -245,20 +411,37 @@ msgstr "Kiểm tra của tôi"
 #: model_terms:ir.ui.view,arch_db:quality_assurance.quality_alert_form
 #: model_terms:ir.ui.view,arch_db:quality_assurance.quality_measure_form_view
 #: model_terms:ir.ui.view,arch_db:quality_assurance.quality_test_form
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_quality_purchase_document
 msgid "Name"
 msgstr "Tên"
 
 #. module: quality_assurance
+#: code:addons/quality_assurance/models/mrp_production.py:0
+#: code:addons/quality_assurance/models/mrp_workorder.py:0
 #: code:addons/quality_assurance/models/stock.py:0
+#: code:addons/quality_assurance/models/stock_quant.py:0
 #, python-format
 msgid "New"
 msgstr "Mới"
 
 #. module: quality_assurance
+#: code:addons/quality_assurance/models/mrp_production.py:0
+#: code:addons/quality_assurance/models/mrp_workorder.py:0
 #: code:addons/quality_assurance/models/stock.py:0
+#: code:addons/quality_assurance/models/stock_quant.py:0
 #, python-format
 msgid "New Move:"
 msgstr "Di chuyển mới:"
+
+#. module: quality_assurance
+#: model:ir.model.fields,field_description:quality_assurance.field_quality_purchase_report_wizard__nhacungcap
+msgid "Nhà cung cấp"
+msgstr ""
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
+msgid "Note"
+msgstr "Ghi chú"
 
 #. module: quality_assurance
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_alert__message_needaction_counter
@@ -296,10 +479,20 @@ msgid "Number of unread messages"
 msgstr ""
 
 #. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_quality_purchase_document
+msgid "Origin"
+msgstr ""
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_quality_purchase_document
+msgid "Partner"
+msgstr ""
+
+#. module: quality_assurance
 #: model:ir.model.fields.selection,name:quality_assurance.selection__quality_alert__final_status__pass
 #: model:ir.model.fields.selection,name:quality_assurance.selection__quality_test__test_status__pass
 msgid "Passed"
-msgstr "Thông qua"
+msgstr "Đạt"
 
 #. module: quality_assurance
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_alert__product_id
@@ -311,9 +504,24 @@ msgid "Product"
 msgstr "Sản phẩm"
 
 #. module: quality_assurance
+#: model:ir.actions.report,name:quality_assurance.action_report_product_quality_check
+msgid "Product Quality Check report"
+msgstr ""
+
+#. module: quality_assurance
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_measure__product_template_id
 msgid "Product Template"
 msgstr "Sản phẩm"
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
+msgid "Product:"
+msgstr "Tên sản phẩm:"
+
+#. module: quality_assurance
+#: model:ir.model,name:quality_assurance.model_mrp_production
+msgid "Production Order"
+msgstr "Lệnh sản xuất"
 
 #. module: quality_assurance
 #: model:ir.model,name:quality_assurance.model_purchase_order
@@ -331,8 +539,14 @@ msgid "Qualitative Result"
 msgstr "Kết quả định tính"
 
 #. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
+msgid "Qualitative test"
+msgstr "Kiểm tra định tính"
+
+#. module: quality_assurance
 #: model:ir.module.category,name:quality_assurance.module_category_quality_management
 #: model:ir.ui.menu,name:quality_assurance.menu_quality_root
+#: model_terms:ir.ui.view,arch_db:quality_assurance.quality_mrp_production_quality
 msgid "Quality"
 msgstr "Q.lý chất lượng"
 
@@ -344,11 +558,18 @@ msgstr "Cảnh báo chất lượng"
 
 #. module: quality_assurance
 #: model:ir.actions.act_window,name:quality_assurance.quality_alert_action
+#: model:ir.model.fields,field_description:quality_assurance.field_mrp_production__alert_count
+#: model:ir.model.fields,field_description:quality_assurance.field_mrp_production__alert_ids
+#: model:ir.model.fields,field_description:quality_assurance.field_mrp_workorder__alert_count
+#: model:ir.model.fields,field_description:quality_assurance.field_mrp_workorder__alert_ids
 #: model:ir.model.fields,field_description:quality_assurance.field_stock_picking__alert_count
 #: model:ir.model.fields,field_description:quality_assurance.field_stock_picking__alert_ids
+#: model:ir.model.fields,field_description:quality_assurance.field_stock_quant__alert_count
+#: model:ir.model.fields,field_description:quality_assurance.field_stock_quant__alert_ids
 #: model:ir.ui.menu,name:quality_assurance.menu_quality_alert
 #: model_terms:ir.ui.view,arch_db:quality_assurance.quality_alert_tree
 #: model_terms:ir.ui.view,arch_db:quality_assurance.quality_measure_tree
+#: model_terms:ir.ui.view,arch_db:quality_assurance.quality_mrp_production
 #: model_terms:ir.ui.view,arch_db:quality_assurance.quality_stock_picking
 msgid "Quality Alerts"
 msgstr "Cảnh báo chất lượng"
@@ -370,6 +591,11 @@ msgid "Quality Measures"
 msgstr "Đo lường chất lượng"
 
 #. module: quality_assurance
+#: model:ir.actions.report,name:quality_assurance.action_report_quality_purchase
+msgid "Quality Purchase report"
+msgstr ""
+
+#. module: quality_assurance
 #: model_terms:ir.ui.view,arch_db:quality_assurance.quality_test_form
 msgid "Quality Test"
 msgstr "Kiểm tra chất lượng"
@@ -389,6 +615,21 @@ msgid ""
 msgstr ""
 
 #. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.filter_quality_purchase_form_view
+msgid "Quality purchase Report"
+msgstr ""
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
+msgid "Quality test report"
+msgstr "Phiếu kiểm hóa"
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
+msgid "Quality test results"
+msgstr "Kết quả kiểm định"
+
+#. module: quality_assurance
 #: model:ir.model.fields.selection,name:quality_assurance.selection__quality_measure__type__quantity
 msgid "Quantitative"
 msgstr "Định lượng"
@@ -399,9 +640,24 @@ msgid "Quantitative Result"
 msgstr "Kết quả định lượng"
 
 #. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
+msgid "Quantitative test"
+msgstr "Kiểm tra định lượng"
+
+#. module: quality_assurance
 #: model:ir.model.fields,help:quality_assurance.field_quality_alert__origin
 msgid "Reference of the document that produced this alert."
 msgstr "Tài liệu tham chiếu của cảnh báo."
+
+#. module: quality_assurance
+#: model:ir.actions.act_window,name:quality_assurance.action_quality_purchase
+msgid "Report"
+msgstr ""
+
+#. module: quality_assurance
+#: model:ir.ui.menu,name:quality_assurance.report_quality_menu
+msgid "Reporting"
+msgstr ""
 
 #. module: quality_assurance
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_test__test_result
@@ -417,9 +673,15 @@ msgid "SMS Delivery error"
 msgstr ""
 
 #. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_quality_purchase_document
+msgid "STT"
+msgstr "STT"
+
+#. module: quality_assurance
 #: model:ir.model.fields.selection,name:quality_assurance.selection__quality_test__test_result2__satisfied
 msgid "Satisfied"
-msgstr "Hài lòng"
+msgstr "Đạt"
 
 #. module: quality_assurance
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_alert__origin
@@ -433,10 +695,26 @@ msgid "Source Operation"
 msgstr "Hoạt động nguồn"
 
 #. module: quality_assurance
+#: model:ir.model.fields,field_description:quality_assurance.field_quality_purchase_report_wizard__date_start
+msgid "Start Date"
+msgstr ""
+
+#. module: quality_assurance
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_alert__final_status
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_test__test_status
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_product_quality_check_document
 msgid "Status"
 msgstr "Tình trạng"
+
+#. module: quality_assurance
+#: model:ir.model.fields,field_description:quality_assurance.field_stock_quant__move_lines
+msgid "Stock Moves"
+msgstr ""
+
+#. module: quality_assurance
+#: model:ir.model.fields,field_description:quality_assurance.field_quality_purchase_report_wizard__sanpham
+msgid "Sản phẩm"
+msgstr ""
 
 #. module: quality_assurance
 #: model_terms:ir.ui.view,arch_db:quality_assurance.quality_measure_form_view
@@ -456,16 +734,27 @@ msgid "Tests"
 msgstr "Kiểm tra"
 
 #. module: quality_assurance
+#: code:addons/quality_assurance/models/mrp_production.py:0
+#: code:addons/quality_assurance/models/mrp_workorder.py:0
 #: code:addons/quality_assurance/models/stock.py:0
+#: code:addons/quality_assurance/models/stock_quant.py:0
 #, python-format
 msgid "There are items failed in quality test"
 msgstr "Có những mặt hàng không đạt trong kiểm tra chất lượng"
 
 #. module: quality_assurance
+#: code:addons/quality_assurance/models/mrp_production.py:0
+#: code:addons/quality_assurance/models/mrp_workorder.py:0
 #: code:addons/quality_assurance/models/stock.py:0
+#: code:addons/quality_assurance/models/stock_quant.py:0
 #, python-format
 msgid "There are items still in quality test"
 msgstr "Có mặt hàng vẫn đang kiểm tra chất lượng"
+
+#. module: quality_assurance
+#: model:ir.model.fields,field_description:quality_assurance.field_quality_purchase_report_wizard__date_end
+msgid "To Date"
+msgstr ""
 
 #. module: quality_assurance
 #: model:ir.model,name:quality_assurance.model_stock_picking
@@ -481,6 +770,11 @@ msgstr "Kích hoạt Bật"
 #: model_terms:ir.ui.view,arch_db:quality_assurance.quality_measure_view_search
 msgid "Type"
 msgstr "Loại"
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_quality_purchase_document
+msgid "Từ ngày :"
+msgstr ""
 
 #. module: quality_assurance
 #: model:ir.model.fields,field_description:quality_assurance.field_quality_alert__message_unread
@@ -499,7 +793,7 @@ msgstr ""
 #. module: quality_assurance
 #: model:ir.model.fields.selection,name:quality_assurance.selection__quality_test__test_result2__unsatisfied
 msgid "Unsatisfied"
-msgstr "Không hài lòng"
+msgstr "Không đạt"
 
 #. module: quality_assurance
 #: model:res.groups,name:quality_assurance.group_quality_user
@@ -526,6 +820,13 @@ msgid "Website communication history"
 msgstr ""
 
 #. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_quality_purchase_document
+msgid ""
+"báo cáo quản lý chất\n"
+"                        lượng"
+msgstr ""
+
+#. module: quality_assurance
 #: model:ir.model,name:quality_assurance.model_quality_alert
 msgid "quality.alert"
 msgstr ""
@@ -536,6 +837,31 @@ msgid "quality.measure"
 msgstr ""
 
 #. module: quality_assurance
+#: model:ir.model,name:quality_assurance.model_quality_purchase_report_wizard
+msgid "quality.purchase.report.wizard"
+msgstr ""
+
+#. module: quality_assurance
 #: model:ir.model,name:quality_assurance.model_quality_test
 msgid "quality.test"
+msgstr ""
+
+#. module: quality_assurance
+#: model:ir.model,name:quality_assurance.model_report_quality_assurance_report_quality_purchase_document
+msgid "report.quality_assurance.report_quality_purchase_document"
+msgstr ""
+
+#. module: quality_assurance
+#: model:ir.model.fields.selection,name:quality_assurance.selection__quality_purchase_report_wizard__ketqua__pass
+msgid "Đạt"
+msgstr ""
+
+#. module: quality_assurance
+#: model_terms:ir.ui.view,arch_db:quality_assurance.report_quality_purchase_document
+msgid "Đến ngày :"
+msgstr ""
+
+#. module: quality_assurance
+#: model:ir.model.fields.selection,name:quality_assurance.selection__quality_purchase_report_wizard__ketqua__wait
+msgid "Đợi"
 msgstr ""

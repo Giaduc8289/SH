@@ -3,4 +3,7 @@ filter_purchase_order_user,filter.purchase.order.user,model_filter_purchase_orde
 filter_purchase_order_manager,filter.purchase.order.manager,model_filter_purchase_order,base.group_system,1,1,1,1
 purchase_report_wizard_user,purchase.report.wizard.user,model_purchase_report_wizard,base.group_user,1,0,1,0
 purchase_report_wizard_manager,purchase.report.wizard.manager,model_purchase_report_wizard,base.group_system,1,1,1,1
+access_mrp_bom_purchase_user,mrp.bom,mrp.model_mrp_bom,purchase.group_purchase_user,1,0,0,0
+access_mrp_bom_line_purchase_user,mrp.bom.line,mrp.model_mrp_bom_line,purchase.group_purchase_user,1,0,0,0
+
 

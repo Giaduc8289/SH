@@ -7,7 +7,7 @@
     "sequence": "8",
     "license": "LGPL-3",
     "category": "Hidden",
-    "depends": ["base", "web", "base_inheritance", "purchase"],
+    "depends": ["base", "web", "base_inheritance", "purchase", 'mrp'],
     "data": [
         "security/ir.model.access.csv",
         "views/product_template_view.xml",
