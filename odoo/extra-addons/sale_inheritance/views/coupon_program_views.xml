@@ -3,94 +3,94 @@
 
     <menuitem id="sale_coupon.menu_coupon_type_config" active="False"/>
 
-<!--    <record id="sale_coupon_program_view_coupon_program_form_v1" model="ir.ui.view">-->
-<!--        <field name="name">coupon.program.form</field>-->
-<!--        <field name="model">coupon.program</field>-->
-<!--        <field name="inherit_id" ref="coupon.coupon_program_view_coupon_program_form"/>-->
-<!--        <field name="mode">extension</field>-->
-<!--        <field name="arch" type="xml">-->
-<!--            <xpath expr="/form/sheet/group" position="after">-->
-<!--                <group>-->
-<!--                    <field name="config_detail" widget="boolean"/>-->
-<!--                </group>-->
-<!--                <group name="conditions" string="Conditions">-->
-<!--                    <field name="active" invisible="1"/>-->
-<!--                    <field name="program_type" invisible="1"/>-->
-<!--                    <field name="coupon_partner_ids" widget="many2many_tags" optional="show"/>-->
-<!--                    <field name="coupon_products_ids" widget="many2many_tags" optional="show"/>-->
-<!--                    <field name="rule_min_quantity" class="oe_inline"/>-->
-<!--                    <label string="Minimum Purchase Of" for="rule_minimum_amount"/>-->
-<!--                    <div name="rule_minimum_amount" class="o_row">-->
-<!--                        <field name="currency_id" invisible="1"/>-->
-<!--                        <field name="rule_minimum_amount" widget='monetary'-->
-<!--                               options="{'currency_field': 'currency_id'}"/>-->
-<!--                        <field name="rule_minimum_amount_tax_inclusion" required="1"/>-->
-<!--                    </div>-->
-<!--                    <field name="company_id" placeholder="Select company" groups="base.group_multi_company"></field>-->
-<!--                </group>-->
-<!--                <group name="validity" string="Validity">-->
-<!--                    <label for="validity_duration" string="Validity Duration"/>-->
-<!--                    <div>-->
-<!--                        <field name="validity_duration" class="oe_inline"/>-->
-<!--                        <span class="o_form_label oe_inline"> Days</span> <span class="oe_grey">if 0, infinite-->
-<!--                        use</span>-->
-<!--                    </div>-->
-<!--                </group>-->
-<!--            </xpath>-->
-<!--            <xpath expr="/form/sheet/group" position="replace">-->
-<!--            </xpath>-->
-<!--            &lt;!&ndash;            <xpath expr="//div[@name='rule_minimum_amount']" position="after">&ndash;&gt;-->
-<!--            &lt;!&ndash;                <field name="promo_code_usage" widget="radio"/>&ndash;&gt;-->
-<!--            &lt;!&ndash;                <field name="promo_code"&ndash;&gt;-->
-<!--            &lt;!&ndash;                       attrs="{'required': [('promo_code_usage', '=', 'code_needed')], 'invisible': [('promo_code_usage', '=', 'no_code_needed')]}"/>&ndash;&gt;-->
-<!--            &lt;!&ndash;            </xpath>&ndash;&gt;-->
-<!--            <xpath expr="/form/sheet/group/group/div/field[@name='discount_fixed_amount']" position="after">-->
-<!--                <group>-->
-<!--                    <group>-->
-<!--                        <field name="discount_for_amount" class="oe_inline"-->
-<!--                               attrs="{'required':[('discount_type', '=', 'fixed_amount')]}" widget='boolean'-->
-<!--                               options="{'currency_field': 'currency_id'}"/>-->
-<!--                        <field name="discount_hold_amount" class="oe_inline"-->
-<!--                               attrs="{'required':[('discount_type', '=', 'fixed_amount')]}" widget='monetary'-->
-<!--                               options="{'currency_field': 'currency_id'}"/>-->
-<!--                    </group>-->
-<!--                    <group>-->
-<!--                        <field name="discount_hold_time" class="oe_inline"-->
-<!--                               attrs="{'required':[('discount_type', '=', 'fixed_amount')]}" widget='radio'-->
-<!--                               options="{'currency_field': 'currency_id'}"/>-->
-<!--                    </group>-->
-<!--                </group>-->
-<!--            </xpath>-->
-<!--            <xpath expr="//group[@name='reward']/.." position="after">-->
-<!--                <group attrs="{'invisible': [('config_detail', '=', False)]}">-->
-<!--                    <field name="coupon_detail_ids" optional="show" editable="bottom">-->
-<!--                        <tree>-->
-<!--                            <field name="partner_ids" optional="show" widget="many2many_tags"/>-->
-<!--                            <field name="discount_fixed_amount_detail"-->
-<!--                                   attrs="{'invisible':[('parent.discount_type', '!=', 'fixed_amount')]}"/>-->
-<!--                            <field name="discount_hold_amount_detail"-->
-<!--                                   attrs="{'invisible':[('parent.discount_type', '!=', 'fixed_amount')]}"/>-->
-<!--                            <field name="discount_percentage_detail"-->
-<!--                                   attrs="{'invisible':[('parent.discount_type', '=', 'fixed_amount')]}"/>-->
-<!--                        </tree>-->
-<!--                        <form>-->
-<!--                            <group>-->
-<!--                                <field name="discount_fixed_amount_detail"-->
-<!--                                       attrs="{'invisible':[('parent.discount_type', '!=', 'fixed_amount')]}"/>-->
-<!--                                <field name="discount_hold_amount_detail"-->
-<!--                                       attrs="{'invisible':[('parent.discount_type', '!=', 'fixed_amount')]}"/>-->
-<!--                                <field name="discount_percentage_detail"-->
-<!--                                       attrs="{'invisible':[('parent.discount_type', '=', 'fixed_amount')]}"/>-->
-<!--                            </group>-->
-<!--                            <group>-->
-<!--                                <field name="partner_ids" optional="show"/>-->
-<!--                            </group>-->
-<!--                        </form>-->
-<!--                    </field>-->
-<!--                </group>-->
-<!--            </xpath>-->
-<!--        </field>-->
-<!--    </record>-->
+    <!--    <record id="sale_coupon_program_view_coupon_program_form_v1" model="ir.ui.view">-->
+    <!--        <field name="name">coupon.program.form</field>-->
+    <!--        <field name="model">coupon.program</field>-->
+    <!--        <field name="inherit_id" ref="coupon.coupon_program_view_coupon_program_form"/>-->
+    <!--        <field name="mode">extension</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <xpath expr="/form/sheet/group" position="after">-->
+    <!--                <group>-->
+    <!--                    <field name="config_detail" widget="boolean"/>-->
+    <!--                </group>-->
+    <!--                <group name="conditions" string="Conditions">-->
+    <!--                    <field name="active" invisible="1"/>-->
+    <!--                    <field name="program_type" invisible="1"/>-->
+    <!--                    <field name="coupon_partner_ids" widget="many2many_tags" optional="show"/>-->
+    <!--                    <field name="coupon_products_ids" widget="many2many_tags" optional="show"/>-->
+    <!--                    <field name="rule_min_quantity" class="oe_inline"/>-->
+    <!--                    <label string="Minimum Purchase Of" for="rule_minimum_amount"/>-->
+    <!--                    <div name="rule_minimum_amount" class="o_row">-->
+    <!--                        <field name="currency_id" invisible="1"/>-->
+    <!--                        <field name="rule_minimum_amount" widget='monetary'-->
+    <!--                               options="{'currency_field': 'currency_id'}"/>-->
+    <!--                        <field name="rule_minimum_amount_tax_inclusion" required="1"/>-->
+    <!--                    </div>-->
+    <!--                    <field name="company_id" placeholder="Select company" groups="base.group_multi_company"></field>-->
+    <!--                </group>-->
+    <!--                <group name="validity" string="Validity">-->
+    <!--                    <label for="validity_duration" string="Validity Duration"/>-->
+    <!--                    <div>-->
+    <!--                        <field name="validity_duration" class="oe_inline"/>-->
+    <!--                        <span class="o_form_label oe_inline"> Days</span> <span class="oe_grey">if 0, infinite-->
+    <!--                        use</span>-->
+    <!--                    </div>-->
+    <!--                </group>-->
+    <!--            </xpath>-->
+    <!--            <xpath expr="/form/sheet/group" position="replace">-->
+    <!--            </xpath>-->
+    <!--            &lt;!&ndash;            <xpath expr="//div[@name='rule_minimum_amount']" position="after">&ndash;&gt;-->
+    <!--            &lt;!&ndash;                <field name="promo_code_usage" widget="radio"/>&ndash;&gt;-->
+    <!--            &lt;!&ndash;                <field name="promo_code"&ndash;&gt;-->
+    <!--            &lt;!&ndash;                       attrs="{'required': [('promo_code_usage', '=', 'code_needed')], 'invisible': [('promo_code_usage', '=', 'no_code_needed')]}"/>&ndash;&gt;-->
+    <!--            &lt;!&ndash;            </xpath>&ndash;&gt;-->
+    <!--            <xpath expr="/form/sheet/group/group/div/field[@name='discount_fixed_amount']" position="after">-->
+    <!--                <group>-->
+    <!--                    <group>-->
+    <!--                        <field name="discount_for_amount" class="oe_inline"-->
+    <!--                               attrs="{'required':[('discount_type', '=', 'fixed_amount')]}" widget='boolean'-->
+    <!--                               options="{'currency_field': 'currency_id'}"/>-->
+    <!--                        <field name="discount_hold_amount" class="oe_inline"-->
+    <!--                               attrs="{'required':[('discount_type', '=', 'fixed_amount')]}" widget='monetary'-->
+    <!--                               options="{'currency_field': 'currency_id'}"/>-->
+    <!--                    </group>-->
+    <!--                    <group>-->
+    <!--                        <field name="discount_hold_time" class="oe_inline"-->
+    <!--                               attrs="{'required':[('discount_type', '=', 'fixed_amount')]}" widget='radio'-->
+    <!--                               options="{'currency_field': 'currency_id'}"/>-->
+    <!--                    </group>-->
+    <!--                </group>-->
+    <!--            </xpath>-->
+    <!--            <xpath expr="//group[@name='reward']/.." position="after">-->
+    <!--                <group attrs="{'invisible': [('config_detail', '=', False)]}">-->
+    <!--                    <field name="coupon_detail_ids" optional="show" editable="bottom">-->
+    <!--                        <tree>-->
+    <!--                            <field name="partner_ids" optional="show" widget="many2many_tags"/>-->
+    <!--                            <field name="discount_fixed_amount_detail"-->
+    <!--                                   attrs="{'invisible':[('parent.discount_type', '!=', 'fixed_amount')]}"/>-->
+    <!--                            <field name="discount_hold_amount_detail"-->
+    <!--                                   attrs="{'invisible':[('parent.discount_type', '!=', 'fixed_amount')]}"/>-->
+    <!--                            <field name="discount_percentage_detail"-->
+    <!--                                   attrs="{'invisible':[('parent.discount_type', '=', 'fixed_amount')]}"/>-->
+    <!--                        </tree>-->
+    <!--                        <form>-->
+    <!--                            <group>-->
+    <!--                                <field name="discount_fixed_amount_detail"-->
+    <!--                                       attrs="{'invisible':[('parent.discount_type', '!=', 'fixed_amount')]}"/>-->
+    <!--                                <field name="discount_hold_amount_detail"-->
+    <!--                                       attrs="{'invisible':[('parent.discount_type', '!=', 'fixed_amount')]}"/>-->
+    <!--                                <field name="discount_percentage_detail"-->
+    <!--                                       attrs="{'invisible':[('parent.discount_type', '=', 'fixed_amount')]}"/>-->
+    <!--                            </group>-->
+    <!--                            <group>-->
+    <!--                                <field name="partner_ids" optional="show"/>-->
+    <!--                            </group>-->
+    <!--                        </form>-->
+    <!--                    </field>-->
+    <!--                </group>-->
+    <!--            </xpath>-->
+    <!--        </field>-->
+    <!--    </record>-->
 
     <record id="sale_coupon_program_view_promo_program_form_v1" model="ir.ui.view">
         <field name="name">coupon.program.form</field>
@@ -117,13 +117,21 @@
                     </div>
                     <field name="company_id" placeholder="Select company" groups="base.group_multi_company"></field>
                 </group>
-                <group name="validity" string="Validity">
-                    <label for="validity_duration" string="Validity Duration"/>
-                    <div>
-                        <field name="validity_duration" class="oe_inline"/>
-                        <span class="o_form_label oe_inline"> Days</span> <span class="oe_grey">if 0, infinite
-                        use</span>
-                    </div>
+                <!--                <group name="validity" string="Validity">-->
+                <!--                    <label for="validity_duration" string="Validity Duration"/>-->
+                <!--                    <div>-->
+                <!--                        <field name="validity_duration" class="oe_inline"/>-->
+                <!--                        <span class="o_form_label oe_inline"> Days</span> <span class="oe_grey">if 0, infinite-->
+                <!--                        use</span>-->
+                <!--                    </div>-->
+                <!--                </group>-->
+                <group name="validity" string="Validity duration">
+                    <group>
+                        <field name="date_start" class="oe_inline"/>
+                    </group>
+                    <group>
+                        <field name="date_end" class="oe_inline"/>
+                    </group>
                 </group>
             </xpath>
             <xpath expr="/form/sheet/group" position="replace">
@@ -171,6 +179,17 @@
                             </group>
                         </form>
                     </field>
+                </group>
+                <group name="payment type" string="Payment type">
+                    <field name="payment_type" widget="radio" options="{'horizontal': true}"></field>
+                    <group style="width:100%" attrs="{'invisible': [('payment_type', 'in', 'now')]}">
+                        <group>
+                                <field name="from_date" style="width:50%;"/>
+                        </group>
+                        <group>
+                                <field name="to_date"  style="width:50%;"/>
+                        </group>
+                    </group>
                 </group>
             </xpath>
         </field>
