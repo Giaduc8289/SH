@@ -33,6 +33,7 @@
                                 <field name="code"/>
                                 <field name="name"/>
                                 <field name="group_customer"/>
+                                <field name="open_date"/>
                             </group>
                         </div>
 
