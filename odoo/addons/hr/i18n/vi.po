@@ -1261,7 +1261,7 @@ msgstr "Nữ"
 #: model:ir.model.fields,field_description:hr.field_hr_employee__study_field
 #: model:ir.model.fields,field_description:hr.field_res_users__study_field
 msgid "Field of Study"
-msgstr "Lĩnh vực nghiên cứu"
+msgstr "Ngành nghề"
 
 #. module: hr
 #: model:hr.departure.reason,name:hr.departure_fired
@@ -1468,7 +1468,7 @@ msgstr "Biểu tượng để chỉ ra một hoạt động ngoại lệ."
 #: model:ir.model.fields,field_description:hr.field_hr_employee__identification_id
 #: model:ir.model.fields,field_description:hr.field_res_users__identification_id
 msgid "Identification No"
-msgstr "Số CMND"
+msgstr "Số CMND/CCCD"
 
 #. module: hr
 #: model:ir.model.fields,help:hr.field_hr_department__message_needaction
