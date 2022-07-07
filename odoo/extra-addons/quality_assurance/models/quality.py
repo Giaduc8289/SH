@@ -9,8 +9,10 @@ class QualityMeasure(models.Model):
     _order = "id desc"
 
     name = fields.Char('Name', required=True)
-    product_id = fields.Many2one('product.product', string='Product', index=True, ondelete='cascade', track_visibility='onchange')
-    product_template_id = fields.Many2one('product.template', string='Product Template', related='product_id.product_tmpl_id')
+    product_id = fields.Many2one('product.product', string='Product', index=True, ondelete='cascade',
+                                 track_visibility='onchange')
+    product_template_id = fields.Many2one('product.template', string='Product Template',
+                                          related='product_id.product_tmpl_id')
     type = fields.Selection(
         [('quantity', 'Quantitative'),
          ('quality', 'Qualitative')],
@@ -52,6 +54,13 @@ class QualityAlert(models.Model):
                                     store=True, string='Status',
                                     default='fail', track_visibility='onchange')
 
+    # ncc_quality = fields.Many2one('purchase.order', string='purchase_order')
+    # ncc = fields.Many2one('purchase.order', string='Nha cung cap', related='ncc_quality.partner_id')
+    # name_ncc = fields.Char(string='Ten nha cung cap', related='ncc.name', store=True)
+    def buttonClickReason(self):
+        action = self.env.ref('quality_assurance.action_report_product_quality_check').report_action(self)
+        return action
+
     def generate_tests(self):
         quality_measure = self.env['quality.measure']
         measures = quality_measure.search([('product_id', '=', self.product_id.id),
@@ -79,8 +88,9 @@ class QualityTest(models.Model):
     _inherit = ['mail.thread']
     _order = "id desc"
 
-    quality_measure = fields.Many2one('quality.measure', string='Measure', index=True, ondelete='cascade',track_visibility='onchange')
-    alert_id = fields.Many2one('quality.alert', string="Quality Alert",track_visibility='onchange')
+    quality_measure = fields.Many2one('quality.measure', string='Measure', index=True, ondelete='cascade',
+                                      track_visibility='onchange')
+    alert_id = fields.Many2one('quality.alert', string="Quality Alert", track_visibility='onchange')
     name = fields.Char('Name', related="quality_measure.name", required=True)
     product_id = fields.Many2one('product.product', string='Product', related='alert_id.product_id')
     test_type = fields.Selection(related='quality_measure.type', string='Test Type', required=True, readonly=True)

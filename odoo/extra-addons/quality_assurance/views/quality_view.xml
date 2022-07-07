@@ -80,7 +80,7 @@
         <record model="ir.actions.act_window" id="quality_measure_action">
             <field name="name">Quality Measure</field>
             <field name="res_model">quality.measure</field>
-            
+
             <field name="view_mode">tree,form</field>
             <field name="search_view_id" ref="quality_measure_view_search"/>
             <field name="help" type="html">
@@ -115,6 +115,9 @@
                     <field name="product_id"/>
                     <field name="origin"/>
                     <field name="date"/>
+                    <field name="final_status"/>
+                    <button name="buttonClickReason" type="object" string="Reason" class="oe_highlight"
+                            attrs="{'invisible': [('final_status', '=', 'pass')]}"/>
                 </tree>
             </field>
         </record>
@@ -187,7 +190,7 @@
         <record model="ir.actions.act_window" id="quality_alert_action">
             <field name="name">Quality Alerts</field>
             <field name="res_model">quality.alert</field>
-            
+
             <field name="view_mode">tree,form</field>
             <field name="search_view_id" ref="quality_alert_view_search"/>
             <field name="help" type="html">
@@ -265,7 +268,7 @@
         <record model="ir.actions.act_window" id="quality_test_action">
             <field name="name">Quality Tests</field>
             <field name="res_model">quality.test</field>
-            
+
             <field name="view_mode">tree,form</field>
             <field name="context">{'search_default_my_tests': 1}</field>
         </record>
