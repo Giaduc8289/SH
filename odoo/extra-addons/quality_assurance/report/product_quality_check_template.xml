@@ -16,9 +16,8 @@
                                                                      t-options='{"widget": "date"}'/></strong></p>
                     <br/>
 
-                    <p><strong>Supplier: </strong><t t-esc="nhacungcap"/></p>
-                    <p><strong>License plates: </strong></p>
-
+                    <p><strong>Supplier:<t t-esc="docs.picking_id.partner_id.name"/> </strong></p>
+                    <p><strong>Number Plate:<t t-esc="docs.picking_id.purchase_id.id"/> </strong></p>
                     <div>
                         <table class="table-bordered">
                             <thead>
