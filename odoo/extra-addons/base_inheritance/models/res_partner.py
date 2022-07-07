@@ -4,6 +4,7 @@ from odoo import api, fields, models
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
+
     @api.model
     def _default_country_id(self):
         vn = self.env['res.country'].search([('code', '=ilike', 'VN')])
@@ -20,6 +21,8 @@ class ResPartner(models.Model):
     village_id = fields.Many2one("res.country.location", string='Village', ondelete='restrict',
                                  domain="[('parent_id', '=?', district_id), ('location_type', '=', 'ward')]")
     date_open_book = fields.Date(string='Date open code book')
+    open_date = fields.Date(string='Open date')
+
 
     @api.model
     def create(self, vals_list):
