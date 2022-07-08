@@ -116,7 +116,7 @@
                     <field name="origin"/>
                     <field name="date"/>
                     <field name="final_status"/>
-                    <button name="buttonClickReason" type="object" string="Reason" class="oe_highlight"
+                    <button name="buttonClickReason" type="object" string="Reason" class="btn btn-warning btn-sm"
                             attrs="{'invisible': [('final_status', '=', 'pass')]}"/>
                 </tree>
             </field>
