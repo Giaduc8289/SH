@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime
 from odoo import api, fields, models
+from odoo.osv import expression
 
 
 class QualityMeasure(models.Model):
@@ -54,17 +55,53 @@ class QualityAlert(models.Model):
                                     store=True, string='Status',
                                     default='fail', track_visibility='onchange')
 
-    # ncc_quality = fields.Many2one('purchase.order', string='purchase_order')
-    # ncc = fields.Many2one('purchase.order', string='Nha cung cap', related='ncc_quality.partner_id')
-    # name_ncc = fields.Char(string='Ten nha cung cap', related='ncc.name', store=True)
+    @api.model
+    def _is_inventory_mode(self):
+        return self.env.context.get('inventory_mode') and self.user_has_groups('stock.group_stock_user')
+
+    def _domain_location_id(self):
+        if not self._is_inventory_mode():
+            return
+        return [('usage', 'in', ['internal', 'transit'])]
+
+    def _domain_lot_id(self):
+        if not self._is_inventory_mode():
+            return
+        domain = [
+            "'|'",
+                "('company_id', '=', company_id)",
+                "('company_id', '=', False)"
+        ]
+        if self.env.context.get('active_model') == 'product.product':
+            domain.insert(0, "('product_id', '=', %s)" % self.env.context.get('active_id'))
+        elif self.env.context.get('active_model') == 'product.template':
+            product_template = self.env['product.template'].browse(self.env.context.get('active_id'))
+            if product_template.exists():
+                domain.insert(0, "('product_id', 'in', %s)" % product_template.product_variant_ids.ids)
+        else:
+            domain.insert(0, "('product_id', '=', product_id)")
+        return '[' + ', '.join(domain) + ']'
+
+    stock_quant_id = fields.Many2one('stock.quant', string='Source Operation')
+    location_id = fields.Many2one(
+        'stock.location', 'Location',
+        domain=lambda self: self._domain_location_id(),
+        auto_join=True, ondelete='restrict', required=True, index=True, check_company=True)
+    lot_id = fields.Many2one(
+        'stock.production.lot', 'Lot/Serial Number', index=True,
+        ondelete='restrict', check_company=True,
+        domain=lambda self: self._domain_lot_id())
+
     def buttonClickReason(self):
         action = self.env.ref('quality_assurance.action_report_product_quality_check').report_action(self)
         return action
 
     def generate_tests(self):
         quality_measure = self.env['quality.measure']
-        measures = quality_measure.search([('product_id', '=', self.product_id.id),
-                                           ('trigger_time', 'in', self.picking_id.picking_type_id.id)])
+        domain = [('product_id', '=', self.product_id.id)]
+        if self.picking_id:
+            domain = expression.AND([domain, [('trigger_time', 'in', self.picking_id.picking_type_id.id)]])
+        measures = quality_measure.search(domain)
         for measure in measures:
             self.env['quality.test'].create({
                 'quality_measure': measure.id,
