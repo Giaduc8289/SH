@@ -7,8 +7,9 @@
     "sequence": "8",
     "license": "LGPL-3",
     "category": "Hidden",
-    "depends": ["account"],
+    "depends": ['base_inheritance', "account", 'base_setup', 'product', 'analytic', 'portal', 'digest'],
     "data": [
+        "views/account_menu.xml"
     ],
     "installable": True,
     "maintainers": ["hungtv2012@gmail.com"]
