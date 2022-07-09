@@ -5,9 +5,8 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_tree"></field>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='work_email']" position="after">
-                <field name="first_contract_date" optional="hide"/>
-            </xpath>
+            <xpath expr="//field[@name='activity_ids']" position="replace"/>
+            <xpath expr="//field[@name='activity_date_deadline']" position="replace"/>
         </field>
     </record>
 </odoo>
