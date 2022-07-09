@@ -157,19 +157,3 @@ class StockMoveLine(models.Model):
         })
 
 
-class FilterAlarmStock(models.Model):
-    _name = 'filter.alarm.stock'
-    _description = "Alarm Stock"
-
-    location_id = fields.Many2one(
-        'stock.location', 'Location',
-        auto_join=True, ondelete='restrict', required=True, index=True,
-        domain="['&', ('id', '!=', None), ('usage', '!=', 'view')]")
-
-    def action_alarm_data(self):
-        action = self.env["ir.actions.actions"]._for_xml_id('stock_inheritance.action_stock_alarm')
-        domain = []
-        if self.location_id:
-            domain = expression.AND([domain, [('location_id', '=', self.location_id.id)]])
-        action['domain'] = domain
-        return action
