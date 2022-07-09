@@ -9,9 +9,12 @@
             <xpath expr="//form/sheet/group/group/field[@name='mobile_phone']" position="after">
                 <field name="phone_2"/>
             </xpath>
+            <xpath expr="//form/sheet/group/group/field[@name='coach_id']" position="after">
+                <field name="image_upload" widget="many2many_binary"/>
+            </xpath>
             <xpath expr="//form/sheet/group/group/field[@name='work_email']" position="after">
                 <field name="type_contract" widget="selection"/>
-                <field name="start_date" widget="date"/>
+                <field name="start_date" widget="date" readonly="0"/>
                 <field name="end_date" widget="date"/>
             </xpath>
             <xpath expr="//form/sheet/group/group/field[@name='coach_id']" position="replace">

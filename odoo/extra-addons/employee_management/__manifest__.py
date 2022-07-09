@@ -8,10 +8,12 @@
         'hr',
         'base_address_extended',
         'base_address_city',
-        'base_inheritance'
+        'base_inheritance',
+        'hr_contract'
     ],
     "data": [
         'data/ir_sequence.xml',
+        'views/view_list_hr_tree.xml',
         'views/department_info.xml',
         'views/job_info.xml',
         'views/view_hr_job_form_inheritance.xml',

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-07 10:19+0000\n"
-"PO-Revision-Date: 2022-07-07 10:19+0000\n"
+"POT-Creation-Date: 2022-07-09 03:59+0000\n"
+"PO-Revision-Date: 2022-07-09 03:59+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,11 @@ msgid "Active"
 msgstr "Hoạt động"
 
 #. module: employee_management
+#: model_terms:ir.ui.view,arch_db:employee_management.view_employee_tree_custom
+msgid "Alarm warning"
+msgstr ""
+
+#. module: employee_management
 #: model:ir.model.fields.selection,name:employee_management.selection__hr_employee__certificate__bachelor
 msgid "Bachelor"
 msgstr "Cử nhân"
@@ -28,7 +33,7 @@ msgstr "Cử nhân"
 #. module: employee_management
 #: model:ir.model.fields,field_description:employee_management.field_hr_employee__certificate
 msgid "Certificate Level"
-msgstr "Trình độ học vấn"
+msgstr "Cấp chứng chỉ"
 
 #. module: employee_management
 #: model_terms:ir.ui.view,arch_db:employee_management.view_employee_form_inherited
@@ -64,7 +69,7 @@ msgstr "Tiến sĩ"
 #. module: employee_management
 #: model:ir.model,name:employee_management.model_hr_employee
 msgid "Employee"
-msgstr "Nhân sự"
+msgstr "Nhân viên"
 
 #. module: employee_management
 #: model:ir.model.fields,field_description:employee_management.field_hr_employee__end_date
@@ -163,6 +168,11 @@ msgstr "Loại hợp đồng"
 #: model:ir.model.fields.selection,name:employee_management.selection__hr_employee__type_contract__dh
 msgid "Unlimited time"
 msgstr "Không thời hạn"
+
+#. module: employee_management
+#: model:ir.model.fields,field_description:employee_management.field_hr_employee__image_upload
+msgid "Upload"
+msgstr "Tải lên hợp đồng"
 
 #. module: employee_management
 #: model:ir.model.fields,field_description:employee_management.field_hr_employee__village_id
