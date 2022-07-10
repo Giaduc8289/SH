@@ -93,3 +93,7 @@ https://apps.odoo.com/apps/modules/browse?search=cybrosys
 quality
 https://www.cybrosys.com/odoo/odoo-books/odoo-book-v15/quality/
 
+--Update tự động
+Sửa db trong file odoo.conf thành db của máy chủ và thực hiện update
+
+
