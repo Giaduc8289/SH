@@ -2,7 +2,7 @@
 
 <odoo>
 
-    <template id="report_purchase_order_document">
+    <template id="report_purchase_report_document">
         <t t-call="web.html_container">
             <t t-call="web.report_layout">
                 <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css"/>
@@ -10,41 +10,7 @@
                 <div class="page">
                     <div class="oe_structure"/>
                     <br/>
-                    <h2 class="text-center bold"><center>PURCHASE INVOICE</center></h2>
-                    <br/>
-                    <span class="text-center bold"><center>
-                        <t t-if="date_start">
-                            <span class="text-center bold"><strong>From date: </strong><t t-esc="date_start"/></span>
-                        </t>
-                        <t t-if="date_start and date_end">
-                            <span class="text-center bold"><strong> - </strong></span>
-                        </t>
-                        <t t-if="date_end">
-                            <span class="text-center bold"><strong>To date: </strong><t t-esc="date_end"/></span>
-                        </t>
-                        <br/>
-                        <t t-if="state">
-                            <span class="text-center bold"><strong>Contract status: </strong><t
-                                    t-esc="state"/></span>
-                            <br/>
-                        </t>
-                        <t t-if="group_products">
-                            <span class="text-center bold"><strong>Product group: </strong><t
-                                    t-esc="group_products"/></span>
-                            <br/>
-                        </t>
-                        <t t-if="nhacungcap">
-                            <span class="text-center bold"><strong>Supplier: </strong><t
-                                    t-esc="nhacungcap"/></span>
-                            <br/>
-                        </t>
-                        <t t-if="sanpham">
-                            <span class="text-center bold"><strong>Product: </strong><t t-esc="sanpham"/></span>
-                            <br/>
-                        </t>
-                    </center>
-                    </span>
-                    <br/>
+                    <h2 class="text-center bold"><center>PURCHASE REPORT</center></h2>
                     <br/>
                     <div>
                         <table class="table-bordered">
@@ -52,9 +18,9 @@
                                 <tr>
                                     <th style="width :3%" class="table-item">STT</th>
                                     <th class="text-center">ID</th>
-                                    <th class="text-center">Order date</th>
-                                    <th class="text-center">Supplier</th>
                                     <th class="text-center">Confirmation date</th>
+                                    <th class="text-center">Supplier</th>
+                                    <th class="text-center">Received date</th>
                                     <th class="text-center">Amount total</th>
                                     <th class="text-center">Status</th>
                                 </tr>
@@ -71,13 +37,13 @@
                                             <span t-field="o.name"/>
                                         </td>
                                         <td class="text-left">
-                                            <span t-field="o.date_order" />
+                                            <span t-field="o.date_approve" />
                                         </td>
                                         <td class="text-left">
                                             <span t-field="o.partner_id"/>
                                         </td>
                                         <td class="text-right">
-                                            <span t-field="o.date_approve"/>
+                                            <span t-field="o.date_planned" />
                                         </td>
                                         <td class="text-right">
                                             <span t-field="o.amount_untaxed"/>

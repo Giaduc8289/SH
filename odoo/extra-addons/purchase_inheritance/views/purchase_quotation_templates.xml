@@ -33,51 +33,53 @@
                     <t t-set="doc" t-value="doc.with_context({'lang':zh_CN})"/>
                     <div class="page" style="font-family :Arial !important;">
                         <div class="oe_structure"/>
-                        <h2 class="text-center bold"><center>YÊU CẦU BÁO GIÁ MUA ĐƠN HÀNG</center></h2>
+                        <h2 class="text-center bold" style="text-transform : uppercase;"><center>Request a quote for a purchase order</center></h2>
                         <br/><br/>
                         <div>
-                            <span width="30px"
-                                  style="font-weight: bold;">
-                                Khách hàng: <span>
-                                <t t-if="doc.partner_id.name">
-                                    <t t-esc="doc.partner_id.name"/>
-                                </t>
-                            </span>
-                            </span><br/>
-                            <span width="30px"
-                                  style="font-weight: bold;">
-                                Mã KH: <span>
-                                <t t-if="doc.partner_id.code">
-                                    <t t-esc="doc.partner_id.code"/>
-                                </t>
-                            </span>
-                            </span><br/>
-                            <span width="20px"
-                                  style="font-weight: bold;">
-                                Địa chỉ: <span>
-                                <t t-if="doc.partner_id.village_id.name">
-                                    <t t-esc="doc.partner_id.village_id.name"/>
-                                </t>-
-                            </span>
-                                <span>
-                                    <t t-if="doc.partner_id.district_id.name">
-                                        <t t-esc="doc.partner_id.district_id.name"/>
-                                    </t>-
-                                </span>
-                                <span>
-                                    <t t-if="doc.partner_id.country_id.name">
-                                        <t t-esc="doc.partner_id.country_id.name"/>
+                            <center>
+                                <span width="30px"
+                                      style="font-weight: bold;">
+                                    Partner: <span>
+                                    <t t-if="doc.partner_id.name">
+                                        <t t-esc="doc.partner_id.name"/>
                                     </t>
                                 </span>
-                            </span><br/>
-                            <span width="20px"
-                                  style="font-weight: bold;">
-                                SĐT: <span>
-                                <t t-if="doc.partner_id.phone">
-                                    <t t-esc="doc.partner_id.phone"/>
-                                </t>
-                            </span>
-                            </span><br/>
+                                </span><br/>
+                                <span width="30px"
+                                      style="font-weight: bold;">
+                                    Partner id: <span>
+                                    <t t-if="doc.partner_id.code">
+                                        <t t-esc="doc.partner_id.code"/>
+                                    </t>
+                                </span>
+                                </span><br/>
+                                <span width="20px"
+                                      style="font-weight: bold;">
+                                    Address: <span>
+                                    <t t-if="doc.partner_id.village_id.name">
+                                        <t t-esc="doc.partner_id.village_id.name"/>
+                                    </t>-
+                                </span>
+                                    <span>
+                                        <t t-if="doc.partner_id.district_id.name">
+                                            <t t-esc="doc.partner_id.district_id.name"/>
+                                        </t>-
+                                    </span>
+                                    <span>
+                                        <t t-if="doc.partner_id.country_id.name">
+                                            <t t-esc="doc.partner_id.country_id.name"/>
+                                        </t>
+                                    </span>
+                                </span><br/>
+                                <span width="20px"
+                                      style="font-weight: bold;">
+                                    Phone number: <span>
+                                    <t t-if="doc.partner_id.phone">
+                                        <t t-esc="doc.partner_id.phone"/>
+                                    </t>
+                                </span>
+                                </span><br/>
+                            </center>
                             <br/>
                         </div>
                         <table class="table table-bordered"
@@ -87,17 +89,17 @@
                                     <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;width :3%"
                                         class="table-item">STT</th>
                                     <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 8%;"
-                                        class="text-center">Mã SP</th>
+                                        class="text-center">Product id</th>
                                     <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; "
-                                        class="text-center">Tên sản phẩm</th>
+                                        class="text-center">Product</th>
                                     <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width:20%;"
-                                        class="text-center">Ngày mong đợi</th>
+                                        class="text-center">Delivery date</th>
                                     <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 10%;"
-                                        class="text-center">Số lượng</th>
+                                        class="text-center">Quantity</th>
                                     <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 15%;"
-                                        class="text-center">Đơn giá</th>
+                                        class="text-center">Unit price</th>
                                     <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 15%;"
-                                        class="text-center">Thành tiền</th>
+                                        class="text-center">Amount</th>
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
@@ -144,7 +146,7 @@
                             <table align="right" class="table table-condensed"
                                    style="width: 30%; font-size:18px;">
                                 <tr class="border-black">
-                                    <td style="text-align:left !important;"><strong>Tổng:</strong></td>
+                                    <td style="text-align:left !important;"><strong>Amount total:</strong></td>
                                     <td class="text-right" style="text-align:right !important;">
                                         <span t-field="doc.amount_untaxed_5"
                                               t-field-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>

@@ -22,10 +22,6 @@
                         <t t-if="date_end">
                             <span class="text-center bold">Đến ngày : <t t-esc="date_end"/></span>
                         </t>
-                    </center>
-                    </span>
-                    <br/>
-                    <div>
                         <t t-if="nhacungcap">
                             <strong>Từ nhà cung cấp: </strong><t t-esc="nhacungcap"/>
                         </t>
@@ -42,18 +38,20 @@
                             <strong>Kết quả: </strong><t t-esc="ketqua"/>
                         </t>
                         <br/>
-                    </div>
+                    </center>
+                    </span>
+                    <br/>
                     <div>
                         <table class="table-bordered">
                             <thead>
                                 <tr>
                                     <th style="width :3%" class="table-item">STT</th>
-                                    <th class="table-item">Origin</th>
-                                    <th class="table-item">ID</th>
-                                    <th class="table-item">Name</th>
-                                    <th class="table-item">Date</th>
+                                    <th style="width :12%" class="table-item">Origin</th>
+                                    <th style="width :12%" class="table-item">ID</th>
+                                    <th style="width :12%" class="table-item">Name product</th>
+                                    <th style="width :12%" class="table-item">Date</th>
                                     <th class="table-item">Partner</th>
-                                    <th class="table-item">Final status</th>
+                                    <th style="width :12%" class="table-item">Final status</th>
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
@@ -73,7 +71,7 @@
                                         <td class="text-left">
                                             <span t-field="o.product_id.name"/>
                                         </td>
-                                        <td class="text-right">
+                                        <td class="text-center">
                                             <span t-field="o.date" t-options='{"widget": "date"}'/>
                                         </td>
                                         <td class="text-left">
