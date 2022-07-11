@@ -7,7 +7,7 @@
             <t t-call="web.report_layout">
                 <meta charset="utf-8"/>
                 <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css"/>
-                <div class="page" >
+                <div class="page">
                     <div class="oe_structure"/>
                     <br/>
                     <h2 class="text-center bold"><center>BÁO CÁO BÁN HÀNG</center></h2>
@@ -22,33 +22,34 @@
                         <t t-if="date_end">
                             <span class="text-center bold"><strong>Đến ngày : </strong><t t-esc="date_end"/></span>
                         </t>
+                        <t t-if="khachhang">
+                            <span class="text-center bold"><strong>Tên khách : </strong><t t-esc="khachhang"/></span>
+                            <br/>
+                        </t>
+                        <t t-if="group_products">
+                            <span class="text-center bold"><strong>Nhóm sản phẩm : </strong><t
+                                    t-esc="group_products"/></span>
+                            <br/>
+                        </t>
+                        <t t-if="vung">
+                            <span class="text-center bold"><strong>Vùng : </strong><t t-esc="vung"/></span>
+                            <br/>
+                        </t>
+                        <t t-if="sanpham">
+                            <span class="text-center bold"><strong>Sản phẩm : </strong><t t-esc="sanpham"/></span>
+                            <br/>
+                        </t>
+                        <t t-if="nhanvienkinhdoanh">
+                            <span class="text-center bold"><strong>Nhân viên kinh doanh : </strong><t
+                                    t-esc="nhanvienkinhdoanh"/></span>
+                            <br/>
+                        </t>
                     </center>
                     </span>
-                    <t t-if="khachhang">
-                        <span class="text-center bold"><strong>Tên khách : </strong><t t-esc="khachhang"/></span>
-                        <br/>
-                    </t>
-                    <t t-if="group_products">
-                        <span class="text-center bold"><strong>Nhóm sản phẩm : </strong><t
-                                t-esc="group_products"/></span>
-                        <br/>
-                    </t>
-                    <t t-if="vung">
-                        <span class="text-center bold"><strong>Vùng : </strong><t t-esc="vung"/></span>
-                        <br/>
-                    </t>
-                    <t t-if="sanpham">
-                        <span class="text-center bold"><strong>Sản phẩm : </strong><t t-esc="sanpham"/></span>
-                        <br/>
-                    </t>
-                    <t t-if="nhanvienkinhdoanh">
-                        <span class="text-center bold"><strong>Nhân viên kinh doanh : </strong><t
-                                t-esc="nhanvienkinhdoanh"/></span>
-                        <br/>
-                    </t>
+
                     <br/>
                     <div>
-                        <table class="table-bordered" >
+                        <table class="table-bordered">
                             <thead>
                                 <tr>
                                     <th style="width :3%"
@@ -62,7 +63,7 @@
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
-                                <t t-set="i" t-value="1" />
+                                <t t-set="i" t-value="1"/>
                                 <t t-foreach="docs" t-as="o">
                                     <tr>
                                         <td class="text-center">

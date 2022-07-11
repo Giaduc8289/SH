@@ -63,7 +63,7 @@ class FilterPurchaseOrder(models.Model):
 
     # @api.constrains('f_date', 't_date')
     def action_print_report(self):
-        action = self.env["ir.actions.actions"]._for_xml_id('purchase_inheritance.action_purchase_order_1')
+        action = self.env["ir.actions.actions"]._for_xml_id('purchase_inheritance.action_report_purchase_report')
         domain = []
         if self.f_date:
             domain = expression.AND([domain, [('date_order', '>=', self.f_date)]])

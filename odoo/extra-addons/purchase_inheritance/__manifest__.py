@@ -13,6 +13,7 @@
         "views/product_template_view.xml",
         "report/purchase_report_templates.xml",
         "wizard/purchase_report_views.xml",
+        "views/purchase_report_template.xml",
         "wizard/report_purchase_order_view.xml",
         "views/purchase_quotation_templates.xml",
     ],

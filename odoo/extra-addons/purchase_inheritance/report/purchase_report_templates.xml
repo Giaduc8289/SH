@@ -37,59 +37,62 @@
                     <div class="page" style="font-family :Arial !important;">
                         <div class="oe_structure"/>
                         <strong style="font-weight: bold;">
-                            <h2 class="text-center bold"><center>HÓA ĐƠN MUA HÀNG</center></h2>
+                            <h2 class="text-center bold"><center>PURCHASE INVOICE</center></h2>
                         </strong>
                         <br/><br/><br/>
-                        <div>
-                            <span width="30px"
-                                  style="font-weight: bold; font-size:15px;">
-                                Đơn mua hàng: <span>
-                                <t t-if="doc.name">
-                                    <t t-esc="doc.name"/>
-                                </t>
-                            </span>
-                            </span><br/>
-                            <span width="30px"
-                                  style="font-weight: bold; font-size:15px;">
-                                Nhà cung cấp: <span>
-                                <t t-if="doc.partner_id.name">
-                                    <t t-esc="doc.partner_id.name"/>
-                                </t>
-                            </span>
-                            </span><br/>
 
-                            <span width="30px"
-                                  style="font-weight: bold; font-size:15px;">
-                                Số điện thoại: <span>
-                                <t t-if="doc.partner_id.phone">
-                                    <t t-esc="doc.partner_id.phone"/>
-                                </t>
-                            </span>
-                            </span><br/><br/>
-                            <span width="30px"
-                                  style="font-weight: bold; font-size:15px;">
-                                Đơn hàng của bạn: <span>
-                                <t t-if="doc.partner_ref">
-                                    <t t-esc="doc.partner_ref"/>
-                                </t>
-                            </span>
-                            </span><br/>
-                            <span width="30px"
-                                  style="font-weight: bold;">
-                                Ngày đặt hàng: <span>
-                                <t t-if="doc.date_order">
-                                    <t t-esc="doc.date_order"/>
-                                </t>
-                            </span>
-                            </span><br/>
-                            <span width="30px"
-                                  style="font-weight: bold; font-size:15px;">
-                                Địa chỉ giao hàng:
-                            </span>
-                            <span> Lô 44G KCN Quang Minh - Mê Linh - Hà Nội <br/>
-                                Số 10 ngõ 80/3 phố Nhân Hòa, Phường Nhân Chính, Quận Thanh Xuân
-                                Hà Nội Việt Nam
-                            </span><br/>
+                        <div>
+                            <center>
+                                <span width="30px"
+                                      style="font-weight: bold; font-size:15px;">
+                                   Purchase order: <span>
+                                    <t t-if="doc.name">
+                                        <t t-esc="doc.name"/>
+                                    </t>
+                                </span>
+                                </span><br/>
+                                <span width="30px"
+                                      style="font-weight: bold; font-size:15px;">
+                                    Supplier: <span>
+                                    <t t-if="doc.partner_id.name">
+                                        <t t-esc="doc.partner_id.name"/>
+                                    </t>
+                                </span>
+                                </span><br/>
+
+                                <span width="30px"
+                                      style="font-weight: bold; font-size:15px;">
+                                    Phone number: <span>
+                                    <t t-if="doc.partner_id.phone">
+                                        <t t-esc="doc.partner_id.phone"/>
+                                    </t>
+                                </span>
+                                </span><br/><br/>
+                                <span width="30px"
+                                      style="font-weight: bold; font-size:15px;">
+                                    Your order: <span>
+                                    <t t-if="doc.partner_ref">
+                                        <t t-esc="doc.partner_ref"/>
+                                    </t>
+                                </span>
+                                </span><br/>
+                                <span width="30px"
+                                      style="font-weight: bold;">
+                                    Order date: <span>
+                                    <t t-if="doc.date_order">
+                                        <t t-esc="doc.date_order"/>
+                                    </t>
+                                </span>
+                                </span><br/>
+                                <span width="30px"
+                                      style="font-weight: bold; font-size:15px;">
+                                    Delivery address:
+                                </span>
+                                <span> Lô 44G KCN Quang Minh - Mê Linh - Hà Nội <br/>
+                                    Số 10 ngõ 80/3 phố Nhân Hòa, Phường Nhân Chính, Quận Thanh Xuân
+                                    Hà Nội Việt Nam
+                                </span><br/>
+                            </center>
                             <br/>
 
                             <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">
@@ -98,17 +101,17 @@
                                         <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;width :3%"
                                             class="table-item">STT</th>
                                         <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                            class="text-center">Mã SP</th>
+                                            class="text-center">ID</th>
                                         <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                            class="text-center">Tên sản phẩm</th>
+                                            class="text-center">Product</th>
                                         <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                            class="text-center">Thuế</th>
+                                            class="text-center">Tax</th>
                                         <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                            class="text-center">Số lượng</th>
+                                            class="text-center">Quantity</th>
                                         <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                            class="text-center">Đơn giá</th>
+                                            class="text-center">Unit price</th>
                                         <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;"
-                                            class="text-center">Thành tiền</th>
+                                            class="text-center">Amount</th>
                                     </tr>
                                 </thead>
                                 <tbody class="purchase_tbody">
@@ -155,7 +158,7 @@
                             <table align="right" class="table table-condensed"
                                    style="width: 30%; font-size:18px;">
                                 <tr class="border-black">
-                                    <td style="text-align:left !important;"><strong>Tổng tiền:</strong></td>
+                                    <td style="text-align:left !important;"><strong>Amount total:</strong></td>
                                     <td class="text-right" style="text-align:right !important;">
                                         <span t-field="doc.amount_untaxed_5"
                                               t-field-options='{"widget": "monetary", "display_currency": "doc.currency_id"}'/>

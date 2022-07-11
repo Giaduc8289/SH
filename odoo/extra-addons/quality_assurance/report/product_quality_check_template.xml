@@ -29,8 +29,8 @@
                                     <th style="width :10%" class="table-item">Qualitative test</th>
                                     <th style="width :10%" class="table-item">Quantitative test</th>
                                     <th style="width :10%" class="table-item">Quality test results</th>
-                                    <th style="width :10%" class="table-item">Status</th>
-                                    <th style="width :30%" class="table-item">Note</th>
+                                    <th style="width :12%" class="table-item">Status</th>
+                                    <th style="width :28%" class="table-item">Note</th>
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
@@ -84,15 +84,15 @@
                     <p><strong>Conclusion of the KCS:</strong></p>
                     <div style="display: flex; justify-content: space-between;width :50%; align: left;">
                         <br/>
-                        <div>
-                            <p>1. Products can be put into stock:</p>
-                            <p>2. Return the provider:</p>
-                            <p>3. Other:</p>
+                        <div style="">
+                            <div style="display: flex;  justify-content: space-between;"><p>1. Products can be put into stock:</p><div style="width:30px;"></div><div style="width:20px; height: 20px; box-sizing: content-box; border : solid 1px #000000;"></div> </div>
+                             <div style="display: flex;  justify-content: space-between;"><p>2. Return the provider:</p><div style="width:30px;"></div><div style="width:20px; height: 20px; box-sizing: content-box; border : solid 1px #000000;"></div> </div>
+                            <div style="display: flex;  justify-content: space-between;"><p>3. Other: ..............</p><div style="width:30px;"></div><div style="width:20px; height: 20px; box-sizing: content-box; border : solid 1px #000000;"></div> </div>
                         </div>
                         <div>
-                            <p>4. Reduced protein levels:..............%</p>
-                            <p>5. Discount:.....................đ/kg</p>
-                            <p>6. Other deductions:</p>
+                            <p>4. Reduced protein levels:.............. %</p>
+                            <p>5. Discount:..................... đ/kg</p>
+                            <p>6. Other deductions: ..................... </p>
                         </div>
                     </div>
                     <div class="oe_structure"/>
