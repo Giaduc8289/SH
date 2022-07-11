@@ -4,7 +4,6 @@ from odoo.exceptions import UserError
 
 class StockQuant(models.Model):
     _inherit = 'stock.quant'
-    _description = 'Custom Work Order'
 
     move_lines = fields.One2many('stock.move', 'picking_id', string="Stock Moves", copy=True)
     date_done = fields.Datetime('Date of Transfer', copy=False, readonly=True, help="Date at which the transfer has been processed or cancelled.")
@@ -46,17 +45,23 @@ class StockQuant(models.Model):
         '''
         quality_alert = self.env['quality.alert']
         quality_measure = self.env['quality.measure']
-        for move in self.move_lines:
-            measures = quality_measure.search(
-                [('product_id', '=', move.product_id.id), ('trigger_time', 'in', self.picking_type_id.id)])
-            if measures:
+
+        measures = quality_measure.search(
+            [('product_id', '=', self.product_id.id)])
+        if measures:
+            data = self.env['quality.alert'].search([('stock_quant_id', '=', self.id)])
+            if len(data) == 0:
                 quality_alert.create({
                     'name': self.env['ir.sequence'].next_by_code('quality.alert') or _('New'),
-                    'product_id': move.product_id.id,
-                    'picking_id': self.id,
-                    'origin': self.name,
+                    'product_id': self.product_id.id,
+                    # 'picking_id': None,
+                    'stock_quant_id': self.id,
+                    'location_id': self.location_id.id,
+                    'lot_id': self.lot_id,
+                    'origin': self.lot_id.name,
                     'company_id': self.company_id.id,
                 })
+            self.quality_alert_action()
 
     def action_confirm(self):
         if self.alert_count == 0:

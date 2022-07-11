@@ -23,6 +23,7 @@ class EmployeeInfo(models.Model):
         ('graduate', 'Graduate'),
         ('other', 'Other'),
     ], 'Certificate Level', default='graduate', groups="hr.group_hr_user", tracking=True)
+    image_upload = fields.Many2many('ir.attachment', string="Upload")
     @api.model
     def _default_country_id(self):
         vn = self.env['res.country'].search([('code', '=ilike', 'VN')])

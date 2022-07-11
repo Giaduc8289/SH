@@ -6,7 +6,7 @@
               parent="stock.menu_stock_root"
               sequence="101"/>
     <menuitem id="stock_alarm_menu_date"
-              action="action_stock_move_alarm"
+              action="action_stock_alarm"
               name="Cảnh báo hạn sử dụng"
               parent="stock_alarm_menu"
               sequence="1"/>

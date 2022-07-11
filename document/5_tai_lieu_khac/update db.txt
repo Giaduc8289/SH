@@ -87,4 +87,13 @@ for record in self:
   record['row_number'] = increment
   increment = increment + 1
 
+--Tham khảo
+https://www.cybrosys.com/
+https://apps.odoo.com/apps/modules/browse?search=cybrosys
+quality
+https://www.cybrosys.com/odoo/odoo-books/odoo-book-v15/quality/
+
+--Update tự động
+Sửa db trong file odoo.conf thành db của máy chủ và thực hiện update
+
 
