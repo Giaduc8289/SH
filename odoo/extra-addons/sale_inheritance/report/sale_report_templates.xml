@@ -176,7 +176,7 @@
                                     <tbody class="sale_tbody">
                                         <t t-set="i" t-value="1"/>
                                         <t t-foreach="doc.order_line" t-as="l">
-                                            <tr t-if="l.product_id.categ_id.id not in (10,11,12)">
+                                            <tr t-if="l.qty_delivered_method == 'manual'">
                                                 <td class="text-center">
                                                     <span t-esc="i"/>
                                                     <t t-set="i" t-value="i+1"/>
