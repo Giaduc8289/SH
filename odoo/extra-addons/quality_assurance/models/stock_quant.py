@@ -57,7 +57,7 @@ class StockQuant(models.Model):
                     # 'picking_id': None,
                     'stock_quant_id': self.id,
                     'location_id': self.location_id.id,
-                    'lot_id': self.lot_id,
+                    'lot_id': self.lot_id.id,
                     'origin': self.lot_id.name,
                     'company_id': self.company_id.id,
                 })
