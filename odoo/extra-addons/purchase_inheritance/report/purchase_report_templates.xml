@@ -33,13 +33,14 @@
                     </div>
                 </div>
                 <t t-call="base_inheritance.report_no_logo_layout">
+                    <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css"/>
                     <t t-set="doc" t-value="doc.with_context({'lang':zh_CN})"/>
                     <div class="page" style="font-family :Arial !important;">
                         <div class="oe_structure"/>
                         <strong style="font-weight: bold;">
                             <h2 class="text-center bold"><center>PURCHASE INVOICE</center></h2>
                         </strong>
-                        <br/><br/><br/>
+                        <br/>
 
                         <div>
                             <center>
