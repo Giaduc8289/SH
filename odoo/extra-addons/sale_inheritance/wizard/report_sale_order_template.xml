@@ -44,6 +44,10 @@
                         <span class="text-center bold"><strong>Nhân viên kinh doanh : </strong><t t-esc="nhanvienkinhdoanh"/></span>
                         <br/>
                     </t>
+                     <t t-if="tinhtrang">
+                        <span class="text-center bold"><strong>Invoice status : </strong><t t-esc="tinhtrang"/></span>
+                        <br/>
+                    </t>
                     <br/>
                     <div>
                         <table class="table-bordered" >

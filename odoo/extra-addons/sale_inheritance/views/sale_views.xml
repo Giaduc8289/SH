@@ -28,4 +28,11 @@
               parent="sale.menu_sale_report"
               sequence="2"/>
 
+    <menuitem id="report_discount"
+              action="report_sale_report_action_form"
+              name="Discount report"
+              parent="sale.menu_sale_report"
+              sequence="3"/>
+
+
 </odoo>
