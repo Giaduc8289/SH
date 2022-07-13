@@ -20,6 +20,7 @@ class SaleReportWizard(models.TransientModel):
     khachhang = fields.Many2one("res.partner", "Khách hàng", domain="[('code', 'like', 'KH%')]")
     sanpham = fields.Many2one("product.template", "Sản phẩm", domain="[('default_code', 'not like', 'OT%')]")
     nhanvienkinhdoanh = fields.Many2one("res.partner", "Nhân viên kinh doanh", domain="[('user_id', '=', None)]")
+    tinhtrang = fields.Selection([('invoiced', 'Fully Invoiced'), ('to invoice', 'To Invoice'), ('no', 'Nothing to Invoice')], 'Invoice status')
 
     def get_report(self):
         date_start = self.date_start
@@ -43,13 +44,16 @@ class SaleReportWizard(models.TransientModel):
             domain = expression.AND([domain, [('order_line.product_id', '=', self.sanpham.id)]])
         if self.nhanvienkinhdoanh:
             domain = expression.AND([domain, [('partner_id.user_id.name', '=', self.nhanvienkinhdoanh.name)]])
+        if self.tinhtrang:
+            domain = expression.AND([domain, [('invoice_status', '=', self.tinhtrang)]])
+
 
         data = {
             'model': self._name,
             'ids': self.ids,
             'form': {
                 'date_start': date_start, 'date_end': date_end, 'group_products': self.group_products.complete_name, 'vung': self.vung.name, 'khachhang':self.khachhang.name, 'sanpham':self.sanpham.name,
-                'nhanvienkinhdoanh':self.nhanvienkinhdoanh.name, 'domain': domain
+                'nhanvienkinhdoanh':self.nhanvienkinhdoanh.name, 'domain': domain, 'tinhtrang': self.tinhtrang
             },
         }
 
@@ -68,6 +72,7 @@ class ReportSale(models.AbstractModel):
         khachhang = data['form']['khachhang']
         sanpham = data['form']['sanpham']
         nhanvienkinhdoanh = data['form']['nhanvienkinhdoanh']
+        tinhtrang = data['form']['tinhtrang']
         domain = data['form']['domain']
 
         data_sa = self.env['sale.order'].search(domain)
@@ -82,6 +87,7 @@ class ReportSale(models.AbstractModel):
             'vung': vung,
             'khachhang': khachhang,
             'sanpham': sanpham,
+            'tinhtrang': tinhtrang,
             'nhanvienkinhdoanh': nhanvienkinhdoanh,
             'docs': docs,
         }
