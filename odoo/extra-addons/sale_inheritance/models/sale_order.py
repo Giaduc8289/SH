@@ -43,8 +43,8 @@ class SaleOrder(models.Model):
         for order in self:
             amount_untaxed = 0.0
             for line in order.order_line:
-                if line.qty_delivered_method == 'stock_move':
-                    amount_untaxed += line.price_subtotal
+                if line.product_id.categ_id.id in (10, 11, 12) or line.qty_delivered_method =='stock_move':
+                        amount_untaxed += line.price_subtotal
             order.update({
                 'amount_untaxed_1': amount_untaxed,
             })
@@ -57,7 +57,7 @@ class SaleOrder(models.Model):
         for order in self:
             amount_untaxed = 0.0
             for line in order.order_line:
-                if line.qty_delivered_method == 'manual':
+                if line.qty_delivered_method =='manual':
                     amount_untaxed += line.price_subtotal
             order.update({
                 'amount_untaxed_2': -amount_untaxed,
