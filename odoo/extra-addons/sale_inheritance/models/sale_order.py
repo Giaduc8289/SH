@@ -43,8 +43,8 @@ class SaleOrder(models.Model):
         for order in self:
             amount_untaxed = 0.0
             for line in order.order_line:
-                if line.product_id.categ_id.id in (10, 11, 12):
-                    amount_untaxed += line.price_subtotal
+                if line.product_id.categ_id.id in (10, 11, 12) or line.qty_delivered_method =='stock_move':
+                        amount_untaxed += line.price_subtotal
             order.update({
                 'amount_untaxed_1': amount_untaxed,
             })
@@ -57,7 +57,7 @@ class SaleOrder(models.Model):
         for order in self:
             amount_untaxed = 0.0
             for line in order.order_line:
-                if line.product_id.categ_id.id not in (10, 11, 12):
+                if line.qty_delivered_method =='manual':
                     amount_untaxed += line.price_subtotal
             order.update({
                 'amount_untaxed_2': -amount_untaxed,
@@ -166,6 +166,29 @@ class SaleOrder(models.Model):
                     del reward_dict[val]
         return reward_dict.values()
 
+    @api.depends('order_line.price_total')
+    def _amount_all(self):
+        """
+        Compute the total amounts of the SO.
+        """
+        for order in self:
+            amount_untaxed = amount_tax = 0.0
+            for line in order.order_line:
+                data = self.env['coupon.reward'].search([('discount_line_product_id', '=', line.product_id.id)], limit=1)
+                if len(data) > 0:
+                    data1 = self.env['coupon.program'].search([('reward_id', '=', data[0].id)], limit=1)
+                    if len(data1) > 0:
+                        if data1[0].payment_type == 'now':
+                            amount_untaxed += line.price_subtotal
+                            amount_tax += line.price_tax
+                else:
+                    amount_untaxed += line.price_subtotal
+                    amount_tax += line.price_tax
+            order.update({
+                'amount_untaxed': amount_untaxed,
+                'amount_tax': amount_tax,
+                'amount_total': amount_untaxed + amount_tax,
+            })
 
 class ReportSaleOrder(models.Model):
     _name = 'report.sale.order'
