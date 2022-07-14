@@ -9,6 +9,8 @@
     # "category": "Hidden",
     "depends": ['account', 'base_inheritance', 'mrp'],
     "data": [
+        "report/mrp_production_templates.xml",
+        "view/mrp_report_views_main.xml",
     ],
     "installable": True,
     'application': True,
