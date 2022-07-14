@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+     <data>
+        <record id="action_report_postpaid_discount" model="ir.actions.report">
+            <field name="name">Report Postpaid discount</field>
+            <field name="model">postpaid.discount.wizard</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">sale_inheritance.report_postpaid_discount_document</field>
+            <field name="report_file">sale_inheritance.report_postpaid_discount_document</field>
+            <field name="print_report_name">Postpaid discount report</field>
+            <field name="binding_model_id" ref="model_report_sale_inheritance_report_postpaid_discount_document"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+
+    <record id="report_postpaid_discount_view" model="ir.ui.view">
+        <field name="name">postpaid.discount.wizard.form</field>
+        <field name="model">postpaid.discount.wizard</field>
+        <field name="arch" type="xml">
+            <form create="false">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date_start" widget="date"/>
+                            <field name="khachhang" widget="many2one"/>
+                        </group>
+                        <group>
+                            <field name="date_end" widget="date"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="get_report" type="object" string="Filter" class="oe_highlight"/>
+                        <button string="Cancel" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+    <record id="report_postpaid_discount_action_form" model="ir.actions.act_window">
+        <field name="name">Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">postpaid.discount.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="report_postpaid_discount_view"/>
+    </record>
+</odoo>
