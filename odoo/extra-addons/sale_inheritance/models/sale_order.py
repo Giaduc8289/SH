@@ -174,7 +174,14 @@ class SaleOrder(models.Model):
         for order in self:
             amount_untaxed = amount_tax = 0.0
             for line in order.order_line:
-                if line.product_id.payment_type == 'now':
+                data = self.env['coupon.reward'].search([('discount_line_product_id', '=', line.product_id.id)], limit=1)
+                if len(data) > 0:
+                    data1 = self.env['coupon.program'].search([('reward_id', '=', data[0].id)], limit=1)
+                    if len(data1) > 0:
+                        if data1[0].payment_type == 'now':
+                            amount_untaxed += line.price_subtotal
+                            amount_tax += line.price_tax
+                else:
                     amount_untaxed += line.price_subtotal
                     amount_tax += line.price_tax
             order.update({

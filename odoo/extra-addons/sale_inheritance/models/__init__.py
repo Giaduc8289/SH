@@ -4,4 +4,3 @@ from . import sale_order_line
 from . import coupon_program
 from . import coupon_detail
 from . import product_pricelist
-from . import product

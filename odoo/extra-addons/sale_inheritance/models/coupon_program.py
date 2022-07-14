@@ -44,6 +44,5 @@ class CouponProgram(models.Model):
             'sale_ok': False,
             'purchase_ok': False,
             'lst_price': 0, #Do not set a high value to avoid issue with coupon code
-            'payment_type': self.payment_type,
         }
 
