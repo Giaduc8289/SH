@@ -7,3 +7,6 @@ sale_summary_report_user,sale.summary.report.user,model_sale_summary_report_wiza
 sale_summary_report_manager,sale.summary.report.manager,model_sale_summary_report_wizard,base.group_system,1,1,1,1
 sale_report_user,sale.report.user,model_sale_report_wizard,base.group_user,1,0,1,0
 sale_report_manager,sale.report.manager,model_sale_report_wizard,base.group_system,1,1,1,1
+
+postpaid_discount_user,postpaid.discount.user,model_postpaid_discount_wizard,base.group_user,1,0,1,0
+postpaid_discount_manager,postpaid.discount.manager,model_postpaid_discount_wizard,base.group_system,1,1,1,1

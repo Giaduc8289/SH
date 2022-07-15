@@ -23,6 +23,8 @@
         "report/sale_report.xml",
         "wizard/sale_summary_report_temp.xml",
         "wizard/sale_summary_report_view.xml",
+        "wizard/postpaid_discount.xml",
+        "wizard/report_postpaid_discount_document.xml"
     ],
     "installable": True,
     "maintainers": ["anhnth.mta@gmail.com"]
