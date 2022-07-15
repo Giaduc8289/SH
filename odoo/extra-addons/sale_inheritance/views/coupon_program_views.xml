@@ -98,6 +98,13 @@
         <field name="inherit_id" ref="coupon.coupon_program_view_promo_program_form"/>
         <field name="mode">extension</field>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <div>
+                    <label for="shortened_name" string="Shortened name"/>
+                    <h2><field name="shortened_name" class="oe_title o_text_overflow" height="20px"/></h2>
+                </div>
+                <br/>
+            </xpath>
             <xpath expr="/form/sheet/group" position="after">
                 <group>
                     <field name="config_detail" widget="boolean"/>
@@ -119,10 +126,11 @@
                 </group>
                 <group name="validity" string="Validity duration">
                     <group>
-                        <field name="date_start" class="oe_inline"/>
+                        <field name="rule_date_from" class="oe_inline"/>
+
                     </group>
                     <group>
-                        <field name="date_end" class="oe_inline"/>
+                        <field name="rule_date_to" class="oe_inline"/>
                     </group>
                 </group>
             </xpath>
@@ -144,14 +152,6 @@
                                    attrs="{'required':[('discount_type', '=', 'fixed_amount')]}" widget='radio'
                                    options="{'currency_field': 'currency_id'}"/>
                         </group>
-                        <group>
-                            <group>
-                                <field name="from_date" style="width:150px;" readonly="0"/>
-                            </group>
-                            <group>
-                                <field name="to_date" style="width:150px;" readonly="0"/>
-                            </group>
-                        </group>
                     </group>
                 </group>
                 <group attrs="{'invisible': [('config_detail', '=', False)]}">
@@ -160,16 +160,12 @@
                             <field name="partner_ids" optional="show" widget="many2many_tags"/>
                             <field name="discount_fixed_amount_detail"
                                    attrs="{'invisible':[('parent.discount_type', '!=', 'fixed_amount')]}"/>
-                            <field name="discount_hold_amount_detail"
-                                   attrs="{'invisible':[('parent.discount_type', '!=', 'fixed_amount')]}"/>
                             <field name="discount_percentage_detail"
                                    attrs="{'invisible':[('parent.discount_type', '=', 'fixed_amount')]}"/>
                         </tree>
                         <form>
                             <group>
                                 <field name="discount_fixed_amount_detail"
-                                       attrs="{'invisible':[('parent.discount_type', '!=', 'fixed_amount')]}"/>
-                                <field name="discount_hold_amount_detail"
                                        attrs="{'invisible':[('parent.discount_type', '!=', 'fixed_amount')]}"/>
                                 <field name="discount_percentage_detail"
                                        attrs="{'invisible':[('parent.discount_type', '=', 'fixed_amount')]}"/>
