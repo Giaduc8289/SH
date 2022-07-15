@@ -17,8 +17,11 @@ class CouponProgram(models.Model):
                                             domain="[('code', 'like', 'KH%')]")
     coupon_products_ids = fields.Many2many('product.template', column1='coupon_program_id', column2='id',
                                             relation='coupon_program_product_template_rel', string="Sản phẩm")
+    date_start = fields.Date(string="Date start")
+    date_end = fields.Date(string="Date end")
     payment_type = fields.Selection([('later', 'Pay later'), ('now', 'Pay now')], string="Payment_type", default='now')
-    shortened_name = fields.Char(string="Shortened name")
+    from_date = fields.Date(string="From date")
+    to_date = fields.Date(string="To date")
     def _is_valid_partner(self, partner):
         if self.coupon_partner_ids:
             domain = [('id', 'in', self.coupon_partner_ids.ids), ('id', '=', partner.id)]
