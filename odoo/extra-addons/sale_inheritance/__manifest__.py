@@ -10,6 +10,8 @@
     "depends": ["base_inheritance", "sale", 'coupon', "sale_coupon"],
     "data": [
         'security/ir.model.access.csv',
+        "wizard/report_discount_coupon.xml",
+        "wizard/report_discount_coupon_document.xml",
         "views/product_pricelist_views.xml",
         "report/report_pricelist_templates.xml",
         "wizard/sale_report_views.xml",
