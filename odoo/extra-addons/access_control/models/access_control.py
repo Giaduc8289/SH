@@ -44,8 +44,8 @@ class AccessControl(models.Model):
 
     state = fields.Selection([
         ('in', 'In'),
+        ('order', 'Create Order'),
         ('weighin', 'Vehicle Weigh In'),
-        ('unload', 'Unload Goods'),
         ('weighout', 'Vehicle Weigh Out'),
         ('out', 'Out'),
     ], string='Status', readonly=True, copy=False, index=True, default='in')
@@ -87,20 +87,20 @@ class AccessControl(models.Model):
         temp = self.browse(data)
         temp.ordinal_number = len(data_acs) + 1  # seq.next_by_id()
 
-    def action_weigh_in(self):
-        for record in self:
-            if (record.state == 'in'):
-                record.state = 'weighin'
-
     def action_create_order(self):
         for record in self:
-            if (record.state == 'weighin'):
-                record.state = 'unload'
+            if (record.state == 'in'):
+                record.state = 'order'
+
+    def action_weigh_in(self):
+        for record in self:
+            if (record.state == 'order'):
+                record.state = 'weighin'
 
     def action_unload(self):
         for record in self:
-            if (record.state == 'weighin'):
-                record.state = 'unload'
+            if (record.state == 'in'):
+                record.state = 'order'
             if (record.purpose == 'sale'):
                 action = self.env["ir.actions.actions"]._for_xml_id("sale.action_orders")
             if (record.purpose == 'purchase'):
@@ -110,9 +110,9 @@ class AccessControl(models.Model):
     def action_purchase(self):
         action = self.env["ir.actions.actions"]
         for record in self:
-            if (record.state == 'weighin'):
-                record.state = 'unload'
-            if ((record.state in ('weighin', 'unload')) and (record.purpose == 'sale')):
+            if (record.state == 'in'):
+                record.state = 'order'
+            if ((record.state in ('in', 'order')) and (record.purpose == 'sale')):
                 action = self.env["ir.actions.actions"]._for_xml_id("purchase.purchase_form_action")
         # if action is None:
         #     raise exceptions.UserError(_("No action available for this job"))
@@ -121,9 +121,9 @@ class AccessControl(models.Model):
     def action_sale(self):
         action = self.env["ir.actions.actions"]
         for record in self:
-            if (record.state == 'weighin'):
-                record.state = 'unload'
-            if ((record.state in ('weighin', 'unload')) and (record.purpose == 'purchase')):
+            if (record.state == 'in'):
+                record.state = 'order'
+            if ((record.state in ('in', 'order')) and (record.purpose == 'purchase')):
                 action = self.env["ir.actions.actions"]._for_xml_id("sale.action_orders")
         # if action is None:
         #     raise exceptions.UserError(_("No action available for this job"))
@@ -131,7 +131,7 @@ class AccessControl(models.Model):
 
     def action_weigh_out(self):
         for record in self:
-            if (record.state == 'unload'):
+            if (record.state == 'weighin'):
                 record.state = 'weighout'
 
     def action_check_out(self):
