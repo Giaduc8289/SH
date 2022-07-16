@@ -11,6 +11,8 @@
     "data": [
         'security/ir.model.access.csv',
         "wizard/postpaid_discount.xml",
+        "wizard/report_discount_coupon.xml",
+        "wizard/report_discount_coupon_document.xml",
         "views/product_pricelist_views.xml",
         "report/report_pricelist_templates.xml",
         "wizard/sale_report_views.xml",
