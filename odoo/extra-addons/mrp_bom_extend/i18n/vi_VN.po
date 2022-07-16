@@ -1,0 +1,930 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mrp_bom_extend
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-16 15:04+0000\n"
+"PO-Revision-Date: 2022-07-16 15:04+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields.selection,name:mrp_bom_extend.selection__mrp_bom_extend__ready_to_produce__all_available
+msgid " When all components are available"
+msgstr " Khi có đủ tất cả các linh kiện"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__workorder_count
+msgid "# Work Orders"
+msgstr "# Đơn công đoạn"
+
+#. module: mrp_bom_extend
+#: code:addons/mrp_bom_extend/models/mrp_routing_extend.py:0
+#, python-format
+msgid "%i work orders"
+msgstr "%i đơn công đoạn "
+
+#. module: mrp_bom_extend
+#: code:addons/mrp_bom_extend/models/mrp_routing_extend.py:0
+#, python-format
+msgid "%s (copy)"
+msgstr "%s (bản sao)"
+
+#. module: mrp_bom_extend
+#: code:addons/mrp_bom_extend/models/mrp_bom_extend.py:0
+#, python-format
+msgid "%s (new) %s"
+msgstr "%s (mới) %s"
+
+#. module: mrp_bom_extend
+#: code:addons/mrp_bom_extend/models/mrp_bom_extend.py:0
+#, python-format
+msgid ""
+"<p class=\"o_view_nocontent_smiling_face\">\n"
+"                        Upload files to your product\n"
+"                    </p><p>\n"
+"                        Use this feature to store any files, like drawings or specifications.\n"
+"                    </p>"
+msgstr ""
+"<p class=\"o_view_nocontent_smiling_face\">\n"
+"                        Tải lên tệp cho sản phẩm của bạn\n"
+"                    </p><p>\n"
+"                        Dùng tính năng này để lưu trữ các tệp như bản vẽ hoặc mô tả kĩ thuật.\n"
+"                    </p>"
+
+#. module: mrp_bom_extend
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_form_view_extend
+msgid "<span class=\"o_stat_text\">Routing<br/>Performance</span>"
+msgstr "<span class=\"o_stat_text\">Năng suất<br/>tuyến</span>"
+
+#. module: mrp_bom_extend
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_form_view_extend
+msgid "A BoM of type kit is used to split the product into its components."
+msgstr "BoM kiểu bộ kit được dùng để tách sản phẩm thành linh kiện. "
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__message_needaction
+msgid "Action Needed"
+msgstr "Cần tác vụ"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__active
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__active
+msgid "Active"
+msgstr "Đang hoạt động"
+
+#. module: mrp_bom_extend
+#: model:ir.model.constraint,message:mrp_bom_extend.constraint_mrp_bom_line_extend_bom_qty_zero
+msgid ""
+"All product quantities must be greater or equal to 0.\n"
+"Lines with 0 quantities can be used as optional lines. \n"
+"You should install the mrp_byproduct module if you want to manage extra products on BoMs !"
+msgstr ""
+"Tất cả số lượng sản phẩm phải lớn hơn hoặc bằng 0.\n"
+"Các dòng có số lượng 0 sẽ được sử dụng như là các dòng tuỳ chọn.\n"
+"Bạn nên cài mô-đun mrp_byproduct nếu bạn muốn quản lý phụ phẩm trong BoM !"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields.selection,name:mrp_bom_extend.selection__mrp_bom_extend__consumption__flexible
+msgid "Allowed"
+msgstr "Được phép"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields.selection,name:mrp_bom_extend.selection__mrp_bom_extend__consumption__warning
+msgid "Allowed with warning"
+msgstr "Được phép kèm cảnh báo"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_byproduct_extend__bom_product_template_attribute_value_ids
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend__bom_product_template_attribute_value_ids
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__bom_product_template_attribute_value_ids
+msgid "Apply on Variants"
+msgstr "Áp dụng cho biến thể"
+
+#. module: mrp_bom_extend
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_form_view_extend
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.view_mrp_bom_filter_extend
+msgid "Archived"
+msgstr "Đã lưu trữ"
+
+#. module: mrp_bom_extend
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_form_view_extend
+msgid "At the creation of a Manufacturing Order."
+msgstr "Khi tạo một đơn sản xuất. "
+
+#. module: mrp_bom_extend
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_form_view_extend
+msgid "At the creation of a Stock Transfer."
+msgstr "Khi tạo điều chuyển kho. "
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__message_attachment_count
+msgid "Attachment Count"
+msgstr "Số tệp đính kèm"
+
+#. module: mrp_bom_extend
+#: code:addons/mrp_bom_extend/models/mrp_bom_extend.py:0
+#, python-format
+msgid "Attachments"
+msgstr "Tệp đính kèm"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend__attachments_count
+msgid "Attachments Count"
+msgstr "Số tệp đính kèm"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_byproduct_extend__bom_product_template_attribute_value_ids
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_line_extend__bom_product_template_attribute_value_ids
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_routing_extend__bom_product_template_attribute_value_ids
+msgid "BOM Product Variants needed to apply this line."
+msgstr "Biến thể sản phẩm BOM cần áp dụng cho dòng này. "
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend__child_line_ids
+msgid "BOM lines of the referred bom"
+msgstr "Chi tiết các dòng BoM của BoM được tham chiếu"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__time_mode_batch
+msgid "Based on"
+msgstr "Dựa trên"
+
+#. module: mrp_bom_extend
+#: model:ir.model,name:mrp_bom_extend.model_mrp_bom
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom__bom_extend_id
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__bom_id
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_form_view_extend
+msgid "Bill of Material"
+msgstr "Công thức phối trộn BoM"
+
+#. module: mrp_bom_extend
+#: model:ir.model,name:mrp_bom_extend.model_mrp_bom_line_extend
+msgid "Bill of Material Line"
+msgstr "Công thức phối trộn chi tiết"
+
+#. module: mrp_bom_extend
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_line_view_form_extend
+msgid "Bill of Material line"
+msgstr "Công thức phối trộn chi tiết"
+
+#. module: mrp_bom_extend
+#: model:ir.actions.act_window,name:mrp_bom_extend.product_open_bom_extend
+#: model:ir.actions.act_window,name:mrp_bom_extend.template_open_bom_extend
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_tree_view_extend
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.view_mrp_bom_filter_extend
+msgid "Bill of Materials"
+msgstr "Công thức phối trộn"
+
+#. module: mrp_bom_extend
+#: model_terms:ir.actions.act_window,help:mrp_bom_extend.mrp_bom_form_action_extend
+msgid ""
+"Bills of materials allow you to define the list of required raw\n"
+"                materials used to make a finished product; through a manufacturing\n"
+"                order or a pack of products."
+msgstr ""
+"Công thức phối trộn cho phép bạn xác định danh sách các nguyên liệu thô\n"
+"                cần có để tạo nên một thành phẩm; thông qua đơn sản xuất\n"
+"                hoặc gói sản phẩm."
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields.selection,name:mrp_bom_extend.selection__mrp_bom_extend__consumption__strict
+msgid "Blocked"
+msgstr "Đã chặn"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_byproduct_extend__bom_id
+msgid "BoM"
+msgstr "BoM"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__bom_line_ids
+msgid "BoM Lines"
+msgstr "Dòng BoM"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__name
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_form_view_extend
+msgid "BoM Name"
+msgstr "Tên công thức"
+
+#. module: mrp_bom_extend
+#: model:ir.actions.client,name:mrp_bom_extend.action_report_mrp_bom_extend
+msgid "BoM Structure & Cost"
+msgstr "Cấu trúc & Chi phí BoM"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__type
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.view_mrp_bom_filter_extend
+msgid "BoM Type"
+msgstr "Kiểu BoM"
+
+#. module: mrp_bom_extend
+#: code:addons/mrp_bom_extend/models/mrp_bom_extend.py:0
+#, python-format
+msgid "BoM line product %s should not be the same as BoM product."
+msgstr "BOM của sản phẩm %s không nên giống với BOM sản phẩm."
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_byproduct_extend__product_id
+msgid "By-product"
+msgstr "Phụ phẩm"
+
+#. module: mrp_bom_extend
+#: code:addons/mrp_bom_extend/models/mrp_bom_extend.py:0
+#, python-format
+msgid "By-product %s should not be the same as BoM product."
+msgstr "Phụ phẩm %s không được giống với sản phẩm BoM. "
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__byproduct_ids
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_form_view_extend
+msgid "By-products"
+msgstr "Phụ phẩm"
+
+#. module: mrp_bom_extend
+#: code:addons/mrp_bom_extend/models/mrp_bom_extend.py:0
+#, python-format
+msgid "By-products cost shares must be positive."
+msgstr "Chi phí chia sẻ phụ phẩm phải là số dương. "
+
+#. module: mrp_bom_extend
+#: model:ir.model,name:mrp_bom_extend.model_mrp_bom_byproduct_extend
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_byproduct_form_view_extend
+msgid "Byproduct"
+msgstr "Phụ phẩm"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_byproduct_extend__product_uom_category_id
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__product_uom_category_id
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend__product_uom_category_id
+msgid "Category"
+msgstr "Danh mục"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_byproduct_extend__company_id
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__company_id
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend__company_id
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__company_id
+msgid "Company"
+msgstr "Công ty"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend__product_id
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_line_view_form_extend
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.view_mrp_bom_filter_extend
+msgid "Component"
+msgstr "Linh kiện"
+
+#. module: mrp_bom_extend
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_form_view_extend
+msgid "Components"
+msgstr "Linh kiện"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields.selection,name:mrp_bom_extend.selection__mrp_routing_extend__time_mode__auto
+msgid "Compute based on tracked time"
+msgstr "Tính theo thời gian đã theo dõi"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__time_computed_on
+msgid "Computed on last"
+msgstr "Tính toán lần cuối vào"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend__operation_id
+msgid "Consumed in Operation"
+msgstr "Tiêu thụ trong hoạt động"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_byproduct_extend__product_uom_category_id
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_extend__product_uom_category_id
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_line_extend__product_uom_category_id
+msgid ""
+"Conversion between Units of Measure can only occur if they belong to the "
+"same category. The conversion will be made based on the ratios."
+msgstr ""
+"Chuyển đổi đơn vị đo chỉ có thể thực hiện được nếu chúng thuộc cùng một danh"
+" mục. Việc chuyển đổi sẽ được tính dựa theo tỉ lệ. "
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_byproduct_extend__cost_share
+msgid "Cost Share (%)"
+msgstr "Chi phí chia sẻ (%)"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_byproduct_extend__create_uid
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__create_uid
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend__create_uid
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__create_uid
+msgid "Created by"
+msgstr "Tạo bởi"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_byproduct_extend__create_date
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__create_date
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend__create_date
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__create_date
+msgid "Created on"
+msgstr "Thời điểm tạo"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_extend__consumption
+msgid ""
+"Defines if you can consume more or less components than the quantity defined on the BoM:\n"
+"  * Allowed: allowed for all manufacturing users.\n"
+"  * Allowed with warning: allowed for all manufacturing users with summary of consumption differences when closing the manufacturing order.\n"
+"  * Blocked: only a manager can close a manufacturing order when the BoM consumption is not respected."
+msgstr ""
+"Xác định liệu bạn có thể tiêu thụ linh kiện nhiều hơn hoặc ít hơn so với số lượng xác định trong BoM:\n"
+"  * Được phép: Cho phép tất cả người thực hiện sản xuất.\n"
+"  * Được phép kèm cảnh báo: cho phép tất cả người dùng thực hiện sản xuất kèm với tóm tắt chênh lệch khi đóng đơn sản xuất.\n"
+"  * Đã chặn: chỉ quản lý mới có thể đóng đơn sản xuất khi tiêu thụ BoM khác với kế hoạch. "
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_routing_extend__worksheet_type
+msgid "Defines if you want to use a PDF or a Google Slide as work sheet."
+msgstr ""
+"Xác định liệu bạn muốn dùng PDF hay Google Slide để trình bày bảng việc. "
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_extend__ready_to_produce
+msgid ""
+"Defines when a Manufacturing Order is considered as ready to be started"
+msgstr "Xác định thời điểm Đơn sản xuất được coi là sẵn sàng bắt đầu"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__note
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_byproduct_extend__display_name
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__display_name
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend__display_name
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__time_cycle
+msgid "Duration"
+msgstr "Thời lượng"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__time_mode
+msgid "Duration Computation"
+msgstr "Tính toán thời lượng"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__consumption
+msgid "Flexible Consumption"
+msgstr "Mức tiêu thụ linh hoạt"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__message_follower_ids
+msgid "Followers"
+msgstr "Người theo dõi"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Người theo dõi (Đối tác)"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_extend__sequence
+msgid "Gives the sequence order when displaying a list of bills of material."
+msgstr ""
+"Chỉ ra trình tự sắp xếp khi hiển thị một danh sách Định mức nguyên liệu."
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_routing_extend__sequence
+msgid ""
+"Gives the sequence order when displaying a list of routing Work Centers."
+msgstr ""
+"Chỉ ra trình tự sắp xếp khi hiển thị một danh sách quy trình sản xuất."
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_line_extend__sequence
+msgid "Gives the sequence order when displaying."
+msgstr "Chỉ ra trình tự sắp xếp khi hiển thị."
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__worksheet_google_slide
+#: model:ir.model.fields.selection,name:mrp_bom_extend.selection__mrp_routing_extend__worksheet_type__google_slide
+msgid "Google Slide"
+msgstr "Google Slide"
+
+#. module: mrp_bom_extend
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.view_mrp_bom_filter_extend
+msgid "Group By..."
+msgstr "Nhóm theo..."
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__has_message
+msgid "Has Message"
+msgstr "Có tin nhắn"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_byproduct_extend__id
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__id
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend__id
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__id
+msgid "ID"
+msgstr ""
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_extend__product_id
+msgid ""
+"If a product variant is defined the BOM is available only for this product."
+msgstr ""
+"Nếu một biến thể sản phẩm được xác định, BoM này chỉ khả dụng cho sản phẩm "
+"này."
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_extend__message_needaction
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_extend__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Nếu chọn, các tin nhắn mới yêu cầu sự chú ý của bạn. "
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_extend__message_has_error
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_extend__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Nếu đánh dấu, một số tin nhắn bị lỗi khi gửi. "
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_extend__active
+msgid ""
+"If the active field is set to False, it will allow you to hide the bills of "
+"material without removing it."
+msgstr ""
+"Nếu trường hoạt động được đặt là Sai, bạn sẽ được phép ẩn định mức vật liệu "
+"mà không cần xóa bỏ. "
+
+#. module: mrp_bom_extend
+#: code:addons/mrp_bom_extend/models/mrp_bom_extend.py:0
+#, python-format
+msgid "Import Template for Bills of Materials"
+msgstr "Nhập mẫu định mức"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__message_is_follower
+msgid "Is Follower"
+msgstr "Là người theo dõi"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields.selection,name:mrp_bom_extend.selection__mrp_bom_extend__type__phantom
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.view_mrp_bom_filter_extend
+msgid "Kit"
+msgstr "Bộ kit"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_byproduct_extend____last_update
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend____last_update
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend____last_update
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend____last_update
+msgid "Last Modified on"
+msgstr "Sửa lần cuối vào"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_byproduct_extend__write_uid
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__write_uid
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend__write_uid
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_byproduct_extend__write_date
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__write_date
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend__write_date
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: mrp_bom_extend
+#: model:ir.model,name:mrp_bom_extend.model_mrp_bom_extend
+msgid "List Bill of Material"
+msgstr "Danh mục Công thức phối trộn"
+
+#. module: mrp_bom_extend
+#: model:ir.actions.act_window,name:mrp_bom_extend.mrp_bom_form_action_extend
+#: model:ir.ui.menu,name:mrp_bom_extend.menu_mrp_bom_form_action_extend
+msgid "List Bills of Materials"
+msgstr "Danh mục Công thức phối trộn"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Tệp đính kèm chính"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__time_cycle_manual
+msgid "Manual Duration"
+msgstr "Thời lượng thủ công"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields.selection,name:mrp_bom_extend.selection__mrp_bom_extend__type__normal
+msgid "Manufacture this product"
+msgstr "Sản xuất sản phẩm này"
+
+#. module: mrp_bom_extend
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.view_mrp_bom_filter_extend
+msgid "Manufacturing"
+msgstr "Sản xuất"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__ready_to_produce
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_form_view_extend
+msgid "Manufacturing Readiness"
+msgstr "Tính sẵn sàng sản xuất"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__message_has_error
+msgid "Message Delivery error"
+msgstr "Gửi tin nhắn bị lỗi"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__message_ids
+msgid "Messages"
+msgstr "Tin nhắn"
+
+#. module: mrp_bom_extend
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_form_view_extend
+msgid "Miscellaneous"
+msgstr "Khác"
+
+#. module: mrp_bom_extend
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.view_mrp_bom_filter_extend
+msgid "Name"
+msgstr "Tên"
+
+#. module: mrp_bom_extend
+#: model_terms:ir.actions.act_window,help:mrp_bom_extend.mrp_bom_form_action_extend
+msgid "No bill of materials found. Let's create one!"
+msgstr "Không tìm thấy định mức vật liệu. Hãy tạo mới!"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Số tác vụ"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__message_has_error_counter
+msgid "Number of errors"
+msgstr "Số lỗi"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_extend__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Số tin nhắn cần xử lý"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_extend__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Số tin nhắn gửi đi bị lỗi"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_extend__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Số tin nhắn chưa đọc"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__name
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_form_view_extend
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_line_view_form_extend
+msgid "Operation"
+msgstr "Hoạt động"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__picking_type_id
+msgid "Operation Type"
+msgstr "Kiểu hoạt động"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_byproduct_extend__allowed_operation_ids
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__operation_ids
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend__allowed_operation_ids
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_form_view_extend
+msgid "Operations"
+msgstr "Hoạt động"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__worksheet
+#: model:ir.model.fields.selection,name:mrp_bom_extend.selection__mrp_routing_extend__worksheet_type__pdf
+msgid "PDF"
+msgstr ""
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend__bom_id
+msgid "Parent BoM"
+msgstr "BoM chính"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend__parent_product_tmpl_id
+msgid "Parent Product Template"
+msgstr "Mẫu sản phẩm cha"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_routing_extend__worksheet_google_slide
+msgid ""
+"Paste the url of your Google Slide. Make sure the access to the document is "
+"public."
+msgstr ""
+"Dán url của Google Slide của bạn. Bảo đảm tài liệu ở chế độ truy cập công "
+"cộng. "
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_byproduct_extend__possible_bom_product_template_attribute_value_ids
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__possible_product_template_attribute_value_ids
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend__possible_bom_product_template_attribute_value_ids
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__possible_bom_product_template_attribute_value_ids
+msgid "Possible Product Template Attribute Value"
+msgstr "Giá trị thuộc tính sản phẩm mẫu có thể"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_byproduct_extend__operation_id
+msgid "Produced in Operation"
+msgstr "Hoạt động đã sản xuất"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__product_tmpl_id
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.view_mrp_bom_filter_extend
+msgid "Product"
+msgstr "Sản phẩm"
+
+#. module: mrp_bom_extend
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_form_view_extend
+msgid "Product Attachments"
+msgstr "Phụ kiện sản phẩm"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend__product_tmpl_id
+msgid "Product Template"
+msgstr "Mẫu sản phẩm"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend__product_uom_id
+msgid "Product Unit of Measure"
+msgstr "Đơn vị đo của sản phẩm"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__product_id
+msgid "Product Variant"
+msgstr "Biến thể sản phẩm"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_byproduct_extend__product_qty
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__product_qty
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend__product_qty
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_form_view_extend
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_line_view_form_extend
+msgid "Quantity"
+msgstr "Số lượng"
+
+#. module: mrp_bom_extend
+#: code:addons/mrp_bom_extend/models/mrp_bom_extend.py:0
+#, python-format
+msgid ""
+"Recursion error!  A product with a Bill of Material should not have itself "
+"in its BoM or child BoMs!"
+msgstr ""
+"Lỗi Đệ quy! Một sản phẩm có Định mức Nguyên liệu không thể có chính nó trong"
+" định mức hoặc các Định mức con của Định mức đó!"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__code
+msgid "Reference"
+msgstr "Mã tham chiếu"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Lỗi gửi SMS"
+
+#. module: mrp_bom_extend
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.view_mrp_bom_filter_extend
+msgid "Search Bill Of Material"
+msgstr "Tìm kiếm công thức phối trộn"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_byproduct_extend__sequence
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__sequence
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend__sequence
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__sequence
+msgid "Sequence"
+msgstr "Trình tự"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields.selection,name:mrp_bom_extend.selection__mrp_routing_extend__time_mode__manual
+msgid "Set duration manually"
+msgstr "Đặt thời lượng thủ công"
+
+#. module: mrp_bom_extend
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_form_view_extend
+msgid "Structure & Cost"
+msgstr "Cấu trúc và chi phí"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_line_extend__child_bom_id
+msgid "Sub BoM"
+msgstr "BoM thứ cấp"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields.selection,name:mrp_bom_extend.selection__mrp_routing_extend__worksheet_type__text
+msgid "Text"
+msgstr "Văn bản"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_routing_extend__note
+msgid "Text worksheet description"
+msgstr ""
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_routing_extend__bom_id
+msgid "The Bill of Material this operation is linked to"
+msgstr ""
+
+#. module: mrp_bom_extend
+#: code:addons/mrp_bom_extend/models/mrp_bom_extend.py:0
+#: code:addons/mrp_bom_extend/models/mrp_bom_extend.py:0
+#, python-format
+msgid ""
+"The Product Unit of Measure you chose has a different category than in the "
+"product form."
+msgstr ""
+"Đơn vị tính sản phẩm mà bạn chọn có một nhóm khác với đơn vị trên form sản "
+"phẩm."
+
+#. module: mrp_bom_extend
+#: code:addons/mrp_bom_extend/models/mrp_bom_extend.py:0
+#, python-format
+msgid ""
+"The attribute value %(attribute)s set on product %(product)s does not match "
+"the BoM product %(bom_product)s."
+msgstr ""
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_line_extend__operation_id
+msgid ""
+"The operation where the components are consumed, or the finished products "
+"created."
+msgstr ""
+"Các hoạt động ở nơi mà các thành phần được tiêu thụ, hoặc các sản phẩm đã "
+"hoàn thành được tạo ra."
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_byproduct_extend__cost_share
+msgid ""
+"The percentage of the final production cost for this by-product line "
+"(divided between the quantity produced).The total of all by-products' cost "
+"share must be less than or equal to 100."
+msgstr ""
+"Tỷ lệ phần trăm của chi phí sản xuất cuối cùng cho dòng phụ phẩm này (chia "
+"cho số lượng được sản xuất). Tổng chi phí chia sẻ của tất cả phụ phẩm phải "
+"thấp hơn hoặc bằng 100. "
+
+#. module: mrp_bom_extend
+#: model:ir.model.constraint,message:mrp_bom_extend.constraint_mrp_bom_extend_qty_positive
+msgid "The quantity to produce must be positive!"
+msgstr "Số lượng để sản xuất phải là số dương!"
+
+#. module: mrp_bom_extend
+#: code:addons/mrp_bom_extend/models/mrp_bom_extend.py:0
+#, python-format
+msgid "The total cost share for a BoM's by-products cannot exceed 100."
+msgstr "Tổng chi phí chia sẻ của các phụ phẩm BOM không thể vượt quá 100. "
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_routing_extend__time_cycle_manual
+msgid ""
+"Time in minutes:- In manual mode, time used- In automatic mode, supposed "
+"first time when there aren't any work orders yet"
+msgstr ""
+"Thời gian tính bằng phút: - Ở chế độ thủ công, thời gian được sử dụng- Ở chế"
+" độ tự động, lần đầu tiên khi chưa có bất kỳ đơn công đoạn nào"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_byproduct_extend__product_uom_id
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__product_uom_id
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.mrp_bom_tree_view_extend
+#: model_terms:ir.ui.view,arch_db:mrp_bom_extend.view_mrp_bom_filter_extend
+msgid "Unit of Measure"
+msgstr "Đơn vị tính"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_extend__product_uom_id
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_line_extend__product_uom_id
+msgid ""
+"Unit of Measure (Unit of Measure) is the unit of measurement for the "
+"inventory control"
+msgstr "Đơn vị tính là đơn vị dùng để kiểm soát Tồn kho"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__message_unread
+msgid "Unread Messages"
+msgstr "Tin nhắn chưa đọc"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Bộ đếm tin chưa đọc"
+
+#. module: mrp_bom_extend
+#: code:addons/mrp_bom_extend/models/mrp_bom_extend.py:0
+#: code:addons/mrp_bom_extend/models/mrp_bom_extend.py:0
+#, python-format
+msgid "Warning"
+msgstr "Cảnh báo"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_bom_extend__website_message_ids
+msgid "Website Messages"
+msgstr "Thông báo Website"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_extend__website_message_ids
+msgid "Website communication history"
+msgstr "Lịch sử thông tin liên lạc website"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,help:mrp_bom_extend.field_mrp_bom_extend__picking_type_id
+msgid ""
+"When a procurement has a ‘produce’ route with a operation type set, it will "
+"try to create a Manufacturing Order for that product using a BoM of the same"
+" operation type. That allows to define stock rules which trigger different "
+"manufacturing orders with different BoMs."
+msgstr ""
+"Khi nhu cầu cung ứng có tuyến ’sản xuất với một hoạt động được thiết đặt, nó"
+" sẽ cố gắng tạo Lệnh sản xuất cho sản phẩm đó bằng cách sử dụng một BoM cùng"
+" loại hoạt động. Điều đó cho phép xác định quy tắc tồn kho kích hoạt các đơn"
+" đặt hàng sản xuất khác nhau với các BoM khác nhau"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields.selection,name:mrp_bom_extend.selection__mrp_bom_extend__ready_to_produce__asap
+msgid "When components for 1st operation are available"
+msgstr "Khi linh kiện của hoạt động đầu tiên đã có hàng"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__workcenter_id
+msgid "Work Center"
+msgstr "Xưởng"
+
+#. module: mrp_bom_extend
+#: model:ir.model,name:mrp_bom_extend.model_mrp_routing_extend
+msgid "Work Center Usage"
+msgstr "Sử dụng Năng lực sản xuất"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__workorder_ids
+msgid "Work Orders"
+msgstr "Đơn công đoạn"
+
+#. module: mrp_bom_extend
+#: model:ir.model.fields,field_description:mrp_bom_extend.field_mrp_routing_extend__worksheet_type
+msgid "Work Sheet"
+msgstr "Bảng việc"
+
+#. module: mrp_bom_extend
+#: code:addons/mrp_bom_extend/models/mrp_bom_extend.py:0
+#, python-format
+msgid ""
+"You can not create a kit-type bill of materials for products that have at "
+"least one reordering rule."
+msgstr ""
+"Bạn không thể tạo định mức vật liệu kiểu bộ kit cho sản phẩm có ít nhất một "
+"quy tắc tái đặt hàng. "
+
+#. module: mrp_bom_extend
+#: code:addons/mrp_bom_extend/models/mrp_bom_extend.py:0
+#, python-format
+msgid ""
+"You can not delete a Bill of Material with running manufacturing orders.\n"
+"Please close or cancel it first."
+msgstr ""
+"Bạn không thể xoá một Định mức Nguyên liệu mà có một lệnh sản xuất đang chạy nó.\n"
+"Vui lòng đóng hoặc huỷ lệnh sản xuất trước."
+
+#. module: mrp_bom_extend
+#: code:addons/mrp_bom_extend/models/mrp_bom_extend.py:0
+#, python-format
+msgid "You cannot create a new Bill of Material from here."
+msgstr "Bạn không thể tạo định mức vật liệu mới từ đây. "
+
+#. module: mrp_bom_extend
+#: code:addons/mrp_bom_extend/models/mrp_bom_extend.py:0
+#, python-format
+msgid ""
+"You cannot use the 'Apply on Variant' functionality and simultaneously "
+"create a BoM for a specific variant."
+msgstr ""
+"Bạn không thể sử dụng chức năng 'Áp dụng vào biến thể' và đồng thời tạo BoM "
+"cho một biến thể cụ thể. "
