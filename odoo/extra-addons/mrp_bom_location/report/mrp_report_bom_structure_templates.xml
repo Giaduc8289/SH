@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_mrp_bom_structure_document">
+        <meta charset="utf-8"/>
+        <t t-foreach="docs" t-as="o">
+
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id"></t>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"></t>
+            </t>
+            <div class="header" style="margin-top : 50px;">
+                <div class="row mt32 mb32">
+                    <div class="col-6">
+                        <img src="/sale_inheritance/static/img/logobc.png" style="max-height: 50px;"/>
+                    </div>
+                    <div class="col-6 text-right" style="font:12px lucida-console,sans-serif !important;">
+                        <span style="font-weight:bold">CÔNG TY TNHH TM &#38; CÔNG NGHỆ SINH HÓA</span>
+                        <br/>
+                        <span>Trụ sở : Số 10, ngõ 80/3, Phố Nhân Hòa, Phường Nhân Chính, Q.Thanh Xuân - TP. Hà
+                            Nội</span>
+                        <br/>
+                        <span>Nhà máy: Lô 44G, KCN Quang Minh, Mê Linh, Hà Nội</span>
+                        <br/>
+                        <span style="font-weight:bold">Tel: 043.818.2266, Fax: 043.216.1165</span>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+            <br/><br/>
+                <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css"/>
+                <div class="page" style="font-family :Arial !important;">
+                    <div class="oe_structure"/>
+                    <div class="text-center" style="width : 100%;"><center>
+                        <h1 style="display:inline;">BoM Structure </h1>
+                        <h1 style="display:inline;">&amp; Cost</h1>
+                        </center>
+                    </div>
+                    <br/><br/>
+                    <center>
+                        <h3>
+                            Product: <t t-esc="o.mrp_production_ids"/>
+                        </h3>
+                    </center>
+                    <br/> <br/>
+                    <table class="table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="width :3%" class="table-item">STT</th>
+                                <th style="width: 30%;" class="table-item">Product</th>
+                                <th style="width: 20%;" class="table-item">Quantity</th>
+                                <th style="width: 15%;" class="table-item">Unit of Measure</th>
+                                <th style="width: 10%; " class="table-item">Unit of Measure</th>
+                                <th style="width: 10%; " class="table-item">BoM Cost</th>
+                            </tr>
+                        </thead>
+<!--                        <tbody>-->
+<!--                            <t t-set="i" t-value="1"/>-->
+<!--                            <t t-foreach="docs" t-as="doc">-->
+<!--                                <t t-foreach="doc.move_raw_ids" t-as="o">-->
+<!--                                    <tr>-->
+<!--                                        <td>-->
+<!--                                            <span t-esc="i"/>-->
+<!--                                            <t t-set="i" t-value="i+1"/>-->
+<!--                                        </td>-->
+<!--                                        <td><span t-field="o.product_tmpl_id"/></td>-->
+<!--                                        <td class="text-center"><span t-field="o.location_id"/></td>-->
+<!--                                        <td class="text-center"><span t-field="o.product_qty"/></td>-->
+<!--                                        <td class="text-center"><span t-field="o.product_uom"-->
+<!--                                                                      groups="uom.group_uom"/></td>-->
+<!--                                    </tr>-->
+<!--                                </t>-->
+<!--                            </t>-->
+<!--                        </tbody>-->
+                    </table>
+                </div>
+
+            <br/>
+        </t>
+    </template>
+
+    <template id="custom_report_mrp_order" inherit_id="mrp.report_bom_structure">
+        <xpath expr="//t[@t-call='web.basic_layout']" position="replace">
+            <t t-call="mrp_bom_location.report_mrp_bom_structure_document"/>
+            <p style="page-break-after : always;"></p>
+        </xpath>
+    </template>
+</odoo>
