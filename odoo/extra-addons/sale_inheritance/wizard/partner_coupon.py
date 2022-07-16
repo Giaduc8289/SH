@@ -11,6 +11,7 @@ class PartnerCouponWizard(models.TransientModel):
 
     khachhang = fields.Many2one("res.partner", "Khách hàng", domain="[('code', 'like', 'KH%')]")
 
+    @api.model
     def get_report_coupon(self):
         domain = []
         query = "SELECT * " \
@@ -19,8 +20,9 @@ class PartnerCouponWizard(models.TransientModel):
                 "join coupon_program_res_partner_rel on coupon_program.id = coupon_program_res_partner_rel.coupon_program_id" \
                 "join product_pricelist_item on coupon_program_product_template_rel.id = product_pricelist_item.product_tmpl_id" \
                 "join res_partner ON res_partner.id = coupon_program_res_partner_rel.code" \
-                "join coupon_reward on coupon_reward.id = coupon_program.reward_id"
-        self.env.cr.execute(query)
+                "join coupon_reward on coupon_reward.id = coupon_program.reward_id" \
+                "where res_partner.code=%s"
+        self.env.cr.execute(query, (self.khachhang.code))
 
         self.env.cr.fetchall()
 
