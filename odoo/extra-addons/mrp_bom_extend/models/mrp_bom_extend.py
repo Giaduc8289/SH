@@ -12,9 +12,9 @@ from collections import defaultdict
 class MrpBomExtend(models.Model):
     """ Defines bills of material for a product or a product template """
     _name = 'mrp.bom.extend'
-    _description = 'Bill of Material'
+    _description = 'List Bill of Material'
     _inherit = ['mail.thread']
-    _rec_name = 'product_tmpl_id'
+    _rec_name = 'name'
     _order = "sequence, id"
     _check_company_auto = True
 
@@ -34,11 +34,11 @@ class MrpBomExtend(models.Model):
     product_tmpl_id = fields.Many2one(
         'product.template', 'Product',
         check_company=True, index=True,
-        domain="[('type', 'in', ['product', 'consu']), '|', ('company_id', '=', False), ('company_id', '=', company_id)]", required=True)
+        domain="[('categ_id', 'in', (10, 11, 12))]", required=True)
     product_id = fields.Many2one(
         'product.product', 'Product Variant',
         check_company=True, index=True,
-        domain="['&', ('product_tmpl_id', '=', product_tmpl_id), ('type', 'in', ['product', 'consu']),  '|', ('company_id', '=', False), ('company_id', '=', company_id)]",
+        domain="[('categ_id', 'in', (10, 11, 12))]",
         help="If a product variant is defined the BOM is available only for this product.")
     bom_line_ids = fields.One2many('mrp.bom.line.extend', 'bom_id', 'BoM Lines', copy=True)
     byproduct_ids = fields.One2many('mrp.bom.byproduct.extend', 'bom_id', 'By-products', copy=True)
@@ -182,8 +182,8 @@ class MrpBomExtend(models.Model):
         self.with_context({'active_test': False}).operation_ids.toggle_active()
         return super().toggle_active()
 
-    def name_get(self):
-        return [(bom.id, '%s%s' % (bom.code and '%s: ' % bom.code or '', bom.product_tmpl_id.display_name)) for bom in self]
+    # def name_get(self):
+    #     return [(bom.id, '%s%s' % (bom.code and '%s: ' % bom.code or '', bom.product_tmpl_id.display_name)) for bom in self]
 
     @api.constrains('product_tmpl_id', 'product_id', 'type')
     def check_kit_has_not_orderpoint(self):

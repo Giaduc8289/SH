@@ -7,7 +7,7 @@ from odoo import fields, models, api
 class MrpBom(models.Model):
     _inherit = "mrp.bom"
 
-    bom_extend_id = fields.Many2one('mrp.bom.extend', string="Mix Recipe")
+    bom_extend_id = fields.Many2one('mrp.bom.extend', string="Bill of Material")
 
     @api.onchange('bom_extend_id')
     def onchange_bom_extend_id(self):
