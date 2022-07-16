@@ -717,10 +717,7 @@
                 <t t-if="doc.order_line[0].product_id.categ_id.id == 11 ">
                     <t t-call="sale_inheritance.bonong_report_saleorder_document" t-lang="doc.partner_id.lang"/>
                 </t>
-                <t t-if="doc.order_line[0].product_id.categ_id.id == 12 ">
-                    <t t-call="sale_inheritance.biochem_report_saleorder_document" t-lang="doc.partner_id.lang"/>
-                </t>
-                <t t-elif="doc.order_line[0].product_id.categ_id.id != 10 and doc.order_line[0].product_id.categ_id.id != 11 ">
+                <t t-if="doc.order_line[0].product_id.categ_id.id != 10 and doc.order_line[0].product_id.categ_id.id != 11" >
                     <t t-call="sale_inheritance.biochem_report_saleorder_document" t-lang="doc.partner_id.lang"/>
                 </t>
             </t>

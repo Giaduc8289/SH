@@ -92,6 +92,7 @@ https://www.cybrosys.com/
 https://apps.odoo.com/apps/modules/browse?search=cybrosys
 quality
 https://www.cybrosys.com/odoo/odoo-books/odoo-book-v15/quality/
+https://minhng.info/
 
 --Update tự động
 Sửa db trong file odoo.conf thành db của máy chủ và thực hiện update

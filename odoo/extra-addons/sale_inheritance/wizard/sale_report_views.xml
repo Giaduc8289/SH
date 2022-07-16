@@ -46,6 +46,7 @@
                             <field name="date_end" widget="date"/>
                             <field name="nhanvienkinhdoanh" widget="many2one"/>
                             <field name="sanpham" widget="many2one"/>
+                            <field name="tinhtrang"/>
                         </group>
                     </group>
                     <footer>

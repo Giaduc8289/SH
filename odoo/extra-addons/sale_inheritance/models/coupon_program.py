@@ -19,7 +19,7 @@ class CouponProgram(models.Model):
                                             relation='coupon_program_product_template_rel', string="Sản phẩm")
     date_start = fields.Date(string="Date start")
     date_end = fields.Date(string="Date end")
-    payment_type = fields.Selection([('later', 'Pay later'), ('now', 'Pay now')], 'Kiểu thanh toán', default='now')
+    payment_type = fields.Selection([('later', 'Pay later'), ('now', 'Pay now')], string="Payment_type", default='now')
     from_date = fields.Date(string="From date")
     to_date = fields.Date(string="To date")
     def _is_valid_partner(self, partner):
@@ -35,4 +35,14 @@ class CouponProgram(models.Model):
             return products.filtered_domain(domain)
         return products
 
+    def _get_discount_product_values(self):
+        return {
+            'name': self.reward_id.display_name,
+            'type': 'service',
+            'taxes_id': False,
+            'supplier_taxes_id': False,
+            'sale_ok': False,
+            'purchase_ok': False,
+            'lst_price': 0, #Do not set a high value to avoid issue with coupon code
+        }
 

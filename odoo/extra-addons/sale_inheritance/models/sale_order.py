@@ -16,6 +16,8 @@ class SaleOrder(models.Model):
     amount_untaxed_1 = fields.Monetary(string='Price Amount', compute='_amount_price')
     amount_untaxed_2 = fields.Monetary(string='Discount Amount', compute='_amount_discount')
     amount_total_1 = fields.Monetary(string='Amount Sale Group', compute='_amount_price_group')
+    postpaid_discount = fields.Monetary(string='Amount Sale Group', compute='_postpaid_discount')
+    total_postpaid_discount = fields.Monetary(string='Amount Sale Group', compute='_total_postpaid_discount')
 
     partner_id = fields.Many2one(
         'res.partner', string='Customer', readonly=True,
@@ -23,6 +25,31 @@ class SaleOrder(models.Model):
         required=True, change_default=True, index=True, tracking=1,
         domain="[('code', 'like', 'KH%')]",
     )
+
+    def _total_postpaid_discount(self):
+        amount_postpaid_discount = 0
+        for order in self:
+            amount_postpaid_discount += order.postpaid_discount
+        self.update({
+            'total_postpaid_discount': amount_postpaid_discount,
+        })
+
+    def _postpaid_discount (self):
+        #------- tính chiết khấu trả sau
+        for order in self:
+            amount_untaxed = amount_tax = 0.0
+            for line in order.order_line:
+                data = self.env['coupon.reward'].search([('discount_line_product_id', '=', line.product_id.id)], limit=1)
+                if len(data) > 0:
+                    data1 = self.env['coupon.program'].search([('reward_id', '=', data[0].id)], limit=1)
+                    if len(data1) > 0:
+                        if data1[0].payment_type == 'later':
+                            amount_untaxed += line.price_subtotal
+
+            order.update({
+                'postpaid_discount': amount_untaxed,
+
+            })
 
     def _amount_price_group(self):
         """
@@ -166,6 +193,29 @@ class SaleOrder(models.Model):
                     del reward_dict[val]
         return reward_dict.values()
 
+    @api.depends('order_line.price_total')
+    def _amount_all(self):
+        """
+        Compute the total amounts of the SO.
+        """
+        for order in self:
+            amount_untaxed = amount_tax = 0.0
+            for line in order.order_line:
+                data = self.env['coupon.reward'].search([('discount_line_product_id', '=', line.product_id.id)], limit=1)
+                if len(data) > 0:
+                    data1 = self.env['coupon.program'].search([('reward_id', '=', data[0].id)], limit=1)
+                    if len(data1) > 0:
+                        if data1[0].payment_type == 'now':
+                            amount_untaxed += line.price_subtotal
+                            amount_tax += line.price_tax
+                else:
+                    amount_untaxed += line.price_subtotal
+                    amount_tax += line.price_tax
+            order.update({
+                'amount_untaxed': amount_untaxed,
+                'amount_tax': amount_tax,
+                'amount_total': amount_untaxed + amount_tax,
+            })
 
 class ReportSaleOrder(models.Model):
     _name = 'report.sale.order'
