@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+hr.access_hr_employee_category_emp,hr.employee.category.emp,hr.model_hr_employee_category,base.group_user,0,0,0,0
+hr.access_hr_employee_system_user,hr.employee system user,hr.model_hr_employee,base.group_user,0,0,0,0
+hr.access_hr_employee_public_user,hr.employee_public,hr.model_hr_employee_public,base.group_user,0,0,0,0
+hr.access_hr_department_employee,hr.department.employee,hr.model_hr_department,base.group_user,0,0,0,0
+hr.access_hr_plan_activity_type_employee,access_hr_plan_activity_type,hr.model_hr_plan_activity_type,base.group_user,0,0,0,0
+hr.access_hr_plan_employee,access_hr_plan_employee,hr.model_hr_plan,base.group_user,0,0,0,0
+hr.access_hr_work_location_user,access_hr_work_location_user,hr.model_hr_work_location,base.group_user,0,0,0,0

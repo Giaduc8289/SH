@@ -242,6 +242,7 @@
         <menuitem id="menu_mrp_bom_form_action_extend"
             action="mrp_bom_form_action_extend"
             parent="mrp.menu_mrp_bom"
+            groups="mrp_inheritance.group_mrp_bom_manager"
             sequence="13"/>
 
         <!-- BOM Line -->
