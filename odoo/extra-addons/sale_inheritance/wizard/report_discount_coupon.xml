@@ -9,7 +9,7 @@
             <field name="report_name">sale_inheritance.report_discount_coupon_document</field>
             <field name="report_file">sale_inheritance.report_discount_coupon_document</field>
             <field name="print_report_name">Discount coupon report</field>
-            <field name="binding_model_id" ref="model_report_sale_inheritance_coupon_document"/>
+            <field name="binding_model_id" ref="model_report_sale_inheritance_report_discount_coupon_document"/>
             <field name="binding_type">report</field>
         </record>
     </data>
@@ -24,7 +24,7 @@
                         <field name="khachhang" widget="many2one"/>
                     </group>
                     <footer>
-                        <button name="get_report_coupon" type="object" string="Filter" class="oe_highlight"/>
+                        <button name="get_report" type="object" string="Get Report" class="oe_highlight"/>
                         <button string="Cancel" special="cancel"/>
                     </footer>
                 </sheet>
