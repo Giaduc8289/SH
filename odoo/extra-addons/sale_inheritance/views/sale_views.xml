@@ -40,4 +40,8 @@
               parent="sale.product_menu_catalog"
               groups="sales_team.group_sale_manager" sequence="6"/>
 
+    <record id="sale.menu_sale_order_upselling" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
 </odoo>
