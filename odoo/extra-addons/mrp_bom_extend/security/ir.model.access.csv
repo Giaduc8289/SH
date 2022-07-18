@@ -2,6 +2,8 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_mrp_bom_extend,mrp.bom_extend,model_mrp_bom_extend,mrp.group_mrp_user,1,0,0,0
 access_mrp_bom_extend_manager,mrp.bom.extend.manager,model_mrp_bom_extend,mrp.group_mrp_manager,1,1,1,1
 access_mrp_bom_line_extend,mrp.bom.line_extend,model_mrp_bom_line_extend,mrp.group_mrp_user,1,0,0,0
-access_mrp_bom_byproduct_extend_user,mrp.bom.byproduct.extend,model_mrp_bom_byproduct_extend,mrp.group_mrp_user,1,0,0,0
 access_mrp_bom_line_extend_manager,mrp.bom.line.extend.manager,model_mrp_bom_line_extend,mrp.group_mrp_manager,1,1,1,1
+access_mrp_bom_byproduct_extend_user,mrp.bom.byproduct.extend,model_mrp_bom_byproduct_extend,mrp.group_mrp_user,1,0,0,0
 access_mrp_bom_byproduct_extend_manager,mrp.bom.byproduct.extend.manager,model_mrp_bom_byproduct_extend,mrp.group_mrp_manager,1,1,1,1
+access_mrp_bom_routing_extend_user,mrp.bom.routing.extend,model_mrp_routing_extend,mrp.group_mrp_user,1,0,0,0
+access_mrp_bom_routing_extend_manager,mrp.bom.routing.extend.manager,model_mrp_routing_extend,mrp.group_mrp_manager,1,1,1,1

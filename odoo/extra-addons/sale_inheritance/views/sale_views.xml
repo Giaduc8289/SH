@@ -34,5 +34,10 @@
               parent="sale.menu_sale_report"
               sequence="3"/>
 
+    <menuitem action="sale_inheritance.report_action_discount_coupon_form"
+              id="menu_promotion_type_config"
+              name="Discount program customer"
+              parent="sale.product_menu_catalog"
+              groups="sales_team.group_sale_manager" sequence="6"/>
 
 </odoo>

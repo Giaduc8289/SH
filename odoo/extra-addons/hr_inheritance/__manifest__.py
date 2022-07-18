@@ -9,6 +9,7 @@
     "category": "Hidden",
     "depends": ["hr"],
     "data": [
+        "security/ir.model.access.csv",
     ],
     "installable": True,
     "maintainers": ["hungtv2012@gmail.com"]

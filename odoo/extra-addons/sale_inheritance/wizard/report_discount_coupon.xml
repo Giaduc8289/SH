@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="action_report_discount_coupon" model="ir.actions.report">
+            <field name="name">Report discount coupon</field>
+            <field name="model">partner.coupon.wizard</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">sale_inheritance.report_discount_coupon_document</field>
+            <field name="report_file">sale_inheritance.report_discount_coupon_document</field>
+            <field name="print_report_name">Discount coupon report</field>
+            <field name="binding_model_id" ref="model_report_sale_inheritance_report_discount_coupon_document"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+
+    <record id="report_discount_coupon_view" model="ir.ui.view">
+        <field name="name">partner.coupon.wizard.form</field>
+        <field name="model">partner.coupon.wizard</field>
+        <field name="arch" type="xml">
+            <form create="false">
+                <sheet>
+                    <group>
+                        <field name="khachhang" widget="many2one"/>
+                    </group>
+                    <footer>
+                        <button name="get_report" type="object" string="Get Report" class="oe_highlight"/>
+                        <button string="Cancel" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="report_action_discount_coupon_form" model="ir.actions.act_window">
+        <field name="name">Report coupon</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">partner.coupon.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="report_discount_coupon_view"/>
+    </record>
+</odoo>

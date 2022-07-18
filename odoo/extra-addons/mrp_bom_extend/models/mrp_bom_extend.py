@@ -12,9 +12,9 @@ from collections import defaultdict
 class MrpBomExtend(models.Model):
     """ Defines bills of material for a product or a product template """
     _name = 'mrp.bom.extend'
-    _description = 'Bill of Material'
+    _description = 'List Bill of Material'
     _inherit = ['mail.thread']
-    _rec_name = 'product_tmpl_id'
+    _rec_name = 'name'
     _order = "sequence, id"
     _check_company_auto = True
 
@@ -34,11 +34,11 @@ class MrpBomExtend(models.Model):
     product_tmpl_id = fields.Many2one(
         'product.template', 'Product',
         check_company=True, index=True,
-        domain="[('type', 'in', ['product', 'consu']), '|', ('company_id', '=', False), ('company_id', '=', company_id)]", required=True)
+        domain="[('categ_id', 'in', (10, 11, 12))]", required=True)
     product_id = fields.Many2one(
         'product.product', 'Product Variant',
         check_company=True, index=True,
-        domain="['&', ('product_tmpl_id', '=', product_tmpl_id), ('type', 'in', ['product', 'consu']),  '|', ('company_id', '=', False), ('company_id', '=', company_id)]",
+        domain="[('categ_id', 'in', (10, 11, 12))]",
         help="If a product variant is defined the BOM is available only for this product.")
     bom_line_ids = fields.One2many('mrp.bom.line.extend', 'bom_id', 'BoM Lines', copy=True)
     byproduct_ids = fields.One2many('mrp.bom.byproduct.extend', 'bom_id', 'By-products', copy=True)
@@ -51,7 +51,7 @@ class MrpBomExtend(models.Model):
         help="Unit of Measure (Unit of Measure) is the unit of measurement for the inventory control", domain="[('category_id', '=', product_uom_category_id)]")
     product_uom_category_id = fields.Many2one(related='product_tmpl_id.uom_id.category_id')
     sequence = fields.Integer('Sequence', help="Gives the sequence order when displaying a list of bills of material.")
-    operation_ids = fields.One2many('mrp.routing.workcenter', 'bom_id', 'Operations', copy=True)
+    operation_ids = fields.One2many('mrp.routing.extend', 'bom_id', 'Operations', copy=True)
     ready_to_produce = fields.Selection([
         ('all_available', ' When all components are available'),
         ('asap', 'When components for 1st operation are available')], string='Manufacturing Readiness',
@@ -182,8 +182,8 @@ class MrpBomExtend(models.Model):
         self.with_context({'active_test': False}).operation_ids.toggle_active()
         return super().toggle_active()
 
-    def name_get(self):
-        return [(bom.id, '%s%s' % (bom.code and '%s: ' % bom.code or '', bom.product_tmpl_id.display_name)) for bom in self]
+    # def name_get(self):
+    #     return [(bom.id, '%s%s' % (bom.code and '%s: ' % bom.code or '', bom.product_tmpl_id.display_name)) for bom in self]
 
     @api.constrains('product_tmpl_id', 'product_id', 'type')
     def check_kit_has_not_orderpoint(self):
@@ -371,9 +371,9 @@ class MrpBomLineExtend(models.Model):
         'product.template.attribute.value', string="Apply on Variants", ondelete='restrict',
         domain="[('id', 'in', possible_bom_product_template_attribute_value_ids)]",
         help="BOM Product Variants needed to apply this line.")
-    allowed_operation_ids = fields.One2many('mrp.routing.workcenter', related='bom_id.operation_ids')
+    allowed_operation_ids = fields.One2many('mrp.routing.extend', related='bom_id.operation_ids')
     operation_id = fields.Many2one(
-        'mrp.routing.workcenter', 'Consumed in Operation', check_company=True,
+        'mrp.routing.extend', 'Consumed in Operation', check_company=True,
         domain="[('id', 'in', allowed_operation_ids)]",
         help="The operation where the components are consumed, or the finished products created.")
     child_bom_id = fields.Many2one(
@@ -483,9 +483,9 @@ class MrpByProductExtend(models.Model):
     product_uom_id = fields.Many2one('uom.uom', 'Unit of Measure', required=True,
                                      domain="[('category_id', '=', product_uom_category_id)]")
     bom_id = fields.Many2one('mrp.bom.extend', 'BoM', ondelete='cascade', index=True)
-    allowed_operation_ids = fields.One2many('mrp.routing.workcenter', related='bom_id.operation_ids')
+    allowed_operation_ids = fields.One2many('mrp.routing.extend', related='bom_id.operation_ids')
     operation_id = fields.Many2one(
-        'mrp.routing.workcenter', 'Produced in Operation', check_company=True,
+        'mrp.routing.extend', 'Produced in Operation', check_company=True,
         domain="[('id', 'in', allowed_operation_ids)]")
     possible_bom_product_template_attribute_value_ids = fields.Many2many(related='bom_id.possible_product_template_attribute_value_ids')
     bom_product_template_attribute_value_ids = fields.Many2many(

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <template id="report_discount_coupon_document">
+        <t t-call="web.html_container">
+            <t t-call="web.report_layout">
+                <meta charset="utf-8"/>
+                <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css"/>
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <br/>
+                    <h2 class="text-center bold"><center>BÁO CÁO CHIẾT KHẤU TRẢ SAU</center></h2>
+                    <br/>
+                    <span class="text-center bold">
+                        <center>
+                            <t t-if="khachhang">
+                                <span class="text-center bold"><strong>Khách hàng: </strong><t
+                                        t-esc="khachhang"/></span>
+                            </t>
+                        </center>
+                    </span>
+                    <br/>
+                    <div>
+                        <table class="table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="width :3%"
+                                        class="table-item">STT</th>
+                                    <th class="table-item">Tên chương trình chiết khấu</th>
+                                    <th class="table-item">Sản phẩm</th>
+                                    <th class="table-item">Đơn giá</th>
+                                    <th class="table-item">Sau chiết khấu</th>
+                                </tr>
+                            </thead>
+                            <tbody class="sale_tbody">
+                                <t t-set="i" t-value="1"/>
+                                <t t-foreach="docs" t-as="doc">
+                                        <tr>
+                                            <td class="text-center">
+                                                <span t-esc="i"/>
+                                                <t t-set="i" t-value="i+1"/>
+                                            </td>
+                                            <td class="text-left">
+                                                <span t-field="doc.name"/>
+                                            </td>
+                                        </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="oe_structure"/>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

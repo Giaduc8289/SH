@@ -7,7 +7,7 @@
     "sequence": "8",
     "license": "LGPL-3",
     # "category": "Hidden",
-    "depends": ['mrp'],
+    "depends": ['mrp', 'mrp_inheritance'],
     "data": [
         'security/ir.model.access.csv',
         "views/mrp_bom_view.xml",

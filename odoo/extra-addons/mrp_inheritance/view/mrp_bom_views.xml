@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="mrp.menu_mrp_bom_form_action"
+            action="mrp.mrp_bom_form_action"
+            parent="mrp.menu_mrp_bom"
+            groups="mrp_inheritance.group_mrp_bom_manager"
+            sequence="13"/>
+
+    </data>
+</odoo>
