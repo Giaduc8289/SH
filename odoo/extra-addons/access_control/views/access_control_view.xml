@@ -114,34 +114,34 @@
         <field name="groups_id" eval="[(6, 0, [ref('access_control.group_access_control_user')])]"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='purpose']" position="attributes">
-                <attribute name="attrs">{'readonly': 0}</attribute>
+                <attribute name="attrs">{'readonly': [('state', '=', 'out')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='number_plate']" position="attributes">
-                <attribute name="attrs">{'readonly': 0}</attribute>
+                <attribute name="attrs">{'readonly': [('state', '=', 'out')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='res_partner_id']" position="attributes">
-                <attribute name="attrs">{'readonly': 0}</attribute>
+                <attribute name="attrs">{'readonly': [('state', '=', 'out')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='makh']" position="attributes">
-                <attribute name="attrs">{'readonly': 0}</attribute>
+                <attribute name="attrs">{'readonly': [('state', '=', 'out')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='name']" position="attributes">
-                <attribute name="attrs">{'readonly': 0}</attribute>
+                <attribute name="attrs">{'readonly': [('state', '=', 'out')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='phone']" position="attributes">
-                <attribute name="attrs">{'readonly': 0}</attribute>
+                <attribute name="attrs">{'readonly': [('state', '=', 'out')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='taixe']" position="attributes">
-                <attribute name="attrs">{'readonly': 0}</attribute>
+                <attribute name="attrs">{'readonly': [('state', '=', 'out')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='address']" position="attributes">
-                <attribute name="attrs">{'readonly': 0}</attribute>
+                <attribute name="attrs">{'readonly': [('state', '=', 'out')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='purpose_descript']" position="attributes">
-                <attribute name="attrs">{'readonly': 0}</attribute>
+                <attribute name="attrs">{'readonly': [('state', '=', 'out')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='product_category_ids']" position="attributes">
-                <attribute name="attrs">{'readonly': 0}</attribute>
+                <attribute name="attrs">{'readonly': [('state', '=', 'out')]}</attribute>
             </xpath>
         </field>
     </record>
