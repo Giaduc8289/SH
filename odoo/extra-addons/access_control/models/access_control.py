@@ -136,7 +136,7 @@ class AccessControl(models.Model):
 
     def action_check_out(self):
         for record in self:
-            if (record.state == 'weighout'):
+            if (record.state != 'out'):
                 record.out_time = fields.Datetime.now()
                 record.state = 'out'
 
