@@ -16,7 +16,7 @@
                         <table class="table-bordered">
                             <thead>
                                 <tr>
-                                    <th style="width :3%" class="table-item">STT</th>
+                                    <th style="width :3%" class="table-item">No.</th>
                                     <th class="text-center">ID</th>
                                     <th class="text-center">Confirmation date</th>
                                     <th class="text-center">Supplier</th>
