@@ -33,53 +33,52 @@
                     <t t-set="doc" t-value="doc.with_context({'lang':zh_CN})"/>
                     <div class="page" style="font-family :Arial !important;">
                         <div class="oe_structure"/>
-                        <h2 class="text-center bold" style="text-transform : uppercase;"><center>Request a quote for a purchase order</center></h2>
+                        <h2 class="text-center bold" style="text-transform : uppercase;"><strong><center>Request a quote
+                            for a purchase order</center></strong></h2>
                         <br/><br/>
                         <div>
-                            <center>
-                                <span width="30px"
-                                      style="font-weight: bold;">
-                                    Partner: <span>
-                                    <t t-if="doc.partner_id.name">
-                                        <t t-esc="doc.partner_id.name"/>
-                                    </t>
-                                </span>
-                                </span><br/>
-                                <span width="30px"
-                                      style="font-weight: bold;">
-                                    Partner id: <span>
-                                    <t t-if="doc.partner_id.code">
-                                        <t t-esc="doc.partner_id.code"/>
-                                    </t>
-                                </span>
-                                </span><br/>
-                                <span width="20px"
-                                      style="font-weight: bold;">
-                                    Address: <span>
-                                    <t t-if="doc.partner_id.village_id.name">
-                                        <t t-esc="doc.partner_id.village_id.name"/>
+                            <span width="30px"
+                                  style="font-weight: bold;">
+                                Partner id: <span>
+                                <t t-if="doc.partner_id.code">
+                                    <t t-esc="doc.partner_id.code"/>
+                                </t>
+                            </span>
+                            </span><br/>
+                            <span width="30px"
+                                  style="font-weight: bold;">
+                                Partner: <span>
+                                <t t-if="doc.partner_id.name">
+                                    <t t-esc="doc.partner_id.name"/>
+                                </t>
+                            </span>
+                            </span><br/>
+                            <span width="20px"
+                                  style="font-weight: bold;">
+                                Phone number: <span>
+                                <t t-if="doc.partner_id.phone">
+                                    <t t-esc="doc.partner_id.phone"/>
+                                </t>
+                            </span>
+                            </span><br/>
+                            <span width="20px"
+                                  style="font-weight: bold;">
+                                Address: <span>
+                                <t t-if="doc.partner_id.village_id.name">
+                                    <t t-esc="doc.partner_id.village_id.name"/>
+                                </t>-
+                            </span>
+                                <span>
+                                    <t t-if="doc.partner_id.district_id.name">
+                                        <t t-esc="doc.partner_id.district_id.name"/>
                                     </t>-
                                 </span>
-                                    <span>
-                                        <t t-if="doc.partner_id.district_id.name">
-                                            <t t-esc="doc.partner_id.district_id.name"/>
-                                        </t>-
-                                    </span>
-                                    <span>
-                                        <t t-if="doc.partner_id.country_id.name">
-                                            <t t-esc="doc.partner_id.country_id.name"/>
-                                        </t>
-                                    </span>
-                                </span><br/>
-                                <span width="20px"
-                                      style="font-weight: bold;">
-                                    Phone number: <span>
-                                    <t t-if="doc.partner_id.phone">
-                                        <t t-esc="doc.partner_id.phone"/>
+                                <span>
+                                    <t t-if="doc.partner_id.country_id.name">
+                                        <t t-esc="doc.partner_id.country_id.name"/>
                                     </t>
                                 </span>
-                                </span><br/>
-                            </center>
+                            </span><br/>
                             <br/>
                         </div>
                         <table class="table table-bordered"
@@ -87,7 +86,7 @@
                             <thead>
                                 <tr>
                                     <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid #000000 !important;width :3%"
-                                        class="table-item">STT</th>
+                                        class="table-item">No.</th>
                                     <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; width: 8%;"
                                         class="text-center">Product id</th>
                                     <th style="background-color:#4cb1a7 !important; color : #FFFFFF !important; border: 1px solid black !important; "

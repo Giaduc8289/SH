@@ -10,20 +10,20 @@
                 <div class="page">
                     <div class="oe_structure"/>
                     <br/>
-                    <h2 class="text-center bold"><center>BÁO CÁO NHẬP XUẤT TỒN</center></h2>
+                    <h2 class="text-center bold"><center>Inventory import and export report</center></h2>
                     <br/>
                     <div>
                         <table class="table-bordered">
                             <thead>
                                 <tr>
-                                    <th style="width :3%" class="table-item">STT</th>
-                                    <th class="text-center">Mã sản phẩm</th>
-                                     <th class="text-center">Cập nhật lần cuối</th>
-                                    <th class="text-center">Tên sản phẩm</th>
-                                    <th class="text-center">Tồn đầu</th>
-                                    <th class="text-center">Nhập kho</th>
-                                    <th class="text-center">Xuất kho</th>
-                                    <th class="text-center">Tồn cuối</th>
+                                    <th style="width :3%" class="table-item">No.</th>
+                                    <th class="text-center">Product id</th>
+                                     <th class="text-center">Last update</th>
+                                    <th class="text-center">Product</th>
+                                    <th class="text-center">Start inventory</th>
+                                    <th class="text-center">Import</th>
+                                    <th class="text-center">Export</th>
+                                    <th class="text-center">Ending inventory</th>
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">

@@ -1113,7 +1113,7 @@ msgstr ""
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__components_availability
 msgid "Component Status"
-msgstr "Trạng thái linh kiện"
+msgstr "Trạng thái nguyên liệu"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_report_product_product_replenishment
@@ -1126,17 +1126,17 @@ msgstr "Linh kiện của MO nháp"
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_workorder_form_view_inherit
 msgid "Components"
-msgstr "Linh kiện"
+msgstr "Nguyên liệu"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__components_availability_state
 msgid "Components Availability State"
-msgstr "Trạng thái có sẵn của linh kiện"
+msgstr "Trạng thái có sẵn của nguyên liệu"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__location_src_id
 msgid "Components Location"
-msgstr "Vị trí linh kiện"
+msgstr "Vị trí nguyên liệu"
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_production__priority
@@ -1286,7 +1286,7 @@ msgstr "Tạo đơn dự trữ"
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__use_create_components_lots
 #: model:ir.model.fields,field_description:mrp.field_stock_picking_type__use_create_components_lots
 msgid "Create New Lots/Serial Numbers for Components"
-msgstr "Tạo số lô/sê-ri mới cho các linh kiện"
+msgstr "Tạo số lô/sê-ri mới cho các nguyên liệu"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_mrp_production_backorder_form
@@ -1486,7 +1486,7 @@ msgid ""
 "Define the components and finished products you wish to use in\n"
 "                bill of materials and manufacturing orders."
 msgstr ""
-"Xác định linh kiện và thành phẩm bạn muốn dùng trong\n"
+"Xác định nguyên liệu và thành phẩm bạn muốn dùng trong\n"
 "                định mức vật liệu và đơn sản xuất."
 
 #. module: mrp
@@ -3249,19 +3249,19 @@ msgstr "Năng suất tháng vừa qua"
 #: code:addons/mrp/models/stock_warehouse.py:0
 #, python-format
 msgid "Pick Components"
-msgstr "Lấy linh kiện"
+msgstr "Lấy nguyên liệu"
 
 #. module: mrp
 #: code:addons/mrp/models/stock_warehouse.py:0
 #: code:addons/mrp/models/stock_warehouse.py:0
 #, python-format
 msgid "Pick components and then manufacture"
-msgstr "Lấy linh kiện và sản xuất "
+msgstr "Lấy nguyên liệu và sản xuất "
 
 #. module: mrp
 #: model:ir.model.fields.selection,name:mrp.selection__stock_warehouse__manufacture_steps__pbm
 msgid "Pick components and then manufacture (2 steps)"
-msgstr "Lấy linh kiện và sản xuất (2 bước)"
+msgstr "Lấy nguyên liệu và sản xuất (2 bước)"
 
 #. module: mrp
 #: code:addons/mrp/models/stock_warehouse.py:0
@@ -3269,7 +3269,7 @@ msgstr "Lấy linh kiện và sản xuất (2 bước)"
 #: model:ir.model.fields.selection,name:mrp.selection__stock_warehouse__manufacture_steps__pbm_sam
 #, python-format
 msgid "Pick components, manufacture and then store products (3 steps)"
-msgstr "Lấy linh kiện, sản xuất và lưu trữ sản phẩm (3 bước)"
+msgstr "Lấy nguyên liệu, sản xuất và lưu trữ sản phẩm (3 bước)"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_warehouse__pbm_mto_pull_id
@@ -3584,7 +3584,7 @@ msgstr "Đơn sản xuất"
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_move__raw_material_production_id
 msgid "Production Order for components"
-msgstr "Đơn sản xuất linh kiện"
+msgstr "Đơn sản xuất nguyên liệu"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_move__production_id
@@ -5056,7 +5056,7 @@ msgstr "Đang chờ lệnh làm việc khác"
 #. module: mrp
 #: model:ir.model.fields.selection,name:mrp.selection__mrp_workorder__state__waiting
 msgid "Waiting for components"
-msgstr "Đang chờ linh kiện"
+msgstr "Đang chờ nguyên liệu"
 
 #. module: mrp
 #: code:addons/mrp/models/mrp_workorder.py:0
