@@ -44,4 +44,14 @@
         <field name="active" eval="False"/>
     </record>
 
+
+    <record id="sale.menu_report_product_all" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+    <menuitem id="menu_report_product_all_1"
+            name="General sales report"
+            action="sale.action_order_report_all"
+            parent="sale.menu_sale_report"
+            sequence="1"/>
 </odoo>

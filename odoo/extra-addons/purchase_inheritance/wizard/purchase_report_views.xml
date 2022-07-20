@@ -78,4 +78,14 @@
             <field name="binding_type">report</field>
         </record>
     </data>
+
+    <record id="purchase.purchase_report" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+    <menuitem id="purchase.purchase_report_1"
+            name="General purchase report"
+            action="purchase.action_purchase_order_report_all"
+            parent="purchase.purchase_report_main"
+            sequence="1"/>
 </odoo>
