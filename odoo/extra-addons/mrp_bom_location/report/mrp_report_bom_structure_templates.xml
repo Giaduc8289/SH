@@ -4,12 +4,12 @@
         <meta charset="utf-8"/>
         <t t-foreach="docs" t-as="data">
 
-            <t t-if="o and 'company_id' in o">
-                <t t-set="company" t-value="o.company_id"></t>
-            </t>
-            <t t-if="not o or not 'company_id' in o">
-                <t t-set="company" t-value="res_company"></t>
-            </t>
+            <!--            <t t-if="o and 'company_id' in o">-->
+            <!--                <t t-set="company" t-value="o.company_id"></t>-->
+            <!--            </t>-->
+            <!--            <t t-if="not o or not 'company_id' in o">-->
+            <!--                <t t-set="company" t-value="res_company"></t>-->
+            <!--            </t>-->
             <div class="header" style="margin-top : 50px;">
                 <div style="display: flex; width : 100%; justify-content: space-between;">
                     <div class="col-6">
@@ -50,7 +50,7 @@
                                     </a>
                                     <t t-else="" t-esc="data['bom_prod_name']"/>
                                 </h3>
-                                <!--                                <h6 t-if="data['bom'].code">Reference: <t t-esc="data['bom'].code"/></h6>-->
+                                <h6 t-if="data['bom'].code">Reference: <t t-esc="data['bom'].code"/></h6>
                             </center>
                             <br/><br/>
                         </div>
@@ -60,6 +60,7 @@
                     <table width="100%" class="table-bordered">
                         <thead>
                             <tr>
+<!--                                <th class="table-item" style="width: 3%;">No.</th>-->
                                 <th class="table-item" style="width: 25%;">Product</th>
                                 <th class="table-item" style="width: 25%;">BoM</th>
                                 <th class="table-item" style="width: 8%;">Quantity</th>
@@ -73,12 +74,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr >
+                            <tr>
                                 <td>
                                     <span><t t-esc="data['bom_prod_name']"/></span>
                                 </td>
                                 <td>
-                                   <div><t t-esc="data['code']"/></div>
+                                    <div><t t-esc="data['code']"/></div>
                                 </td>
                                 <td class="text-right">
                                     <span>
@@ -121,8 +122,8 @@
                                     <td/>
                                 </t>
                                 <td name="td_mrp_bom_f" class="text-right" style=" border-right: none !important;">
-                                    <span><t t-if="data['byproducts']"
-                                             t-esc="data['bom_prod_name']"/></span>
+<!--                                    <span><t t-if="data['byproducts']"-->
+<!--                                             t-esc="data['bom_prod_name']"/></span>-->
                                 </td>
                                 <td style=" border-right: none !important;"></td>
                                 <td class="text-right"><span><strong>Unit Cost</strong></span></td>
