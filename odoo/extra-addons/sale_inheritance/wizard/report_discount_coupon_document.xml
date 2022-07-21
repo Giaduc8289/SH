@@ -40,6 +40,15 @@
                                             <span t-esc="i"/>
                                             <t t-set="i" t-value="i+1"/>
                                         </td>
+                                        <td class="text-left">
+                                            <span t-field="doc.product_coupon"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-field="doc.name_coupon"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-field="doc.fixed_price"/>
+                                        </td>
                                     </tr>
                                 </t>
                             </tbody>
