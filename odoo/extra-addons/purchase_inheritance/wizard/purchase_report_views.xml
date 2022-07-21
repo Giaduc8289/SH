@@ -83,7 +83,7 @@
         <field name="active" eval="False"/>
     </record>
 
-    <menuitem id="purchase.purchase_report_1"
+    <menuitem id="purchase_report_1"
             name="General purchase report"
             action="purchase.action_purchase_order_report_all"
             parent="purchase.purchase_report_main"
