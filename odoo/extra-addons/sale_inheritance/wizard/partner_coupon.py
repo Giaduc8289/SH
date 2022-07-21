@@ -11,27 +11,52 @@ class PartnerCouponWizard(models.TransientModel):
     _rec_name = 'khachhang'
 
     khachhang = fields.Many2one("res.partner", "Khách hàng", domain="[('code', 'like', 'KH%')]", required=True)
+    name_coupon = fields.Many2one("coupon.program", "Tên chương trình", readonly=True, store=True)
+    product_coupon = fields.Many2one("product.template", "Tên sản phẩm", readonly=True, store=True)
+    fixed_price = fields.Many2one("product.pricelist.item", "Giá sản phẩm", readonly=True, store=True)
+    discount_percentage = fields.Many2one("coupon.reward", "Phần trăm giảm", readonly=True, store=True)
+    discount_hold_time = fields.Many2one("coupon.reward", "Thời gian hoàn tiền", readonly=True, store=True)
+    payment_type = fields.Many2one("coupon.program", "Kiểu thanh toán", readonly=True, store=True)
+    discount_type = fields.Many2one("coupon.reward", "Kiểu chương trình", readonly=True, store=True)
+    pricelist_id = fields.Many2one(
+        'product.pricelist', string='Pricelist', check_company=True, readonly=True, states={'draft': [('readonly', False)], 'sent': [('readonly', False)]},
+        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]", tracking=1,
+        help="If you change the pricelist, only newly added lines will be affected.", store=True)
+    currency_id = fields.Many2one(related='pricelist_id.currency_id', depends=["pricelist_id"], store=True, ondelete="restrict")
+    # amount_coupon = fields.Monetary(string='Price Amount', compute='_amount_coupon_price')
+    #
+    # def _amount_coupon_price(self):
+    #     coupon_price = 0.0
+    #     for record in self:
+    #         if(record.discount_type == 'percentage'):
+    #             coupon_price = record.fixed_price - (record.fixed_price * record.discount_percentage / 100)
+    #         record.update({
+    #             'amount_coupon': coupon_price,
+    #         })
 
     def get_report(self):
         code = self.khachhang.code
 
-        query = "SELECT * " \
-                "from coupon_program " \
-                "join coupon_program_product_template_rel on coupon_program.id = coupon_program_product_template_rel.coupon_program_id " \
-                "join coupon_program_res_partner_rel on coupon_program.id = coupon_program_res_partner_rel.coupon_program_id " \
-                "join product_pricelist_item on coupon_program_product_template_rel.id = product_pricelist_item.product_tmpl_id " \
-                "join res_partner ON res_partner.id = coupon_program_res_partner_rel.code " \
-                "join coupon_reward on coupon_reward.id = coupon_program.reward_id " \
-                "where res_partner.code=%s"
-        self.env.cr.execute(query, (code,))
-        data_sa = self.env.cr.fetchall()
-        docs = self.env['coupon.program'].browse(data_sa.ids)
+        # query = """
+        # SELECT cp.name as name_coupon,  product_template.name as product_coupon, fixed_price
+        #     from coupon_program cp join coupon_program_product_template_rel cp_pt_rel on cp.id = cp_pt_rel.coupon_program_id
+        #     join coupon_program_res_partner_rel on cp.id = coupon_program_res_partner_rel.coupon_program_id
+        #     join product_pricelist_item on cp_pt_rel.id = product_pricelist_item.product_tmpl_id
+        #     join res_partner ON res_partner.id = coupon_program_res_partner_rel.code
+        #     join coupon_reward on coupon_reward.id = cp.reward_id
+        #     join product_template on product_template.id = cp_pt_rel.id
+        #     where res_partner.code=%s
+        # """
+        #
+        # self.env.cr.execute(query, (code,))
+        # data_sa = self.env.cr.fetchall()
+        # docs = self.env['partner.coupon.wizard'].browse(data_sa)
 
         data = {
             'model': self._name,
-            'ids': self.ids,
             'form': {
-                'khachhang': self.khachhang.name,  'code': code
+                'khachhang': self.khachhang.name,
+                'code': code,
             },
         }
         action = self.env.ref('sale_inheritance.action_report_discount_coupon').report_action(self, data=data)
@@ -45,23 +70,27 @@ class DiscountCouponReport(models.AbstractModel):
         khachhang = data['form']['khachhang']
         code = data['form']['code']
 
-        query = "SELECT * " \
-                "from coupon_program " \
-                "join coupon_program_product_template_rel on coupon_program.id = coupon_program_product_template_rel.coupon_program_id " \
-                "join coupon_program_res_partner_rel on coupon_program.id = coupon_program_res_partner_rel.coupon_program_id " \
-                "join product_pricelist_item on coupon_program_product_template_rel.id = product_pricelist_item.product_tmpl_id " \
-                "join res_partner ON res_partner.id = coupon_program_res_partner_rel.code " \
-                "join coupon_reward on coupon_reward.id = coupon_program.reward_id " \
-                "where res_partner.code=%s"
+        query = """
+            SELECT cp.name as name_coupon,  product_template.name as product_coupon, fixed_price, discount_percentage, discount_hold_time, payment_type, discount_type 
+            from coupon_program cp join coupon_program_product_template_rel cp_pt_rel on cp.id = cp_pt_rel.coupon_program_id 
+            join coupon_program_res_partner_rel on cp.id = coupon_program_res_partner_rel.coupon_program_id 
+            join product_pricelist_item on cp_pt_rel.id = product_pricelist_item.product_tmpl_id 
+            join res_partner ON res_partner.id = coupon_program_res_partner_rel.code 
+            join coupon_reward on coupon_reward.id = cp.reward_id 
+            join product_template on product_template.id = cp_pt_rel.id 
+            where res_partner.code=%s 
+        """
         self.env.cr.execute(query, (code,))
         data_sa = self.env.cr.fetchall()
-        docs = self.env['coupon.program'].browse(data_sa.ids)
+        #tính toán ra 1 data_wizard
+        docs = self.env['partner.coupon.wizard'].browse(data_sa)
+        data_doc = docs.create(data_sa)
 
         return {
-            'doc_ids': data['ids'],
+            # 'doc_ids': data['ids'],
             'doc_model': data['model'],
             'khachhang': khachhang,
-            # 'code': code,
             'docs': docs,
+            'data_doc': data_doc
         }
 
