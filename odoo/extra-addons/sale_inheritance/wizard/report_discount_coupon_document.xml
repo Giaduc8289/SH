@@ -35,15 +35,12 @@
                             <tbody class="sale_tbody">
                                 <t t-set="i" t-value="1"/>
                                 <t t-foreach="docs" t-as="doc">
-                                        <tr>
-                                            <td class="text-center">
-                                                <span t-esc="i"/>
-                                                <t t-set="i" t-value="i+1"/>
-                                            </td>
-                                            <td class="text-left">
-                                                <span t-field="doc.name"/>
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <span t-esc="i"/>
+                                            <t t-set="i" t-value="i+1"/>
+                                        </td>
+                                    </tr>
                                 </t>
                             </tbody>
                         </table>
