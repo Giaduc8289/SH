@@ -12,35 +12,33 @@
                     <br/>
                     <h2 class="text-center bold"><center>Vehicle Weight Report</center></h2>
                     <br/>
-                    <center>
-                        <span class="text-center bold"><center>
-                            <t t-if="date_start">
-                                <span class="text-center bold"><strong>From date: </strong> <t
-                                        t-esc="date_start"/></span>
-                            </t>
-                            <t t-if="date_start and date_end">
-                                <span class="text-center bold"> - </span>
-                            </t>
-                            <t t-if="date_end">
-                                <span class="text-center bold"><strong> To date: </strong><t t-esc="date_end"/></span>
-                            </t>
-                        </center>
-                        </span>
-                        <t t-if="res_partner_id">
-                            <span><strong>Guest name: </strong> <t t-esc="res_partner_id"/></span>
+                    <span class="text-center bold"><center>
+                        <t t-if="date_start">
+                            <span class="text-center bold"><strong>From date: <t
+                                    t-esc="date_start"/></strong></span>
                         </t>
-                        <br/>
-                        <t t-if="purpose">
-                            <span><strong>Purpose: </strong><t t-esc="purpose"/></span>
+                        <t t-if="date_start and date_end">
+                            <span class="text-center bold"> - </span>
+                        </t>
+                        <t t-if="date_end">
+                            <span class="text-center bold"><strong> To date: <t t-esc="date_end"/></strong></span>
                         </t>
                     </center>
+                    </span>
+                    <t t-if="res_partner_id">
+                        <span><strong>Guest name: <t t-esc="res_partner_id"/></strong></span>
+                    </t>
+                    <br/>
+                    <t t-if="purpose">
+                        <span><strong>Purpose: <t t-esc="purpose"/></strong></span>
+                    </t>
                     <br/>
                     <div>
                         <table class="table-bordered">
                             <thead>
                                 <tr>
-                                     <th style="width :3%"
-                                        class="table-item">STT</th>
+                                    <th style="width :3%"
+                                        class="table-item">No.</th>
                                     <th style="width :15%;"
                                         class="text-center">License plates</th>
                                     <th style="width :25%;"
@@ -58,14 +56,14 @@
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
-                                <t t-set="i" t-value="1" />
+                                <t t-set="i" t-value="1"/>
                                 <t t-foreach="docs" t-as="o">
                                     <tr>
                                         <td class="text-center">
                                             <span t-esc="i"/>
                                             <t t-set="i" t-value="i+1"/>
                                         </td>
-                                        <td class="text-left" >
+                                        <td class="text-left">
                                             <span t-field="o.number_plate"/>
                                         </td>
                                         <td class="text-left">

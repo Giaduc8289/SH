@@ -9,12 +9,12 @@
                 <div class="page">
                     <div class="oe_structure"/>
                     <br/>
-                    <h2 class="text-center bold"><center>BÁO CÁO CHIẾT KHẤU TRẢ SAU</center></h2>
+                    <h2 class="text-center bold" style="text-transform : uppercase;"><center>Postpaid discount report</center></h2>
                     <br/>
                     <span class="text-center bold">
                         <center>
                             <t t-if="khachhang">
-                                <span class="text-center bold"><strong>Khách hàng: </strong><t
+                                <span class="text-center bold"><strong>Customer : </strong><t
                                         t-esc="khachhang"/></span>
                             </t>
                         </center>
@@ -25,11 +25,11 @@
                             <thead>
                                 <tr>
                                     <th style="width :3%"
-                                        class="table-item">STT</th>
-                                    <th class="table-item">Tên chương trình chiết khấu</th>
-                                    <th class="table-item">Sản phẩm</th>
-                                    <th class="table-item">Đơn giá</th>
-                                    <th class="table-item">Sau chiết khấu</th>
+                                        class="table-item">No.</th>
+                                    <th class="table-item">Name of Discount</th>
+                                    <th class="table-item">Product</th>
+                                    <th class="table-item">Unit Price</th>
+                                    <th class="table-item">After Discount</th>
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">

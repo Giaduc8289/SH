@@ -15,13 +15,13 @@
             <form class="oe_form_configuration">
                 <header>
                     <button name="action_create_order" type="object" string="Create Order" class="oe_highlight"
-                            attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}"
+                            attrs="{'invisible': ['|', ('purpose', 'in', ('visit', 'work')), ('state', '=', 'out')]}"
                             groups="sales_team.group_sale_salesman, purchase.group_purchase_user"/>
                     <button name="action_weigh_in" type="object" string="Weigh In" class="oe_highlight"
-                            attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}"
+                            attrs="{'invisible': ['|',('purpose', 'in', ('visit', 'work')), ('state', '=', 'out')]}"
                             groups="access_control.group_weight_user"/>
                     <button name="action_weigh_out" type="object" string="Weigh Out" class="oe_highlight"
-                            attrs="{'invisible': [('purpose', 'in', ('visit', 'work'))]}"
+                            attrs="{'invisible': ['|',('purpose', 'in', ('visit', 'work')), ('state', '=', 'out')]}"
                             groups="access_control.group_weight_user"/>
                     <button name="action_check_out" id="action_confirm" data-hotkey="v"
                             string="Check out" class="btn-primary" type="object"
@@ -114,34 +114,34 @@
         <field name="groups_id" eval="[(6, 0, [ref('access_control.group_access_control_user')])]"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='purpose']" position="attributes">
-                <attribute name="attrs">{'readonly': 0}</attribute>
+                <attribute name="attrs">{'readonly': [('state', '=', 'out')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='number_plate']" position="attributes">
-                <attribute name="attrs">{'readonly': 0}</attribute>
+                <attribute name="attrs">{'readonly': [('state', '=', 'out')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='res_partner_id']" position="attributes">
-                <attribute name="attrs">{'readonly': 0}</attribute>
+                <attribute name="attrs">{'readonly': [('state', '=', 'out')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='makh']" position="attributes">
-                <attribute name="attrs">{'readonly': 0}</attribute>
+                <attribute name="attrs">{'readonly': [('state', '=', 'out')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='name']" position="attributes">
-                <attribute name="attrs">{'readonly': 0}</attribute>
+                <attribute name="attrs">{'readonly': [('state', '=', 'out')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='phone']" position="attributes">
-                <attribute name="attrs">{'readonly': 0}</attribute>
+                <attribute name="attrs">{'readonly': [('state', '=', 'out')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='taixe']" position="attributes">
-                <attribute name="attrs">{'readonly': 0}</attribute>
+                <attribute name="attrs">{'readonly': [('state', '=', 'out')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='address']" position="attributes">
-                <attribute name="attrs">{'readonly': 0}</attribute>
+                <attribute name="attrs">{'readonly': [('state', '=', 'out')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='purpose_descript']" position="attributes">
-                <attribute name="attrs">{'readonly': 0}</attribute>
+                <attribute name="attrs">{'readonly': [('state', '=', 'out')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='product_category_ids']" position="attributes">
-                <attribute name="attrs">{'readonly': 0}</attribute>
+                <attribute name="attrs">{'readonly': [('state', '=', 'out')]}</attribute>
             </xpath>
         </field>
     </record>

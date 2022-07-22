@@ -46,34 +46,9 @@
                             <center>
                                 <span width="30px"
                                       style="font-weight: bold; font-size:15px;">
-                                   Purchase order: <span>
+                                    Purchase order: <span>
                                     <t t-if="doc.name">
                                         <t t-esc="doc.name"/>
-                                    </t>
-                                </span>
-                                </span><br/>
-                                <span width="30px"
-                                      style="font-weight: bold; font-size:15px;">
-                                    Supplier: <span>
-                                    <t t-if="doc.partner_id.name">
-                                        <t t-esc="doc.partner_id.name"/>
-                                    </t>
-                                </span>
-                                </span><br/>
-
-                                <span width="30px"
-                                      style="font-weight: bold; font-size:15px;">
-                                    Phone number: <span>
-                                    <t t-if="doc.partner_id.phone">
-                                        <t t-esc="doc.partner_id.phone"/>
-                                    </t>
-                                </span>
-                                </span><br/><br/>
-                                <span width="30px"
-                                      style="font-weight: bold; font-size:15px;">
-                                    Your order: <span>
-                                    <t t-if="doc.partner_ref">
-                                        <t t-esc="doc.partner_ref"/>
                                     </t>
                                 </span>
                                 </span><br/>
@@ -85,15 +60,39 @@
                                     </t>
                                 </span>
                                 </span><br/>
-                                <span width="30px"
-                                      style="font-weight: bold; font-size:15px;">
-                                    Delivery address:
-                                </span>
-                                <span> Lô 44G KCN Quang Minh - Mê Linh - Hà Nội <br/>
-                                    Số 10 ngõ 80/3 phố Nhân Hòa, Phường Nhân Chính, Quận Thanh Xuân
-                                    Hà Nội Việt Nam
-                                </span><br/>
                             </center>
+                            <span width="30px"
+                                  style="font-weight: bold; font-size:15px;">
+                                Your order: <span>
+                                <t t-if="doc.partner_ref">
+                                    <t t-esc="doc.partner_ref"/>
+                                </t>
+                            </span>
+                            </span><br/>
+                            <span width="30px"
+                                  style="font-weight: bold; font-size:15px;">
+                                Supplier: <span>
+                                <t t-if="doc.partner_id.name">
+                                    <t t-esc="doc.partner_id.name"/>
+                                </t>
+                            </span>
+                            </span><br/>
+                            <span width="30px"
+                                  style="font-weight: bold; font-size:15px;">
+                                Phone number: <span>
+                                <t t-if="doc.partner_id.phone">
+                                    <t t-esc="doc.partner_id.phone"/>
+                                </t>
+                            </span>
+                            </span><br/>
+                            <span width="30px"
+                                  style="font-weight: bold; font-size:15px;">
+                                Delivery address:
+                            </span>
+                            <span> Lô 44G KCN Quang Minh - Mê Linh - Hà Nội <br/>
+                                Số 10 ngõ 80/3 phố Nhân Hòa, Phường Nhân Chính, Quận Thanh Xuân
+                                Hà Nội Việt Nam
+                            </span><br/>
                             <br/>
 
                             <table class="table table-bordered" style="border-collapse: collapse ; width : 100%;">

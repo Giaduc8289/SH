@@ -14,7 +14,7 @@ docker rm db
 -Tạo container cho databaser posgresql (PG)
 docker run --name db -v /root/pg/data:/var/lib/postgresql/data -p 8006:5432 -e POSTGRES_USER=odoo -e POSTGRES_PASSWORD=admin@123 -e POSTGRES_DB=postgres -d postgres
 
-Phiên bản cuối: 1.0.47
+Phiên bản cuối: 1.0.49
 
 git bash
 ssh root@112.78.1.221

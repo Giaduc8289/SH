@@ -12,6 +12,7 @@
     "depends": ["mrp"],
     "data": ["views/mrp_view.xml",
              "views/report_mrpbomstructure.xml",
-             "report/mrp_report_bom_structure_templates.xml"],
+             "report/mrp_report_bom_structure_templates.xml",
+             ],
     "installable": True,
 }

@@ -10,42 +10,46 @@
                 <div class="page">
                     <div class="oe_structure"/>
                     <br/>
-                    <h2 style="text-transform: uppercase" class="text-center bold"><center>báo cáo quản lý chất
-                        lượng</center></h2>
-                    <span class="text-center bold"><center>
-                        <t t-if="date_start">
-                            <span class="text-center bold">Từ ngày : <t t-esc="date_start"/></span>
-                        </t>
-                        <t t-if="date_start and date_end">
-                            <span class="text-center bold"> - </span>
-                        </t>
-                        <t t-if="date_end">
-                            <span class="text-center bold">Đến ngày : <t t-esc="date_end"/></span>
-                        </t>
+                    <h2 style="text-transform: uppercase" class="text-center bold"><center>Quality purchase report</center></h2>
+                    <span class="text-center bold">
+                        <center>
+                            <t t-if="date_start">
+                                <span class="text-center bold"><strong>From date : <t
+                                        t-esc="date_start"/></strong></span>
+                            </t>
+                            <t t-if="date_start and date_end">
+                                <span class="text-center bold"> - </span>
+                            </t>
+                            <t t-if="date_end">
+                                <span class="text-center bold"><strong>To date : <t t-esc="date_end"/></strong></span>
+                            </t>
+                            <br/>
+                            <t t-if="sanpham">
+                                <strong>Product: <t t-esc="sanpham"/></strong>
+                            </t>
+                            <br/>
+                            <t t-if="kho">
+                                <strong>Warehouse: <t t-esc="kho"/></strong>
+                            </t>
+                            <br/>
+                            <t t-if="ketqua">
+                                <strong>Result: <t t-esc="ketqua"/></strong>
+                            </t>
+                            <br/>
+                        </center>
                         <t t-if="nhacungcap">
-                            <strong>Từ nhà cung cấp: </strong><t t-esc="nhacungcap"/>
+                            <strong>Supplier: <t t-esc="nhacungcap"/></strong>
                         </t>
                         <br/>
-                        <t t-if="sanpham">
-                            <strong>Sản phẩm: </strong><t t-esc="sanpham"/>
-                        </t>
-                        <br/>
-                        <t t-if="kho">
-                            <strong>Từ kho: </strong><t t-esc="kho"/>
-                        </t>
-                        <br/>
-                        <t t-if="ketqua">
-                            <strong>Kết quả: </strong><t t-esc="ketqua"/>
-                        </t>
-                        <br/>
-                    </center>
+
+
                     </span>
                     <br/>
                     <div>
                         <table class="table-bordered">
                             <thead>
                                 <tr>
-                                    <th style="width :3%" class="table-item">STT</th>
+                                    <th style="width :3%" class="table-item">No.</th>
                                     <th style="width :12%" class="table-item">Origin</th>
                                     <th style="width :12%" class="table-item">ID</th>
                                     <th style="width :12%" class="table-item">Name product</th>

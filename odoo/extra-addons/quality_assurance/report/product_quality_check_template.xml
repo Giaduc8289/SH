@@ -17,12 +17,12 @@
                     <br/>
 
                     <p><strong>Supplier:<t t-esc="docs.picking_id.partner_id.name"/> </strong></p>
-                    <p><strong>Number Plate:<t t-esc="docs.picking_id.purchase_id.id"/> </strong></p>
+<!--                    <p><strong>Number Plate:<t t-esc="docs.picking_id.purchase_id.id"/> </strong></p>-->
                     <div>
                         <table class="table-bordered">
                             <thead>
                                 <tr>
-                                    <th style="width :3%" class="table-item">STT</th>
+                                    <th style="width :3%" class="table-item">No.</th>
                                     <th style="width :12%" class="table-item">Criteria</th>
                                     <th style="width :7.5%" class="table-item">Minimum</th>
                                     <th style="width :7.5%" class="table-item">Maximum</th>

@@ -14,43 +14,39 @@
                     <br/>
                     <span class="text-center bold"><center>
                         <t t-if="date_start">
-                            <span class="text-center bold"><strong>From date: </strong><t t-esc="date_start"/></span>
+                            <span class="text-center bold"><strong>From date: <t t-esc="date_start"/></strong></span>
                         </t>
                         <t t-if="date_start and date_end">
                             <span class="text-center bold"><strong> - </strong></span>
                         </t>
                         <t t-if="date_end">
-                            <span class="text-center bold"><strong>To date: </strong><t t-esc="date_end"/></span>
+                            <span class="text-center bold"><strong>To date: <t t-esc="date_end"/></strong></span>
                         </t>
                         <br/>
-                        <t t-if="state">
-                            <span class="text-center bold"><strong>Contract status: </strong><t
-                                    t-esc="state"/></span>
+                        <t t-if="sanpham">
+                            <span class="text-center bold"><strong>Product: <t t-esc="sanpham"/></strong></span>
                             <br/>
                         </t>
                         <t t-if="group_products">
-                            <span class="text-center bold"><strong>Product group: </strong><t
-                                    t-esc="group_products"/></span>
-                            <br/>
-                        </t>
-                        <t t-if="nhacungcap">
-                            <span class="text-center bold"><strong>Supplier: </strong><t
-                                    t-esc="nhacungcap"/></span>
-                            <br/>
-                        </t>
-                        <t t-if="sanpham">
-                            <span class="text-center bold"><strong>Product: </strong><t t-esc="sanpham"/></span>
+                            <span class="text-center bold"><strong>Product group: <t t-esc="group_products"/></strong></span>
                             <br/>
                         </t>
                     </center>
+                        <t t-if="nhacungcap">
+                            <span class="text-center bold"><strong>Supplier: <t t-esc="nhacungcap"/></strong></span>
+                            <br/>
+                        </t>
+                        <t t-if="state">
+                            <span class="text-center bold"><strong>Contract status: <t t-esc="state"/></strong></span>
+                            <br/>
+                        </t>
                     </span>
-                    <br/>
                     <br/>
                     <div>
                         <table class="table-bordered">
                             <thead>
                                 <tr>
-                                    <th style="width :3%" class="table-item">STT</th>
+                                    <th style="width :3%" class="table-item">No.</th>
                                     <th class="text-center">ID</th>
                                     <th class="text-center">Order date</th>
                                     <th class="text-center">Supplier</th>
@@ -71,7 +67,7 @@
                                             <span t-field="o.name"/>
                                         </td>
                                         <td class="text-left">
-                                            <span t-field="o.date_order" />
+                                            <span t-field="o.date_order"/>
                                         </td>
                                         <td class="text-left">
                                             <span t-field="o.partner_id"/>
