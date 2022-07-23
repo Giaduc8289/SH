@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-16 08:42+0000\n"
-"PO-Revision-Date: 2022-07-16 08:42+0000\n"
+"POT-Creation-Date: 2022-07-21 09:00+0000\n"
+"PO-Revision-Date: 2022-07-21 09:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 #. module: mrp_bom_location
 #: model_terms:ir.ui.view,arch_db:mrp_bom_location.report_mrp_bom_structure_document
 msgid "&amp; Cost"
-msgstr "Giá cả"
+msgstr "& giá cả"
 
 #. module: mrp_bom_location
 #: model_terms:ir.ui.view,arch_db:mrp_bom_location.report_mrp_bom_structure_document
@@ -37,7 +37,7 @@ msgstr ""
 #. module: mrp_bom_location
 #: model_terms:ir.ui.view,arch_db:mrp_bom_location.report_mrp_bom_structure_document
 msgid "<span><strong>Unit Cost</strong></span>"
-msgstr "<strong>Tổng tiền</strong>"
+msgstr "<span><strong>Đơn giá</strong></span>"
 
 #. module: mrp_bom_location
 #: model_terms:ir.ui.view,arch_db:mrp_bom_location.report_mrp_bom_structure_document
@@ -52,7 +52,7 @@ msgstr "Báo cáo cấu trúc BOM"
 #. module: mrp_bom_location
 #: model:ir.model,name:mrp_bom_location.model_mrp_bom
 msgid "Bill of Material"
-msgstr "Định mức vật liệu BoM"
+msgstr "Công thức phối trộn"
 
 #. module: mrp_bom_location
 #: model:ir.model,name:mrp_bom_location.model_mrp_bom_line
@@ -62,17 +62,17 @@ msgstr "Dòng định mức vật liệu "
 #. module: mrp_bom_location
 #: model_terms:ir.ui.view,arch_db:mrp_bom_location.report_mrp_bom_structure_document
 msgid "BoM"
-msgstr "Sản phẩm cần sản xuất"
+msgstr ""
 
 #. module: mrp_bom_location
 #: model_terms:ir.ui.view,arch_db:mrp_bom_location.report_mrp_bom_structure_document
 msgid "BoM Cost"
-msgstr "Chi phí sản xuất"
+msgstr "Giá BoM"
 
 #. module: mrp_bom_location
 #: model_terms:ir.ui.view,arch_db:mrp_bom_location.report_mrp_bom_structure_document
 msgid "BoM Structure"
-msgstr "Cấu trúc sản xuất"
+msgstr "Cấu trúc BoM"
 
 #. module: mrp_bom_location
 #: model_terms:ir.ui.view,arch_db:mrp_bom_location.report_mrp_bom_structure_document
@@ -95,7 +95,7 @@ msgstr ""
 #. module: mrp_bom_location
 #: model_terms:ir.ui.view,arch_db:mrp_bom_location.report_mrp_bom_structure_document
 msgid "No data available."
-msgstr ""
+msgstr "Không có dữ liệu."
 
 #. module: mrp_bom_location
 #: model_terms:ir.ui.view,arch_db:mrp_bom_location.report_mrp_bom_structure_document
@@ -105,7 +105,7 @@ msgstr "Ghi chú"
 #. module: mrp_bom_location
 #: model_terms:ir.ui.view,arch_db:mrp_bom_location.report_mrp_bom_structure_document
 msgid "Product"
-msgstr "Thành phần"
+msgstr "Nguyên liệu"
 
 #. module: mrp_bom_location
 #: model_terms:ir.ui.view,arch_db:mrp_bom_location.report_mrp_bom_structure_document
@@ -121,6 +121,11 @@ msgstr "Giá nguyên liệu"
 #: model_terms:ir.ui.view,arch_db:mrp_bom_location.report_mrp_bom_structure_document
 msgid "Quantity"
 msgstr "Khối lượng"
+
+#. module: mrp_bom_location
+#: model_terms:ir.ui.view,arch_db:mrp_bom_location.report_mrp_bom_structure_document
+msgid "Reference:"
+msgstr "Nguồn:"
 
 #. module: mrp_bom_location
 #: model_terms:ir.ui.view,arch_db:mrp_bom_location.report_mrp_bom_structure_document

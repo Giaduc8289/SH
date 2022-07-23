@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-16 09:17+0000\n"
-"PO-Revision-Date: 2022-07-16 09:17+0000\n"
+"POT-Creation-Date: 2022-07-21 08:40+0000\n"
+"PO-Revision-Date: 2022-07-21 08:40+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -33,6 +33,7 @@ msgid "<span class=\"text-center bold\"><strong> - </strong></span>"
 msgstr ""
 
 #. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_lot_label
 #: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_inventory_document
 msgid ""
 "<span style=\"font-weight:bold\">CÔNG TY TNHH TM &amp; CÔNG NGHỆ SINH HÓA</span>\n"
@@ -69,7 +70,12 @@ msgstr "<strong>Tên kho</strong>"
 #. module: stock_inheritance
 #: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_inventory_document
 msgid "<strong>Lot/Serial Number</strong>"
-msgstr "<strong>Số lô/sê-ri</strong>"
+msgstr "<strong>Số lô/serial</strong>"
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_inventory_document
+msgid "<strong>No.</strong>"
+msgstr ""
 
 #. module: stock_inheritance
 #: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_inventory_document
@@ -87,29 +93,14 @@ msgid "<strong>Product</strong>"
 msgstr "<strong>Sản phẩm</strong>"
 
 #. module: stock_inheritance
-#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
-msgid "<strong>Từ ngày : </strong>"
-msgstr ""
-
-#. module: stock_inheritance
-#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
-msgid "<strong>Đến ngày : </strong>"
-msgstr ""
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_lot_label
+msgid "Barcode"
+msgstr "Mã vạch"
 
 #. module: stock_inheritance
 #: model:ir.model.fields,field_description:stock_inheritance.field_stock_move_inventory__begin_inventory
 msgid "Beginning Inventory"
 msgstr "Tồn đầu"
-
-#. module: stock_inheritance
-#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
-msgid "BÁO CÁO NHẬP XUẤT KHO"
-msgstr ""
-
-#. module: stock_inheritance
-#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
-msgid "BÁO CÁO NHẬP XUẤT TỒN"
-msgstr ""
 
 #. module: stock_inheritance
 #: model:ir.actions.act_window,name:stock_inheritance.action_filter_stock_move_inventory
@@ -176,14 +167,24 @@ msgid "Cảnh báo hạn sử dụng"
 msgstr ""
 
 #. module: stock_inheritance
-#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
-msgid "Cập nhật lần cuối"
-msgstr ""
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_lot_label
+msgid "Date"
+msgstr "Ngày"
 
 #. module: stock_inheritance
 #: model:ir.actions.report,name:stock_inheritance.action_report_delivery
 msgid "Delivery Slip"
 msgstr "Phiếu giao hàng"
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
+msgid "Delivery date"
+msgstr ""
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
+msgid "Destination warehouse"
+msgstr ""
 
 #. module: stock_inheritance
 #: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_entry__display_name
@@ -204,15 +205,35 @@ msgid "End Inventory"
 msgstr "Tồn cuối"
 
 #. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
+msgid "Ending inventory"
+msgstr ""
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
+msgid "Export"
+msgstr ""
+
+#. module: stock_inheritance
 #: model_terms:ir.ui.view,arch_db:stock_inheritance.filter_stock_move_inventory_form_view
 msgid "Filter"
 msgstr "Lọc"
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_lot_label
+msgid "From"
+msgstr "Từ kho"
 
 #. module: stock_inheritance
 #: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_entry__f_date
 #: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_quant__f_date
 msgid "From date"
 msgstr "Từ ngày"
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
+msgid "From date :"
+msgstr ""
 
 #. module: stock_inheritance
 #: model_terms:ir.ui.view,arch_db:stock_inheritance.filter_stock_entry_form_view
@@ -228,6 +249,11 @@ msgid "ID"
 msgstr ""
 
 #. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
+msgid "Import"
+msgstr ""
+
+#. module: stock_inheritance
 #: model:ir.actions.report,name:stock_inheritance.action_report_stock_move_inventory
 msgid "In báo cáo chi tiết"
 msgstr ""
@@ -236,6 +262,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_inventory_document
 msgid "Inventory Count Sheet"
 msgstr "Báo cáo tồn kho"
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
+msgid "Inventory import and export report"
+msgstr ""
 
 #. module: stock_inheritance
 #: code:addons/stock_inheritance/models/stock_quant.py:0
@@ -254,31 +285,6 @@ msgstr ""
 #. module: stock_inheritance
 #: model:ir.model.fields,field_description:stock_inheritance.field_stock_entry_report_wizard__stock
 msgid "Kho"
-msgstr ""
-
-#. module: stock_inheritance
-#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
-msgid "Kho nguồn"
-msgstr ""
-
-#. module: stock_inheritance
-#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
-msgid "Kho đích"
-msgstr ""
-
-#. module: stock_inheritance
-#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
-msgid "Khối lượng"
-msgstr ""
-
-#. module: stock_inheritance
-#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
-msgid "Khối lượng nhập"
-msgstr ""
-
-#. module: stock_inheritance
-#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
-msgid "Khối lượng xuất"
 msgstr ""
 
 #. module: stock_inheritance
@@ -305,19 +311,19 @@ msgid "Last Updated on"
 msgstr "Cập nhật lần cuối vào"
 
 #. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
+msgid "Last update"
+msgstr ""
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_lot_label
+msgid "Lot/Serial"
+msgstr "Số lô/serial"
+
+#. module: stock_inheritance
 #: model:ir.model.fields,field_description:stock_inheritance.field_stock_move_line__manufacturing_date
 msgid "Manufacturing Date"
 msgstr "Ngày sản xuất"
-
-#. module: stock_inheritance
-#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
-msgid "Mã sản phẩm"
-msgstr ""
-
-#. module: stock_inheritance
-#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
-msgid "Ngày giao"
-msgstr ""
 
 #. module: stock_inheritance
 #: model:ir.model.fields,field_description:stock_inheritance.field_stock_quant__expiration_date
@@ -335,15 +341,22 @@ msgid "Ngày sản xuất"
 msgstr ""
 
 #. module: stock_inheritance
-#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
-msgid "Nhập kho"
-msgstr ""
-
-#. module: stock_inheritance
 #: code:addons/stock_inheritance/models/stock_move_line.py:0
 #, python-format
 msgid "No negative quantities allowed"
 msgstr ""
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_lot_label
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
+msgid "No."
+msgstr "STT"
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_lot_label
+msgid "Note"
+msgstr "Ghi chú"
 
 #. module: stock_inheritance
 #: model_terms:ir.actions.act_window,help:stock_inheritance.action_filter_stock_move_inventory
@@ -355,9 +368,21 @@ msgid ""
 msgstr ""
 
 #. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
+msgid "Origin"
+msgstr ""
+
+#. module: stock_inheritance
 #: model:ir.actions.report,name:stock_inheritance.action_report_picking
 msgid "Picking Operations"
 msgstr "Hoạt động giao nhận"
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_lot_label
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
+msgid "Product"
+msgstr "Sản phẩm"
 
 #. module: stock_inheritance
 #: model:ir.model,name:stock_inheritance.model_stock_move_line
@@ -372,6 +397,16 @@ msgid "Product Template"
 msgstr "Mẫu sản phẩm"
 
 #. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
+msgid "Product id"
+msgstr "Mã sản phẩm"
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_lot_label
+msgid "Lots/serial number list"
+msgstr "Danh sách số lô/serial "
+
+#. module: stock_inheritance
 #: code:addons/stock_inheritance/models/stock_report.py:0
 #, python-format
 msgid "Products"
@@ -382,6 +417,27 @@ msgstr "Sản phẩm"
 #, python-format
 msgid "Quant's creation is restricted, you can't do this operation."
 msgstr ""
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_lot_label
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
+msgid "Quantity"
+msgstr "Khối Lượng"
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
+msgid "Quantity export"
+msgstr ""
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
+msgid "Quantity import"
+msgstr ""
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_lot_label
+msgid "Reference"
+msgstr "Nguồn"
 
 #. module: stock_inheritance
 #: code:addons/stock_inheritance/models/stock_quant.py:0
@@ -397,13 +453,17 @@ msgstr "Báo cáo"
 
 #. module: stock_inheritance
 #: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
-#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
-msgid "STT"
+msgid "Source repository"
 msgstr ""
 
 #. module: stock_inheritance
 #: model:ir.model.fields,field_description:stock_inheritance.field_stock_entry_report_wizard__date_start
 msgid "Start Date"
+msgstr ""
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
+msgid "Start inventory"
 msgstr ""
 
 #. module: stock_inheritance
@@ -443,6 +503,11 @@ msgid ""
 msgstr ""
 
 #. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_lot_label
+msgid "To"
+msgstr "Đến kho"
+
+#. module: stock_inheritance
 #: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_entry__t_date
 #: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_quant__t_date
 msgid "To date"
@@ -450,33 +515,19 @@ msgstr "Đến ngày"
 
 #. module: stock_inheritance
 #: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
-msgid "Tài liệu gốc"
-msgstr ""
-
-#. module: stock_inheritance
-#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
-msgid "Tên"
-msgstr ""
-
-#. module: stock_inheritance
-#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
-msgid "Tên sản phẩm"
-msgstr ""
-
-#. module: stock_inheritance
-#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
-msgid "Tồn cuối"
-msgstr ""
-
-#. module: stock_inheritance
-#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
-msgid "Tồn đầu"
-msgstr ""
+msgid "To date :"
+msgstr "Đến ngày:"
 
 #. module: stock_inheritance
 #: model:ir.model.fields,field_description:stock_inheritance.field_filter_stock_entry__location_id
 msgid "Từ kho"
 msgstr ""
+
+#. module: stock_inheritance
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_lot_label
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
+msgid "Unit"
+msgstr "Đơn vị"
 
 #. module: stock_inheritance
 #: model:ir.model.fields,field_description:stock_inheritance.field_stock_move_inventory__warehouse_entry
@@ -489,8 +540,8 @@ msgid "Warehouse Export"
 msgstr "Xuất kho"
 
 #. module: stock_inheritance
-#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_move_inventory_document
-msgid "Xuất kho"
+#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
+msgid "Warehouse import and export report"
 msgstr ""
 
 #. module: stock_inheritance
@@ -524,11 +575,6 @@ msgstr ""
 #. module: stock_inheritance
 #: model:ir.model,name:stock_inheritance.model_stock_quant_report_stock_move_inventory_document
 msgid "stock.quant.report_stock_move_inventory_document"
-msgstr ""
-
-#. module: stock_inheritance
-#: model_terms:ir.ui.view,arch_db:stock_inheritance.report_stock_entry_document
-msgid "Đơn vị"
 msgstr ""
 
 #. module: stock_inheritance

@@ -3,6 +3,7 @@
     <data>
         <template id="report_lot_label" inherit_id="stock.report_lot_label">
             <xpath expr="//t[@t-call='web.basic_layout']" position="replace">
+                <meta charset="utf-8"/>
                 <div class="header" style="margin-top : 50px;">
                     <div style="display: flex; width : 100%; justify-content: space-between;">
                         <div class="col-6">
@@ -21,97 +22,83 @@
                         </div>
                     </div>
                 </div>
-                <div class="page">
-                    <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css"/>
-                    <div class="oe_structure"/>
-                    <h2>Product lots/serial number list</h2>
-                    <!--                        <table class="table table-condensed"-->
-                    <!--                               style="border-bottom: 0px solid white !important;width: 3in;">-->
-                    <!--                            <tr>-->
-                    <!--                                <th style="text-align: left; color:red;">-->
-                    <!--                                    <span t-field="o.product_id.display_name"/>-->
-                    <!--                                </th>-->
-                    <!--                            </tr>-->
-                    <!--                            <tr name="lot_name">-->
-                    <!--                                <td>-->
-                    <!--                                    <span>LN/SN:</span>-->
-                    <!--                                    <span t-field="o.name"/>-->
-                    <!--                                </td>-->
-                    <!--                            </tr>-->
-                    <!--                            <tr>-->
-                    <!--                                                    <td style="text-align: center; vertical-align: middle;" class="col-5">-->
-                    <!--                                                        <div t-field="o.name"-->
-                    <!--                                                             t-options="{'widget': 'barcode', 'width': 600, 'height': 150, 'img_style': 'width:100%;height:20%;'}"/>-->
-                    <!--                                                    </td>-->
-                    <!--                            </tr>-->
-                    <!--                        </table>-->
-                    <div>
-                        <table class="table-bordered">
-                            <thead>
-                                <tr>
-                                    <th style="width :3%" class="table-item">No.</th>
-<!--                                    <th style="width :8%" class="table-item">origin</th>-->
-                                    <th style="width :8%" class="table-item">Reference</th>
-                                    <th style="width :15%" class="table-item">Product</th>
-                                    <th style="width :10%" class="table-item">Date</th>
-                                    <th style="width :7%" class="table-item">Lot/Serial</th>
-                                    <th style="width :7%" class="table-item">From</th>
-                                    <th style="width :7%" class="table-item">To</th>
-                                    <th style="width :10%" class="table-item">Quantity</th>
-                                    <th style="width :12%" class="table-item">Barcode</th>
-                                    <th class="table-item">Note</th>
-                                </tr>
-                            </thead>
-                            <tbody class="sale_tbody">
-                                <t t-set="i" t-value="1"/>
-                                <t t-foreach="docs" t-as="doc">
+                <br/><br/>
+                <t t-call="base_inheritance.report_no_logo_layout">
+                    <div class="page">
+                        <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css"/>
+                        <div class="oe_structure"/>
+                        <h2>Lots/serial number list</h2>
+                        <br/><br/>
+                        <div>
+                            <table class="table-bordered">
+                                <thead>
                                     <tr>
-                                        <td class="text-center">
-                                            <span t-esc="i"/>
-                                            <t t-set="i" t-value="i+1"/>
-                                        </td>
-<!--                                         <td class="text-left">-->
-<!--                                            <span t-esc="doc.delivery_ids.origin"/>-->
-<!--                                        </td>-->
-                                        <td class="text-left">
-                                            <span t-esc="doc.delivery_ids.name"/>
-                                        </td>
-                                        <td class="text-center">
-                                            <span t-esc="doc.product_id.name"/>
-                                        </td>
-                                        <td class="text-center">
-                                            <span t-esc="doc.delivery_ids.date_done"/>
-                                        </td>
-                                        <td class="text-center">
-                                            <span t-esc="doc.name"/>
-                                        </td>
-                                        <td class="text-center">
-                                            <span t-esc="doc.delivery_ids.location_id.name"/>
-                                        </td>
-                                        <td class="text-center">
-                                            <span t-esc="doc.delivery_ids.location_dest_id.name"/>
-                                        </td>
-                                        <td class="text-center">
-                                            <span t-esc="doc.product_qty"/>
-                                        </td>
-                                        <td style="text-align: center; vertical-align: middle;" class="col-5">
-                                            <div t-field="doc.name"
-                                                 t-options="{'widget': 'barcode', 'width': 600, 'height': 150, 'img_style': 'width:100%;height:20%;'}"/>
-                                        </td>
-                                        <td class="text-center">
-
-                                        </td>
-                                        <!--                                        <td class="text-left">-->
-                                        <!--                                            <span t-field="o.date"/>-->
-                                        <!--                                        </td>-->
+                                        <th style="width :3%" class="table-item">No.</th>
+                                        <!--                                    <th style="width :8%" class="table-item">origin</th>-->
+                                        <th style="width :8%" class="table-item">Reference</th>
+                                        <th style="width :15%" class="table-item">Product</th>
+                                        <th style="width :10%" class="table-item">Date</th>
+                                        <th style="width :7%" class="table-item">Lot/Serial</th>
+                                        <th style="width :7%" class="table-item">From</th>
+                                        <th style="width :7%" class="table-item">To</th>
+                                        <th style="width :8%" class="table-item">Quantity</th>
+                                        <th style="width :5%" class="table-item">Unit</th>
+                                        <th style="width :12%" class="table-item">Barcode</th>
+                                        <th class="table-item">Note</th>
                                     </tr>
-                                </t>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                                </thead>
+                                <tbody class="sale_tbody">
+                                    <t t-set="i" t-value="1"/>
+                                    <t t-foreach="docs" t-as="doc">
+                                        <tr>
+                                            <td style="text-align: center;" class="text-center">
+                                                <span t-esc="i"/>
+                                                <t t-set="i" t-value="i+1"/>
+                                            </td>
+                                            <!--                                         <td class="text-left">-->
+                                            <!--                                            <span t-esc="doc.delivery_ids.origin"/>-->
+                                            <!--                                        </td>-->
+                                            <td class="text-center">
+                                                <span t-esc="doc.delivery_ids.name"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="doc.product_id.name"/>
+                                            </td>
+                                            <td style="text-align: center;" class="text-center">
+                                                <span t-esc="doc.delivery_ids.date_done"/>
+                                            </td>
+                                            <td style="text-align: center;" class="text-center">
+                                                <span t-esc="doc.name"/>
+                                            </td>
+                                            <td style="text-align: center;" class="text-center">
+                                                <span t-esc="doc.delivery_ids.location_id.name"/>
+                                            </td>
+                                            <td style="text-align: center;" class="text-center">
+                                                <span t-esc="doc.delivery_ids.location_dest_id.name"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-esc="doc.product_qty"/>
+                                            </td>
+                                            <td style="text-align: center;" class="text-center">
 
-                        </xpath>
+                                                <span t-esc="doc.product_uom_id.name"/>
+                                            </td>
+                                            <td style="text-align: center; vertical-align: middle;">
+                                                <div t-field="doc.name"
+                                                     t-options="{'widget': 'barcode', 'width': 600, 'height': 150, 'img_style': 'width:100%;height:20%;'}"/>
+                                            </td>
+                                            <td class="text-center">
+
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <br/>
+                </t>
+            </xpath>
         </template>
     </data>
 </odoo>
