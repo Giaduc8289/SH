@@ -1,62 +1,91 @@
+from operator import itemgetter
+
 from odoo import models, fields, api
 
 from datetime import datetime, timedelta
 
 from odoo.osv import expression
-from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DATE_FORMAT
+from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DATE_FORMAT, groupby
 from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT as DATETIME_FORMAT
 
 class PartnerCouponWizard(models.TransientModel):
     _name = 'partner.coupon.wizard'
-    _rec_name = 'khachhang'
+    _rec_name = 'res_partner_id'
 
-    khachhang = fields.Many2one("res.partner", "Khách hàng", domain="[('code', 'like', 'KH%')]", required=True)
-    name_coupon = fields.Many2one("coupon.program", "Tên chương trình", readonly=True, store=True)
-    product_coupon = fields.Many2one("product.template", "Tên sản phẩm", readonly=True, store=True)
-    fixed_price = fields.Many2one("product.pricelist.item", "Giá sản phẩm", readonly=True, store=True)
-    discount_percentage = fields.Many2one("coupon.reward", "Phần trăm giảm", readonly=True, store=True)
-    discount_hold_time = fields.Many2one("coupon.reward", "Thời gian hoàn tiền", readonly=True, store=True)
-    payment_type = fields.Many2one("coupon.program", "Kiểu thanh toán", readonly=True, store=True)
-    discount_type = fields.Many2one("coupon.reward", "Kiểu chương trình", readonly=True, store=True)
-    pricelist_id = fields.Many2one(
-        'product.pricelist', string='Pricelist', check_company=True, readonly=True, states={'draft': [('readonly', False)], 'sent': [('readonly', False)]},
-        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]", tracking=1,
-        help="If you change the pricelist, only newly added lines will be affected.", store=True)
-    currency_id = fields.Many2one(related='pricelist_id.currency_id', depends=["pricelist_id"], store=True, ondelete="restrict")
-    # amount_coupon = fields.Monetary(string='Price Amount', compute='_amount_coupon_price')
-    #
-    # def _amount_coupon_price(self):
-    #     coupon_price = 0.0
-    #     for record in self:
-    #         if(record.discount_type == 'percentage'):
-    #             coupon_price = record.fixed_price - (record.fixed_price * record.discount_percentage / 100)
-    #         record.update({
-    #             'amount_coupon': coupon_price,
-    #         })
+    product_pricelist_id = fields.Many2one('product.pricelist', 'Bảng giá', required=True)
+    res_partner_id = fields.Many2one("res.partner", "Khách hàng", domain="[('code', 'like', 'KH%')]", required=True)
+
+    product_tmpl_id = fields.Many2one("product.template", "Product Template", readonly=True, store=True)
+    product_name = fields.Char("Tên sản phẩm", readonly=True, store=True)
+    coupon_name = fields.Char("Tên chương trình", readonly=True, store=True)
+    fixed_price = fields.Float("Giá sản phẩm", readonly=True, store=True)
+    ck_nam = fields.Float("Chiết khấu năm", readonly=True, store=True)
+    ck_thang = fields.Float("Chiết khấu tháng", readonly=True, store=True)
+    ht_vc = fields.Float("Hỗ trợ vận chuyển", readonly=True, store=True)
+    ht_tt = fields.Float("Hỗ trợ trực tiếp", readonly=True, store=True)
+    dl_moi = fields.Float("Đại lý mới", readonly=True, store=True)
+    khoan_lo = fields.Float("Khoan lỗ", readonly=True, store=True)
+    discount_fixed_amount = fields.Float("Giá trị chiết khấu", readonly=True, store=True)
 
     def get_report(self):
-        code = self.khachhang.code
+        pricelist = self.product_pricelist_id.id
+        code = self.res_partner_id.code
+        partner_id = self.res_partner_id.id
 
-        # query = """
-        # SELECT cp.name as name_coupon,  product_template.name as product_coupon, fixed_price
-        #     from coupon_program cp join coupon_program_product_template_rel cp_pt_rel on cp.id = cp_pt_rel.coupon_program_id
-        #     join coupon_program_res_partner_rel on cp.id = coupon_program_res_partner_rel.coupon_program_id
-        #     join product_pricelist_item on cp_pt_rel.id = product_pricelist_item.product_tmpl_id
-        #     join res_partner ON res_partner.id = coupon_program_res_partner_rel.code
-        #     join coupon_reward on coupon_reward.id = cp.reward_id
-        #     join product_template on product_template.id = cp_pt_rel.id
-        #     where res_partner.code=%s
-        # """
-        #
-        # self.env.cr.execute(query, (code,))
-        # data_sa = self.env.cr.fetchall()
-        # docs = self.env['partner.coupon.wizard'].browse(data_sa)
+        query = """
+            select product_tmpl_id, product_name, fixed_price, coupon_id, coupon_name, shortened_name, discount_fixed_amount  
+            from (
+                select sp.id, sp.name product_name, sp.categ_id
+                    , bg.product_tmpl_id, bg.fixed_price
+                    , kh.id, kh.code, kh.name customer_name
+                    , km.id coupon_id, km.reward_id, km.name coupon_name, km.shortened_name, km.payment_type 
+                    --, kmct.discount_type, kmct.discount_percentage, kmct.discount_fixed_amount, kmct.discount_hold_time
+                    , case
+                        when discount_type='fixed_amount' then discount_fixed_amount
+                        when discount_type='percentage' then fixed_price*discount_percentage/100
+                      end as discount_fixed_amount
+                from product_template sp left join product_pricelist_item bg on bg.product_tmpl_id=sp.id
+                    , res_partner kh
+                    , coupon_program km left join coupon_reward kmct on km.reward_id = kmct.id
+                        left join coupon_program_res_partner_rel kmkh on km.id=kmkh.coupon_program_id
+                        left join coupon_program_product_template_rel kmsp on km.id=kmsp.coupon_program_id
+                where bg.pricelist_id=%s
+                    and kh.code=%s
+                    and (kmkh.code=kh.id or km.id not in (select coupon_program_id from coupon_program_res_partner_rel))
+                    and (kmsp.id=sp.id or km.id not in (select coupon_program_id from coupon_program_product_template_rel))
+                    and km.active
+                ) as kq	
+            Order by product_tmpl_id, coupon_id 
+        """
+
+        self.env.cr.execute(query, (pricelist, code,))
+        data_sa = self.env.cr.fetchall()
+        data_sa.sort(key=itemgetter(0))
+        data_sp = groupby(data_sa, itemgetter(0))
+        _ids = []
+        for sp in data_sp:
+            data_row = ({
+                'product_pricelist_id': self.product_pricelist_id.id,
+                'res_partner_id': self.res_partner_id.id,
+                'product_tmpl_id': sp[0],
+                'product_name': sp[1][0][1],
+                'fixed_price': sp[1][0][2],
+            })
+            for ct in sp[1]:
+                data_row.update({
+                    ct[5]: ct[6],
+                })
+            _ids.append(self.env['partner.coupon.wizard'].create(data_row).id)
+
+        docs = self.env['partner.coupon.wizard'].browse(_ids)
 
         data = {
             'model': self._name,
             'form': {
-                'khachhang': self.khachhang.name,
-                'code': code,
+                'partner_id': self.res_partner_id.id,
+                'customer_name': self.res_partner_id.name,
+                'pricelist': self.product_pricelist_id.id,
+                'code': self.res_partner_id.code,
             },
         }
         action = self.env.ref('sale_inheritance.action_report_discount_coupon').report_action(self, data=data)
@@ -67,30 +96,62 @@ class DiscountCouponReport(models.AbstractModel):
 
     @api.model
     def _get_report_values(self, docids, data=None):
-        khachhang = data['form']['khachhang']
+        partner_id = data['form']['partner_id']
+        customer_name = data['form']['customer_name']
+        pricelist = data['form']['pricelist']
         code = data['form']['code']
 
         query = """
-            SELECT cp.name as name_coupon,  product_template.name as product_coupon, fixed_price, discount_percentage, discount_hold_time, payment_type, discount_type 
-            from coupon_program cp join coupon_program_product_template_rel cp_pt_rel on cp.id = cp_pt_rel.coupon_program_id 
-            join coupon_program_res_partner_rel on cp.id = coupon_program_res_partner_rel.coupon_program_id 
-            join product_pricelist_item on cp_pt_rel.id = product_pricelist_item.product_tmpl_id 
-            join res_partner ON res_partner.id = coupon_program_res_partner_rel.code 
-            join coupon_reward on coupon_reward.id = cp.reward_id 
-            join product_template on product_template.id = cp_pt_rel.id 
-            where res_partner.code=%s 
+            select product_tmpl_id, product_name, fixed_price, coupon_id, coupon_name, shortened_name, discount_fixed_amount  
+            from (
+                select sp.id, sp.name product_name, sp.categ_id
+                    , bg.product_tmpl_id, bg.fixed_price
+                    , kh.id, kh.code, kh.name customer_name
+                    , km.id coupon_id, km.reward_id, km.name coupon_name, km.shortened_name, km.payment_type 
+                    --, kmct.discount_type, kmct.discount_percentage, kmct.discount_fixed_amount, kmct.discount_hold_time
+                    , case
+                        when discount_type='fixed_amount' then discount_fixed_amount
+                        when discount_type='percentage' then fixed_price*discount_percentage/100
+                      end as discount_fixed_amount
+                from product_template sp left join product_pricelist_item bg on bg.product_tmpl_id=sp.id
+                    , res_partner kh
+                    , coupon_program km left join coupon_reward kmct on km.reward_id = kmct.id
+                        left join coupon_program_res_partner_rel kmkh on km.id=kmkh.coupon_program_id
+                        left join coupon_program_product_template_rel kmsp on km.id=kmsp.coupon_program_id
+                where bg.pricelist_id=%s
+                    and kh.code=%s
+                    and (kmkh.code=kh.id or km.id not in (select coupon_program_id from coupon_program_res_partner_rel))
+                    and (kmsp.id=sp.id or km.id not in (select coupon_program_id from coupon_program_product_template_rel))
+                    and km.active
+                ) as kq	
+            Order by product_tmpl_id, coupon_id 
         """
-        self.env.cr.execute(query, (code,))
+
+        self.env.cr.execute(query, (pricelist, code,))
         data_sa = self.env.cr.fetchall()
-        #tính toán ra 1 data_wizard
-        docs = self.env['partner.coupon.wizard'].browse(data_sa)
-        data_doc = docs.create(data_sa)
+        data_sa.sort(key=itemgetter(0))
+        data_sp = groupby(data_sa, itemgetter(0))
+        _ids = []
+        for sp in data_sp:
+            data_row = ({
+                'product_pricelist_id': pricelist,
+                'res_partner_id': partner_id,
+                'product_tmpl_id': sp[0],
+                'product_name': sp[1][0][1],
+                'fixed_price': sp[1][0][2],
+            })
+            for ct in sp[1]:
+                data_row.update({
+                    ct[5]: ct[6],
+                })
+            _ids.append(self.env['partner.coupon.wizard'].create(data_row).id)
+
+        docs = self.env['partner.coupon.wizard'].browse(_ids)
 
         return {
             # 'doc_ids': data['ids'],
-            'doc_model': data['model'],
-            'khachhang': khachhang,
+            'doc_model': 'partner.coupon.wizard',
+            'customer_name': customer_name,
             'docs': docs,
-            'data_doc': data_doc
         }
 

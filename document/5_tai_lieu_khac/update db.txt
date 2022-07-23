@@ -97,4 +97,33 @@ https://minhng.info/
 --Update tự động
 Sửa db trong file odoo.conf thành db của máy chủ và thực hiện update
 
+--Bảng giá sau chiết khấu
+CREATE EXTENSION tablefunc;
+
+SELECT *
+FROM crosstab(
+	$$select product_tmpl_id, idkm, discount_fixed_amount 
+	from (
+		select sp.id, sp.name namesp, sp.categ_id
+			, bg.product_tmpl_id, bg.fixed_price
+			, kh.id, kh.code, kh.name namekh
+			, km.id idkm, km.reward_id, km.name namekm, km.payment_type 
+			--, kmct.discount_type, kmct.discount_percentage, kmct.discount_fixed_amount, kmct.discount_hold_time
+			, case
+				when discount_type='fixed_amount' then discount_fixed_amount
+				when discount_type='percentage' then fixed_price*discount_percentage/100
+			  end as discount_fixed_amount
+		from product_template sp left join product_pricelist_item bg on bg.product_tmpl_id=sp.id
+			, res_partner kh
+			, coupon_program km left join coupon_reward kmct on km.reward_id = kmct.id
+				left join coupon_program_res_partner_rel kmkh on km.id=kmkh.coupon_program_id
+				left join coupon_program_product_template_rel kmsp on km.id=kmsp.coupon_program_id
+		where bg.pricelist_id=1
+			and kh.code='KH000082'
+			and (kmkh.code=kh.id or km.id not in (select coupon_program_id from coupon_program_res_partner_rel))
+			and (kmsp.id=sp.id or km.id not in (select coupon_program_id from coupon_program_product_template_rel))
+			and km.active
+		) as kq	
+	Order by product_tmpl_id, idkm;$$
+) AS ct(product_tmpl_id Int, Ck_1 Float, Ck_2 Float, Ck_3 Float, Ck_4 Float, Ck_5 Float, Ck_6 Float, Ck_7 Float, Ck_463 Float)
 

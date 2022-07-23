@@ -21,7 +21,8 @@
             <form create="false">
                 <sheet>
                     <group>
-                        <field name="khachhang" widget="many2one"/>
+                        <field name="product_pricelist_id" widget="many2one"/>
+                        <field name="res_partner_id" widget="many2one"/>
                     </group>
                     <footer>
                         <button name="get_report" type="object" string="Get Report" class="oe_highlight"/>

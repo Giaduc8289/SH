@@ -13,9 +13,9 @@
                     <br/>
                     <span class="text-center bold">
                         <center>
-                            <t t-if="khachhang">
+                            <t t-if="customer_name">
                                 <span class="text-center bold"><strong>Customer : </strong><t
-                                        t-esc="khachhang"/></span>
+                                        t-esc="customer_name"/></span>
                             </t>
                         </center>
                     </span>
@@ -26,9 +26,10 @@
                                 <tr>
                                     <th style="width :3%"
                                         class="table-item">No.</th>
-                                    <th class="table-item">Name of Discount</th>
                                     <th class="table-item">Product</th>
                                     <th class="table-item">Unit Price</th>
+                                    <th class="table-item">Year Discount</th>
+                                    <th class="table-item">Month Discount</th>
                                     <th class="table-item">After Discount</th>
                                 </tr>
                             </thead>
@@ -39,6 +40,18 @@
                                         <td class="text-center">
                                             <span t-esc="i"/>
                                             <t t-set="i" t-value="i+1"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-field="doc.product_name"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-field="doc.fixed_price"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-field="doc.ck_nam"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-field="doc.ck_thang"/>
                                         </td>
                                     </tr>
                                 </t>
