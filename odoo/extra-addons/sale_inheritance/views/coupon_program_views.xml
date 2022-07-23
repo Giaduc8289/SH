@@ -99,11 +99,9 @@
         <field name="mode">extension</field>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="after">
-                <div>
-                    <label for="shortened_name" string="Shortened name"/>
-                    <h2><field name="shortened_name" class="oe_title o_text_overflow" height="20px"/></h2>
-                </div>
-                <br/>
+                <group>
+                    <field name="shortened_name" widget="many2one"/>
+                </group>
             </xpath>
             <xpath expr="/form/sheet/group" position="after">
                 <group>

@@ -28,57 +28,6 @@ class PartnerCouponWizard(models.TransientModel):
     discount_fixed_amount = fields.Float("Giá trị chiết khấu", readonly=True, store=True)
 
     def get_report(self):
-        pricelist = self.product_pricelist_id.id
-        code = self.res_partner_id.code
-        partner_id = self.res_partner_id.id
-
-        query = """
-            select product_tmpl_id, product_name, fixed_price, coupon_id, coupon_name, shortened_name, discount_fixed_amount  
-            from (
-                select sp.id, sp.name product_name, sp.categ_id
-                    , bg.product_tmpl_id, bg.fixed_price
-                    , kh.id, kh.code, kh.name customer_name
-                    , km.id coupon_id, km.reward_id, km.name coupon_name, km.shortened_name, km.payment_type 
-                    --, kmct.discount_type, kmct.discount_percentage, kmct.discount_fixed_amount, kmct.discount_hold_time
-                    , case
-                        when discount_type='fixed_amount' then discount_fixed_amount
-                        when discount_type='percentage' then fixed_price*discount_percentage/100
-                      end as discount_fixed_amount
-                from product_template sp left join product_pricelist_item bg on bg.product_tmpl_id=sp.id
-                    , res_partner kh
-                    , coupon_program km left join coupon_reward kmct on km.reward_id = kmct.id
-                        left join coupon_program_res_partner_rel kmkh on km.id=kmkh.coupon_program_id
-                        left join coupon_program_product_template_rel kmsp on km.id=kmsp.coupon_program_id
-                where bg.pricelist_id=%s
-                    and kh.code=%s
-                    and (kmkh.code=kh.id or km.id not in (select coupon_program_id from coupon_program_res_partner_rel))
-                    and (kmsp.id=sp.id or km.id not in (select coupon_program_id from coupon_program_product_template_rel))
-                    and km.active
-                ) as kq	
-            Order by product_tmpl_id, coupon_id 
-        """
-
-        self.env.cr.execute(query, (pricelist, code,))
-        data_sa = self.env.cr.fetchall()
-        data_sa.sort(key=itemgetter(0))
-        data_sp = groupby(data_sa, itemgetter(0))
-        _ids = []
-        for sp in data_sp:
-            data_row = ({
-                'product_pricelist_id': self.product_pricelist_id.id,
-                'res_partner_id': self.res_partner_id.id,
-                'product_tmpl_id': sp[0],
-                'product_name': sp[1][0][1],
-                'fixed_price': sp[1][0][2],
-            })
-            for ct in sp[1]:
-                data_row.update({
-                    ct[5]: ct[6],
-                })
-            _ids.append(self.env['partner.coupon.wizard'].create(data_row).id)
-
-        docs = self.env['partner.coupon.wizard'].browse(_ids)
-
         data = {
             'model': self._name,
             'form': {
@@ -107,7 +56,7 @@ class DiscountCouponReport(models.AbstractModel):
                 select sp.id, sp.name product_name, sp.categ_id
                     , bg.product_tmpl_id, bg.fixed_price
                     , kh.id, kh.code, kh.name customer_name
-                    , km.id coupon_id, km.reward_id, km.name coupon_name, km.shortened_name, km.payment_type 
+                    , km.id coupon_id, km.reward_id, km.name coupon_name, fi.name shortened_name, km.payment_type 
                     --, kmct.discount_type, kmct.discount_percentage, kmct.discount_fixed_amount, kmct.discount_hold_time
                     , case
                         when discount_type='fixed_amount' then discount_fixed_amount
@@ -118,8 +67,9 @@ class DiscountCouponReport(models.AbstractModel):
                     , coupon_program km left join coupon_reward kmct on km.reward_id = kmct.id
                         left join coupon_program_res_partner_rel kmkh on km.id=kmkh.coupon_program_id
                         left join coupon_program_product_template_rel kmsp on km.id=kmsp.coupon_program_id
-                where bg.pricelist_id=%s
-                    and kh.code=%s
+						left join ir_model_fields fi on km.shortened_name=fi.id
+                where bg.pricelist_id=1
+                    and kh.code='KH000082'
                     and (kmkh.code=kh.id or km.id not in (select coupon_program_id from coupon_program_res_partner_rel))
                     and (kmsp.id=sp.id or km.id not in (select coupon_program_id from coupon_program_product_template_rel))
                     and km.active

@@ -18,7 +18,7 @@ class CouponProgram(models.Model):
     coupon_products_ids = fields.Many2many('product.template', column1='coupon_program_id', column2='id',
                                             relation='coupon_program_product_template_rel', string="Sản phẩm")
     payment_type = fields.Selection([('later', 'Pay later'), ('now', 'Pay now')], string="Payment_type", default='now')
-    shortened_name = fields.Char(string="Shortened name")
+    shortened_name = fields.Many2one('ir.model.fields', string="Shortened name", domain="[('model', '=', 'partner.coupon.wizard')]")
 
     
     def _is_valid_partner(self, partner):
