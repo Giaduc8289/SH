@@ -26,10 +26,13 @@
                 <button type="object"
                         name="generate_quality_alert"
                         class="btn btn-warning"
-                        icon="fa-check-circle-o">
+                        icon="fa-check-circle-o"
+                        attrs="{'invisible': [('alert_count', '=', 0)]}">
 <!--                    <field name="alert_count" widget="statinfo" string="Quality Alerts" help="Quality Alerts"/>-->
                     <field name="alert_ids" invisible="1"/>
+                    <field name="alert_count" invisible="1"/>
                 </button>
+
             </xpath>
         </field>
     </record>

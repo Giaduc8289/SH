@@ -8,7 +8,7 @@ class StockQuant(models.Model):
     move_lines = fields.One2many('stock.move', 'picking_id', string="Stock Moves", copy=True)
     date_done = fields.Datetime('Date of Transfer', copy=False, readonly=True, help="Date at which the transfer has been processed or cancelled.")
 
-    @api.depends('move_lines')
+    @api.depends('product_id')
     def _compute_alert(self):
         '''
         This function computes the number of quality alerts generated from given picking.
@@ -17,6 +17,10 @@ class StockQuant(models.Model):
             alerts = self.env['quality.alert'].search([('picking_id', '=', picking.id)])
             picking.alert_ids = alerts
             picking.alert_count = len(alerts)
+        for rec in self:
+            measures = self.env['quality.measure'].search([('product_id', '=', rec.product_id.id)])
+            if measures:
+                rec.alert_count = 1
 
     def quality_alert_action(self):
         '''This function returns an action that display existing quality alerts generated from a given picking.'''
