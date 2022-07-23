@@ -26,7 +26,7 @@ class StockQuant(models.Model):
         # override the context to get rid of the default filtering on picking type
         result.pop('id', None)
         result['context'] = {}
-        alert_ids = sum([picking.alert_ids.ids for picking in self], [])
+        alert_ids = self.env['quality.alert'].search([('stock_quant_id', '=', self.id)]).ids
         # choose the view_mode accordingly
         if len(alert_ids) > 1:
             result['domain'] = "[('id','in',[" + ','.join(map(str, alert_ids)) + "])]"
@@ -46,8 +46,7 @@ class StockQuant(models.Model):
         quality_alert = self.env['quality.alert']
         quality_measure = self.env['quality.measure']
 
-        measures = quality_measure.search(
-            [('product_id', '=', self.product_id.id)])
+        measures = quality_measure.search([('product_id', '=', self.product_id.id)])
         if measures:
             data = self.env['quality.alert'].search([('stock_quant_id', '=', self.id)])
             if len(data) == 0:
