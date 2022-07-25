@@ -7,10 +7,10 @@
             <t t-call="web.report_layout">
                 <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css"/>
                 <meta charset="utf-8"/>
-                <div class="page">
+                <div class="page" style="padding : 0;margin : 0;font-family : Arial;">
                     <div class="oe_structure"/>
                     <br/>
-                    <h2 class="text-center bold"><center>PURCHASE INVOICE</center></h2>
+                    <h2 class="text-center bold" style="width:100%; text-align:center;font-weight: 550;font-size: 40px;text-transform: uppercase;"><center>PURCHASE INVOICE</center></h2>
                     <br/>
                     <span class="text-center bold"><center>
                         <t t-if="date_start">
@@ -43,43 +43,48 @@
                     </span>
                     <br/>
                     <div>
-                        <table class="table-bordered">
+                        <table class="table-bordered"
+                        style="border-collapse: collapse; width : 100%; border : border-box;">
                             <thead>
                                 <tr>
-                                    <th style="width :3%" class="table-item">No.</th>
-                                    <th class="text-center">ID</th>
-                                    <th class="text-center">Order date</th>
-                                    <th class="text-center">Supplier</th>
-                                    <th class="text-center">Confirmation date</th>
-                                    <th class="text-center">Amount total</th>
-                                    <th class="text-center">Status</th>
+                                    <th style="width :3% ;background-color: #4cb1a7; color: #ffffff; border: 1px solid black; padding : 8px;border: 1px solid black;border: 1px solid black;" class="table-item">No.</th>
+                                    <th class="text-center" style="background-color: #4cb1a7; color: #ffffff; border: 1px solid black; padding : 8px;border: 1px solid black;border: 1px solid black;">ID</th>
+                                    <th class="text-center" style="background-color: #4cb1a7; color: #ffffff; border: 1px solid black; padding : 8px;border: 1px solid black;border: 1px solid black;">Order date</th>
+                                    <th class="text-center" style="background-color: #4cb1a7; color: #ffffff; border: 1px solid black; padding : 8px;border: 1px solid black;border: 1px solid black;">Supplier</th>
+                                    <th class="text-center" style="background-color: #4cb1a7; color: #ffffff; border: 1px solid black; padding : 8px;border: 1px solid black;border: 1px solid black;">Confirmation date</th>
+                                    <th class="text-center" style="background-color: #4cb1a7; color: #ffffff; border: 1px solid black; padding : 8px;border: 1px solid black;border: 1px solid black;">Amount total</th>
+                                    <th class="text-center" style="background-color: #4cb1a7; color: #ffffff; border: 1px solid black; padding : 8px;border: 1px solid black;border: 1px solid black;">Status</th>
+                                    <th class="text-center" style="width:12%; background-color: #4cb1a7; color: #ffffff; border: 1px solid black; padding : 8px;border: 1px solid black;border: 1px solid black;">Note</th>
                                 </tr>
                             </thead>
                             <tbody class="sale_tbody">
                                 <t t-set="i" t-value="1"/>
                                 <t t-foreach="docs" t-as="o">
                                     <tr>
-                                        <td class="text-center">
+                                        <td style="text-align: center;padding : 8px;border: 1px solid black;" class="text-center">
                                             <span t-esc="i"/>
                                             <t t-set="i" t-value="i+1"/>
                                         </td>
-                                        <td class="text-left">
+                                        <td style="padding : 8px;border: 1px solid black;" class="text-left">
                                             <span t-field="o.name"/>
                                         </td>
-                                        <td class="text-left">
+                                        <td style="padding : 8px;border: 1px solid black;" class="text-left">
                                             <span t-field="o.date_order"/>
                                         </td>
-                                        <td class="text-left">
+                                        <td style="padding : 8px;border: 1px solid black;" class="text-left">
                                             <span t-field="o.partner_id"/>
                                         </td>
-                                        <td class="text-right">
+                                        <td style="padding : 8px;border: 1px solid black;text-align:right;" class="text-right">
                                             <span t-field="o.date_approve"/>
                                         </td>
-                                        <td class="text-right">
+                                        <td style="padding : 8px;border: 1px solid black;text-align:right;" class="text-right">
                                             <span t-field="o.amount_untaxed"/>
                                         </td>
-                                        <td class="text-center">
+                                        <td style="padding : 8px;border: 1px solid black;text-align:center;" class="text-center">
                                             <span t-field="o.state"/>
+                                        </td>
+                                        <td style="padding : 8px;border: 1px solid black;text-align:right;">
+
                                         </td>
                                     </tr>
                                 </t>

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-21 04:48+0000\n"
-"PO-Revision-Date: 2022-07-21 04:48+0000\n"
+"POT-Creation-Date: 2022-07-25 02:43+0000\n"
+"PO-Revision-Date: 2022-07-25 02:43+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,13 +19,14 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchaseorder_inheritance
 msgid ""
 "<br/>\n"
-"                                <span width=\"30px\" style=\"font-weight: bold; font-size:15px;\">\n"
-"                                    Delivery address:\n"
-"                                </span>\n"
-"                                <span> Lô 44G KCN Quang Minh - Mê Linh - Hà Nội <br/>\n"
-"                                    Số 10 ngõ 80/3 phố Nhân Hòa, Phường Nhân Chính, Quận Thanh Xuân\n"
-"                                    Hà Nội Việt Nam\n"
-"                                </span><br/>"
+"                            <span width=\"30px\" style=\"font-weight: bold; \">\n"
+"                                Delivery address:\n"
+"                            </span>\n"
+"                            <span> Lô 44G KCN Quang Minh - Mê Linh - Hà Nội <br/>\n"
+"                                Số 10 ngõ 80/3 phố Nhân Hòa, Phường Nhân Chính, Quận Thanh Xuân\n"
+"                                Hà Nội Việt Nam\n"
+"                            </span><br/>\n"
+"                            <br/>"
 msgstr ""
 "<br/>\n"
 "                                <span width=\"30px\" style=\"font-weight: bold; font-size:15px;\">\n"
@@ -61,36 +62,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchaseorder_inheritance
 msgid "<strong>Amount total:</strong>"
 msgstr "<strong>Tổng tiền:</strong>"
-
-#. module: purchase_inheritance
-#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
-msgid "<strong>Contract status: </strong>"
-msgstr "<strong>Tình trạng hợp đồng: </strong>"
-
-#. module: purchase_inheritance
-#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
-msgid "<strong>From date: </strong>"
-msgstr "<strong>Từ ngày: </strong>"
-
-#. module: purchase_inheritance
-#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
-msgid "<strong>Product group: </strong>"
-msgstr "<strong>Nhóm sản phẩm: </strong>"
-
-#. module: purchase_inheritance
-#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
-msgid "<strong>Product: </strong>"
-msgstr "<strong>Sản phẩm: </strong>"
-
-#. module: purchase_inheritance
-#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
-msgid "<strong>Supplier: </strong>"
-msgstr "<strong>Nhà cung cấp: </strong>"
-
-#. module: purchase_inheritance
-#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
-msgid "<strong>To date: </strong>"
-msgstr "<strong>Đến ngày: </strong>"
 
 #. module: purchase_inheritance
 #: model_terms:ir.ui.view,arch_db:purchase_inheritance.custom_purchasequotation
@@ -134,6 +105,11 @@ msgid "Confirmation date"
 msgstr "Ngày xác nhận"
 
 #. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
+msgid "Contract status:"
+msgstr "Tình trạng hợp đồng:"
+
+#. module: purchase_inheritance
 #: model:ir.model.fields,field_description:purchase_inheritance.field_filter_purchase_order__create_uid
 #: model:ir.model.fields,field_description:purchase_inheritance.field_purchase_report_wizard__create_uid
 msgid "Created by"
@@ -165,6 +141,11 @@ msgstr "Đến ngày"
 #: model:ir.model.fields,field_description:purchase_inheritance.field_filter_purchase_order__f_date
 msgid "From date"
 msgstr "Từ ngày"
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
+msgid "From date:"
+msgstr "Từ ngày:"
 
 #. module: purchase_inheritance
 #: model:ir.ui.menu,name:purchase_inheritance.purchase_report_1
@@ -251,6 +232,19 @@ msgid "Nhóm sản phẩm"
 msgstr ""
 
 #. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.custom_purchasequotation
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_report_document
+msgid "No."
+msgstr "STT"
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_report_document
+msgid "Note"
+msgstr "Ghi chú"
+
+#. module: purchase_inheritance
 #: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
 msgid "Order date"
 msgstr "Ngày đặt hàng"
@@ -299,9 +293,19 @@ msgid "Product"
 msgstr "Sản phẩm"
 
 #. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
+msgid "Product group:"
+msgstr "Nhóm sản phẩm:"
+
+#. module: purchase_inheritance
 #: model_terms:ir.ui.view,arch_db:purchase_inheritance.custom_purchasequotation
 msgid "Product id"
 msgstr "Mã sản phẩm"
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
+msgid "Product:"
+msgstr "Sản phẩm:"
 
 #. module: purchase_inheritance
 #: model:ir.model,name:purchase_inheritance.model_purchase_order
@@ -340,9 +344,6 @@ msgid "Request a quote for a purchase order"
 msgstr "Yêu cầu báo giá đơn mua hàng"
 
 #. module: purchase_inheritance
-#: model_terms:ir.ui.view,arch_db:purchase_inheritance.custom_purchasequotation
-#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
-#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_report_document
 #: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchaseorder_inheritance
 msgid "STT"
 msgstr ""
@@ -365,6 +366,7 @@ msgid "Supplier"
 msgstr "Nhà cung cấp"
 
 #. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
 #: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchaseorder_inheritance
 msgid "Supplier:"
 msgstr "Nhà cung cấp:"
@@ -384,6 +386,11 @@ msgstr "Thuế"
 #: model:ir.model.fields,field_description:purchase_inheritance.field_filter_purchase_order__t_date
 msgid "To date"
 msgstr "Đến ngày"
+
+#. module: purchase_inheritance
+#: model_terms:ir.ui.view,arch_db:purchase_inheritance.report_purchase_order_document
+msgid "To date:"
+msgstr "Đến ngày:"
 
 #. module: purchase_inheritance
 #: model_terms:ir.ui.view,arch_db:purchase_inheritance.custom_purchasequotation
