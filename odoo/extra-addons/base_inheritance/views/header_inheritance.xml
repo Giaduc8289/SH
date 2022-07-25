@@ -67,7 +67,7 @@
                 <t t-call-assets="web.report_assets_common" t-css="false"/>
             </head>
             <body t-att-class="'container' if not full_width else 'container-fluid'">
-                    <div t-attf-class="header" t-att-style="report_header_style">
+                    <div t-attf-class="header" t-att-style="report_header_style" style="display:flex ; justify-content: space-between;">
                         <div class="row mt32 mb32">
                             <div class="col-4">
                                 <img src="/sale_inheritance/static/img/logobc.png" style="max-height: 50px;"/>

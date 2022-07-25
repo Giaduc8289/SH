@@ -31,10 +31,9 @@
                 </div>
                 <t t-call="base_inheritance.report_no_logo_layout">
                     <t t-set="doc" t-value="doc.with_context({'lang':zh_CN})"/>
-                    <div class="page" style="font-family :Arial !important;">
+                    <div class="page"  style="padding : 0;margin : 0;font-family : Arial;">
                         <div class="oe_structure"/>
-                        <h2 class="text-center bold" style="text-transform : uppercase;"><strong><center>Request a quote
-                            for a purchase order</center></strong></h2>
+                        <h2 class="text-center bold" style="text-transform : uppercase;"><strong><center>Request a quote for a purchase order</center></strong></h2>
                         <br/><br/>
                         <div>
                             <span width="30px"
@@ -107,7 +106,7 @@
                                 <t t-foreach="doc.order_line" t-as="l">
                                     <tr>
                                         <td class="text-center"
-                                            style="border: 1px solid black;text-align: left !important;">
+                                            style="border: 1px solid black;text-align: center !important;">
                                             <span t-esc="i"/>
                                             <t t-set="i" t-value="i+1"/>
                                         </td>
@@ -143,7 +142,7 @@
                         </table>
                         <div name="total">
                             <table align="right" class="table table-condensed"
-                                   style="width: 30%; font-size:18px;">
+                                   style="width: 30%; ">
                                 <tr class="border-black">
                                     <td style="text-align:left !important;"><strong>Amount total:</strong></td>
                                     <td class="text-right" style="text-align:right !important;">

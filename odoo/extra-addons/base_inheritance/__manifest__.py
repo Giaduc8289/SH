@@ -23,9 +23,4 @@
     "installable": True,
     "maintainers": ["hieutv.199x@gmail.com"],
     "post_init_hook": "post_init",
-    'assets': {
-        'web.assets_backend': [
-            'base_inheritance/static/libs/styles.css',
-        ],
-    }
 }
