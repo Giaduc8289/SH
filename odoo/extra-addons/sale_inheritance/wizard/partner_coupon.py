@@ -12,6 +12,16 @@ class PartnerCouponWizard(models.TransientModel):
     _name = 'partner.coupon.wizard'
     _rec_name = 'res_partner_id'
 
+    pricelist_id = fields.Many2one(
+        'product.pricelist', string='Pricelist', check_company=True,  # Unrequired company
+        required=True, readonly=True, states={'draft': [('readonly', False)], 'sent': [('readonly', False)]},
+        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]", tracking=1,
+        help="If you change the pricelist, only newly added lines will be affected.", store=True)
+    currency_id = fields.Many2one(related='pricelist_id.currency_id', depends=["pricelist_id"], store=True,
+                                  ondelete="restrict")
+    company_id = fields.Many2one('res.company', 'Company', required=True, index=True, default=lambda self: self.env.company)
+
+
     product_pricelist_id = fields.Many2one('product.pricelist', 'Bảng giá', required=True)
     res_partner_id = fields.Many2one("res.partner", "Khách hàng", domain="[('code', 'like', 'KH%')]", required=True)
 
@@ -26,6 +36,18 @@ class PartnerCouponWizard(models.TransientModel):
     dl_moi = fields.Float("Đại lý mới", readonly=True, store=True)
     khoan_lo = fields.Float("Khoan lỗ", readonly=True, store=True)
     discount_fixed_amount = fields.Float("Giá trị chiết khấu", readonly=True, store=True)
+
+    partner_amount_coupon = fields.Monetary(string="Giá sau ck", compute='_amount_coupon')
+
+    def _amount_coupon(self):
+        """
+        Compute the total amounts of the SO.
+        """
+        for order in self:
+            amount_untaxed = order.fixed_price - order.ck_nam - order.ck_thang - order.ht_vc - order.ht_tt - order.dl_moi - order.khoan_lo
+            order.update({
+                'partner_amount_coupon': amount_untaxed,
+            })
 
     def get_report(self):
         data = {
@@ -51,10 +73,10 @@ class DiscountCouponReport(models.AbstractModel):
         code = data['form']['code']
 
         query = """
-            select product_tmpl_id, product_name, fixed_price, coupon_id, coupon_name, shortened_name, discount_fixed_amount  
+            select product_tmpl_id, product_name, fixed_price, coupon_id, coupon_name, shortened_name, discount_fixed_amount, currency_id, pricelist_id
             from (
                 select sp.id, sp.name product_name, sp.categ_id
-                    , bg.product_tmpl_id, bg.fixed_price
+                    , bg.product_tmpl_id, bg.fixed_price, bg.currency_id, bg.pricelist_id
                     , kh.id, kh.code, kh.name customer_name
                     , km.id coupon_id, km.reward_id, km.name coupon_name, fi.name shortened_name, km.payment_type 
                     --, kmct.discount_type, kmct.discount_percentage, kmct.discount_fixed_amount, kmct.discount_hold_time
@@ -68,8 +90,8 @@ class DiscountCouponReport(models.AbstractModel):
                         left join coupon_program_res_partner_rel kmkh on km.id=kmkh.coupon_program_id
                         left join coupon_program_product_template_rel kmsp on km.id=kmsp.coupon_program_id
 						left join ir_model_fields fi on km.shortened_name=fi.id
-                where bg.pricelist_id=1
-                    and kh.code='KH000082'
+                where bg.pricelist_id=%s
+                    and kh.code=%s
                     and (kmkh.code=kh.id or km.id not in (select coupon_program_id from coupon_program_res_partner_rel))
                     and (kmsp.id=sp.id or km.id not in (select coupon_program_id from coupon_program_product_template_rel))
                     and km.active
@@ -89,6 +111,8 @@ class DiscountCouponReport(models.AbstractModel):
                 'product_tmpl_id': sp[0],
                 'product_name': sp[1][0][1],
                 'fixed_price': sp[1][0][2],
+                'currency_id': sp[1][0][7],
+                'pricelist_id': sp[1][0][8]
             })
             for ct in sp[1]:
                 data_row.update({

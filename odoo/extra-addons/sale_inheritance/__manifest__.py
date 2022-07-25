@@ -7,7 +7,7 @@
     "sequence": "8",
     "license": "LGPL-3",
     "category": "Hidden",
-    "depends": ["base_inheritance", "sale", 'coupon', "sale_coupon"],
+    "depends": ["base_inheritance", "sale", 'coupon', "sale_coupon", "product"],
     "data": [
         'security/ir.model.access.csv',
         "wizard/postpaid_discount.xml",
