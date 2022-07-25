@@ -9,7 +9,7 @@
     "sequence": "8",
     "license": "LGPL-3",
     "category": "Hidden",
-    "depends": ["stock"],
+    "depends": ["stock", 'base_inheritance'],
     "data": [
         "security/ir.model.access.csv",
         "views/product_template_view.xml",

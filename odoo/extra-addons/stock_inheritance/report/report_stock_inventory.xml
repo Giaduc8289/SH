@@ -28,53 +28,54 @@
                         </div>
                     </div>
                 </div>
-                <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css"/>
-                <div class="page">
-                    <br/>
-                    <h2><center>Inventory Count Sheet</center></h2>
-                    <t t-set="locations" t-value="docs.mapped('location_id')"/>
-                    <table class="table-bordered">
-                        <thead>
-                            <tr>
-                                <th style="width :3%" class="table-item"><strong>No.</strong></th>
-                                <th class="table-item"><strong>Location</strong></th>
-                                <th class="table-item"><strong>Product</strong></th>
-                                <th class="table-item"><strong>Lot/Serial Number</strong></th>
-                                <th class="table-item"><strong>Package</strong></th>
-                                <th class="table-item"><strong>Available Quantity</strong></th>
-                                <th class="table-item"><strong>On hand Quantity</strong></th>
-                                <th class="table-item"><strong>Counted Quantity</strong></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <t t-set="i" t-value="1"/>
-                            <t t-foreach="locations" t-as="location">
-                                <tr t-foreach="docs.filtered(lambda quant: quant.location_id.id == location.id)"
-                                    t-as="line">
-                                    <td class="text-center" style="text-align:center;">
-                                        <span t-esc="i"/>
-                                        <t t-set="i" t-value="i+1"/>
-                                    </td>
-                                    <td><strong><span t-esc="location.display_name"/></strong></td>
-                                    <td><span t-field="line.product_id"/></td>
-                                    <td><span t-field="line.lot_id"/></td>
-                                    <td><span t-field="line.package_id"/></td>
-                                    <td><span t-field="line.available_quantity"/> <span
-                                            t-field="line.product_uom_id" groups="uom.group_uom"/></td>
-                                    <td><span t-field="line.quantity"/> <span
-                                            t-field="line.product_uom_id" groups="uom.group_uom"/></td>
-                                    <td>
-                                        <!-- If 0, then leave blank so users have space to write a number -->
-                                        <t t-if="line.inventory_quantity == 0"><span>0</span></t>
-                                        <t t-else=""><span t-field="line.inventory_quantity"/></t>
-                                        <span t-field="line.product_uom_id" groups="uom.group_uom"/>
-                                    </td>
+                <t t-call="base_inheritance.report_no_logo_layout">
+                    <link rel="stylesheet" href="/base_inheritance/static/src/css/style.css"/>
+                    <div class="page">
+                        <br/>
+                        <h2><center>Inventory Count Sheet</center></h2>
+                        <t t-set="locations" t-value="docs.mapped('location_id')"/>
+                        <table class="table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="width :3%" class="table-item"><strong>No.</strong></th>
+                                    <th class="table-item"><strong>Location</strong></th>
+                                    <th class="table-item"><strong>Product</strong></th>
+                                    <th class="table-item"><strong>Lot/Serial Number</strong></th>
+                                    <th class="table-item"><strong>Package</strong></th>
+                                    <th class="table-item"><strong>Available Quantity</strong></th>
+                                    <th class="table-item"><strong>On hand Quantity</strong></th>
+                                    <th class="table-item"><strong>Counted Quantity</strong></th>
                                 </tr>
-                            </t>
-                        </tbody>
-                    </table>
-                </div>
-
+                            </thead>
+                            <tbody>
+                                <t t-set="i" t-value="1"/>
+                                <t t-foreach="locations" t-as="location">
+                                    <tr t-foreach="docs.filtered(lambda quant: quant.location_id.id == location.id)"
+                                        t-as="line">
+                                        <td class="text-center" style="text-align:center;">
+                                            <span t-esc="i"/>
+                                            <t t-set="i" t-value="i+1"/>
+                                        </td>
+                                        <td><strong><span t-esc="location.display_name"/></strong></td>
+                                        <td><span t-field="line.product_id"/></td>
+                                        <td><span t-field="line.lot_id"/></td>
+                                        <td><span t-field="line.package_id"/></td>
+                                        <td><span t-field="line.available_quantity"/> <span
+                                                t-field="line.product_uom_id" groups="uom.group_uom"/></td>
+                                        <td><span t-field="line.quantity"/> <span
+                                                t-field="line.product_uom_id" groups="uom.group_uom"/></td>
+                                        <td>
+                                            <!-- If 0, then leave blank so users have space to write a number -->
+                                            <t t-if="line.inventory_quantity == 0"><span>0</span></t>
+                                            <t t-else=""><span t-field="line.inventory_quantity"/></t>
+                                            <span t-field="line.product_uom_id" groups="uom.group_uom"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
             </xpath>
         </template>
     </data>
