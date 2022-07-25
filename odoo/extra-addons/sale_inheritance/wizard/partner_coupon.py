@@ -16,7 +16,7 @@ class PartnerCouponWizard(models.TransientModel):
         'product.pricelist', string='Pricelist', check_company=True,  # Unrequired company
         required=True, readonly=True, states={'draft': [('readonly', False)], 'sent': [('readonly', False)]},
         domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]", tracking=1,
-        help="If you change the pricelist, only newly added lines will be affected.")
+        help="If you change the pricelist, only newly added lines will be affected.", store=True)
     currency_id = fields.Many2one(related='pricelist_id.currency_id', depends=["pricelist_id"], store=True,
                                   ondelete="restrict")
     company_id = fields.Many2one('res.company', 'Company', required=True, index=True, default=lambda self: self.env.company)
@@ -73,10 +73,10 @@ class DiscountCouponReport(models.AbstractModel):
         code = data['form']['code']
 
         query = """
-            select product_tmpl_id, product_name, fixed_price, coupon_id, coupon_name, shortened_name, discount_fixed_amount  
+            select product_tmpl_id, product_name, fixed_price, coupon_id, coupon_name, shortened_name, discount_fixed_amount, currency_id, pricelist_id
             from (
                 select sp.id, sp.name product_name, sp.categ_id
-                    , bg.product_tmpl_id, bg.fixed_price
+                    , bg.product_tmpl_id, bg.fixed_price, bg.currency_id, bg.pricelist_id
                     , kh.id, kh.code, kh.name customer_name
                     , km.id coupon_id, km.reward_id, km.name coupon_name, fi.name shortened_name, km.payment_type 
                     --, kmct.discount_type, kmct.discount_percentage, kmct.discount_fixed_amount, kmct.discount_hold_time
@@ -111,6 +111,8 @@ class DiscountCouponReport(models.AbstractModel):
                 'product_tmpl_id': sp[0],
                 'product_name': sp[1][0][1],
                 'fixed_price': sp[1][0][2],
+                'currency_id': sp[1][0][7],
+                'pricelist_id': sp[1][0][8]
             })
             for ct in sp[1]:
                 data_row.update({
