@@ -11,3 +11,5 @@ sale_access_control_user,sale.access.control.user,model_access_control,sales_tea
 sale_access_control_manager,sale.access.control.manager,model_access_control,sales_team.group_sale_manager,1,1,0,1
 stock_access_control_user,stock.access.control.user,model_access_control,stock.group_stock_user,1,0,0,0
 stock_access_control_manager,stock.access.control.manager,model_access_control,stock.group_stock_manager,1,1,0,1
+purchase_access_control_user,purchase.access.control.user,model_access_control,purchase.group_purchase_user,1,0,0,0
+purchase_access_control_manager,purchase.access.control.manager,model_access_control,purchase.group_purchase_manager,1,1,0,1
