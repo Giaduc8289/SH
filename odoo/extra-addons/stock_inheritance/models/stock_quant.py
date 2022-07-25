@@ -271,11 +271,10 @@ class StockQuant(models.Model):
             product = self.env['product.product'].browse(vals['product_id'])
             location = self.env['stock.location'].browse(vals['location_id'])
             lot_id = self.env['stock.production.lot'].browse(vals.get('lot_id'))
-            # manufacturing_date = self.env['stock.move.line'].browse(vals.get('manufacturing_date'))
-            # expiration_date = self.env['stock.move.line'].browse(vals.get('expiration_date'))
+            manufacturing_date = self.env['stock.move.line'].browse(vals.get('manufacturing_date'))
             package_id = self.env['stock.quant.package'].browse(vals.get('package_id'))
             owner_id = self.env['res.partner'].browse(vals.get('owner_id'))
-            quant = self._gather(product, location, lot_id=lot_id, package_id=package_id, owner_id=owner_id, strict=True)
+            quant = self._gather(product, location, lot_id=lot_id, manufacturing_date=manufacturing_date, package_id=package_id, owner_id=owner_id, strict=True)
 
             if quant:
                 quant = quant[0].sudo()
